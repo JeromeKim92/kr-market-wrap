@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Korea Market Wrap v6.1
-- 지수/환율: FinanceDataReader (시작날짜 명시로 timeout 방지)
-- 종목 랭킹: 네이버 금융 크롤링
+Korea Market Wrap v6
+- 지수/환율: FinanceDataReader (Yahoo Finance 기반, 안정적)
+- 종목 랭킹: 네이버 금융 크롤링 (가장 신뢰할 수 있는 한국 주식 데이터)
 - 뉴스/섹터: Claude AI
 """
 
@@ -30,73 +30,83 @@ def log(msg):
 def fetch_url(url, timeout=20):
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        charset = "utf-8"
-        ct = r.headers.get("Content-Type", "")
-        m = re.search(r"charset=([\w-]+)", ct)
-        if m:
-            charset = m.group(1)
-        raw = r.read()
-        try:
-            return raw.decode(charset, errors="replace")
-        except Exception:
-            return raw.decode("euc-kr", errors="replace")
+        return r.read().decode("utf-8", errors="replace")
 
 def strip_tags(text):
     text = re.sub(r"<[^>]+>", "", text)
     return htmllib.unescape(text).replace("\xa0", " ").strip()
 
 # ── 1. 지수 + 환율 (FinanceDataReader) ───────────────────────────────────
+def _read_last_two_closes(fdr, codes):
+    last_err = None
+    for code in codes:
+        try:
+            df = fdr.DataReader(code)
+            if "Close" not in df.columns:
+                raise ValueError("Close 컬럼 없음")
+            closes = df["Close"].dropna()
+            if len(closes) < 2:
+                raise ValueError("데이터 부족")
+            return float(closes.iloc[-1]), float(closes.iloc[-2]), code
+        except Exception as e:
+            last_err = f"{code}: {e}"
+    raise ValueError(last_err or "데이터 조회 실패")
+
+
 def get_indices():
     import FinanceDataReader as fdr
+
     result = {}
-    # 시작날짜 명시: 최근 10일치만 요청 → timeout 방지
-    start = (datetime.now(KST) - timedelta(days=10)).strftime("%Y-%m-%d")
     targets = [
-        ("kospi",  "KS11",    "pts"),
-        ("kosdaq", "KQ11",    "pts"),
-        ("usdkrw", "USD/KRW", "KRW"),
+        ("kospi", ["KS11", "^KS11", "KOSPI"], "pts"),
+        ("kosdaq", ["KQ11", "^KQ11", "KOSDAQ"], "pts"),
+        ("usdkrw", ["USD/KRW", "KRW=X", "USDKRW"], "KRW"),
     ]
-    for key, code, unit in targets:
+
+    for key, codes, unit in targets:
         try:
-            df = fdr.DataReader(code, start)
-            df = df.dropna(subset=["Close"])
-            if len(df) < 2:
-                raise ValueError("데이터 부족")
-            cur  = float(df["Close"].iloc[-1])
-            prev = float(df["Close"].iloc[-2])
+            cur, prev, used_code = _read_last_two_closes(fdr, codes)
             diff = cur - prev
-            pct  = diff / prev * 100
+            pct = diff / prev * 100
             sign = "+" if diff >= 0 else "-"
+
             if unit == "KRW":
                 result[key] = {
-                    "value":   f"{cur:,.0f}",
+                    "value": f"{cur:,.0f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}"
+                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}",
                 }
             else:
                 result[key] = {
-                    "value":   f"{cur:,.2f}",
+                    "value": f"{cur:,.2f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}"
+                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}",
                 }
-            log(f"  {key}: {result[key]['value']} {result[key]['chg_pct']}")
+            log(f"  {key} ({used_code}): {result[key]['value']} {result[key]['chg_pct']}")
         except Exception as e:
             log(f"  {key} 실패: {e}")
-            result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
+            result[key] = {"value": "—", "chg_pct": "—", "chg_abs": "—"}
+
     return result
 
 # ── 2. 종목 랭킹 (네이버 금융) ────────────────────────────────────────────
 def naver_movers(direction="up", limit=5):
+    """
+    네이버 금융 시세 - 등락률 상위/하위
+    direction: "up" = 상승, "dn" = 하락
+    """
     base = (
         "https://finance.naver.com/sise/sise_rise.naver"
         if direction == "up"
         else "https://finance.naver.com/sise/sise_fall.naver"
     )
+
     try:
         body = fetch_url(base)
         table_match = re.search(
             r'<table[^>]*class="type_2"[^>]*>(.*?)</table>',
-            body, re.DOTALL,
+            body,
+            re.DOTALL,
         )
         if not table_match:
             raise ValueError("type_2 테이블을 찾지 못했습니다")
@@ -106,34 +116,54 @@ def naver_movers(direction="up", limit=5):
         for row in rows:
             if len(stocks) >= limit:
                 break
+
             match = re.search(r'/item/main\.naver\?code=(\d{6})"[^>]*>(.*?)</a>', row, re.DOTALL)
             if not match:
                 continue
+
             ticker = match.group(1)
-            name   = strip_tags(match.group(2))
+            name = strip_tags(match.group(2))
             if not name:
                 continue
+
             cells = [strip_tags(td) for td in re.findall(r"<td[^>]*>(.*?)</td>", row, re.DOTALL)]
-            if len(cells) < 4:
+            if len(cells) < 6:
                 continue
+
             try:
-                close = int(float(cells[1].replace(",", "")))
+                # 네이버 시세 테이블 기준: [0]순위 [1]종목명 [2]현재가 [3]전일비 [4]등락률 [5]거래량
+                close = int(float(cells[2].replace(",", "")))
             except ValueError:
                 close = 0
-            pct_match = re.search(r"[+\-]?\d+(?:\.\d+)?", cells[3])
+
+            pct_match = re.search(r"[+\-]?\d+(?:\.\d+)?", cells[4])
             pct = float(pct_match.group(0)) if pct_match else 0.0
-            pct = abs(pct) if direction == "up" else -abs(pct)
-            stocks.append({
-                "rank": len(stocks) + 1,
-                "ticker": ticker,
-                "name_kr": name,
-                "name_en": name,
-                "change_pct": round(pct, 2),
-                "close_price": close,
-                "volume": 0,
-                "market_cap": 0,
-                "sector_en": "", "theme_en": "", "reason_en": "",
-            })
+
+            try:
+                volume = int(float(cells[5].replace(",", "")))
+            except ValueError:
+                volume = 0
+            if direction == "dn":
+                pct = -abs(pct)
+            else:
+                pct = abs(pct)
+
+            stocks.append(
+                {
+                    "rank": len(stocks) + 1,
+                    "ticker": ticker,
+                    "name_kr": name,
+                    "name_en": name,
+                    "change_pct": round(pct, 2),
+                    "close_price": close,
+                    "volume": volume,
+                    "market_cap": 0,
+                    "sector_en": "",
+                    "theme_en": "",
+                    "reason_en": "",
+                }
+            )
+
         log(f"  네이버 {direction}: {len(stocks)}개")
         return stocks
     except Exception as e:
@@ -194,14 +224,14 @@ gainers={len(gainers)} items, losers={len(losers)} items, sectors=4 each. All En
     log("✓ Claude 보강 완료")
     return json.loads(m.group(0))
 
-def merge(stock_list, claude_list):
+def merge(fdr_list, claude_list):
     cmap = {c["ticker"]:c for c in (claude_list or [])}
     return [{**s,
         "name_en":   cmap.get(s["ticker"],{}).get("name_en",   s["name_kr"]),
         "sector_en": cmap.get(s["ticker"],{}).get("sector_en", ""),
         "theme_en":  cmap.get(s["ticker"],{}).get("theme_en",  ""),
         "reason_en": cmap.get(s["ticker"],{}).get("reason_en", "—"),
-    } for s in stock_list]
+    } for s in fdr_list]
 
 # ── Main ──────────────────────────────────────────────────────────────────
 def main():
