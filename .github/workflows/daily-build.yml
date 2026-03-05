@@ -2,41 +2,42 @@ name: Korea Market Wrap — Daily Build
 
 on:
   schedule:
-    - cron: "40 6 * * 1-5"   # 06:40 UTC = 15:40 KST, 월~금
+    # 평일 15:40 KST (06:40 UTC) — 장 마감(15:30) 후 10분 여유
+    - cron: "40 6 * * 1-5"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
-    name: Fetch & Build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install finance-datareader pandas
+        run: |
+          pip install \
+            yfinance \
+            pandas \
+            requests \
+            lxml \
+            html5lib \
+            beautifulsoup4
 
-      - name: Fetch & Build HTML
+      - name: Build market wrap
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          echo "▶ $(TZ='Asia/Seoul' date) — Build start"
-          python scripts/fetch_and_build.py
-          echo "▶ $(TZ='Asia/Seoul' date) — Build done"
+        run: python scripts/fetch_and_build.py
 
-      - name: Commit & Push docs/
+      - name: Commit & push docs
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/
-          git diff --staged --quiet || git commit -m "daily: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git diff --cached --quiet || git commit -m "chore: daily market wrap $(date +'%Y-%m-%d')"
           git push
