@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Korea Market Wrap v5
-- 전체: FinanceDataReader (지수 + 종목 + 환율)
+Korea Market Wrap v6
+- 지수/환율: FinanceDataReader (Yahoo Finance 기반, 안정적)
+- 종목 랭킹: 네이버 금융 크롤링 (가장 신뢰할 수 있는 한국 주식 데이터)
 - 뉴스/섹터: Claude AI
 """
 
-import os, sys, json, re, shutil
-from datetime import datetime, timezone, timedelta, date
+import os, sys, json, re, shutil, html as htmllib
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-import urllib.request
+import urllib.request, urllib.parse
 
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 MODEL    = "claude-sonnet-4-20250514"
@@ -18,14 +19,29 @@ TEMPLATE = ROOT / "index.html"
 OUT_DIR  = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "ko-KR,ko;q=0.9",
+}
+
 def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
 
-# ── 1. 지수 ───────────────────────────────────────────────────────────────
+def fetch_url(url, timeout=20):
+    req = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8", errors="replace")
+
+# ── 1. 지수 + 환율 (FinanceDataReader) ───────────────────────────────────
 def get_indices():
     import FinanceDataReader as fdr
     result = {}
-    for name, code in [("kospi","KS11"), ("kosdaq","KQ11"), ("usdkrw","USD/KRW")]:
+    targets = [
+        ("kospi",  "KS11",   "pts"),
+        ("kosdaq", "KQ11",   "pts"),
+        ("usdkrw", "USD/KRW","KRW"),
+    ]
+    for key, code, unit in targets:
         try:
             df = fdr.DataReader(code)
             df = df.dropna(subset=["Close"])
@@ -36,116 +52,125 @@ def get_indices():
             diff = cur - prev
             pct  = diff / prev * 100
             sign = "+" if diff >= 0 else "-"
-            if name == "usdkrw":
-                result[name] = {
+            if unit == "KRW":
+                result[key] = {
                     "value":   f"{cur:,.0f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.0f} KRW"
+                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}"
                 }
             else:
-                result[name] = {
+                result[key] = {
                     "value":   f"{cur:,.2f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.2f} pts"
+                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}"
                 }
-            log(f"  {name}: {result[name]['value']} {result[name]['chg_pct']}")
+            log(f"  {key}: {result[key]['value']} {result[key]['chg_pct']}")
         except Exception as e:
-            log(f"  {name} 실패: {e}")
-            result[name] = {"value":"—","chg_pct":"—","chg_abs":"—"}
+            log(f"  {key} 실패: {e}")
+            result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
     return result
 
-# ── 2. 종목 랭킹 ──────────────────────────────────────────────────────────
-def get_movers(limit=5):
-    import FinanceDataReader as fdr
-    import pandas as pd
-
-    log("종목 랭킹 조회...")
-    today = datetime.now(KST).strftime("%Y-%m-%d")
+# ── 2. 종목 랭킹 (네이버 금융) ────────────────────────────────────────────
+def naver_movers(direction="up", limit=5):
+    """
+    네이버 금융 시세 - 등락률 상위/하위
+    direction: "up" = 상승, "dn" = 하락
+    """
+    # sosrt_type: 5=등락률, page=1
+    base = "https://finance.naver.com/sise/sise_rise.naver" if direction == "up" \
+           else "https://finance.naver.com/sise/sise_fall.naver"
 
     try:
-        # KRX 전체 종목 당일 데이터
-        df = fdr.DataReader("KRX", today, today)
-        if df.empty:
-            # 당일 데이터 없으면 최근 2거래일
-            df = fdr.DataReader("KRX")
-            last = df.index.max()
-            df   = df[df.index == last]
-    except Exception as e:
-        log(f"  KRX 전체 조회 실패, 개별 조회로 전환: {e}")
-        # fallback: KOSPI+KOSDAQ 리스트로 개별 조회
-        kospi  = fdr.StockListing("KOSPI")[["Code","Name"]].head(200)
-        kosdaq = fdr.StockListing("KOSDAQ")[["Code","Name"]].head(200)
-        listing = pd.concat([kospi, kosdaq]).reset_index(drop=True)
-        rows = []
-        for _, row in listing.iterrows():
+        body = fetch_url(base)
+        # 종목명 패턴
+        pattern = r'<a href="/item/main\.naver\?code=(\d{6})"[^>]*>([^<]+)</a>'
+        tickers = re.findall(pattern, body)
+
+        # 등락률, 현재가 패턴 (테이블 행)
+        # <td class="number">+25.68</td> 형태
+        rows = re.findall(
+            r'code=(\d{6})"[^>]*>([^<]+)</a>.*?'
+            r'<td[^>]*class="number"[^>]*>([\d,]+)</td>'  # 현재가
+            r'.*?<td[^>]*class="number"[^>]*>([\d,]+)</td>'  # 전일비
+            r'.*?<td[^>]*>([\+\-]?\d+\.\d+)</td>',         # 등락률
+            body, re.DOTALL
+        )
+
+        if not rows:
+            # 간단한 fallback 파싱
+            rows2 = re.findall(
+                r'code=(\d{6})[^"]*"[^>]*>\s*([^<]+?)\s*</a>',
+                body
+            )
+            # 숫자 데이터 별도 추출
+            numbers = re.findall(r'>([\+\-]?\d{1,3}(?:,\d{3})*(?:\.\d+)?)<', body)
+            log(f"  fallback 파싱: 종목 {len(rows2)}개")
+
+        stocks = []
+        seen = set()
+        for m in re.finditer(
+            r'code=(\d{6})"[^>]*>\s*([^<]+?)\s*</a>',
+            body
+        ):
+            if len(stocks) >= limit:
+                break
+            ticker = m.group(1)
+            name   = htmllib.unescape(m.group(2).strip())
+            if ticker in seen or not name:
+                continue
+            seen.add(ticker)
+
+            # 해당 종목 주변에서 가격/등락률 추출
+            pos   = m.end()
+            chunk = body[pos:pos+500]
+            nums  = re.findall(r'[\+\-]?\d{1,3}(?:,\d{3})*(?:\.\d+)?', chunk)
+            nums  = [n for n in nums if n]
+
+            close = 0
+            pct   = 0.0
             try:
-                d = fdr.DataReader(row["Code"])
-                d = d.dropna(subset=["Close"])
-                if len(d) < 2: continue
-                cur  = float(d["Close"].iloc[-1])
-                prev = float(d["Close"].iloc[-2])
-                pct  = (cur - prev) / prev * 100
-                vol  = int(d["Volume"].iloc[-1])
-                if vol < 10000: continue
-                rows.append({"Code":row["Code"],"Name":row["Name"],"Change":pct,"Close":cur,"Volume":vol})
+                # 첫 번째 큰 숫자 = 현재가
+                for n in nums:
+                    v = float(n.replace(",",""))
+                    if v > 100:
+                        close = int(v)
+                        break
+                # % 포함된 숫자 = 등락률
+                pct_match = re.search(r'([\+\-]?\d{1,2}\.\d{2})', chunk)
+                if pct_match:
+                    pct = float(pct_match.group(1))
             except:
                 pass
-        df = pd.DataFrame(rows).set_index("Code")
-        df.columns = ["name","change","close","volume"]
 
-    df = df.reset_index()
-    df.columns = [c.lower() for c in df.columns]
-
-    # 컬럼 정규화
-    code_col   = next((c for c in df.columns if c in ["code","symbol","ticker"]), None)
-    name_col   = next((c for c in df.columns if c in ["name","종목명"]), None)
-    change_col = next((c for c in df.columns if c in ["change","등락률","chg"]), None)
-    close_col  = next((c for c in df.columns if c in ["close","종가"]), None)
-    vol_col    = next((c for c in df.columns if c in ["volume","거래량"]), None)
-
-    if not change_col and close_col:
-        # open 기준 등락률 계산
-        open_col = next((c for c in df.columns if c in ["open","시가"]), None)
-        if open_col:
-            df["_chg"] = (df[close_col] - df[open_col]) / df[open_col] * 100
-            change_col = "_chg"
-
-    df = df.dropna(subset=[change_col])
-    if vol_col:
-        df = df[df[vol_col] > 10000]
-
-    gainers = df.nlargest(limit, change_col)
-    losers  = df.nsmallest(limit, change_col)
-
-    def to_list(rows, direction):
-        result = []
-        for i, (_, row) in enumerate(rows.iterrows()):
-            ticker = str(row[code_col])   if code_col   else ""
-            name   = str(row[name_col])   if name_col   else ticker
-            pct    = float(row[change_col])
-            close  = int(row[close_col])  if close_col  else 0
-            vol    = int(row[vol_col])    if vol_col    else 0
             if direction == "dn":
                 pct = -abs(pct)
-            result.append({
-                "rank": i+1,
+
+            stocks.append({
+                "rank": len(stocks)+1,
                 "ticker": ticker,
                 "name_kr": name,
                 "name_en": name,
                 "change_pct": round(pct, 2),
                 "close_price": close,
-                "volume": vol,
+                "volume": 0,
                 "market_cap": 0,
                 "sector_en": "", "theme_en": "", "reason_en": ""
             })
-        return result
 
-    g = to_list(gainers, "up")
-    l = to_list(losers,  "dn")
-    log(f"  상승 {len(g)}개, 하락 {len(l)}개")
-    for s in g: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-    for s in l: log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-    return g, l
+        log(f"  네이버 {direction}: {len(stocks)}개")
+        return stocks
+
+    except Exception as e:
+        log(f"  네이버 {direction} 실패: {e}")
+        return []
+
+def get_movers(limit=5):
+    log("종목 랭킹 조회 (네이버 금융)...")
+    gainers = naver_movers("up",  limit)
+    losers  = naver_movers("dn",  limit)
+    for s in gainers: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
+    for s in losers:  log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
+    return gainers, losers
 
 # ── 3. Claude 보강 ────────────────────────────────────────────────────────
 def enrich_with_claude(gainers, losers, today_str):
@@ -211,9 +236,9 @@ def main():
         log("ERROR: ANTHROPIC_API_KEY 없음")
         sys.exit(1)
 
-    indices        = get_indices()
+    indices              = get_indices()
     gainers_raw, losers_raw = get_movers(5)
-    enriched       = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
+    enriched             = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
 
     data = {
         "market":        {"kospi":indices["kospi"],"kosdaq":indices["kosdaq"],"usdkrw":indices["usdkrw"]},
