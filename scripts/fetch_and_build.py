@@ -37,41 +37,56 @@ def strip_tags(text):
     return htmllib.unescape(text).replace("\xa0", " ").strip()
 
 # ── 1. 지수 + 환율 (FinanceDataReader) ───────────────────────────────────
-def get_indices():
-    import FinanceDataReader as fdr
-    result = {}
-    targets = [
-        ("kospi",  "KS11",   "pts"),
-        ("kosdaq", "KQ11",   "pts"),
-        ("usdkrw", "USD/KRW","KRW"),
-    ]
-    for key, code, unit in targets:
+def _read_last_two_closes(fdr, codes):
+    last_err = None
+    for code in codes:
         try:
             df = fdr.DataReader(code)
-            df = df.dropna(subset=["Close"])
-            if len(df) < 2:
+            if "Close" not in df.columns:
+                raise ValueError("Close 컬럼 없음")
+            closes = df["Close"].dropna()
+            if len(closes) < 2:
                 raise ValueError("데이터 부족")
-            cur  = float(df["Close"].iloc[-1])
-            prev = float(df["Close"].iloc[-2])
+            return float(closes.iloc[-1]), float(closes.iloc[-2]), code
+        except Exception as e:
+            last_err = f"{code}: {e}"
+    raise ValueError(last_err or "데이터 조회 실패")
+
+
+def get_indices():
+    import FinanceDataReader as fdr
+
+    result = {}
+    targets = [
+        ("kospi", ["KS11", "^KS11", "KOSPI"], "pts"),
+        ("kosdaq", ["KQ11", "^KQ11", "KOSDAQ"], "pts"),
+        ("usdkrw", ["USD/KRW", "KRW=X", "USDKRW"], "KRW"),
+    ]
+
+    for key, codes, unit in targets:
+        try:
+            cur, prev, used_code = _read_last_two_closes(fdr, codes)
             diff = cur - prev
-            pct  = diff / prev * 100
+            pct = diff / prev * 100
             sign = "+" if diff >= 0 else "-"
+
             if unit == "KRW":
                 result[key] = {
-                    "value":   f"{cur:,.0f}",
+                    "value": f"{cur:,.0f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}"
+                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}",
                 }
             else:
                 result[key] = {
-                    "value":   f"{cur:,.2f}",
+                    "value": f"{cur:,.2f}",
                     "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}"
+                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}",
                 }
-            log(f"  {key}: {result[key]['value']} {result[key]['chg_pct']}")
+            log(f"  {key} ({used_code}): {result[key]['value']} {result[key]['chg_pct']}")
         except Exception as e:
             log(f"  {key} 실패: {e}")
-            result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
+            result[key] = {"value": "—", "chg_pct": "—", "chg_abs": "—"}
+
     return result
 
 # ── 2. 종목 랭킹 (네이버 금융) ────────────────────────────────────────────
@@ -157,7 +172,7 @@ def get_movers(limit=5):
     for s in losers:  log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
     return gainers, losers
 
-# ── 3. Claude 보강 ───────────────────────────────────────────────────────
+# ── 3. Claude 보강 ────────────────────────────────────────────────────────
 def enrich_with_claude(gainers, losers, today_str):
     log("Claude 뉴스 보강...")
     def fmt(s): return "\n".join(
