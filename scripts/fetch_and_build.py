@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-Korea Market Wrap — KIS API + Claude AI 빌드 스크립트 v2
-정확한 TR_ID 및 엔드포인트 사용
-"""
+"""Korea Market Wrap — KIS API v3 (FID_INPUT_CNT_1 추가)"""
 
 import os, sys, json, re, shutil
 from datetime import datetime, timezone, timedelta
@@ -35,22 +32,21 @@ def kis_post(path, body):
 
 def kis_get(path, tr_id, params, token):
     url = KIS_BASE + path + "?" + urllib.parse.urlencode(params)
-    headers = {
+    req = urllib.request.Request(url, headers={
         "Content-Type":  "application/json",
         "authorization": f"Bearer {token}",
         "appkey":        KIS_KEY,
         "appsecret":     KIS_SECRET,
         "tr_id":         tr_id,
         "custtype":      "P"
-    }
-    req = urllib.request.Request(url, headers=headers)
+    })
     with urllib.request.urlopen(req, timeout=30) as r:
         resp = json.loads(r.read())
     if resp.get("rt_cd") not in ("0", None):
-        log(f"  KIS 에러 [{tr_id}]: {resp.get('msg1','')}")
+        log(f"  KIS [{tr_id}] 에러: {resp.get('msg1','')}")
     return resp
 
-# ── 1. Token ─────────────────────────────────────────────────────────────────
+# ── 1. Token ──────────────────────────────────────────────────────────────
 def get_token():
     log("KIS 토큰 발급...")
     res = kis_post("/oauth2/tokenP", {
@@ -59,11 +55,11 @@ def get_token():
     })
     token = res.get("access_token", "")
     if not token:
-        raise ValueError(f"토큰 발급 실패: {res}")
+        raise ValueError(f"토큰 실패: {res}")
     log("✓ 토큰 완료")
     return token
 
-# ── 2. 지수 (KOSPI=0001, KOSDAQ=1001) ───────────────────────────────────────
+# ── 2. 지수 ───────────────────────────────────────────────────────────────
 def get_index(token, iscd):
     res = kis_get(
         "/uapi/domestic-stock/v1/quotations/inquire-index-price",
@@ -72,51 +68,17 @@ def get_index(token, iscd):
         token
     )
     o = res.get("output", {})
-    log(f"  지수 raw [{iscd}]: {json.dumps(o, ensure_ascii=False)[:120]}")
-    sign_map = {"1":"+","2":"+","3":"","4":"-","5":"-"}
-    sign = sign_map.get(o.get("prdy_vrss_sign","3"),"")
+    sign = {"1":"+","2":"+","3":"","4":"-","5":"-"}.get(o.get("prdy_vrss_sign","3"),"")
     try:
         v = float(o.get("bstp_nmix_prpr","0").replace(",",""))
         c = float(o.get("bstp_nmix_prdy_vrss","0").replace(",",""))
         r = float(o.get("bstp_nmix_prdy_ctrt","0").replace(",",""))
-        return {"value": f"{v:,.2f}", "chg_pct": f"{sign}{abs(r):.2f}%", "chg_abs": f"{sign}{abs(c):.2f} pts"}
-    except Exception as e:
-        log(f"  지수 파싱 오류: {e}")
+        return {"value":f"{v:,.2f}","chg_pct":f"{sign}{abs(r):.2f}%","chg_abs":f"{sign}{abs(c):.2f} pts"}
+    except:
         return {"value":"—","chg_pct":"—","chg_abs":"—"}
 
-# ── 3. USD/KRW 환율 ──────────────────────────────────────────────────────────
+# ── 3. USD/KRW (Yahoo Finance fallback) ──────────────────────────────────
 def get_usdkrw(token):
-    # 외환 현재가 TR: FHKST03030100 사용
-    res = kis_get(
-        "/uapi/domestic-stock/v1/quotations/inquire-daily-itemchartprice",
-        "FHKST03030100",
-        {
-            "FID_COND_MRKT_DIV_CODE": "X",
-            "FID_INPUT_ISCD":         "FX@KRWUSD",
-            "FID_INPUT_DATE_1":       datetime.now(KST).strftime("%Y%m%d"),
-            "FID_INPUT_DATE_2":       datetime.now(KST).strftime("%Y%m%d"),
-            "FID_PERIOD_DIV_CODE":    "D",
-            "FID_ORG_ADJ_PRC":        "1"
-        },
-        token
-    )
-    # fallback: 네이버 환율 스크래핑
-    try:
-        output = res.get("output2", [{}])
-        if isinstance(output, list) and output:
-            o = output[0]
-        else:
-            o = {}
-        price = float(o.get("ovrs_nmix_prpr", o.get("stck_clpr","0")).replace(",",""))
-        prdy  = float(o.get("ovrs_nmix_prdy_vrss", o.get("prdy_vrss","0")).replace(",",""))
-        pct   = float(o.get("prdy_ctrt","0").replace(",",""))
-        sign  = "+" if prdy >= 0 else "-"
-        if price > 100:  # 유효한 환율값
-            return {"value": f"{price:,.0f}", "chg_pct": f"{sign}{abs(pct):.2f}%", "chg_abs": f"{sign}{abs(prdy):.0f} KRW"}
-    except Exception as e:
-        log(f"  환율 파싱 실패: {e}")
-
-    # fallback: Yahoo Finance USD/KRW
     try:
         url = "https://query1.finance.yahoo.com/v8/finance/chart/KRW=X?interval=1d&range=2d"
         req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
@@ -129,13 +91,12 @@ def get_usdkrw(token):
             diff = cur - prev
             pct  = diff / prev * 100
             sign = "+" if diff >= 0 else "-"
-            return {"value": f"{cur:,.0f}", "chg_pct": f"{sign}{abs(pct):.2f}%", "chg_abs": f"{sign}{abs(diff):.0f} KRW"}
+            return {"value":f"{cur:,.0f}","chg_pct":f"{sign}{abs(pct):.2f}%","chg_abs":f"{sign}{abs(diff):.0f} KRW"}
     except Exception as e:
-        log(f"  Yahoo 환율 fallback 실패: {e}")
-
+        log(f"  환율 조회 실패: {e}")
     return {"value":"—","chg_pct":"—","chg_abs":"—"}
 
-# ── 4. 등락률 상위/하위 종목 ─────────────────────────────────────────────────
+# ── 4. 등락률 상위/하위 종목 ──────────────────────────────────────────────
 def get_movers(token, direction="up", limit=5):
     sort = "0" if direction == "up" else "1"
     res = kis_get(
@@ -149,19 +110,20 @@ def get_movers(token, direction="up", limit=5):
             "FID_BLNG_CLS_CODE":       "0",
             "FID_TRGT_CLS_CODE":       "111111111",
             "FID_TRGT_EXLS_CLS_CODE":  "000000",
-            "FID_INPUT_PRICE_1":       "",
-            "FID_INPUT_PRICE_2":       "",
+            "FID_INPUT_PRICE_1":       "0",
+            "FID_INPUT_PRICE_2":       "0",
             "FID_VOL_CNT":             "100000",
             "FID_INPUT_DATE_1":        "",
             "FID_RANK_SORT_CLS_CODE":  sort,
-            "FID_ETC_CLS_CODE":        ""
+            "FID_ETC_CLS_CODE":        "",
+            "FID_INPUT_CNT_1":         "0"   # ← 누락됐던 필드
         },
         token
     )
     raw = res.get("output", [])
-    log(f"  종목 raw 개수: {len(raw)}")
+    log(f"  종목 {direction} 개수: {len(raw)}")
     if raw:
-        log(f"  첫 종목 raw: {json.dumps(raw[0], ensure_ascii=False)[:150]}")
+        log(f"  첫 종목: {raw[0].get('hts_kor_isnm','')} {raw[0].get('prdy_ctrt','')}%")
 
     stocks = []
     for i, item in enumerate(raw[:limit]):
@@ -169,7 +131,6 @@ def get_movers(token, direction="up", limit=5):
             pct = float(item.get("prdy_ctrt","0").replace(",",""))
             if direction == "dn":
                 pct = -abs(pct)
-            mcap_str = item.get("stck_avls","0") or "0"
             stocks.append({
                 "rank":        i+1,
                 "ticker":      item.get("mksc_shrn_iscd",""),
@@ -178,26 +139,26 @@ def get_movers(token, direction="up", limit=5):
                 "change_pct":  round(pct,2),
                 "close_price": int(item.get("stck_prpr","0").replace(",","")),
                 "volume":      int(item.get("acml_vol","0").replace(",","")),
-                "market_cap":  int(mcap_str.replace(",","")) if mcap_str else 0,
+                "market_cap":  int((item.get("stck_avls","0") or "0").replace(",","")),
                 "sector_en":   "",
                 "theme_en":    "",
                 "reason_en":   ""
             })
         except Exception as e:
-            log(f"  종목 파싱 오류 [{i}]: {e} | {item}")
+            log(f"  파싱 오류 [{i}]: {e}")
     return stocks
 
-# ── 5. Claude 보강 ───────────────────────────────────────────────────────────
+# ── 5. Claude 보강 ────────────────────────────────────────────────────────
 def enrich_with_claude(gainers, losers, today_str):
     log("Claude 뉴스 보강...")
     def fmt(s): return "\n".join(
         f"  - {x['name_kr']} ({x['ticker']}): {x['change_pct']:+.2f}%, ₩{x['close_price']:,}" for x in s)
 
-    prompt = f"""Today is {today_str} (KST). Actual Korean stock market data from KIS API:
+    prompt = f"""Today is {today_str} (KST). Actual closing data from KIS API:
 
 GAINERS:\n{fmt(gainers)}\nLOSERS:\n{fmt(losers)}
 
-Search web for today's news. Return ONLY JSON, no markdown:
+Search web for today's news. Return ONLY JSON:
 {{
   "highlight": "One English sentence. Bold theme with <strong>tags</strong>.",
   "gainers": [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
@@ -242,7 +203,7 @@ def merge(kis_list, claude_list):
         "reason_en": cmap.get(s["ticker"],{}).get("reason_en", "—"),
     } for s in kis_list]
 
-# ── Main ─────────────────────────────────────────────────────────────────────
+# ── Main ──────────────────────────────────────────────────────────────────
 def main():
     now = datetime.now(KST)
     log(f"Build — {now.strftime('%Y-%m-%d %H:%M KST')}")
@@ -263,9 +224,6 @@ def main():
 
     for s in gainers_raw: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
     for s in losers_raw:  log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-
-    if not gainers_raw and not losers_raw:
-        log("WARNING: 종목 데이터 없음 — 장 마감 후 재시도 권장")
 
     enriched = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
 
