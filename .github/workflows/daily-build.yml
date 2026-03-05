@@ -1,1 +1,46 @@
+name: Korea Market Wrap — Daily Build
 
+on:
+  schedule:
+    - cron: "40 6 * * 1-5"   # 06:40 UTC = 15:40 KST, 월~금
+
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "수동 실행 사유"
+        required: false
+        default: "Manual trigger"
+
+jobs:
+  build:
+    name: Fetch & Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch & Build HTML
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "▶ $(TZ='Asia/Seoul' date) — Build start"
+          python scripts/fetch_and_build.py
+          echo "▶ $(TZ='Asia/Seoul' date) — Build done"
+
+      - name: Commit & Push docs/
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "daily: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
+          git push
