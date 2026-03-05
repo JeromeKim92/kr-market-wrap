@@ -32,6 +32,8 @@ jobs:
       - name: Fetch & Build HTML
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KIS_APP_KEY:       ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET:    ${{ secrets.KIS_APP_SECRET }}
         run: |
           echo "▶ $(TZ='Asia/Seoul' date) — Build start"
           python scripts/fetch_and_build.py
