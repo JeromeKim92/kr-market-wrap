@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Korea Market Wrap — KIS API v3 (FID_INPUT_CNT_1 추가)"""
+"""
+Korea Market Wrap v5
+- 전체: FinanceDataReader (지수 + 종목 + 환율)
+- 뉴스/섹터: Claude AI
+"""
 
 import os, sys, json, re, shutil
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 from pathlib import Path
-import urllib.request, urllib.parse
+import urllib.request
 
-KIS_KEY       = os.environ.get("KIS_APP_KEY", "")
-KIS_SECRET    = os.environ.get("KIS_APP_SECRET", "")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-
-KIS_BASE = "https://openapi.koreainvestment.com:9443"
 MODEL    = "claude-sonnet-4-20250514"
 KST      = timezone(timedelta(hours=9))
 ROOT     = Path(__file__).parent.parent
@@ -21,146 +21,145 @@ OUT_FILE = OUT_DIR / "index.html"
 def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
 
-def kis_post(path, body):
-    data = json.dumps(body).encode()
-    req = urllib.request.Request(
-        KIS_BASE + path, data=data,
-        headers={"Content-Type": "application/json"}, method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())
-
-def kis_get(path, tr_id, params, token):
-    url = KIS_BASE + path + "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={
-        "Content-Type":  "application/json",
-        "authorization": f"Bearer {token}",
-        "appkey":        KIS_KEY,
-        "appsecret":     KIS_SECRET,
-        "tr_id":         tr_id,
-        "custtype":      "P"
-    })
-    with urllib.request.urlopen(req, timeout=30) as r:
-        resp = json.loads(r.read())
-    if resp.get("rt_cd") not in ("0", None):
-        log(f"  KIS [{tr_id}] 에러: {resp.get('msg1','')}")
-    return resp
-
-# ── 1. Token ──────────────────────────────────────────────────────────────
-def get_token():
-    log("KIS 토큰 발급...")
-    res = kis_post("/oauth2/tokenP", {
-        "grant_type": "client_credentials",
-        "appkey": KIS_KEY, "appsecret": KIS_SECRET
-    })
-    token = res.get("access_token", "")
-    if not token:
-        raise ValueError(f"토큰 실패: {res}")
-    log("✓ 토큰 완료")
-    return token
-
-# ── 2. 지수 ───────────────────────────────────────────────────────────────
-def get_index(token, iscd):
-    res = kis_get(
-        "/uapi/domestic-stock/v1/quotations/inquire-index-price",
-        "FHPUP02100000",
-        {"FID_COND_MRKT_DIV_CODE": "U", "FID_INPUT_ISCD": iscd},
-        token
-    )
-    o = res.get("output", {})
-    sign = {"1":"+","2":"+","3":"","4":"-","5":"-"}.get(o.get("prdy_vrss_sign","3"),"")
-    try:
-        v = float(o.get("bstp_nmix_prpr","0").replace(",",""))
-        c = float(o.get("bstp_nmix_prdy_vrss","0").replace(",",""))
-        r = float(o.get("bstp_nmix_prdy_ctrt","0").replace(",",""))
-        return {"value":f"{v:,.2f}","chg_pct":f"{sign}{abs(r):.2f}%","chg_abs":f"{sign}{abs(c):.2f} pts"}
-    except:
-        return {"value":"—","chg_pct":"—","chg_abs":"—"}
-
-# ── 3. USD/KRW (Yahoo Finance fallback) ──────────────────────────────────
-def get_usdkrw(token):
-    try:
-        url = "https://query1.finance.yahoo.com/v8/finance/chart/KRW=X?interval=1d&range=2d"
-        req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            ydata = json.loads(r.read())
-        closes = ydata["chart"]["result"][0]["indicators"]["quote"][0]["close"]
-        closes = [c for c in closes if c]
-        if len(closes) >= 2:
-            cur, prev = closes[-1], closes[-2]
+# ── 1. 지수 ───────────────────────────────────────────────────────────────
+def get_indices():
+    import FinanceDataReader as fdr
+    result = {}
+    for name, code in [("kospi","KS11"), ("kosdaq","KQ11"), ("usdkrw","USD/KRW")]:
+        try:
+            df = fdr.DataReader(code)
+            df = df.dropna(subset=["Close"])
+            if len(df) < 2:
+                raise ValueError("데이터 부족")
+            cur  = float(df["Close"].iloc[-1])
+            prev = float(df["Close"].iloc[-2])
             diff = cur - prev
             pct  = diff / prev * 100
             sign = "+" if diff >= 0 else "-"
-            return {"value":f"{cur:,.0f}","chg_pct":f"{sign}{abs(pct):.2f}%","chg_abs":f"{sign}{abs(diff):.0f} KRW"}
+            if name == "usdkrw":
+                result[name] = {
+                    "value":   f"{cur:,.0f}",
+                    "chg_pct": f"{sign}{abs(pct):.2f}%",
+                    "chg_abs": f"{sign}{abs(diff):.0f} KRW"
+                }
+            else:
+                result[name] = {
+                    "value":   f"{cur:,.2f}",
+                    "chg_pct": f"{sign}{abs(pct):.2f}%",
+                    "chg_abs": f"{sign}{abs(diff):.2f} pts"
+                }
+            log(f"  {name}: {result[name]['value']} {result[name]['chg_pct']}")
+        except Exception as e:
+            log(f"  {name} 실패: {e}")
+            result[name] = {"value":"—","chg_pct":"—","chg_abs":"—"}
+    return result
+
+# ── 2. 종목 랭킹 ──────────────────────────────────────────────────────────
+def get_movers(limit=5):
+    import FinanceDataReader as fdr
+    import pandas as pd
+
+    log("종목 랭킹 조회...")
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+
+    try:
+        # KRX 전체 종목 당일 데이터
+        df = fdr.DataReader("KRX", today, today)
+        if df.empty:
+            # 당일 데이터 없으면 최근 2거래일
+            df = fdr.DataReader("KRX")
+            last = df.index.max()
+            df   = df[df.index == last]
     except Exception as e:
-        log(f"  환율 조회 실패: {e}")
-    return {"value":"—","chg_pct":"—","chg_abs":"—"}
+        log(f"  KRX 전체 조회 실패, 개별 조회로 전환: {e}")
+        # fallback: KOSPI+KOSDAQ 리스트로 개별 조회
+        kospi  = fdr.StockListing("KOSPI")[["Code","Name"]].head(200)
+        kosdaq = fdr.StockListing("KOSDAQ")[["Code","Name"]].head(200)
+        listing = pd.concat([kospi, kosdaq]).reset_index(drop=True)
+        rows = []
+        for _, row in listing.iterrows():
+            try:
+                d = fdr.DataReader(row["Code"])
+                d = d.dropna(subset=["Close"])
+                if len(d) < 2: continue
+                cur  = float(d["Close"].iloc[-1])
+                prev = float(d["Close"].iloc[-2])
+                pct  = (cur - prev) / prev * 100
+                vol  = int(d["Volume"].iloc[-1])
+                if vol < 10000: continue
+                rows.append({"Code":row["Code"],"Name":row["Name"],"Change":pct,"Close":cur,"Volume":vol})
+            except:
+                pass
+        df = pd.DataFrame(rows).set_index("Code")
+        df.columns = ["name","change","close","volume"]
 
-# ── 4. 등락률 상위/하위 종목 ──────────────────────────────────────────────
-def get_movers(token, direction="up", limit=5):
-    sort = "0" if direction == "up" else "1"
-    res = kis_get(
-        "/uapi/domestic-stock/v1/ranking/fluctuation",
-        "FHPST01700000",
-        {
-            "FID_COND_MRKT_DIV_CODE":  "J",
-            "FID_COND_SCR_DIV_CODE":   "20171",
-            "FID_INPUT_ISCD":          "0000",
-            "FID_DIV_CLS_CODE":        "0",
-            "FID_BLNG_CLS_CODE":       "0",
-            "FID_TRGT_CLS_CODE":       "111111111",
-            "FID_TRGT_EXLS_CLS_CODE":  "000000",
-            "FID_INPUT_PRICE_1":       "0",
-            "FID_INPUT_PRICE_2":       "0",
-            "FID_VOL_CNT":             "100000",
-            "FID_INPUT_DATE_1":        "",
-            "FID_RANK_SORT_CLS_CODE":  sort,
-            "FID_ETC_CLS_CODE":        "",
-            "FID_INPUT_CNT_1":         "0"   # ← 누락됐던 필드
-        },
-        token
-    )
-    raw = res.get("output", [])
-    log(f"  종목 {direction} 개수: {len(raw)}")
-    if raw:
-        log(f"  첫 종목: {raw[0].get('hts_kor_isnm','')} {raw[0].get('prdy_ctrt','')}%")
+    df = df.reset_index()
+    df.columns = [c.lower() for c in df.columns]
 
-    stocks = []
-    for i, item in enumerate(raw[:limit]):
-        try:
-            pct = float(item.get("prdy_ctrt","0").replace(",",""))
+    # 컬럼 정규화
+    code_col   = next((c for c in df.columns if c in ["code","symbol","ticker"]), None)
+    name_col   = next((c for c in df.columns if c in ["name","종목명"]), None)
+    change_col = next((c for c in df.columns if c in ["change","등락률","chg"]), None)
+    close_col  = next((c for c in df.columns if c in ["close","종가"]), None)
+    vol_col    = next((c for c in df.columns if c in ["volume","거래량"]), None)
+
+    if not change_col and close_col:
+        # open 기준 등락률 계산
+        open_col = next((c for c in df.columns if c in ["open","시가"]), None)
+        if open_col:
+            df["_chg"] = (df[close_col] - df[open_col]) / df[open_col] * 100
+            change_col = "_chg"
+
+    df = df.dropna(subset=[change_col])
+    if vol_col:
+        df = df[df[vol_col] > 10000]
+
+    gainers = df.nlargest(limit, change_col)
+    losers  = df.nsmallest(limit, change_col)
+
+    def to_list(rows, direction):
+        result = []
+        for i, (_, row) in enumerate(rows.iterrows()):
+            ticker = str(row[code_col])   if code_col   else ""
+            name   = str(row[name_col])   if name_col   else ticker
+            pct    = float(row[change_col])
+            close  = int(row[close_col])  if close_col  else 0
+            vol    = int(row[vol_col])    if vol_col    else 0
             if direction == "dn":
                 pct = -abs(pct)
-            stocks.append({
-                "rank":        i+1,
-                "ticker":      item.get("mksc_shrn_iscd",""),
-                "name_kr":     item.get("hts_kor_isnm",""),
-                "name_en":     item.get("hts_kor_isnm",""),
-                "change_pct":  round(pct,2),
-                "close_price": int(item.get("stck_prpr","0").replace(",","")),
-                "volume":      int(item.get("acml_vol","0").replace(",","")),
-                "market_cap":  int((item.get("stck_avls","0") or "0").replace(",","")),
-                "sector_en":   "",
-                "theme_en":    "",
-                "reason_en":   ""
+            result.append({
+                "rank": i+1,
+                "ticker": ticker,
+                "name_kr": name,
+                "name_en": name,
+                "change_pct": round(pct, 2),
+                "close_price": close,
+                "volume": vol,
+                "market_cap": 0,
+                "sector_en": "", "theme_en": "", "reason_en": ""
             })
-        except Exception as e:
-            log(f"  파싱 오류 [{i}]: {e}")
-    return stocks
+        return result
 
-# ── 5. Claude 보강 ────────────────────────────────────────────────────────
+    g = to_list(gainers, "up")
+    l = to_list(losers,  "dn")
+    log(f"  상승 {len(g)}개, 하락 {len(l)}개")
+    for s in g: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
+    for s in l: log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
+    return g, l
+
+# ── 3. Claude 보강 ────────────────────────────────────────────────────────
 def enrich_with_claude(gainers, losers, today_str):
     log("Claude 뉴스 보강...")
     def fmt(s): return "\n".join(
         f"  - {x['name_kr']} ({x['ticker']}): {x['change_pct']:+.2f}%, ₩{x['close_price']:,}" for x in s)
 
-    prompt = f"""Today is {today_str} (KST). Actual closing data from KIS API:
+    prompt = f"""Today is {today_str} (KST). Actual Korean stock market closing data:
 
 GAINERS:\n{fmt(gainers)}\nLOSERS:\n{fmt(losers)}
 
-Search web for today's news. Return ONLY JSON:
+Search the web for today's news. Return ONLY a JSON object, no markdown:
 {{
-  "highlight": "One English sentence. Bold theme with <strong>tags</strong>.",
+  "highlight": "One English sentence. Bold key theme with <strong>tags</strong>.",
   "gainers": [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
   "losers":  [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
   "strong_sectors": [{{"name":"","chg":"4.82","stocks":"A · B"}}],
@@ -194,41 +193,30 @@ gainers={len(gainers)} items, losers={len(losers)} items, sectors=4 each. All En
     log("✓ Claude 보강 완료")
     return json.loads(m.group(0))
 
-def merge(kis_list, claude_list):
+def merge(fdr_list, claude_list):
     cmap = {c["ticker"]:c for c in (claude_list or [])}
     return [{**s,
         "name_en":   cmap.get(s["ticker"],{}).get("name_en",   s["name_kr"]),
         "sector_en": cmap.get(s["ticker"],{}).get("sector_en", ""),
         "theme_en":  cmap.get(s["ticker"],{}).get("theme_en",  ""),
         "reason_en": cmap.get(s["ticker"],{}).get("reason_en", "—"),
-    } for s in kis_list]
+    } for s in fdr_list]
 
 # ── Main ──────────────────────────────────────────────────────────────────
 def main():
     now = datetime.now(KST)
     log(f"Build — {now.strftime('%Y-%m-%d %H:%M KST')}")
 
-    missing = [k for k,v in {"KIS_APP_KEY":KIS_KEY,"KIS_APP_SECRET":KIS_SECRET,"ANTHROPIC_API_KEY":ANTHROPIC_KEY}.items() if not v]
-    if missing:
-        log(f"ERROR: 환경변수 없음 → {', '.join(missing)}")
+    if not ANTHROPIC_KEY:
+        log("ERROR: ANTHROPIC_API_KEY 없음")
         sys.exit(1)
 
-    token  = get_token()
-    kospi  = get_index(token, "0001")
-    kosdaq = get_index(token, "1001")
-    usdkrw = get_usdkrw(token)
-    log(f"  KOSPI {kospi['value']} {kospi['chg_pct']} | KOSDAQ {kosdaq['value']} {kosdaq['chg_pct']} | {usdkrw['value']}")
-
-    gainers_raw = get_movers(token, "up", 5)
-    losers_raw  = get_movers(token, "dn", 5)
-
-    for s in gainers_raw: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-    for s in losers_raw:  log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-
-    enriched = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
+    indices        = get_indices()
+    gainers_raw, losers_raw = get_movers(5)
+    enriched       = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
 
     data = {
-        "market":        {"kospi":kospi,"kosdaq":kosdaq,"usdkrw":usdkrw},
+        "market":        {"kospi":indices["kospi"],"kosdaq":indices["kosdaq"],"usdkrw":indices["usdkrw"]},
         "highlight":      enriched.get("highlight",""),
         "gainers":        merge(gainers_raw, enriched.get("gainers",[])),
         "losers":         merge(losers_raw,  enriched.get("losers",[])),
