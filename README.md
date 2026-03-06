@@ -1,5 +1,5 @@
 # Korea Market Wrap 🇰🇷
-**LAYERGG** — 매일 15:40 KST 자동 업데이트되는 한국 주식시장 인포그래픽
+**LAYERGG** — 매일 16:00 KST 자동 업데이트되는 한국 주식시장 인포그래픽
 
 ---
 
@@ -33,7 +33,7 @@ github.com → + → New repository → `kr-market-wrap` → Public → Create
 
 ## ⏰ 자동화 스케줄
 - KOSPI 마감: 15:30 KST
-- 자동 실행: 15:40 KST (06:40 UTC), 월~금
+- 자동 실행: 16:00 KST (07:00 UTC), 월~금
 - 페이지 업데이트: ~15:42 KST
 
 ---
