@@ -83,64 +83,59 @@ def _empty_indices():
     return {k:{"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
 
 
-# ── 2. 종목 랭킹 (pykrx — KRX 공식 데이터) ───────────────────────────────
+# ── 2. 종목 랭킹 (FinanceDataReader) ─────────────────────────────────────
 def get_movers(limit: int = 5) -> tuple[list, list]:
     """
-    pykrx로 KOSPI + KOSDAQ 전종목 당일 시세를 가져와
-    등락률 기준 상위/하위 종목을 반환.
+    FinanceDataReader 공식 API:
+      fdr.StockListing('KOSPI')  → DataFrame
+        컬럼: Code, Name, Market, Sector, Industry, ListingDate,
+              SettleMonth, Representative, HomePage, Region
+              + Close, Changes, ChagesRatio (당일 종가/전일대비/등락률)
+      fdr.StockListing('KOSDAQ') → 동일
 
-    pykrx 공식 API:
-      from pykrx import stock
-      df = stock.get_market_ohlcv("YYYYMMDD", market="KOSPI")
-        → index: ticker(6자리), columns: 시가,고가,저가,종가,거래량,거래대금,등락률
-
-    시가총액:
-      df_cap = stock.get_market_cap("YYYYMMDD", market="KOSPI")
-        → index: ticker, columns: 시가총액, 거래대금, 상장주식수
+    참고: https://github.com/FinanceData/FinanceDataReader
     """
     try:
-        from pykrx import stock as krx
+        import FinanceDataReader as fdr
     except ImportError:
-        log("pykrx 미설치 — pip install pykrx"); return [], []
-
-    # 오늘 KST 기준 가장 최근 영업일 찾기
-    trade_date = _last_trading_day()
-    log(f"  기준일: {trade_date}")
+        log("FinanceDataReader 미설치"); return [], []
 
     all_stocks = []
     for market in ("KOSPI", "KOSDAQ"):
         try:
-            log(f"  pykrx {market} 시세 로드...")
-            df = krx.get_market_ohlcv_by_ticker(trade_date, market=market, alternative=True)
+            log(f"  FDR {market} 로드...")
+            df = fdr.StockListing(market)
             if df is None or df.empty:
-                log(f"  {market} 데이터 없음")
-                continue
+                log(f"  {market} 데이터 없음"); continue
 
-            # 시가총액 로드
-            try:
-                df_cap = krx.get_market_cap_by_ticker(trade_date, market=market)
-            except Exception:
-                df_cap = None
+            log(f"  {market}: {len(df)}개, 컬럼: {list(df.columns)}")
 
-            log(f"  {market}: {len(df)}개 종목 로드, 컬럼: {list(df.columns)}")
+            # 컬럼명 정규화 (버전별 차이 대응)
+            col_code  = next((c for c in df.columns if c in ('Code','Symbol','종목코드')), None)
+            col_name  = next((c for c in df.columns if c in ('Name','종목명')), None)
+            col_close = next((c for c in df.columns if c in ('Close','종가','Adj Close')), None)
+            col_chg   = next((c for c in df.columns if c in ('ChagesRatio','ChangeRatio','Changes%','등락률','PctChange')), None)
+            col_vol   = next((c for c in df.columns if c in ('Volume','거래량')), None)
+            col_mcap  = next((c for c in df.columns if c in ('Marcap','시가총액','MktCap')), None)
 
-            for ticker, row in df.iterrows():
-                name = krx.get_market_ticker_name(ticker)
-                if not name or _is_junk(name):
-                    continue
+            if not col_name or not col_chg:
+                log(f"  {market} 필수 컬럼 없음: name={col_name}, chg={col_chg}"); continue
 
-                pct = float(row.get("등락률", 0))
-                close = int(row.get("종가", 0))
-                volume = int(row.get("거래량", 0))
-                amount = int(row.get("거래대금", 0))  # 원 단위
+            for _, row in df.iterrows():
+                name = str(row[col_name]).strip() if col_name else ""
+                if not name or _is_junk(name): continue
 
-                # 시가총액 (백만원)
-                mcap = 0
-                if df_cap is not None and ticker in df_cap.index:
-                    mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
+                try: pct = float(row[col_chg])
+                except: continue
+                if pct == 0: continue
 
-                if close <= 0:
-                    continue
+                try: close = int(row[col_close]) if col_close else 0
+                except: close = 0
+                try: volume = int(row[col_vol]) if col_vol else 0
+                except: volume = 0
+                try: mcap = int(row[col_mcap]) // 1_000_000 if col_mcap else 0
+                except: mcap = 0
+                ticker = str(row[col_code]).zfill(6) if col_code else ""
 
                 all_stocks.append({
                     "ticker":      ticker,
@@ -152,54 +147,24 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
                     "market_cap":  mcap,
                     "market":      market,
                 })
-
         except Exception as e:
             log(f"  {market} 실패: {e}")
             import traceback; traceback.print_exc()
 
     if not all_stocks:
-        log("  pykrx 데이터 없음 → 빈 리스트 반환")
-        return [], []
+        log("  FDR 데이터 없음"); return [], []
 
-    # 등락률 기준 정렬
-    gainers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] > 0],
-        key=lambda x: x["change_pct"], reverse=True
-    )
-    losers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] < 0],
-        key=lambda x: x["change_pct"]
-    )
+    gainers = sorted([s for s in all_stocks if s["change_pct"] > 0],
+                     key=lambda x: x["change_pct"], reverse=True)
+    losers  = sorted([s for s in all_stocks if s["change_pct"] < 0],
+                     key=lambda x: x["change_pct"])
 
-    gainers = [dict(rank=i+1, **s) for i, s in enumerate(gainers_all[:limit])]
-    losers  = [dict(rank=i+1, **s) for i, s in enumerate(losers_all[:limit])]
+    gainers = [dict(rank=i+1, **s) for i, s in enumerate(gainers[:limit])]
+    losers  = [dict(rank=i+1, **s) for i, s in enumerate(losers[:limit])]
 
-    log(f"  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
-    log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
-
+    log("  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
+    log("  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
     return gainers, losers
-
-
-def _last_trading_day() -> str:
-    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD"""
-    from pykrx import stock as krx
-    today = datetime.now(KST).date()
-
-    # 최근 5일 중 데이터가 있는 가장 최근 날짜 찾기
-    for delta in range(0, 7):
-        d = today - timedelta(days=delta)
-        if d.weekday() >= 5:  # 토(5), 일(6) 스킵
-            continue
-        ds = d.strftime("%Y%m%d")
-        try:
-            df = krx.get_market_ohlcv_by_ticker(ds, market="KOSPI", alternative=True)
-            if df is not None and not df.empty and len(df) > 100:
-                return ds
-        except Exception:
-            continue
-
-    # fallback: 오늘 날짜
-    return today.strftime("%Y%m%d")
 
 
 # ── 3. Claude web_search 뉴스 보강 ───────────────────────────────────────
