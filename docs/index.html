@@ -464,6 +464,7 @@
   <div class="footer-src">FinanceDataReader · Naver Finance<br>Yahoo Finance · Claude AI</div>
 </div>
 
+<!-- __DATA_SCRIPT__ -->
 <script>
 (function(){
   const d=new Date().toLocaleDateString('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',year:'numeric'});
@@ -575,6 +576,43 @@ function renderMock(){
   document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
   setStatus('Preview — Wed, Mar 5, 2026 · Tap refresh for live data',true);
 }
+
+async function loadBuiltData(){
+  const paths=['./market_data.json','./docs/market_data.json'];
+  let lastErr='';
+  for(const p of paths){
+    try{
+      const res = await fetch(`${p}?t=${Date.now()}`, { cache:'no-store' });
+      if(!res.ok){ lastErr=`${p} HTTP ${res.status}`; continue; }
+      return await res.json();
+    }catch(err){
+      lastErr=err?.message||String(err);
+    }
+  }
+  throw new Error(lastErr||'market_data.json load failed');
+}
+
+function renderLiveData(d){
+  const mv=d.market||{};
+  if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
+  if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
+  if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
+
+  if(d.highlight) document.getElementById('hlText').innerHTML=d.highlight;
+
+  const g=d.gainers||[],l=d.losers||[];
+  document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+  document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+  if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
+  if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
+
+  const stamp=d._date_label||d._built_at||'prebuilt';
+  setStatus(`${stamp} · ${g.length+l.length} stocks · cached`,true);
+  if(d._date_label){
+    const hd=document.getElementById('heroDate');
+    if(hd) hd.textContent=d._date_label+' · 15:30 KST';
+  }
+}
 // ── API Key ──────────────────────────────────────────────────────────────────
 function getApiKey(){ return localStorage.getItem('kmw_api_key')||''; }
 function saveApiKey(k){ localStorage.setItem('kmw_api_key', k.trim()); }
@@ -604,10 +642,26 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 async function fetchData(){
+  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
+
+  // 1) 기본 경로: 빌드된 정적 JSON (GitHub Pages에서 API 키 없이 동작)
+  try{
+    btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Loading latest built data...',false);
+    const built = await loadBuiltData();
+    renderLiveData(built);
+    setStatus(`${built._date_label||built._built_at||'latest'} · ${(built.gainers||[]).length + (built.losers||[]).length} stocks · from build`,true);
+    ov.style.display='none';
+    btn.disabled=rbtn.disabled=false;
+    return;
+  }catch(_){
+    ov.style.display='none';
+    btn.disabled=rbtn.disabled=false;
+  }
+
+  // 2) 폴백: 사용자 Anthropic 키로 브라우저 직접 조회
   const apiKey=getApiKey();
   if(!apiKey){ showKeyModal(); return; }
 
-  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
   btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Fetching live data...',false);
 
   const steps=[[800,'Fetching KOSPI · KOSDAQ quotes...'],[2200,'Selecting Top 5 Gainers & Losers...'],[3800,'Analyzing sectors with Claude AI...'],[5200,'Generating highlight...']];
@@ -653,17 +707,8 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
     if(!match) throw new Error('JSON 파싱 실패 — 응답에 JSON 없음');
     const d2=JSON.parse(match[0]); ov.style.display='none';
 
-    const mv=d2.market||{};
-    if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
-    if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
-    if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
-    if(d2.highlight) document.getElementById('hlText').innerHTML=d2.highlight;
-
+    renderLiveData(d2);
     const g=d2.gainers||[],l=d2.losers||[];
-    document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-    document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-    if(d2.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d2.strong_sectors,'up');
-    if(d2.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d2.weak_sectors,'dn');
     setStatus(`${today} · ${g.length+l.length} stocks · live`,true);
 
   }catch(err){
@@ -677,7 +722,18 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded',renderMock);
+window.addEventListener('DOMContentLoaded',async ()=>{
+  if(window.__MARKET_DATA__) {
+    renderLiveData(window.__MARKET_DATA__);
+    return;
+  }
+  try{
+    const built = await loadBuiltData();
+    renderLiveData(built);
+  }catch(_){
+    renderMock();
+  }
+});
 </script>
 
 <!-- API Key Modal -->

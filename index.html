@@ -608,6 +608,10 @@ function renderLiveData(d){
 
   const stamp=d._date_label||d._built_at||'prebuilt';
   setStatus(`${stamp} · ${g.length+l.length} stocks · cached`,true);
+  if(d._date_label){
+    const hd=document.getElementById('heroDate');
+    if(hd) hd.textContent=d._date_label+' · 15:30 KST';
+  }
 }
 // ── API Key ──────────────────────────────────────────────────────────────────
 function getApiKey(){ return localStorage.getItem('kmw_api_key')||''; }
