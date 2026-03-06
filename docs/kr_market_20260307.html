@@ -464,7 +464,6 @@
   <div class="footer-src">FinanceDataReader · Naver Finance<br>Yahoo Finance · Claude AI</div>
 </div>
 
-<script>window.__MARKET_DATA__ = {"market": {"kospi": {"value": "—", "chg_pct": "—", "chg_abs": "—"}, "kosdaq": {"value": "—", "chg_pct": "—", "chg_abs": "—"}, "usdkrw": {"value": "1,467", "chg_pct": "-1.05%", "chg_abs": "-16 KRW"}}, "highlight": "South Korea's KOSPI staged a dramatic <strong>10% rebound</strong> on March 5th after Tuesday and Wednesday's historic 19% crash triggered by Middle East tensions and oil price spikes.", "gainers": [{"rank": 1, "ticker": "550092", "name_kr": "N2 ���� �������� ������� Top5 ETN", "name_en": "Mirae Asset Nikkei 225 Futures Top5 ETN", "change_pct": 35.0, "close_price": 279480, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Index ETN", "reason_en": "Technical rebound from oversold levels, broader market recovery"}, {"rank": 2, "ticker": "488080", "name_kr": "TIGER �ݵ�üTOP10��������", "name_en": "TIGER Anti-Beta TOP10 ETF", "change_pct": 33.01, "close_price": 45920, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Low Volatility ETF", "reason_en": "Flight to defensive strategies amid market volatility, bargain hunting"}, {"rank": 3, "ticker": "760013", "name_kr": "Ű�� �������� �ݵ�üTOP10 ETN", "name_en": "Kiwoom Anti-Beta TOP10 ETN", "change_pct": 31.32, "close_price": 107300, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Low Volatility ETN", "reason_en": "Defensive positioning benefited from volatility spike, technical bounce"}, {"rank": 4, "ticker": "700034", "name_kr": "�ϳ� �������� K���TOP10 ETN", "name_en": "Hana Anti-Beta K-New TOP10 ETN", "change_pct": 31.1, "close_price": 29045, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Low Volatility ETN", "reason_en": "Outperformed during risk-off then benefited from sharp reversal"}, {"rank": 5, "ticker": "272210", "name_kr": "��ȭ�ý���", "name_en": "Hanwha Systems", "change_pct": 30.0, "close_price": 150800, "volume": 0, "market_cap": 0, "sector_en": "Technology", "theme_en": "Defense Technology", "reason_en": "Defense stocks rallied on geopolitical tensions and military demand expectations"}], "losers": [{"rank": 1, "ticker": "500072", "name_kr": "���� �ι��� 2X �ڽ��� 150 ���� ETN", "name_en": "Mirae Asset Inverse 2X KOSDAQ 150 Futures ETN", "change_pct": -42.65, "close_price": 1669, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Inverse Leverage ETN", "reason_en": "Massive losses as KOSDAQ surged 14% in recovery, inverse leverage amplified decline"}, {"rank": 2, "ticker": "700018", "name_kr": "�ϳ� �ι��� 2X �ڽ���150 ���� ETN", "name_en": "Hana Inverse 2X KOSDAQ 150 Futures ETN", "change_pct": -36.58, "close_price": 1500, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Inverse Leverage ETN", "reason_en": "Sharp market rebound crushed inverse positions, leveraged exposure magnified losses"}, {"rank": 3, "ticker": "530107", "name_kr": "�Ｚ �ι��� 2X �ڽ���150 ���� ETN", "name_en": "Samsung Inverse 2X KOSDAQ 150 Futures ETN", "change_pct": -34.1, "close_price": 1542, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Inverse Leverage ETN", "reason_en": "Inverse products hit by broad market recovery, leverage amplified downside"}, {"rank": 4, "ticker": "580044", "name_kr": "KB �ι��� 2X KOSDAQ 150 ���� ETN", "name_en": "KB Inverse 2X KOSDAQ 150 Futures ETN", "change_pct": -33.62, "close_price": 1560, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Inverse Leverage ETN", "reason_en": "Inverse ETN suffered from strong KOSDAQ bounce, 2X leverage intensified losses"}, {"rank": 5, "ticker": "760028", "name_kr": "Ű�� �ι��� 2X �ݵ�üTOP10 ETN", "name_en": "Kiwoom Inverse 2X Anti-Beta TOP10 ETN", "change_pct": -33.31, "close_price": 12585, "volume": 0, "market_cap": 0, "sector_en": "Financial Services", "theme_en": "Inverse Leverage ETN", "reason_en": "Anti-beta inverse strategy failed as defensive stocks also rebounded strongly"}], "strong_sectors": [{"name": "Technology", "chg": "11.2", "stocks": "Samsung Electronics · SK Hynix"}, {"name": "Defense & Aerospace", "chg": "8.5", "stocks": "Hanwha Aerospace · Korea Aerospace Industries"}, {"name": "Automobiles", "chg": "10.8", "stocks": "Hyundai Motor · Kia Corporation"}, {"name": "Semiconductors", "chg": "12.1", "stocks": "Hanmi Semiconductor · SK Square"}], "weak_sectors": [{"name": "Inverse ETNs", "chg": "-36.9", "stocks": "Inverse KOSDAQ ETNs · Leveraged Bearish Products"}, {"name": "Energy Trading", "chg": "-8.2", "stocks": "Oil Importers · Refineries"}, {"name": "Airlines", "chg": "-5.1", "stocks": "Korean Air · Asiana Airlines"}, {"name": "Shipping", "chg": "-4.7", "stocks": "HMM · Pan Ocean"}], "_built_at": "2026-03-07 06:25", "_date_label": "Sat, Mar 07, 2026", "_stale": true, "_stale_reason": "today-fetch-failed"};</script>
 <script>
 (function(){
   const d=new Date().toLocaleDateString('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',year:'numeric'});
@@ -576,39 +575,6 @@ function renderMock(){
   document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
   setStatus('Preview — Wed, Mar 5, 2026 · Tap refresh for live data',true);
 }
-
-async function loadBuiltData(){
-  const paths=['./market_data.json','./docs/market_data.json'];
-  let lastErr='';
-  for(const p of paths){
-    try{
-      const res = await fetch(`${p}?t=${Date.now()}`, { cache:'no-store' });
-      if(!res.ok){ lastErr=`${p} HTTP ${res.status}`; continue; }
-      return await res.json();
-    }catch(err){
-      lastErr=err?.message||String(err);
-    }
-  }
-  throw new Error(lastErr||'market_data.json load failed');
-}
-
-function renderLiveData(d){
-  const mv=d.market||{};
-  if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
-  if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
-  if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
-
-  if(d.highlight) document.getElementById('hlText').innerHTML=d.highlight;
-
-  const g=d.gainers||[],l=d.losers||[];
-  document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-  document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-  if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
-  if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
-
-  const stamp=d._date_label||d._built_at||'prebuilt';
-  setStatus(`${stamp} · ${g.length+l.length} stocks · cached`,true);
-}
 // ── API Key ──────────────────────────────────────────────────────────────────
 function getApiKey(){ return localStorage.getItem('kmw_api_key')||''; }
 function saveApiKey(k){ localStorage.setItem('kmw_api_key', k.trim()); }
@@ -638,26 +604,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 async function fetchData(){
-  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
-
-  // 1) 기본 경로: 빌드된 정적 JSON (GitHub Pages에서 API 키 없이 동작)
-  try{
-    btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Loading latest built data...',false);
-    const built = await loadBuiltData();
-    renderLiveData(built);
-    setStatus(`${built._date_label||built._built_at||'latest'} · ${(built.gainers||[]).length + (built.losers||[]).length} stocks · from build`,true);
-    ov.style.display='none';
-    btn.disabled=rbtn.disabled=false;
-    return;
-  }catch(_){
-    ov.style.display='none';
-    btn.disabled=rbtn.disabled=false;
-  }
-
-  // 2) 폴백: 사용자 Anthropic 키로 브라우저 직접 조회
   const apiKey=getApiKey();
   if(!apiKey){ showKeyModal(); return; }
 
+  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
   btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Fetching live data...',false);
 
   const steps=[[800,'Fetching KOSPI · KOSDAQ quotes...'],[2200,'Selecting Top 5 Gainers & Losers...'],[3800,'Analyzing sectors with Claude AI...'],[5200,'Generating highlight...']];
@@ -703,8 +653,17 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
     if(!match) throw new Error('JSON 파싱 실패 — 응답에 JSON 없음');
     const d2=JSON.parse(match[0]); ov.style.display='none';
 
-    renderLiveData(d2);
+    const mv=d2.market||{};
+    if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
+    if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
+    if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
+    if(d2.highlight) document.getElementById('hlText').innerHTML=d2.highlight;
+
     const g=d2.gainers||[],l=d2.losers||[];
+    document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+    document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+    if(d2.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d2.strong_sectors,'up');
+    if(d2.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d2.weak_sectors,'dn');
     setStatus(`${today} · ${g.length+l.length} stocks · live`,true);
 
   }catch(err){
@@ -718,18 +677,7 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded',async ()=>{
-  if(window.__MARKET_DATA__) {
-    renderLiveData(window.__MARKET_DATA__);
-    return;
-  }
-  try{
-    const built = await loadBuiltData();
-    renderLiveData(built);
-  }catch(_){
-    renderMock();
-  }
-});
+window.addEventListener('DOMContentLoaded',renderMock);
 </script>
 
 <!-- API Key Modal -->
