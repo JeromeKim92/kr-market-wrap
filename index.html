@@ -276,7 +276,6 @@
   .footer-src { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--txt3); text-align:right; line-height:1.9; letter-spacing:.3px; }
 
 </style>
-<!-- __DATA_SCRIPT__ -->
 </head>
 <body>
 
@@ -472,7 +471,7 @@
 })();
 function switchTab(t){const u=t==='up';['panelUp','panelDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));['tabUp','tabDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));}
 function fmtVol(v){if(!v)return'—';if(v>=1e6)return(v/1e6).toFixed(1)+'M';if(v>=1e3)return(v/1e3).toFixed(0)+'K';return String(v);}
-function fmtMcap(v){if(!v)return'—';const t=v/10000;return t>=1?t.toFixed(1)+'T KRW':v.toLocaleString()+'B KRW';}
+function fmtMcap(v){if(!v)return'—';const t=v/1000000;if(t>=0.1)return t.toFixed(1)+'T KRW';const b=v/10000;if(b>=1)return b.toFixed(0)+'B KRW';return v.toLocaleString()+'M KRW';}
 function fmtPrice(v){return v?'₩'+Number(v).toLocaleString():'—';}
 function setIndex(id,val,chgPct,chgAbs){
   const ve=document.getElementById(id+'Val'),ce=document.getElementById(id+'Chg'),ae=document.getElementById(id+'Abs'),be=document.getElementById(id+'Bar');
@@ -678,29 +677,7 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-  if (window.__MARKET_DATA__) {
-    // GitHub Actions가 주입한 실제 데이터
-    const d = window.__MARKET_DATA__;
-    const m = d.market || {};
-    if (m.kospi)  setIndex('kospi',  m.kospi.value,  m.kospi.chg_pct,  m.kospi.chg_abs);
-    if (m.kosdaq) setIndex('kosdaq', m.kosdaq.value, m.kosdaq.chg_pct, m.kosdaq.chg_abs);
-    if (m.usdkrw) setIndex('usdkrw', m.usdkrw.value, m.usdkrw.chg_pct, m.usdkrw.chg_abs);
-    if (d.highlight) document.getElementById('hlText').innerHTML = d.highlight;
-    const g = d.gainers||[], l = d.losers||[];
-    document.getElementById('gainersContent').innerHTML = g.length ? g.map((s,i)=>renderCard(s,'up',i+1)).join('') : '';
-    document.getElementById('losersContent').innerHTML  = l.length ? l.map((s,i)=>renderCard(s,'dn',i+1)).join('') : '';
-    if (d.strong_sectors) document.getElementById('strongSectors').innerHTML = renderSectors(d.strong_sectors,'up');
-    if (d.weak_sectors)   document.getElementById('weakSectors').innerHTML   = renderSectors(d.weak_sectors,'dn');
-    const ts = d._built_at || '';
-    setStatus(ts ? 'Data as of ' + ts + ' KST · Auto-updated daily' : 'Live data loaded', true);
-    // 날짜도 업데이트
-    if (d._date_label) document.getElementById('heroDate').textContent = d._date_label + ' · 15:30 KST';
-  } else {
-    // 로컬 개발용 목업
-    renderMock();
-  }
-});
+window.addEventListener('DOMContentLoaded',renderMock);
 </script>
 
 <!-- API Key Modal -->
