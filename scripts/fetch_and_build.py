@@ -28,9 +28,33 @@ ROOT     = Path(__file__).parent.parent
 TEMPLATE = ROOT / "index.html"
 OUT_DIR  = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
+OUT_JSON = OUT_DIR / "market_data.json"
 
 def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
+
+
+def _is_empty_market(market: dict) -> bool:
+    for key in ("kospi", "kosdaq", "usdkrw"):
+        if (market or {}).get(key, {}).get("value") not in (None, "", "—"):
+            return False
+    return True
+
+
+def _load_last_success_snapshot() -> dict | None:
+    """이전 빌드 산출물에서 마지막 유효 스냅샷을 찾는다.
+
+    충돌/인코딩 이슈를 줄이기 위해 단일 소스 docs/market_data.json 만 사용한다.
+    """
+    try:
+        if OUT_JSON.exists():
+            data = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+            if data.get("gainers") or data.get("losers") or not _is_empty_market(data.get("market", {})):
+                return data
+    except Exception:
+        pass
+    return None
+
 
 
 # ── ETF/ETN/우선주 필터 ───────────────────────────────────────────────────
@@ -173,6 +197,16 @@ def enrich_with_claude(gainers: list, losers: list, today_str: str) -> dict:
 
     if not gainers and not losers:
         return {"highlight":"","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
+
+    if not ANTHROPIC_KEY:
+        log("  ANTHROPIC_API_KEY 없음 — 뉴스 보강 없이 가격 데이터만 빌드")
+        return {
+            "highlight": "<strong>Price/volume snapshot generated from KRX close data</strong> without AI news enrichment.",
+            "gainers": [],
+            "losers": [],
+            "strong_sectors": [],
+            "weak_sectors": [],
+        }
 
     def fmt(s):
         hint = KOREAN_NAME_MAP.get(s['name_kr'], "")
@@ -1242,7 +1276,7 @@ def main():
     log(f"Korea Market Wrap v10 — {now.strftime('%Y-%m-%d %H:%M KST')}")
 
     if not ANTHROPIC_KEY:
-        log("ERROR: ANTHROPIC_API_KEY 없음"); sys.exit(1)
+        log("WARNING: ANTHROPIC_API_KEY 없음 — AI 뉴스 요약 없이 진행")
 
     # 영문명 매핑
     log("영문명 매핑 로드...")
@@ -1277,15 +1311,41 @@ def main():
         "_date_label": now.strftime("%a, %b %d, %Y"),
     }
 
-    html = TEMPLATE.read_text(encoding="utf-8")
-    html = html.replace(
+    # 당일 데이터 취득 실패 시, 마지막 정상 스냅샷으로 안전 폴백
+    if _is_empty_market(data["market"]) and not data["gainers"] and not data["losers"]:
+        last_ok = _load_last_success_snapshot()
+        if last_ok:
+            log("WARNING: 당일 실데이터 없음 → 마지막 정상 스냅샷으로 폴백")
+            source_label = last_ok.get("_date_label") or "unknown"
+            data = {
+                **last_ok,
+                "_stale": True,
+                "_stale_reason": "today-fetch-failed",
+                "_stale_source_date_label": source_label,
+                "_built_at": now.strftime("%Y-%m-%d %H:%M"),
+            }
+
+    html_template = TEMPLATE.read_text(encoding="utf-8")
+    html_snapshot = html_template.replace(
         "<!-- __DATA_SCRIPT__ -->",
         f'<script>window.__MARKET_DATA__ = {json.dumps(data, ensure_ascii=False)};</script>'
     )
+
     OUT_DIR.mkdir(exist_ok=True)
-    OUT_FILE.write_text(html, encoding="utf-8")
+
+    # docs/index.html은 정적 템플릿 유지 (market_data.json을 클라이언트가 로드)
+    OUT_FILE.write_text(html_template, encoding="utf-8")
+
+    # 데이터 스냅샷은 별도 JSON으로 저장
+    OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 날짜별 아카이브에는 스냅샷 내장본을 저장
+    archive_file = OUT_DIR / f"kr_market_{now.strftime('%Y%m%d')}.html"
+    archive_file.write_text(html_snapshot, encoding="utf-8")
+
     log(f"✓ {OUT_FILE} ({OUT_FILE.stat().st_size:,} bytes)")
-    shutil.copy(OUT_FILE, OUT_DIR / f"kr_market_{now.strftime('%Y%m%d')}.html")
+    log(f"✓ {OUT_JSON} ({OUT_JSON.stat().st_size:,} bytes)")
+    log(f"✓ {archive_file} ({archive_file.stat().st_size:,} bytes)")
     log("빌드 완료 ✓")
 
 

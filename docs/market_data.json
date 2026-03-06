@@ -1,0 +1,203 @@
+{
+  "market": {
+    "kospi": {
+      "value": "—",
+      "chg_pct": "—",
+      "chg_abs": "—"
+    },
+    "kosdaq": {
+      "value": "—",
+      "chg_pct": "—",
+      "chg_abs": "—"
+    },
+    "usdkrw": {
+      "value": "1,467",
+      "chg_pct": "-1.05%",
+      "chg_abs": "-16 KRW"
+    }
+  },
+  "highlight": "South Korea's KOSPI staged a dramatic <strong>10% rebound</strong> on March 5th after Tuesday and Wednesday's historic 19% crash triggered by Middle East tensions and oil price spikes.",
+  "gainers": [
+    {
+      "rank": 1,
+      "ticker": "550092",
+      "name_kr": "N2 ���� �������� ������� Top5 ETN",
+      "name_en": "Mirae Asset Nikkei 225 Futures Top5 ETN",
+      "change_pct": 35.0,
+      "close_price": 279480,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Index ETN",
+      "reason_en": "Technical rebound from oversold levels, broader market recovery"
+    },
+    {
+      "rank": 2,
+      "ticker": "488080",
+      "name_kr": "TIGER �ݵ�üTOP10��������",
+      "name_en": "TIGER Anti-Beta TOP10 ETF",
+      "change_pct": 33.01,
+      "close_price": 45920,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Low Volatility ETF",
+      "reason_en": "Flight to defensive strategies amid market volatility, bargain hunting"
+    },
+    {
+      "rank": 3,
+      "ticker": "760013",
+      "name_kr": "Ű�� �������� �ݵ�üTOP10 ETN",
+      "name_en": "Kiwoom Anti-Beta TOP10 ETN",
+      "change_pct": 31.32,
+      "close_price": 107300,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Low Volatility ETN",
+      "reason_en": "Defensive positioning benefited from volatility spike, technical bounce"
+    },
+    {
+      "rank": 4,
+      "ticker": "700034",
+      "name_kr": "�ϳ� �������� K���TOP10 ETN",
+      "name_en": "Hana Anti-Beta K-New TOP10 ETN",
+      "change_pct": 31.1,
+      "close_price": 29045,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Low Volatility ETN",
+      "reason_en": "Outperformed during risk-off then benefited from sharp reversal"
+    },
+    {
+      "rank": 5,
+      "ticker": "272210",
+      "name_kr": "��ȭ�ý���",
+      "name_en": "Hanwha Systems",
+      "change_pct": 30.0,
+      "close_price": 150800,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Technology",
+      "theme_en": "Defense Technology",
+      "reason_en": "Defense stocks rallied on geopolitical tensions and military demand expectations"
+    }
+  ],
+  "losers": [
+    {
+      "rank": 1,
+      "ticker": "500072",
+      "name_kr": "���� �ι��� 2X �ڽ��� 150 ���� ETN",
+      "name_en": "Mirae Asset Inverse 2X KOSDAQ 150 Futures ETN",
+      "change_pct": -42.65,
+      "close_price": 1669,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Leverage ETN",
+      "reason_en": "Massive losses as KOSDAQ surged 14% in recovery, inverse leverage amplified decline"
+    },
+    {
+      "rank": 2,
+      "ticker": "700018",
+      "name_kr": "�ϳ� �ι��� 2X �ڽ���150 ���� ETN",
+      "name_en": "Hana Inverse 2X KOSDAQ 150 Futures ETN",
+      "change_pct": -36.58,
+      "close_price": 1500,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Leverage ETN",
+      "reason_en": "Sharp market rebound crushed inverse positions, leveraged exposure magnified losses"
+    },
+    {
+      "rank": 3,
+      "ticker": "530107",
+      "name_kr": "�Ｚ �ι��� 2X �ڽ���150 ���� ETN",
+      "name_en": "Samsung Inverse 2X KOSDAQ 150 Futures ETN",
+      "change_pct": -34.1,
+      "close_price": 1542,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Leverage ETN",
+      "reason_en": "Inverse products hit by broad market recovery, leverage amplified downside"
+    },
+    {
+      "rank": 4,
+      "ticker": "580044",
+      "name_kr": "KB �ι��� 2X KOSDAQ 150 ���� ETN",
+      "name_en": "KB Inverse 2X KOSDAQ 150 Futures ETN",
+      "change_pct": -33.62,
+      "close_price": 1560,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Leverage ETN",
+      "reason_en": "Inverse ETN suffered from strong KOSDAQ bounce, 2X leverage intensified losses"
+    },
+    {
+      "rank": 5,
+      "ticker": "760028",
+      "name_kr": "Ű�� �ι��� 2X �ݵ�üTOP10 ETN",
+      "name_en": "Kiwoom Inverse 2X Anti-Beta TOP10 ETN",
+      "change_pct": -33.31,
+      "close_price": 12585,
+      "volume": 0,
+      "market_cap": 0,
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Leverage ETN",
+      "reason_en": "Anti-beta inverse strategy failed as defensive stocks also rebounded strongly"
+    }
+  ],
+  "strong_sectors": [
+    {
+      "name": "Technology",
+      "chg": "11.2",
+      "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Defense & Aerospace",
+      "chg": "8.5",
+      "stocks": "Hanwha Aerospace · Korea Aerospace Industries"
+    },
+    {
+      "name": "Automobiles",
+      "chg": "10.8",
+      "stocks": "Hyundai Motor · Kia Corporation"
+    },
+    {
+      "name": "Semiconductors",
+      "chg": "12.1",
+      "stocks": "Hanmi Semiconductor · SK Square"
+    }
+  ],
+  "weak_sectors": [
+    {
+      "name": "Inverse ETNs",
+      "chg": "-36.9",
+      "stocks": "Inverse KOSDAQ ETNs · Leveraged Bearish Products"
+    },
+    {
+      "name": "Energy Trading",
+      "chg": "-8.2",
+      "stocks": "Oil Importers · Refineries"
+    },
+    {
+      "name": "Airlines",
+      "chg": "-5.1",
+      "stocks": "Korean Air · Asiana Airlines"
+    },
+    {
+      "name": "Shipping",
+      "chg": "-4.7",
+      "stocks": "HMM · Pan Ocean"
+    }
+  ],
+  "_built_at": "2026-03-07 07:45",
+  "_date_label": "Sat, Mar 07, 2026",
+  "_stale": true,
+  "_stale_reason": "today-fetch-failed",
+  "_stale_source_date_label": "Sat, Mar 07, 2026"
+}
