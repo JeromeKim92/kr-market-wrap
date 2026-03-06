@@ -3,16 +3,11 @@
 Korea Market Wrap v10
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 데이터 소스 (우선순위):
-  1. pykrx  — KRX 공식 당일 전종목 시세 (KOSPI+KOSDAQ)
-             가장 정확·안정적, GitHub Actions에서 검증됨
+  1. Naver Finance 상승/하락 랭킹 (KOSPI+KOSDAQ)
   2. yfinance — 지수/환율 전용 (^KS11, ^KQ11, KRW=X)
   3. Claude web_search — 뉴스·섹터·reason 보강 전용
 
-pykrx 핵심 API:
-  stock.get_market_ohlcv(date, market="KOSPI")  → DataFrame(ticker index)
-  stock.get_market_ohlcv(date, market="KOSDAQ") → DataFrame(ticker index)
-  컬럼: 시가, 고가, 저가, 종가, 거래량, 거래대금, 등락률
-  stock.get_market_ticker_name(ticker)           → 종목명
+랭킹 데이터는 Naver Finance 시세 페이지에서 수집합니다.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -115,123 +110,136 @@ def _empty_indices():
     return {k:{"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
 
 
-# ── 2. 종목 랭킹 (pykrx — KRX 공식 데이터) ───────────────────────────────
-def get_movers(limit: int = 5) -> tuple[list, list, str]:
+# ── 2. 종목 랭킹 (Naver Finance) ─────────────────────────────────────────
+def _to_int(txt: str) -> int:
+    t = re.sub(r"[^0-9-]", "", txt or "")
+    if not t or t == "-":
+        return 0
+    try:
+        return int(t)
+    except Exception:
+        return 0
+
+
+def _to_pct(txt: str) -> float:
+    t = (txt or "").replace("%", "").replace(",", "").strip()
+    t = re.sub(r"[^0-9+\-.]", "", t)
+    if not t:
+        return 0.0
+    try:
+        return float(t)
+    except Exception:
+        return 0.0
+
+
+def _fetch_naver_movers(sosok: int, rise: bool) -> list[dict]:
     """
-    pykrx로 KOSPI + KOSDAQ 전종목 당일 시세를 가져와
-    등락률 기준 상위/하위 종목을 반환.
-
-    pykrx 공식 API:
-      from pykrx import stock
-      df = stock.get_market_ohlcv("YYYYMMDD", market="KOSPI")
-        → index: ticker(6자리), columns: 시가,고가,저가,종가,거래량,거래대금,등락률
-
-    시가총액:
-      df_cap = stock.get_market_cap("YYYYMMDD", market="KOSPI")
-        → index: ticker, columns: 시가총액, 거래대금, 상장주식수
+    sosok: 0=KOSPI, 1=KOSDAQ
+    rise: True=상승, False=하락
     """
     try:
-        from pykrx import stock as krx
+        import requests
+        from bs4 import BeautifulSoup
     except ImportError:
-        log("pykrx 미설치 — pip install pykrx"); return [], [], _recent_weekday_yyyymmdd()
+        log("requests/bs4 미설치"); return []
 
-    # 오늘 KST 기준 가장 최근 영업일 찾기
-    trade_date = _last_trading_day()
-    log(f"  기준일: {trade_date}")
+    url = f"https://finance.naver.com/sise/sise_{'rise' if rise else 'fall'}.naver?sosok={sosok}"
+    try:
+        res = requests.get(url, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+        res.raise_for_status()
+        res.encoding = "euc-kr"
+    except Exception as e:
+        log(f"  Naver {url} 요청 실패: {e}")
+        return []
 
-    all_stocks = []
-    for market in ("KOSPI", "KOSDAQ"):
-        try:
-            log(f"  pykrx {market} 시세 로드...")
-            df = krx.get_market_ohlcv(trade_date, market=market)
-            if df is None or df.empty:
-                log(f"  {market} 데이터 없음")
+    soup = BeautifulSoup(res.text, "html.parser")
+    out = []
+    for tr in soup.select("table.type_2 tr"):
+        tds = tr.find_all("td")
+        if len(tds) < 7:
+            continue
+
+        a = tr.select_one("a.tltle")
+        if not a:
+            continue
+
+        href = a.get("href", "")
+        m = re.search(r"code=(\d{6})", href)
+        if not m:
+            continue
+
+        name = a.get_text(strip=True)
+        if not name or _is_junk(name):
+            continue
+
+        ticker = m.group(1)
+        # 컬럼: 종목명 | 현재가 | 전일비 | 등락률 | 거래량 | 매수호가 | 매도호가 | 시가총액 ... (페이지별 일부 상이)
+        close = _to_int(tds[1].get_text(" ", strip=True))
+        chg_pct = _to_pct(tds[3].get_text(" ", strip=True))
+        volume = _to_int(tds[4].get_text(" ", strip=True))
+
+        if not rise:
+            chg_pct = -abs(chg_pct)
+        else:
+            chg_pct = abs(chg_pct)
+
+        if close <= 0:
+            continue
+
+        out.append({
+            "ticker": ticker,
+            "name_kr": name,
+            "name_en": name,
+            "change_pct": round(chg_pct, 2),
+            "close_price": close,
+            "volume": volume,
+            "market_cap": 0,
+            "market": "KOSPI" if sosok == 0 else "KOSDAQ",
+        })
+
+    return out
+
+
+def get_movers(limit: int = 5) -> tuple[list, list, str]:
+    """Naver Finance 상승/하락 랭킹으로 TOP movers 구성."""
+    trade_date = _recent_weekday_yyyymmdd()
+    log(f"  기준일(최근 영업일): {trade_date}")
+
+    gainers_all = []
+    losers_all = []
+
+    for sosok in (0, 1):
+        gainers_all.extend(_fetch_naver_movers(sosok, rise=True))
+        losers_all.extend(_fetch_naver_movers(sosok, rise=False))
+
+    # 중복 티커 제거 (먼저 나온 항목 우선)
+    def dedup(rows: list[dict]) -> list[dict]:
+        seen = set()
+        out = []
+        for r in rows:
+            tk = r.get("ticker")
+            if tk in seen:
                 continue
+            seen.add(tk)
+            out.append(r)
+        return out
 
-            # 시가총액 로드
-            try:
-                df_cap = krx.get_market_cap(trade_date, market=market)
-            except Exception:
-                df_cap = None
-
-            log(f"  {market}: {len(df)}개 종목 로드")
-
-            for ticker, row in df.iterrows():
-                name = krx.get_market_ticker_name(ticker)
-                if not name or _is_junk(name):
-                    continue
-
-                pct = float(row.get("등락률", 0))
-                close = int(row.get("종가", 0))
-                volume = int(row.get("거래량", 0))
-                amount = int(row.get("거래대금", 0))  # 원 단위
-
-                # 시가총액 (백만원)
-                mcap = 0
-                if df_cap is not None and ticker in df_cap.index:
-                    mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
-
-                if close <= 0:
-                    continue
-
-                all_stocks.append({
-                    "ticker":      ticker,
-                    "name_kr":     name,
-                    "name_en":     name,
-                    "change_pct":  round(pct, 2),
-                    "close_price": close,
-                    "volume":      volume,
-                    "market_cap":  mcap,
-                    "market":      market,
-                })
-
-        except Exception as e:
-            log(f"  {market} 실패: {e}")
-            import traceback; traceback.print_exc()
-
-    if not all_stocks:
-        log("  pykrx 데이터 없음 → 빈 리스트 반환")
-        return [], []
-
-    # 등락률 기준 정렬
-    gainers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] > 0],
-        key=lambda x: x["change_pct"], reverse=True
-    )
-    losers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] < 0],
-        key=lambda x: x["change_pct"]
-    )
+    gainers_all = dedup(sorted([s for s in gainers_all if s["change_pct"] > 0], key=lambda x: x["change_pct"], reverse=True))
+    losers_all = dedup(sorted([s for s in losers_all if s["change_pct"] < 0], key=lambda x: x["change_pct"]))
 
     gainers = [dict(rank=i+1, **s) for i, s in enumerate(gainers_all[:limit])]
     losers  = [dict(rank=i+1, **s) for i, s in enumerate(losers_all[:limit])]
 
-    log(f"  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
-    log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
+    if gainers:
+        log(f"  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
+    else:
+        log("  상승 데이터 없음")
+    if losers:
+        log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
+    else:
+        log("  하락 데이터 없음")
 
     return gainers, losers, trade_date
-
-
-def _last_trading_day() -> str:
-    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD"""
-    from pykrx import stock as krx
-    today = datetime.now(KST).date()
-
-    # 최근 5일 중 데이터가 있는 가장 최근 날짜 찾기
-    for delta in range(0, 7):
-        d = today - timedelta(days=delta)
-        if d.weekday() >= 5:  # 토(5), 일(6) 스킵
-            continue
-        ds = d.strftime("%Y%m%d")
-        try:
-            df = krx.get_market_ohlcv(ds, market="KOSPI")
-            if df is not None and not df.empty and len(df) > 100:
-                return ds
-        except Exception:
-            continue
-
-    # fallback: 오늘 날짜
-    return today.strftime("%Y%m%d")
 
 
 # ── 3. Claude web_search 뉴스 보강 ───────────────────────────────────────
@@ -1329,12 +1337,12 @@ def main():
     log("지수/환율 (yfinance)...")
     indices = get_indices()
 
-    # 2. 종목 랭킹 (pykrx)
-    log("종목 랭킹 (pykrx)...")
+    # 2. 종목 랭킹 (Naver Finance)
+    log("종목 랭킹 (Naver Finance)...")
     gainers_raw, losers_raw, trade_date = get_movers(5)
 
     if not gainers_raw and not losers_raw:
-        log("WARNING: pykrx 데이터 없음")
+        log("WARNING: movers 데이터 없음")
         enriched = {"highlight":"Market data unavailable.","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
         gainers_final, losers_final = [], []
     else:
