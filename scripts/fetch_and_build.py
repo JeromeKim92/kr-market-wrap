@@ -44,11 +44,8 @@ def _is_empty_market(market: dict) -> bool:
 def _load_last_success_snapshot() -> dict | None:
     """이전 빌드 산출물에서 마지막 유효 스냅샷을 찾는다.
 
-    우선순위:
-    1) docs/market_data.json
-    2) docs/kr_market_YYYYMMDD.html 내 window.__MARKET_DATA__
+    충돌/인코딩 이슈를 줄이기 위해 단일 소스 docs/market_data.json 만 사용한다.
     """
-    # 1) latest json
     try:
         if OUT_JSON.exists():
             data = json.loads(OUT_JSON.read_text(encoding="utf-8"))
@@ -56,21 +53,8 @@ def _load_last_success_snapshot() -> dict | None:
                 return data
     except Exception:
         pass
-
-    # 2) archived html
-    pat = re.compile(r"window\.__MARKET_DATA__\s*=\s*(\{[\s\S]*?\})\s*;</script>")
-    for html_path in sorted(OUT_DIR.glob("kr_market_*.html"), reverse=True):
-        try:
-            txt = html_path.read_text(encoding="utf-8")
-            m = pat.search(txt)
-            if not m:
-                continue
-            data = json.loads(m.group(1))
-            if data.get("gainers") or data.get("losers") or not _is_empty_market(data.get("market", {})):
-                return data
-        except Exception:
-            continue
     return None
+
 
 
 # ── ETF/ETN/우선주 필터 ───────────────────────────────────────────────────
@@ -99,7 +83,7 @@ def get_indices():
     ]:
         try:
             df = yf.download(ticker, period="5d", interval="1d",
-                             auto_adjust=True, progress=False, silent=True)
+                             auto_adjust=True, progress=False)
             if hasattr(df.columns, 'levels'):
                 df.columns = df.columns.get_level_values(0)
             df = df.dropna(subset=["Close"])
