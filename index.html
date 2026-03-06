@@ -472,7 +472,7 @@
 })();
 function switchTab(t){const u=t==='up';['panelUp','panelDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));['tabUp','tabDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));}
 function fmtVol(v){if(!v)return'—';if(v>=1e6)return(v/1e6).toFixed(1)+'M';if(v>=1e3)return(v/1e3).toFixed(0)+'K';return String(v);}
-function fmtMcap(v,c='USD'){if(!v)return'—';const n=Number(v);if(!Number.isFinite(n)||n<=0)return'—';if(c==='USD'){if(n>=1e12)return'$'+(n/1e12).toFixed(2)+'T';if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B';if(n>=1e6)return'$'+(n/1e6).toFixed(2)+'M';return'$'+n.toLocaleString();}if(n>=1e12)return(n/1e12).toFixed(2)+'T KRW';if(n>=1e8)return(n/1e8).toFixed(0)+'억 KRW';return n.toLocaleString()+' KRW';}
+function fmtMcap(v,c='USD'){if(v===null||v===undefined||v==='')return'—';const n=Number(v);if(!Number.isFinite(n)||n<=0)return'—';if(c==='USD'){if(n>=1e12)return'$'+(n/1e12).toFixed(2)+'T';if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B';if(n>=1e6)return'$'+(n/1e6).toFixed(2)+'M';return'$'+n.toLocaleString();}if(n>=1e12)return(n/1e12).toFixed(2)+'T KRW';if(n>=1e8)return(n/1e8).toFixed(0)+'억 KRW';return n.toLocaleString()+' KRW';}
 function fmtPrice(v){return v?'₩'+Number(v).toLocaleString():'—';}
 function setIndex(id,val,chgPct,chgAbs){
   const ve=document.getElementById(id+'Val'),ce=document.getElementById(id+'Chg'),ae=document.getElementById(id+'Abs'),be=document.getElementById(id+'Bar');
