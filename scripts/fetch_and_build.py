@@ -59,7 +59,7 @@ def get_indices():
     ]:
         try:
             df = yf.download(ticker, period="5d", interval="1d",
-                             auto_adjust=True, progress=False, silent=True)
+                             auto_adjust=True, progress=False)
             if hasattr(df.columns, 'levels'):
                 df.columns = df.columns.get_level_values(0)
             df = df.dropna(subset=["Close"])
@@ -143,7 +143,11 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
             import traceback; traceback.print_exc()
 
     if not raw_rows:
-        log("  pykrx 데이터 없음 → 빈 리스트 반환")
+        log("  pykrx 실패 → KRX 직접 API fallback 시도")
+        raw_rows = _fetch_krx_direct(trade_date)
+
+    if not raw_rows:
+        log("  데이터 없음 → 빈 리스트 반환")
         return [], []
 
     # 2단계: 등락률로 정렬 → 상위/하위 후보만 종목명 조회 (N+1 방지)
@@ -184,6 +188,70 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
 
     return gainers, losers
+
+
+def _fetch_krx_direct(trade_date: str) -> list:
+    """pykrx 실패 시 KRX 직접 API로 OHLCV 데이터 가져오기 (fallback).
+    data.krx.co.kr OTP 기반 CSV 다운로드."""
+    import csv, io
+    raw_rows = []
+    otp_url = "https://data.krx.co.kr/comm/fileDn/GenerateOTP/generate.cmd"
+    dl_url = "https://data.krx.co.kr/comm/fileDn/download_csv/download.cmd"
+    headers = {
+        "Referer": "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020101",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    }
+
+    for mktId, market in [("STK", "KOSPI"), ("KSQ", "KOSDAQ")]:
+        try:
+            log(f"  KRX 직접 API {market} 로드...")
+            # Step 1: OTP 발급
+            params = urllib.parse.urlencode({
+                "locale": "ko_KR",
+                "mktId": mktId,
+                "trdDd": trade_date,
+                "share": "1",
+                "money": "1",
+                "csvxls_isNo": "false",
+                "name": "fileDown",
+                "url": "dbms/MDC/STAT/standard/MDCSTAT01501",
+            }).encode()
+            req = urllib.request.Request(otp_url, data=params, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=15) as r:
+                otp = r.read().decode("utf-8").strip()
+
+            # Step 2: CSV 다운로드
+            dl_params = urllib.parse.urlencode({"code": otp}).encode()
+            req2 = urllib.request.Request(dl_url, data=dl_params, headers={
+                "Referer": "https://data.krx.co.kr",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            }, method="POST")
+            with urllib.request.urlopen(req2, timeout=30) as r2:
+                raw = r2.read().decode("euc-kr", errors="replace")
+
+            reader = csv.DictReader(io.StringIO(raw))
+            count = 0
+            for row in reader:
+                try:
+                    ticker = row.get("종목코드", "").strip().strip('"')
+                    close_str = row.get("종가", "0").strip().strip('"').replace(",", "")
+                    pct_str = row.get("등락률", "0").strip().strip('"').replace(",", "")
+                    vol_str = row.get("거래량", "0").strip().strip('"').replace(",", "")
+                    close = int(float(close_str)) if close_str else 0
+                    pct = float(pct_str) if pct_str else 0.0
+                    volume = int(float(vol_str)) if vol_str else 0
+                    if close <= 0 or not ticker:
+                        continue
+                    raw_rows.append((ticker, pct, close, volume, 0, market))
+                    count += 1
+                except (ValueError, KeyError):
+                    continue
+            log(f"  KRX 직접 {market}: {count}개 종목")
+        except Exception as e:
+            log(f"  KRX 직접 {market} 실패: {e}")
+
+    return raw_rows
 
 
 def _last_trading_day() -> str:
