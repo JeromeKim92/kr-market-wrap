@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 """
 Korea Market Wrap v6
-- 지수/환율: FinanceDataReader (Yahoo Finance 기반, 안정적)
-- 종목 랭킹: 네이버 금융 크롤링 (가장 신뢰할 수 있는 한국 주식 데이터)
+- 지수/환율: pykrx(우선) + FinanceDataReader(fallback)
+- 종목 랭킹: pykrx(우선) + 네이버 금융(fallback)
 - 뉴스/섹터: Claude AI
 """
 
 import os, sys, json, re, shutil, html as htmllib
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-import urllib.request, urllib.parse
+import urllib.request
 
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-MODEL    = "claude-sonnet-4-20250514"
-KST      = timezone(timedelta(hours=9))
-ROOT     = Path(__file__).parent.parent
+MODEL = "claude-sonnet-4-20250514"
+KST = timezone(timedelta(hours=9))
+ROOT = Path(__file__).parent.parent
 TEMPLATE = ROOT / "index.html"
-OUT_DIR  = ROOT / "docs"
+OUT_DIR = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
 
 HEADERS = {
@@ -24,159 +24,311 @@ HEADERS = {
     "Accept-Language": "ko-KR,ko;q=0.9",
 }
 
+
 def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
+
 
 def fetch_url(url, timeout=20):
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8", errors="replace")
+        raw = r.read()
+        charset = (r.headers.get_content_charset() or "").lower()
 
-# ── 1. 지수 + 환율 (FinanceDataReader) ───────────────────────────────────
-def get_indices():
-    import FinanceDataReader as fdr
-    result = {}
-    targets = [
-        ("kospi",  "KS11",   "pts"),
-        ("kosdaq", "KQ11",   "pts"),
-        ("usdkrw", "USD/KRW","KRW"),
-    ]
-    for key, code, unit in targets:
+    for enc in [charset, "utf-8", "euc-kr", "cp949"]:
+        if not enc:
+            continue
+        try:
+            return raw.decode(enc)
+        except Exception:
+            continue
+    return raw.decode("utf-8", errors="replace")
+
+
+def strip_tags(text):
+    text = re.sub(r"<[^>]+>", "", text)
+    return htmllib.unescape(text).replace("\xa0", " ").strip()
+
+
+def parse_num(text, as_float=False):
+    cleaned = re.sub(r"[^0-9+\-.]", "", str(text or ""))
+    if cleaned in {"", "+", "-", ".", "+.", "-."}:
+        return 0.0 if as_float else 0
+    try:
+        return float(cleaned) if as_float else int(float(cleaned))
+    except ValueError:
+        return 0.0 if as_float else 0
+
+
+# ── 1. 지수 + 환율 ──────────────────────────────────────────────────────────
+def _read_last_two_closes_fdr(fdr, codes):
+    last_err = None
+    for code in codes:
         try:
             df = fdr.DataReader(code)
-            df = df.dropna(subset=["Close"])
-            if len(df) < 2:
+            if "Close" not in df.columns:
+                raise ValueError("Close 컬럼 없음")
+            closes = df["Close"].dropna()
+            if len(closes) < 2:
                 raise ValueError("데이터 부족")
-            cur  = float(df["Close"].iloc[-1])
-            prev = float(df["Close"].iloc[-2])
-            diff = cur - prev
-            pct  = diff / prev * 100
-            sign = "+" if diff >= 0 else "-"
-            if unit == "KRW":
-                result[key] = {
-                    "value":   f"{cur:,.0f}",
-                    "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.0f} {unit}"
-                }
-            else:
-                result[key] = {
-                    "value":   f"{cur:,.2f}",
-                    "chg_pct": f"{sign}{abs(pct):.2f}%",
-                    "chg_abs": f"{sign}{abs(diff):.2f} {unit}"
-                }
-            log(f"  {key}: {result[key]['value']} {result[key]['chg_pct']}")
+            return float(closes.iloc[-1]), float(closes.iloc[-2]), code
         except Exception as e:
-            log(f"  {key} 실패: {e}")
-            result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
-    return result
+            last_err = f"{code}: {e}"
+    raise ValueError(last_err or "데이터 조회 실패")
 
-# ── 2. 종목 랭킹 (네이버 금융) ────────────────────────────────────────────
-def naver_movers(direction="up", limit=5):
-    """
-    네이버 금융 시세 - 등락률 상위/하위
-    direction: "up" = 상승, "dn" = 하락
-    """
-    # sosrt_type: 5=등락률, page=1
-    base = "https://finance.naver.com/sise/sise_rise.naver" if direction == "up" \
-           else "https://finance.naver.com/sise/sise_fall.naver"
+
+def get_indices():
+    # pykrx 공식 문서 파라미터 사용:
+    # stock.get_index_ohlcv_by_date(fromdate, todate, ticker)
+    result = {}
+    now = datetime.now(KST)
 
     try:
-        body = fetch_url(base)
-        # 종목명 패턴
-        pattern = r'<a href="/item/main\.naver\?code=(\d{6})"[^>]*>([^<]+)</a>'
-        tickers = re.findall(pattern, body)
+        from pykrx import stock
 
-        # 등락률, 현재가 패턴 (테이블 행)
-        # <td class="number">+25.68</td> 형태
-        rows = re.findall(
-            r'code=(\d{6})"[^>]*>([^<]+)</a>.*?'
-            r'<td[^>]*class="number"[^>]*>([\d,]+)</td>'  # 현재가
-            r'.*?<td[^>]*class="number"[^>]*>([\d,]+)</td>'  # 전일비
-            r'.*?<td[^>]*>([\+\-]?\d+\.\d+)</td>',         # 등락률
-            body, re.DOTALL
+        today = now.strftime("%Y%m%d")
+        start = (now - timedelta(days=14)).strftime("%Y%m%d")
+        idx_map = {
+            "kospi": ("1001", "pts"),
+            "kosdaq": ("2001", "pts"),
+        }
+        for key, (ticker, unit) in idx_map.items():
+            df = stock.get_index_ohlcv_by_date(start, today, ticker)
+            closes = df["종가"].dropna()
+            if len(closes) < 2:
+                raise ValueError(f"pykrx {key} 데이터 부족")
+            cur, prev = float(closes.iloc[-1]), float(closes.iloc[-2])
+            diff = cur - prev
+            pct = diff / prev * 100
+            sign = "+" if diff >= 0 else "-"
+            result[key] = {
+                "value": f"{cur:,.2f}",
+                "chg_pct": f"{sign}{abs(pct):.2f}%",
+                "chg_abs": f"{sign}{abs(diff):.2f} {unit}",
+            }
+            log(f"  {key} (pykrx:{ticker}): {result[key]['value']} {result[key]['chg_pct']}")
+    except Exception as e:
+        log(f"  pykrx index 실패, FDR fallback: {e}")
+
+    # USD/KRW 및 누락 인덱스 FDR fallback
+    try:
+        import FinanceDataReader as fdr
+
+        if "usdkrw" not in result:
+            cur, prev, used_code = _read_last_two_closes_fdr(fdr, ["USD/KRW", "KRW=X", "USDKRW"])
+            diff = cur - prev
+            pct = diff / prev * 100
+            sign = "+" if diff >= 0 else "-"
+            result["usdkrw"] = {
+                "value": f"{cur:,.0f}",
+                "chg_pct": f"{sign}{abs(pct):.2f}%",
+                "chg_abs": f"{sign}{abs(diff):.0f} KRW",
+            }
+            log(f"  usdkrw ({used_code}): {result['usdkrw']['value']} {result['usdkrw']['chg_pct']}")
+
+        missing = []
+        if "kospi" not in result:
+            missing.append(("kospi", ["KS11", "^KS11", "KOSPI"], "pts"))
+        if "kosdaq" not in result:
+            missing.append(("kosdaq", ["KQ11", "^KQ11", "KOSDAQ"], "pts"))
+
+        for key, codes, unit in missing:
+            cur, prev, used_code = _read_last_two_closes_fdr(fdr, codes)
+            diff = cur - prev
+            pct = diff / prev * 100
+            sign = "+" if diff >= 0 else "-"
+            result[key] = {
+                "value": f"{cur:,.2f}",
+                "chg_pct": f"{sign}{abs(pct):.2f}%",
+                "chg_abs": f"{sign}{abs(diff):.2f} {unit}",
+            }
+            log(f"  {key} ({used_code}): {result[key]['value']} {result[key]['chg_pct']}")
+
+    except Exception as e:
+        log(f"  FDR fallback 실패: {e}")
+
+    for k in ("kospi", "kosdaq", "usdkrw"):
+        result.setdefault(k, {"value": "—", "chg_pct": "—", "chg_abs": "—"})
+    return result
+
+
+# ── 2. 종목 랭킹 ───────────────────────────────────────────────────────────
+def _krw_to_usd(krw_value, usdkrw_rate):
+    if not usdkrw_rate or usdkrw_rate <= 0:
+        return 0
+    return int(round(float(krw_value) / float(usdkrw_rate)))
+
+
+def pykrx_movers(direction="up", limit=5, usdkrw_rate=0):
+    # pykrx 공식 문서 파라미터 사용:
+    # stock.get_market_price_change_by_ticker(fromdate, todate, market='ALL')
+    # stock.get_market_cap_by_ticker(date, market='ALL')
+    from pykrx import stock
+
+    now = datetime.now(KST)
+    todate = now.strftime("%Y%m%d")
+    rows = None
+    used_fromdate = None
+
+    for lookback in [7, 14, 21]:
+        fromdate = (now - timedelta(days=lookback)).strftime("%Y%m%d")
+        frame = stock.get_market_price_change_by_ticker(fromdate, todate, market="ALL")
+        if frame is not None and len(frame.index) > 0:
+            rows = frame.copy()
+            used_fromdate = fromdate
+            break
+
+    if rows is None or len(rows.index) == 0:
+        raise ValueError("pykrx 등락률 데이터 없음")
+
+    if "등락률" not in rows.columns or "종가" not in rows.columns:
+        raise ValueError(f"pykrx 컬럼 누락: {list(rows.columns)}")
+
+    mcap_df = stock.get_market_cap_by_ticker(todate, market="ALL")
+
+    records = []
+    for ticker, row in rows.iterrows():
+        pct = float(row.get("등락률", 0))
+        close = int(row.get("종가", 0))
+        volume = int(row.get("거래량", 0))
+        if close <= 0:
+            continue
+
+        if direction == "up" and pct <= 0:
+            continue
+        if direction == "dn" and pct >= 0:
+            continue
+
+        mcap_krw = int(mcap_df.loc[ticker, "시가총액"]) if ticker in mcap_df.index else 0
+        mcap_usd = _krw_to_usd(mcap_krw, usdkrw_rate)
+
+        records.append(
+            {
+                "ticker": str(ticker),
+                "name_kr": stock.get_market_ticker_name(str(ticker)) or str(ticker),
+                "name_en": stock.get_market_ticker_name(str(ticker)) or str(ticker),
+                "change_pct": round(float(pct), 2),
+                "close_price": close,
+                "volume": volume,
+                "market_cap": mcap_usd,
+                "market_cap_currency": "USD",
+                "sector_en": "",
+                "theme_en": "",
+                "reason_en": "",
+                "source": f"pykrx:{used_fromdate}->{todate}",
+            }
         )
 
-        if not rows:
-            # 간단한 fallback 파싱
-            rows2 = re.findall(
-                r'code=(\d{6})[^"]*"[^>]*>\s*([^<]+?)\s*</a>',
-                body
-            )
-            # 숫자 데이터 별도 추출
-            numbers = re.findall(r'>([\+\-]?\d{1,3}(?:,\d{3})*(?:\.\d+)?)<', body)
-            log(f"  fallback 파싱: 종목 {len(rows2)}개")
+    records.sort(key=lambda x: x["change_pct"], reverse=(direction == "up"))
+    records = records[:limit]
 
-        stocks = []
-        seen = set()
-        for m in re.finditer(
-            r'code=(\d{6})"[^>]*>\s*([^<]+?)\s*</a>',
-            body
-        ):
-            if len(stocks) >= limit:
-                break
-            ticker = m.group(1)
-            name   = htmllib.unescape(m.group(2).strip())
-            if ticker in seen or not name:
-                continue
-            seen.add(ticker)
+    for i, r in enumerate(records, 1):
+        r["rank"] = i
 
-            # 해당 종목 주변에서 가격/등락률 추출
-            pos   = m.end()
-            chunk = body[pos:pos+500]
-            nums  = re.findall(r'[\+\-]?\d{1,3}(?:,\d{3})*(?:\.\d+)?', chunk)
-            nums  = [n for n in nums if n]
+    if len(records) < limit:
+        raise ValueError(f"pykrx {direction} 종목 부족: {len(records)}")
 
-            close = 0
-            pct   = 0.0
-            try:
-                # 첫 번째 큰 숫자 = 현재가
-                for n in nums:
-                    v = float(n.replace(",",""))
-                    if v > 100:
-                        close = int(v)
-                        break
-                # % 포함된 숫자 = 등락률
-                pct_match = re.search(r'([\+\-]?\d{1,2}\.\d{2})', chunk)
-                if pct_match:
-                    pct = float(pct_match.group(1))
-            except:
-                pass
+    return records
 
-            if direction == "dn":
-                pct = -abs(pct)
 
-            stocks.append({
-                "rank": len(stocks)+1,
+def naver_movers(direction="up", limit=5, usdkrw_rate=0):
+    base = (
+        "https://finance.naver.com/sise/sise_rise.naver"
+        if direction == "up"
+        else "https://finance.naver.com/sise/sise_fall.naver"
+    )
+
+    body = fetch_url(base)
+    table_match = re.search(
+        r'<table[^>]*class="type_2"[^>]*>(.*?)</table>',
+        body,
+        re.DOTALL,
+    )
+    if not table_match:
+        raise ValueError("type_2 테이블을 찾지 못했습니다")
+
+    stocks = []
+    rows = re.findall(r"<tr[^>]*>(.*?)</tr>", table_match.group(1), re.DOTALL)
+    for row in rows:
+        if len(stocks) >= limit:
+            break
+
+        match = re.search(r'/item/main\.naver\?code=(\d{6})"[^>]*>(.*?)</a>', row, re.DOTALL)
+        if not match:
+            continue
+
+        ticker = match.group(1)
+        name = strip_tags(match.group(2))
+        if not name:
+            continue
+
+        cells = [strip_tags(td) for td in re.findall(r"<td[^>]*>(.*?)</td>", row, re.DOTALL)]
+        # [0]N, [1]종목명, [2]현재가, [3]전일비, [4]등락률, [5]거래량, [6]거래대금, [7]시가총액 ...
+        if len(cells) < 8:
+            continue
+
+        close = parse_num(cells[2])
+        pct = parse_num(cells[4], as_float=True)
+        volume = parse_num(cells[5])
+        mcap_krw_100m = parse_num(cells[7])
+        mcap_krw = mcap_krw_100m * 100_000_000
+        mcap_usd = _krw_to_usd(mcap_krw, usdkrw_rate)
+
+        pct = abs(pct) if direction == "up" else -abs(pct)
+
+        stocks.append(
+            {
+                "rank": len(stocks) + 1,
                 "ticker": ticker,
                 "name_kr": name,
                 "name_en": name,
                 "change_pct": round(pct, 2),
                 "close_price": close,
-                "volume": 0,
-                "market_cap": 0,
-                "sector_en": "", "theme_en": "", "reason_en": ""
-            })
+                "volume": volume,
+                "market_cap": mcap_usd,
+                "market_cap_currency": "USD",
+                "sector_en": "",
+                "theme_en": "",
+                "reason_en": "",
+                "source": "naver:type_2",
+            }
+        )
 
-        log(f"  네이버 {direction}: {len(stocks)}개")
-        return stocks
+    if len(stocks) < limit:
+        raise ValueError(f"네이버 {direction} 종목 부족: {len(stocks)}")
+    return stocks
 
+
+def get_movers(limit=5, usdkrw_rate=0):
+    log("종목 랭킹 조회...")
+
+    try:
+        gainers = pykrx_movers("up", limit, usdkrw_rate)
+        losers = pykrx_movers("dn", limit, usdkrw_rate)
+        log("  movers source: pykrx")
     except Exception as e:
-        log(f"  네이버 {direction} 실패: {e}")
-        return []
+        log(f"  pykrx movers 실패, naver fallback: {e}")
+        gainers = naver_movers("up", limit, usdkrw_rate)
+        losers = naver_movers("dn", limit, usdkrw_rate)
+        log("  movers source: naver")
 
-def get_movers(limit=5):
-    log("종목 랭킹 조회 (네이버 금융)...")
-    gainers = naver_movers("up",  limit)
-    losers  = naver_movers("dn",  limit)
-    for s in gainers: log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
-    for s in losers:  log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,}")
+    for s in gainers:
+        log(f"  ▲ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,} Mkt ${s['market_cap']:,}")
+    for s in losers:
+        log(f"  ▼ {s['name_kr']} {s['change_pct']:+.2f}% ₩{s['close_price']:,} Mkt ${s['market_cap']:,}")
+
     return gainers, losers
+
 
 # ── 3. Claude 보강 ────────────────────────────────────────────────────────
 def enrich_with_claude(gainers, losers, today_str):
     log("Claude 뉴스 보강...")
-    def fmt(s): return "\n".join(
-        f"  - {x['name_kr']} ({x['ticker']}): {x['change_pct']:+.2f}%, ₩{x['close_price']:,}" for x in s)
+
+    def fmt(s):
+        return "\n".join(
+            f"  - {x['name_kr']} ({x['ticker']}): {x['change_pct']:+.2f}%, ₩{x['close_price']:,}, MktCap ${x.get('market_cap',0):,}"
+            for x in s
+        )
 
     prompt = f"""Today is {today_str} (KST). Actual Korean stock market closing data:
 
@@ -192,40 +344,52 @@ Search the web for today's news. Return ONLY a JSON object, no markdown:
 }}
 gainers={len(gainers)} items, losers={len(losers)} items, sectors=4 each. All English."""
 
-    payload = json.dumps({
-        "model": MODEL, "max_tokens": 4000,
-        "tools": [{"type":"web_search_20250305","name":"web_search"}],
-        "messages": [{"role":"user","content":prompt}]
-    }).encode()
+    payload = json.dumps(
+        {
+            "model": MODEL,
+            "max_tokens": 4000,
+            "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+            "messages": [{"role": "user", "content": prompt}],
+        }
+    ).encode()
 
     req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages", data=payload,
+        "https://api.anthropic.com/v1/messages",
+        data=payload,
         headers={
-            "Content-Type":"application/json",
+            "Content-Type": "application/json",
             "x-api-key": ANTHROPIC_KEY,
-            "anthropic-version":"2023-06-01",
-            "anthropic-beta":"web-search-2025-03-05"
-        }, method="POST"
+            "anthropic-version": "2023-06-01",
+            "anthropic-beta": "web-search-2025-03-05",
+        },
+        method="POST",
     )
     with urllib.request.urlopen(req, timeout=120) as r:
         data = json.loads(r.read())
 
-    raw = "\n".join(b["text"] for b in data.get("content",[]) if b.get("type")=="text")
-    raw = re.sub(r"```json\s*","",raw,flags=re.IGNORECASE)
-    raw = re.sub(r"```\s*","",raw).strip()
-    m   = re.search(r"\{[\s\S]*\}", raw)
-    if not m: raise ValueError("JSON 없음")
+    raw = "\n".join(b["text"] for b in data.get("content", []) if b.get("type") == "text")
+    raw = re.sub(r"```json\s*", "", raw, flags=re.IGNORECASE)
+    raw = re.sub(r"```\s*", "", raw).strip()
+    m = re.search(r"\{[\s\S]*\}", raw)
+    if not m:
+        raise ValueError("JSON 없음")
     log("✓ Claude 보강 완료")
     return json.loads(m.group(0))
 
+
 def merge(fdr_list, claude_list):
-    cmap = {c["ticker"]:c for c in (claude_list or [])}
-    return [{**s,
-        "name_en":   cmap.get(s["ticker"],{}).get("name_en",   s["name_kr"]),
-        "sector_en": cmap.get(s["ticker"],{}).get("sector_en", ""),
-        "theme_en":  cmap.get(s["ticker"],{}).get("theme_en",  ""),
-        "reason_en": cmap.get(s["ticker"],{}).get("reason_en", "—"),
-    } for s in fdr_list]
+    cmap = {c["ticker"]: c for c in (claude_list or [])}
+    return [
+        {
+            **s,
+            "name_en": cmap.get(s["ticker"], {}).get("name_en", s["name_kr"]),
+            "sector_en": cmap.get(s["ticker"], {}).get("sector_en", ""),
+            "theme_en": cmap.get(s["ticker"], {}).get("theme_en", ""),
+            "reason_en": cmap.get(s["ticker"], {}).get("reason_en", "—"),
+        }
+        for s in fdr_list
+    ]
+
 
 # ── Main ──────────────────────────────────────────────────────────────────
 def main():
@@ -236,31 +400,34 @@ def main():
         log("ERROR: ANTHROPIC_API_KEY 없음")
         sys.exit(1)
 
-    indices              = get_indices()
-    gainers_raw, losers_raw = get_movers(5)
-    enriched             = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
+    indices = get_indices()
+    usdkrw_rate = parse_num(indices.get("usdkrw", {}).get("value", "0"), as_float=True)
+
+    gainers_raw, losers_raw = get_movers(5, usdkrw_rate)
+    enriched = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
 
     data = {
-        "market":        {"kospi":indices["kospi"],"kosdaq":indices["kosdaq"],"usdkrw":indices["usdkrw"]},
-        "highlight":      enriched.get("highlight",""),
-        "gainers":        merge(gainers_raw, enriched.get("gainers",[])),
-        "losers":         merge(losers_raw,  enriched.get("losers",[])),
-        "strong_sectors": enriched.get("strong_sectors",[]),
-        "weak_sectors":   enriched.get("weak_sectors",[]),
-        "_built_at":      now.strftime("%Y-%m-%d %H:%M"),
-        "_date_label":    now.strftime("%a, %b %d, %Y")
+        "market": {"kospi": indices["kospi"], "kosdaq": indices["kosdaq"], "usdkrw": indices["usdkrw"]},
+        "highlight": enriched.get("highlight", ""),
+        "gainers": merge(gainers_raw, enriched.get("gainers", [])),
+        "losers": merge(losers_raw, enriched.get("losers", [])),
+        "strong_sectors": enriched.get("strong_sectors", []),
+        "weak_sectors": enriched.get("weak_sectors", []),
+        "_built_at": now.strftime("%Y-%m-%d %H:%M"),
+        "_date_label": now.strftime("%a, %b %d, %Y"),
     }
 
     html = TEMPLATE.read_text(encoding="utf-8")
     html = html.replace(
         "<!-- __DATA_SCRIPT__ -->",
-        f'<script>window.__MARKET_DATA__ = {json.dumps(data, ensure_ascii=False)};</script>'
+        f'<script>window.__MARKET_DATA__ = {json.dumps(data, ensure_ascii=False)};</script>',
     )
     OUT_DIR.mkdir(exist_ok=True)
     OUT_FILE.write_text(html, encoding="utf-8")
     log(f"✓ {OUT_FILE} ({OUT_FILE.stat().st_size:,} bytes)")
     shutil.copy(OUT_FILE, OUT_DIR / f"kr_market_{now.strftime('%Y%m%d')}.html")
     log("빌드 완료 ✓")
+
 
 if __name__ == "__main__":
     main()

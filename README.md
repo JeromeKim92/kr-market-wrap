@@ -51,3 +51,7 @@ kr-market-wrap/
 ---
 
 *LAYERGG · @layerggofficial · t.me/layergg*
+
+
+## 🧭 데이터 정확도 개선 플랜
+- 자세한 실행 계획: `DATA_COLLECTION_PLAN.md`
