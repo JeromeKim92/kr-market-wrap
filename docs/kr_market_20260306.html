@@ -276,7 +276,6 @@
   .footer-src { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--txt3); text-align:right; line-height:1.9; letter-spacing:.3px; }
 
 </style>
-<script>window.__MARKET_DATA__ = {"market": {"kospi": {"value": "5584.87", "chg_pct": "+0.02%", "chg_abs": "+0.97 pts"}, "kosdaq": {"value": "1154.67", "chg_pct": "+3.43%", "chg_abs": "+38.26 pts"}, "usdkrw": {"value": "1,469", "chg_pct": "+0.60%", "chg_abs": "+9 KRW"}}, "highlight": "Korean markets plunged amid <strong>Middle East conflict fears</strong> driving oil higher, before staging a sharp rebound with semiconductors leading the recovery.", "gainers": [{"rank": 1, "ticker": "322000", "name_kr": "HD현대에너지솔루션", "name_en": "HD Hyundai Energy Solutions", "change_pct": 29.97, "close_price": 117100, "volume": 4534842, "market_cap": 0, "sector_en": "Energy Equipment", "theme_en": "Solar Power", "reason_en": "Solar module demand and global project expansion expectations amid China export VAT rebate cancellation"}, {"rank": 2, "ticker": "000390", "name_kr": "삼화페인트", "name_en": "Samhwa Paints", "change_pct": 29.91, "close_price": 10120, "volume": 3637517, "market_cap": 0, "sector_en": "Chemicals", "theme_en": "Coatings", "reason_en": "Rebound from oversold levels and sector rotation into value stocks"}, {"rank": 3, "ticker": "010820", "name_kr": "퍼스텍", "name_en": "Firstec", "change_pct": 16.84, "close_price": 9020, "volume": 35319368, "market_cap": 0, "sector_en": "Chemicals", "theme_en": "Petrochemicals", "reason_en": "Recovery play following sector-wide declines and improved demand outlook"}, {"rank": 4, "ticker": "009830", "name_kr": "한화솔루션", "name_en": "Hanwha Solutions", "change_pct": 16.67, "close_price": 51800, "volume": 17980003, "market_cap": 0, "sector_en": "Energy", "theme_en": "Solar Power", "reason_en": "Solar cell production expansion and polysilicon supply contract benefits with OCI"}, {"rank": 5, "ticker": "010060", "name_kr": "OCI홀딩스", "name_en": "OCI Holdings", "change_pct": 15.38, "close_price": 151500, "volume": 298630, "market_cap": 0, "sector_en": "Chemicals", "theme_en": "Solar Materials", "reason_en": "Non-Chinese polysilicon supply advantage amid US UFLPA regulations strengthening"}], "losers": [{"rank": 1, "ticker": "004090", "name_kr": "한국석유", "name_en": "Korea Petroleum", "change_pct": -17.41, "close_price": 23250, "volume": 1189285, "market_cap": 0, "sector_en": "Oil & Gas", "theme_en": "Refining", "reason_en": "Rising crude oil costs squeezing refining margins and energy import concerns"}, {"rank": 2, "ticker": "011330", "name_kr": "유니켐", "name_en": "Unichem", "change_pct": -16.42, "close_price": 631, "volume": 32682743, "market_cap": 0, "sector_en": "Chemicals", "theme_en": "Specialty Chemicals", "reason_en": "Raw material cost pressures from higher oil prices and margin compression"}, {"rank": 3, "ticker": "014530", "name_kr": "극동유화", "name_en": "Kukdong Oil & Chemical", "change_pct": -12.73, "close_price": 4285, "volume": 9757561, "market_cap": 0, "sector_en": "Oil & Gas", "theme_en": "Petrochemicals", "reason_en": "Crude oil price surge impacting petrochemical margins and production costs"}, {"rank": 4, "ticker": "760024", "name_kr": "키움 인버스 2X K방산 TOP5 ETN", "name_en": "Kiwoom Inverse 2X K-Defense TOP5 ETN", "change_pct": -10.05, "close_price": 6710, "volume": 30570, "market_cap": 0, "sector_en": "ETF/ETN", "theme_en": "Defense Inverse", "reason_en": "Defense stocks rally causing inverse ETN to decline sharply"}, {"rank": 5, "ticker": "700035", "name_kr": "하나 인버스 2X K방산TOP10 ETN", "name_en": "Hana Inverse 2X K-Defense TOP10 ETN", "change_pct": -9.57, "close_price": 6800, "volume": 1632587, "market_cap": 0, "sector_en": "ETF/ETN", "theme_en": "Defense Inverse", "reason_en": "Strong defense sector performance leading to inverse ETN losses"}], "strong_sectors": [{"name": "Solar Energy", "chg": "15.2", "stocks": "HD Hyundai Energy Solutions · Hanwha Solutions"}, {"name": "Memory Semiconductors", "chg": "11.8", "stocks": "Samsung Electronics · SK Hynix"}, {"name": "Renewable Materials", "chg": "14.3", "stocks": "OCI Holdings · OCI"}, {"name": "Defense & Aerospace", "chg": "8.7", "stocks": "Hanwha Aerospace · Korea Aerospace"}], "weak_sectors": [{"name": "Oil Refining", "chg": "-15.1", "stocks": "Korea Petroleum · S-Oil"}, {"name": "Petrochemicals", "chg": "-12.4", "stocks": "Kukdong Oil & Chemical · LG Chem"}, {"name": "Specialty Chemicals", "chg": "-8.9", "stocks": "Unichem · Kolon Industries"}, {"name": "Inverse ETNs", "chg": "-9.8", "stocks": "Defense Inverse ETNs · Tech Inverse ETNs"}], "_built_at": "2026-03-06 16:26", "_date_label": "Fri, Mar 06, 2026"};</script>
 </head>
 <body>
 
@@ -472,7 +471,7 @@
 })();
 function switchTab(t){const u=t==='up';['panelUp','panelDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));['tabUp','tabDn'].forEach((id,i)=>document.getElementById(id).classList.toggle('active',u?i===0:i===1));}
 function fmtVol(v){if(!v)return'—';if(v>=1e6)return(v/1e6).toFixed(1)+'M';if(v>=1e3)return(v/1e3).toFixed(0)+'K';return String(v);}
-function fmtMcap(v){if(!v)return'—';const t=v/10000;return t>=1?t.toFixed(1)+'T KRW':v.toLocaleString()+'B KRW';}
+function fmtMcap(v){if(!v)return'—';const t=v/1000000;if(t>=0.1)return t.toFixed(1)+'T KRW';const b=v/10000;if(b>=1)return b.toFixed(0)+'B KRW';return v.toLocaleString()+'M KRW';}
 function fmtPrice(v){return v?'₩'+Number(v).toLocaleString():'—';}
 function setIndex(id,val,chgPct,chgAbs){
   const ve=document.getElementById(id+'Val'),ce=document.getElementById(id+'Chg'),ae=document.getElementById(id+'Abs'),be=document.getElementById(id+'Bar');
@@ -678,29 +677,7 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-  if (window.__MARKET_DATA__) {
-    // GitHub Actions가 주입한 실제 데이터
-    const d = window.__MARKET_DATA__;
-    const m = d.market || {};
-    if (m.kospi)  setIndex('kospi',  m.kospi.value,  m.kospi.chg_pct,  m.kospi.chg_abs);
-    if (m.kosdaq) setIndex('kosdaq', m.kosdaq.value, m.kosdaq.chg_pct, m.kosdaq.chg_abs);
-    if (m.usdkrw) setIndex('usdkrw', m.usdkrw.value, m.usdkrw.chg_pct, m.usdkrw.chg_abs);
-    if (d.highlight) document.getElementById('hlText').innerHTML = d.highlight;
-    const g = d.gainers||[], l = d.losers||[];
-    document.getElementById('gainersContent').innerHTML = g.length ? g.map((s,i)=>renderCard(s,'up',i+1)).join('') : '';
-    document.getElementById('losersContent').innerHTML  = l.length ? l.map((s,i)=>renderCard(s,'dn',i+1)).join('') : '';
-    if (d.strong_sectors) document.getElementById('strongSectors').innerHTML = renderSectors(d.strong_sectors,'up');
-    if (d.weak_sectors)   document.getElementById('weakSectors').innerHTML   = renderSectors(d.weak_sectors,'dn');
-    const ts = d._built_at || '';
-    setStatus(ts ? 'Data as of ' + ts + ' KST · Auto-updated daily' : 'Live data loaded', true);
-    // 날짜도 업데이트
-    if (d._date_label) document.getElementById('heroDate').textContent = d._date_label + ' · 15:30 KST';
-  } else {
-    // 로컬 개발용 목업
-    renderMock();
-  }
-});
+window.addEventListener('DOMContentLoaded',renderMock);
 </script>
 
 <!-- API Key Modal -->
