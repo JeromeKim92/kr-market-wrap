@@ -1,0 +1,44 @@
+name: Korea Market Wrap — Daily Build
+
+on:
+  schedule:
+    # 평일 16:00 KST (07:00 UTC) — 장 마감(15:30) 후 30분 여유
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install \
+            pykrx \
+            yfinance \
+            pandas \
+            requests \
+            lxml \
+            html5lib \
+            beautifulsoup4
+
+      - name: Build market wrap
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/fetch_and_build.py
+
+      - name: Commit & push docs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --cached --quiet || git commit -m "chore: daily market wrap $(date +'%Y-%m-%d')"
+          git push
