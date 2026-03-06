@@ -41,10 +41,29 @@ jobs:
           python scripts/fetch_and_build.py
           echo "▶ $(TZ='Asia/Seoul' date) — Build done"
 
-      - name: Commit & Push docs/
+      - name: Validate output snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path('docs/market_data.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+
+          market = data.get('market', {})
+          market_ok = any((market.get(k, {}) or {}).get('value') not in ('—', '', None) for k in ('kospi', 'kosdaq', 'usdkrw'))
+          movers_ok = bool(data.get('gainers') or data.get('losers'))
+
+          if not (market_ok or movers_ok):
+            raise SystemExit('❌ market_data.json is empty (no market values and no movers).')
+
+          print('✅ snapshot validation passed')
+          PY
+
+      - name: Commit & Push docs artifacts
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          git add docs/market_data.json
           git diff --staged --quiet || git commit -m "daily: $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
           git push

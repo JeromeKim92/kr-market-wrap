@@ -28,9 +28,41 @@ ROOT     = Path(__file__).parent.parent
 TEMPLATE = ROOT / "index.html"
 OUT_DIR  = ROOT / "docs"
 OUT_FILE = OUT_DIR / "index.html"
+OUT_JSON = OUT_DIR / "market_data.json"
 
 def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
+
+
+
+
+def _recent_weekday_yyyymmdd(base_date=None) -> str:
+    d = base_date or datetime.now(KST).date()
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d.strftime("%Y%m%d")
+
+def _is_empty_market(market: dict) -> bool:
+    for key in ("kospi", "kosdaq", "usdkrw"):
+        if (market or {}).get(key, {}).get("value") not in (None, "", "—"):
+            return False
+    return True
+
+
+def _load_last_success_snapshot() -> dict | None:
+    """이전 빌드 산출물에서 마지막 유효 스냅샷을 찾는다.
+
+    충돌/인코딩 이슈를 줄이기 위해 단일 소스 docs/market_data.json 만 사용한다.
+    """
+    try:
+        if OUT_JSON.exists():
+            data = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+            if data.get("gainers") or data.get("losers") or not _is_empty_market(data.get("market", {})):
+                return data
+    except Exception:
+        pass
+    return None
+
 
 
 # ── ETF/ETN/우선주 필터 ───────────────────────────────────────────────────
@@ -59,7 +91,7 @@ def get_indices():
     ]:
         try:
             df = yf.download(ticker, period="5d", interval="1d",
-                             auto_adjust=True, progress=False, silent=True)
+                             auto_adjust=True, progress=False)
             if hasattr(df.columns, 'levels'):
                 df.columns = df.columns.get_level_values(0)
             df = df.dropna(subset=["Close"])
@@ -84,7 +116,7 @@ def _empty_indices():
 
 
 # ── 2. 종목 랭킹 (pykrx — KRX 공식 데이터) ───────────────────────────────
-def get_movers(limit: int = 5) -> tuple[list, list]:
+def get_movers(limit: int = 5) -> tuple[list, list, str]:
     """
     pykrx로 KOSPI + KOSDAQ 전종목 당일 시세를 가져와
     등락률 기준 상위/하위 종목을 반환.
@@ -101,7 +133,7 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     try:
         from pykrx import stock as krx
     except ImportError:
-        log("pykrx 미설치 — pip install pykrx"); return [], []
+        log("pykrx 미설치 — pip install pykrx"); return [], [], _recent_weekday_yyyymmdd()
 
     # 오늘 KST 기준 가장 최근 영업일 찾기
     trade_date = _last_trading_day()
@@ -177,7 +209,7 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     log(f"  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
     log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
 
-    return gainers, losers
+    return gainers, losers, trade_date
 
 
 def _last_trading_day() -> str:
@@ -208,6 +240,16 @@ def enrich_with_claude(gainers: list, losers: list, today_str: str) -> dict:
 
     if not gainers and not losers:
         return {"highlight":"","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
+
+    if not ANTHROPIC_KEY:
+        log("  ANTHROPIC_API_KEY 없음 — 뉴스 보강 없이 가격 데이터만 빌드")
+        return {
+            "highlight": "<strong>Price/volume snapshot generated from KRX close data</strong> without AI news enrichment.",
+            "gainers": [],
+            "losers": [],
+            "strong_sectors": [],
+            "weak_sectors": [],
+        }
 
     def fmt(s):
         hint = KOREAN_NAME_MAP.get(s['name_kr'], "")
@@ -1277,7 +1319,7 @@ def main():
     log(f"Korea Market Wrap v10 — {now.strftime('%Y-%m-%d %H:%M KST')}")
 
     if not ANTHROPIC_KEY:
-        log("ERROR: ANTHROPIC_API_KEY 없음"); sys.exit(1)
+        log("WARNING: ANTHROPIC_API_KEY 없음 — AI 뉴스 요약 없이 진행")
 
     # 영문명 매핑
     log("영문명 매핑 로드...")
@@ -1289,7 +1331,7 @@ def main():
 
     # 2. 종목 랭킹 (pykrx)
     log("종목 랭킹 (pykrx)...")
-    gainers_raw, losers_raw = get_movers(5)
+    gainers_raw, losers_raw, trade_date = get_movers(5)
 
     if not gainers_raw and not losers_raw:
         log("WARNING: pykrx 데이터 없음")
@@ -1301,6 +1343,15 @@ def main():
         gainers_final = merge(gainers_raw, enriched.get("gainers", []))
         losers_final  = merge(losers_raw,  enriched.get("losers",  []))
 
+    # 표시 기준일: 당일이 아니라 마지막 거래일 우선
+    display_label = now.strftime("%a, %b %d, %Y")
+    if trade_date and len(trade_date) == 8:
+        try:
+            td = datetime.strptime(trade_date, "%Y%m%d")
+            display_label = td.strftime("%a, %b %d, %Y")
+        except Exception:
+            pass
+
     data = {
         "market": {"kospi": indices["kospi"], "kosdaq": indices["kosdaq"], "usdkrw": indices["usdkrw"]},
         "highlight":      enriched.get("highlight",""),
@@ -1309,18 +1360,45 @@ def main():
         "strong_sectors": enriched.get("strong_sectors",[]),
         "weak_sectors":   enriched.get("weak_sectors",[]),
         "_built_at":   now.strftime("%Y-%m-%d %H:%M"),
-        "_date_label": now.strftime("%a, %b %d, %Y"),
+        "_date_label": display_label,
     }
 
-    html = TEMPLATE.read_text(encoding="utf-8")
-    html = html.replace(
+    # 당일 데이터 취득 실패 시, 마지막 정상 스냅샷으로 안전 폴백
+    if _is_empty_market(data["market"]) and not data["gainers"] and not data["losers"]:
+        last_ok = _load_last_success_snapshot()
+        if last_ok:
+            log("WARNING: 당일 실데이터 없음 → 마지막 정상 스냅샷으로 폴백")
+            source_label = last_ok.get("_date_label") or "unknown"
+            data = {
+                **last_ok,
+                "_stale": True,
+                "_stale_reason": "today-fetch-failed",
+                "_stale_source_date_label": source_label,
+                "_built_at": now.strftime("%Y-%m-%d %H:%M"),
+                "_date_label": display_label,
+            }
+
+    html_template = TEMPLATE.read_text(encoding="utf-8")
+    html_snapshot = html_template.replace(
         "<!-- __DATA_SCRIPT__ -->",
         f'<script>window.__MARKET_DATA__ = {json.dumps(data, ensure_ascii=False)};</script>'
     )
+
     OUT_DIR.mkdir(exist_ok=True)
-    OUT_FILE.write_text(html, encoding="utf-8")
+
+    # docs/index.html은 정적 템플릿 유지 (market_data.json을 클라이언트가 로드)
+    OUT_FILE.write_text(html_template, encoding="utf-8")
+
+    # 데이터 스냅샷은 별도 JSON으로 저장
+    OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 날짜별 아카이브에는 스냅샷 내장본을 저장
+    archive_file = OUT_DIR / f"kr_market_{now.strftime('%Y%m%d')}.html"
+    archive_file.write_text(html_snapshot, encoding="utf-8")
+
     log(f"✓ {OUT_FILE} ({OUT_FILE.stat().st_size:,} bytes)")
-    shutil.copy(OUT_FILE, OUT_DIR / f"kr_market_{now.strftime('%Y%m%d')}.html")
+    log(f"✓ {OUT_JSON} ({OUT_JSON.stat().st_size:,} bytes)")
+    log(f"✓ {archive_file} ({archive_file.stat().st_size:,} bytes)")
     log("빌드 완료 ✓")
 
 
