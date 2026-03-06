@@ -1,19 +1,23 @@
 #!/usr/bin/env python3
 """
-Korea Market Wrap v8
-- 지수/환율  : yfinance (^KS11, ^KQ11, KRW=X)
-- 종목 랭킹  : 3중 소스 교차검증
-    1) 네이버 금융 sise_rise/sise_fall — 주 소스 (KOSPI+KOSDAQ 통합, ETF/ETN 제외)
-    2) Yahoo Finance yfinance — 수치 교차검증 (등락률 ±5%p 이상 차이 시 경고)
-    3) KRX data.krx.co.kr — 최종 fallback + 당일 전종목 등락률 재정렬
-    → 최종 종목 리스트: 등락률 기준 내림/오름차순 강제 재정렬
-    → ETF/ETN/스팩/우선주 자동 필터링
-- 뉴스/섹터  : Claude AI (web_search)
-- 영문명     : KRX 전체 상장사 자동 로드 + fallback 875개
+Korea Market Wrap v10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+데이터 소스 (우선순위):
+  1. pykrx  — KRX 공식 당일 전종목 시세 (KOSPI+KOSDAQ)
+             가장 정확·안정적, GitHub Actions에서 검증됨
+  2. yfinance — 지수/환율 전용 (^KS11, ^KQ11, KRW=X)
+  3. Claude web_search — 뉴스·섹터·reason 보강 전용
+
+pykrx 핵심 API:
+  stock.get_market_ohlcv(date, market="KOSPI")  → DataFrame(ticker index)
+  stock.get_market_ohlcv(date, market="KOSDAQ") → DataFrame(ticker index)
+  컬럼: 시가, 고가, 저가, 종가, 거래량, 거래대금, 등락률
+  stock.get_market_ticker_name(ticker)           → 종목명
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
-import os, sys, json, re, shutil, html as htmllib
-from datetime import datetime, timezone, timedelta
+import os, sys, json, re, shutil
+from datetime import datetime, timezone, timedelta, date as date_type
 from pathlib import Path
 import urllib.request, urllib.parse
 
@@ -29,493 +33,254 @@ def log(msg):
     print(f"[{datetime.now(KST).strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
+# ── ETF/ETN/우선주 필터 ───────────────────────────────────────────────────
+_FILTER_RE = re.compile(
+    r'(ETF|ETN|레버리지|인버스|선물|KODEX|TIGER|KBSTAR|SOL|ACE|ARIRANG|HANARO'
+    r'|KOSEF|히어로즈|파워|TREX|TIMEFOLIO|스팩|SPAC'
+    r'|\d+호$|우$|1우$|2우$|B주$)',
+    re.IGNORECASE
+)
+def _is_junk(name: str) -> bool:
+    return bool(_FILTER_RE.search(name))
+
+
 # ── 1. 지수 + 환율 (yfinance) ─────────────────────────────────────────────
 def get_indices():
-    """
-    yfinance 공식 문서 기준:
-      yf.download(tickers, period, interval) → DataFrame (MultiIndex if multiple tickers)
-      단일 ticker → Close 컬럼 직접 접근
-    """
     try:
         import yfinance as yf
     except ImportError:
-        log("yfinance 미설치 → pip install yfinance")
-        return _empty_indices()
+        log("yfinance 미설치"); return _empty_indices()
 
     result = {}
-    targets = [
-        ("kospi",  "^KS11",  "pts",  "{:.2f}"),
-        ("kosdaq", "^KQ11",  "pts",  "{:.2f}"),
-        ("usdkrw", "KRW=X",  "KRW",  "{:,.0f}"),
-    ]
-
-    for key, ticker, unit, fmt in targets:
+    for key, ticker, unit, fmt_str in [
+        ("kospi",  "^KS11", "pts", "{:.2f}"),
+        ("kosdaq", "^KQ11", "pts", "{:.2f}"),
+        ("usdkrw", "KRW=X", "KRW", "{:,.0f}"),
+    ]:
         try:
-            # period="5d" → 최근 5 영업일치, auto_adjust=True(기본값)
             df = yf.download(ticker, period="5d", interval="1d",
-                             auto_adjust=True, progress=False)
-            # 컬럼이 MultiIndex일 경우 단일 ticker면 level 0으로 flatten
-            if isinstance(df.columns, type(df.columns)) and hasattr(df.columns, 'levels'):
+                             auto_adjust=True, progress=False, silent=True)
+            if hasattr(df.columns, 'levels'):
                 df.columns = df.columns.get_level_values(0)
             df = df.dropna(subset=["Close"])
             if len(df) < 2:
-                raise ValueError(f"데이터 부족 (rows={len(df)})")
-
-            cur  = float(df["Close"].iloc[-1])
-            prev = float(df["Close"].iloc[-2])
-            diff = cur - prev
-            pct  = diff / prev * 100
-            sign = "+" if diff >= 0 else "-"
-
+                raise ValueError(f"rows={len(df)}")
+            cur, prev = float(df["Close"].iloc[-1]), float(df["Close"].iloc[-2])
+            diff = cur - prev; pct = diff / prev * 100
+            sign = "+" if diff >= 0 else ""
             result[key] = {
-                "value":   fmt.format(cur),
-                "chg_pct": f"{sign}{abs(pct):.2f}%",
-                "chg_abs": f"{sign}{fmt.format(abs(diff))} {unit}",
+                "value":   fmt_str.format(cur),
+                "chg_pct": f"{sign}{pct:.2f}%",
+                "chg_abs": f"{sign}{fmt_str.format(abs(diff))} {unit}",
             }
             log(f"  {key}: {result[key]['value']} ({result[key]['chg_pct']})")
         except Exception as e:
             log(f"  {key} 실패: {e}")
-            result[key] = {"value": "—", "chg_pct": "—", "chg_abs": "—"}
-
+            result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
     return result
 
 def _empty_indices():
-    return {k: {"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
-
-# ── 2. 종목 랭킹 — 3중 소스 교차검증 ─────────────────────────────────────
-#
-# 설계 원칙:
-#   1) 네이버 금융: 주 소스 (KOSPI+KOSDAQ 통합 상승/하락 페이지)
-#   2) KRX 당일 전종목 데이터: 교차검증 + 재정렬 (오탐 방지)
-#   3) yfinance: 개별 종목 등락률 검증 (±5%p 이상 괴리 시 KRX 값 우선)
-#   → ETF/ETN/스팩/우선주/워런트 필터링
-#   → 최종 리스트를 등락률 기준 강제 재정렬
-
-# ETF/ETN/스팩/우선주 필터링 패턴
-_FILTER_PATTERNS = re.compile(
-    r'(ETF|ETN|레버리지|인버스|선물|KODEX|TIGER|KBSTAR|SOL|ACE|ARIRANG|HANARO'
-    r'|KOSEF|히어로즈|파워|TREX|TIMEFOLIO|KB스타|NH-Amundi'
-    r'|스팩|SPAC|\d호$|우$|우선주|B주$|1우|2우)',
-    re.IGNORECASE
-)
-
-def _is_filtered(name: str) -> bool:
-    """ETF/ETN/스팩/우선주 등 제외 종목 판별"""
-    return bool(_FILTER_PATTERNS.search(name))
+    return {k:{"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
 
 
-def _parse_pct(raw: str) -> float | None:
-    """등락률 문자열 → float. 실패 시 None"""
-    try:
-        clean = str(raw).replace(",","").replace("%","").replace("+","").strip()
-        m = re.search(r"[+\-]?\d+(?:\.\d+)?", clean)
-        return float(m.group(0)) if m else None
-    except Exception:
-        return None
-
-
-# ── 소스 1: 네이버 금융 ──────────────────────────────────────────────────
-def _naver_movers_raw(direction="rise", limit=30) -> list[dict]:
+# ── 2. 종목 랭킹 (pykrx — KRX 공식 데이터) ───────────────────────────────
+def get_movers(limit: int = 5) -> tuple[list, list]:
     """
-    네이버 금융 상승/하락 종목 페이지 파싱.
-    limit은 충분히 크게 가져와서 이후 필터링·재정렬 후 상위 N개 선택.
-    반환: [{name_kr, ticker, change_pct, close_price, volume, market_cap}, ...]
+    pykrx로 KOSPI + KOSDAQ 전종목 당일 시세를 가져와
+    등락률 기준 상위/하위 종목을 반환.
+
+    pykrx 공식 API:
+      from pykrx import stock
+      df = stock.get_market_ohlcv("YYYYMMDD", market="KOSPI")
+        → index: ticker(6자리), columns: 시가,고가,저가,종가,거래량,거래대금,등락률
+
+    시가총액:
+      df_cap = stock.get_market_cap("YYYYMMDD", market="KOSPI")
+        → index: ticker, columns: 시가총액, 거래대금, 상장주식수
     """
-    import requests, io
     try:
-        import pandas as pd
+        from pykrx import stock as krx
     except ImportError:
-        return []
+        log("pykrx 미설치 — pip install pykrx"); return [], []
 
-    url_map = {
-        "rise": "https://finance.naver.com/sise/sise_rise.naver",
-        "fall": "https://finance.naver.com/sise/sise_fall.naver",
-    }
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0.0.0",
-        "Accept-Language": "ko-KR,ko;q=0.9",
-        "Referer": "https://finance.naver.com/sise/",
-    }
+    # 오늘 KST 기준 가장 최근 영업일 찾기
+    trade_date = _last_trading_day()
+    log(f"  기준일: {trade_date}")
 
-    results = []
-    # 네이버는 페이지네이션: page=1,2 각각 50개씩
-    for page in (1, 2):
-        url = f"{url_map[direction]}?&page={page}"
+    all_stocks = []
+    for market in ("KOSPI", "KOSDAQ"):
         try:
-            resp = requests.get(url, headers=headers, timeout=20)
-            resp.encoding = "euc-kr"
-            tables = pd.read_html(io.StringIO(resp.text), encoding="euc-kr")
-
-            df = None
-            for tbl in tables:
-                cols = [str(c) for c in tbl.columns]
-                if any("종목" in c for c in cols) and any("등락" in c for c in cols):
-                    df = tbl
-                    break
-            if df is None and len(tables) > 1:
-                df = tables[1]
-            if df is None:
+            log(f"  pykrx {market} 시세 로드...")
+            df = krx.get_market_ohlcv(trade_date, market=market)
+            if df is None or df.empty:
+                log(f"  {market} 데이터 없음")
                 continue
 
-            # 컬럼 매핑
-            cols = [str(c) for c in df.columns]
-            def find_col(keyword):
-                return next((df.columns[i] for i,c in enumerate(cols) if keyword in c), None)
+            # 시가총액 로드
+            try:
+                df_cap = krx.get_market_cap(trade_date, market=market)
+            except Exception:
+                df_cap = None
 
-            col_name   = find_col("종목")   or df.columns[0]
-            col_close  = find_col("현재")   or df.columns[1]
-            col_pct    = find_col("등락률") or df.columns[3]
-            col_vol    = find_col("거래량")
-            col_amount = next((df.columns[i] for i,c in enumerate(cols)
-                               if "거래대금" in c or ("대금" in c and "거래" in c)), None)
+            log(f"  {market}: {len(df)}개 종목 로드")
 
-            # ticker 추출 (원문 HTML href에서)
-            ticker_map = {}
-            for m in re.finditer(r'/item/main\.naver\?code=(\d{6})[^>]*>([^<]+)<', resp.text):
-                ticker_map[m.group(2).strip()] = m.group(1)
-
-            for _, row in df.iterrows():
-                name_kr = str(row[col_name]).strip()
-                if not name_kr or name_kr in ("nan", "종목명"):
-                    continue
-                if _is_filtered(name_kr):
+            for ticker, row in df.iterrows():
+                name = krx.get_market_ticker_name(ticker)
+                if not name or _is_junk(name):
                     continue
 
-                pct = _parse_pct(row[col_pct])
-                if pct is None:
-                    continue
-                pct = -abs(pct) if direction == "fall" else abs(pct)
+                pct = float(row.get("등락률", 0))
+                close = int(row.get("종가", 0))
+                volume = int(row.get("거래량", 0))
+                amount = int(row.get("거래대금", 0))  # 원 단위
 
-                try:
-                    close = int(str(row[col_close]).replace(",","").split(".")[0])
-                except Exception:
-                    close = 0
+                # 시가총액 (백만원)
+                mcap = 0
+                if df_cap is not None and ticker in df_cap.index:
+                    mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
 
-                volume = 0
-                if col_vol:
-                    try: volume = int(str(row[col_vol]).replace(",","").split(".")[0])
-                    except Exception: pass
-
-                market_cap = 0
-                if col_amount:
-                    try: market_cap = int(str(row[col_amount]).replace(",","").split(".")[0])
-                    except Exception: pass
-
-                results.append({
-                    "name_kr":    name_kr,
-                    "ticker":     ticker_map.get(name_kr, ""),
-                    "change_pct": round(pct, 2),
-                    "close_price": close,
-                    "volume":     volume,
-                    "market_cap": market_cap,
-                    "_src":       "naver",
-                })
-
-            if len(results) >= limit:
-                break
-
-        except Exception as e:
-            log(f"  네이버 page={page} 실패: {e}")
-            continue
-
-    return results
-
-
-# ── 소스 2: KRX 당일 전종목 데이터 ─────────────────────────────────────
-def _krx_full_day(date_str: str | None = None) -> dict[str, dict]:
-    """
-    KRX data.krx.co.kr 에서 당일 전종목 시세 다운로드.
-    반환: {ticker: {change_pct, close_price, volume, market_cap}}
-    date_str: "YYYYMMDD" 형식, None이면 오늘 KST
-    """
-    if date_str is None:
-        date_str = datetime.now(KST).strftime("%Y%m%d")
-
-    result = {}
-    for mkt_id in ("STK", "KSQ"):   # KOSPI, KOSDAQ
-        try:
-            otp_params = urllib.parse.urlencode({
-                "locale":       "ko_KR",
-                "mktId":        mkt_id,
-                "trdDd":        date_str,
-                "money":        "1",
-                "csvxls_isNo":  "false",
-                "name":         "fileDown",
-                "url":          "dbms/MDC/STAT/standard/MDCSTAT01501",
-            }).encode()
-
-            otp_req = urllib.request.Request(
-                "https://data.krx.co.kr/comm/fileDn/GenerateOTP/generate.cmd",
-                data=otp_params,
-                headers={
-                    "Referer": "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/"
-                               "index.cmd?menuId=MDC0201020101",
-                    "User-Agent": "Mozilla/5.0",
-                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                },
-                method="POST"
-            )
-            with urllib.request.urlopen(otp_req, timeout=15) as r:
-                otp = r.read().decode("utf-8").strip()
-
-            dl_req = urllib.request.Request(
-                "https://data.krx.co.kr/comm/fileDn/download_csv/download.cmd",
-                data=urllib.parse.urlencode({"code": otp}).encode(),
-                headers={"Referer": "https://data.krx.co.kr", "User-Agent": "Mozilla/5.0"},
-                method="POST"
-            )
-            with urllib.request.urlopen(dl_req, timeout=30) as r2:
-                raw = r2.read().decode("euc-kr", errors="replace")
-
-            lines = raw.strip().splitlines()
-            if len(lines) < 2:
-                continue
-            header = [h.strip().strip('"') for h in lines[0].split(",")]
-
-            # 컬럼 인덱스 탐색
-            def hcol(kw, exclude=""):
-                return next((i for i,h in enumerate(header)
-                             if kw in h and (not exclude or exclude not in h)), None)
-
-            i_ticker = hcol("종목코드")
-            i_name   = hcol("종목명") if hcol("종목명") is not None else hcol("종목")
-            i_close  = hcol("종가")   or hcol("현재가")
-            i_pct    = hcol("등락률") or hcol("대비율")
-            i_vol    = hcol("거래량")
-            i_mcap   = hcol("시가총액")
-
-            if None in (i_ticker, i_pct):
-                log(f"  KRX {mkt_id} 컬럼 탐색 실패: {header}")
-                continue
-
-            for line in lines[1:]:
-                cols = [c.strip().strip('"') for c in line.split(",")]
-                if len(cols) <= max(filter(lambda x: x is not None,
-                                           [i_ticker, i_pct, i_close or 0])):
-                    continue
-                ticker = cols[i_ticker].strip() if i_ticker is not None else ""
-                if not ticker:
+                if close <= 0:
                     continue
 
-                name_kr = cols[i_name].strip() if i_name is not None else ""
-                if _is_filtered(name_kr):
-                    continue
-
-                pct = _parse_pct(cols[i_pct]) if i_pct is not None else None
-                if pct is None:
-                    continue
-
-                try:
-                    close = int(cols[i_close].replace(",","")) if i_close is not None else 0
-                except Exception:
-                    close = 0
-
-                try:
-                    volume = int(cols[i_vol].replace(",","")) if i_vol is not None else 0
-                except Exception:
-                    volume = 0
-
-                try:
-                    mcap = int(cols[i_mcap].replace(",","")) if i_mcap is not None else 0
-                except Exception:
-                    mcap = 0
-
-                result[ticker] = {
-                    "name_kr":     name_kr,
+                all_stocks.append({
+                    "ticker":      ticker,
+                    "name_kr":     name,
+                    "name_en":     name,
                     "change_pct":  round(pct, 2),
                     "close_price": close,
                     "volume":      volume,
-                    "market_cap":  mcap,   # 실제 시가총액 (백만원)
-                }
-
-            log(f"  KRX {mkt_id} 로드: {len([v for v in result.values() if v])}개")
+                    "market_cap":  mcap,
+                    "market":      market,
+                })
 
         except Exception as e:
-            log(f"  KRX {mkt_id} 시세 로드 실패: {e}")
+            log(f"  {market} 실패: {e}")
+            import traceback; traceback.print_exc()
 
-    return result
+    if not all_stocks:
+        log("  pykrx 데이터 없음 → 빈 리스트 반환")
+        return [], []
 
+    # 등락률 기준 정렬
+    gainers_all = sorted(
+        [s for s in all_stocks if s["change_pct"] > 0],
+        key=lambda x: x["change_pct"], reverse=True
+    )
+    losers_all = sorted(
+        [s for s in all_stocks if s["change_pct"] < 0],
+        key=lambda x: x["change_pct"]
+    )
 
-# ── 소스 3: yfinance 개별 종목 검증 ────────────────────────────────────
-def _yf_verify(ticker: str, naver_pct: float) -> float | None:
-    """
-    yfinance로 단일 종목 당일 등락률 조회.
-    KRX 티커는 6자리 + ".KS"(KOSPI) or ".KQ"(KOSDAQ)
-    반환: yfinance 등락률 또는 None (실패 시)
-    """
-    try:
-        import yfinance as yf
-        for suffix in (".KS", ".KQ"):
-            try:
-                df = yf.download(ticker + suffix, period="5d", interval="1d",
-                                 auto_adjust=True, progress=False)
-                if isinstance(df.columns, type(df.columns)) and hasattr(df.columns, 'levels'):
-                    df.columns = df.columns.get_level_values(0)
-                df = df.dropna(subset=["Close"])
-                if len(df) >= 2:
-                    pct = (df["Close"].iloc[-1] / df["Close"].iloc[-2] - 1) * 100
-                    return round(float(pct), 2)
-            except Exception:
-                continue
-    except Exception:
-        pass
-    return None
+    gainers = [dict(rank=i+1, **s) for i, s in enumerate(gainers_all[:limit])]
+    losers  = [dict(rank=i+1, **s) for i, s in enumerate(losers_all[:limit])]
 
-
-# ── 교차검증 + 재정렬 메인 함수 ────────────────────────────────────────
-def get_movers(limit=5):
-    """
-    3중 소스 교차검증으로 당일 상위 상승/하락 종목 추출.
-
-    전략:
-    1. 네이버에서 상위 50개 후보 수집 (ETF/ETN/스팩 제외)
-    2. KRX 당일 전종목 데이터 로드 (실패해도 진행)
-    3. KRX 데이터 있으면:
-       - KRX 수치로 등락률 재검증 (괴리 ±3%p 이상이면 KRX 우선)
-       - KRX 전종목 중 상위/하위를 네이버 결과와 교차
-    4. 최종 등락률 기준 재정렬 → 상위 limit개 반환
-
-    yfinance 개별 검증은 상위 후보 limit*2개에만 적용 (API 부하 절감)
-    """
-    log("종목 랭킹 조회 (3중 소스 교차검증)...")
-    today_str = datetime.now(KST).strftime("%Y%m%d")
-
-    # ── Step 1: 네이버 수집 ──────────────────────────────────────────────
-    log("  [1/3] 네이버 금융 수집...")
-    naver_up   = _naver_movers_raw("rise", limit=50)
-    naver_down = _naver_movers_raw("fall", limit=50)
-    log(f"    네이버 원시 데이터: 상승 {len(naver_up)}개, 하락 {len(naver_down)}개")
-
-    # ── Step 2: KRX 전종목 데이터 로드 ──────────────────────────────────
-    log("  [2/3] KRX 전종목 시세 로드...")
-    krx_all = _krx_full_day(today_str)
-    log(f"    KRX 데이터: {len(krx_all)}개 종목")
-
-    # ── Step 3: 교차검증 함수 ────────────────────────────────────────────
-    def cross_validate(candidates: list[dict], direction: str) -> list[dict]:
-        validated = []
-        for stock in candidates:
-            ticker = stock.get("ticker", "")
-            nv_pct = stock["change_pct"]
-
-            # KRX 데이터로 수치 검증
-            krx_data = krx_all.get(ticker)
-            if krx_data:
-                krx_pct = krx_data["change_pct"]
-                gap = abs(nv_pct - krx_pct)
-
-                if gap > 3.0:
-                    log(f"    ⚠ {stock['name_kr']} 괴리 {gap:.1f}%p "
-                        f"(네이버:{nv_pct:+.2f}% vs KRX:{krx_pct:+.2f}%) → KRX 우선")
-                    stock["change_pct"]  = krx_pct
-                    stock["close_price"] = krx_data["close_price"]
-                    stock["volume"]      = krx_data["volume"]
-
-                # 시가총액은 KRX 값이 실제값
-                if krx_data.get("market_cap"):
-                    stock["market_cap"] = krx_data["market_cap"]
-
-            validated.append(stock)
-
-        # 방향별 재정렬
-        if direction == "rise":
-            validated.sort(key=lambda x: x["change_pct"], reverse=True)
-        else:
-            validated.sort(key=lambda x: x["change_pct"])
-
-        return validated
-
-    # ── Step 4: KRX 전종목 기반 보완 ─────────────────────────────────────
-    # 네이버 상위 50개 검증
-    gainers_v = cross_validate(naver_up,   "rise")
-    losers_v  = cross_validate(naver_down, "fall")
-
-    # KRX 데이터가 있으면 추가 교차 (네이버에 없는 종목 보완)
-    if krx_all:
-        naver_tickers_up   = {s["ticker"] for s in gainers_v if s["ticker"]}
-        naver_tickers_down = {s["ticker"] for s in losers_v  if s["ticker"]}
-
-        krx_extras_up   = []
-        krx_extras_down = []
-        for ticker, data in krx_all.items():
-            name = data.get("name_kr","")
-            if _is_filtered(name) or not ticker:
-                continue
-            pct = data["change_pct"]
-
-            if ticker not in naver_tickers_up and pct > 5.0:
-                krx_extras_up.append({
-                    "name_kr":    name,
-                    "ticker":     ticker,
-                    "change_pct": pct,
-                    "close_price": data["close_price"],
-                    "volume":     data["volume"],
-                    "market_cap": data["market_cap"],
-                    "_src":       "krx",
-                })
-            elif ticker not in naver_tickers_down and pct < -5.0:
-                krx_extras_down.append({
-                    "name_kr":    name,
-                    "ticker":     ticker,
-                    "change_pct": pct,
-                    "close_price": data["close_price"],
-                    "volume":     data["volume"],
-                    "market_cap": data["market_cap"],
-                    "_src":       "krx",
-                })
-
-        gainers_v = sorted(gainers_v + krx_extras_up,   key=lambda x: x["change_pct"], reverse=True)
-        losers_v  = sorted(losers_v  + krx_extras_down, key=lambda x: x["change_pct"])
-
-    # ── Step 5: yfinance 상위 후보 검증 (limit*2개) ───────────────────────
-    log("  [3/3] yfinance 교차검증 (상위 후보)...")
-    for stock_list in (gainers_v[:limit*2], losers_v[:limit*2]):
-        for stock in stock_list:
-            if not stock.get("ticker"):
-                continue
-            yf_pct = _yf_verify(stock["ticker"], stock["change_pct"])
-            if yf_pct is None:
-                continue
-            gap = abs(stock["change_pct"] - yf_pct)
-            if gap > 5.0:
-                log(f"    ⚠ yfinance 괴리 {gap:.1f}%p {stock['name_kr']} "
-                    f"(현재:{stock['change_pct']:+.2f}% vs yf:{yf_pct:+.2f}%)")
-                # 3개 소스 중 2개(KRX or 네이버) vs yfinance 판단
-                # yfinance 괴리가 크면 경고만 (네이버/KRX 이미 교차검증 완료)
-
-    # ── Step 6: 최종 상위 N개 선택 + 포맷 ───────────────────────────────
-    def finalize(stock_list: list[dict], direction: str, n: int) -> list[dict]:
-        final = []
-        for rank, s in enumerate(stock_list[:n], 1):
-            final.append({
-                "rank":        rank,
-                "ticker":      s.get("ticker", ""),
-                "name_kr":     s["name_kr"],
-                "name_en":     s["name_kr"],   # enrich_with_claude에서 교체됨
-                "change_pct":  s["change_pct"],
-                "close_price": s["close_price"],
-                "volume":      s["volume"],
-                "market_cap":  s.get("market_cap", 0),
-                "sector_en":   "", "theme_en": "", "reason_en": "",
-                "_src":        s.get("_src", "naver"),
-            })
-        return final
-
-    gainers = finalize(gainers_v, "rise", limit)
-    losers  = finalize(losers_v,  "fall", limit)
-
-    up_summary = ', '.join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers)
-    dn_summary = ', '.join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers)
-    log(f"  ✓ 최종 상승: {up_summary}")
-    log(f"  ✓ 최종 하락: {dn_summary}")
+    log(f"  ✓ 상승: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in gainers))
+    log(f"  ✓ 하락: " + " | ".join(f"{s['name_kr']} {s['change_pct']:+.2f}%" for s in losers))
 
     return gainers, losers
 
 
+def _last_trading_day() -> str:
+    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD"""
+    from pykrx import stock as krx
+    today = datetime.now(KST).date()
 
-# ── 한국 상장사 전체 영문명 매핑 ──────────────────────────────────────────
-# KRX 공식 전체 상장사 목록을 런타임에 자동 로드 (KOSPI + KOSDAQ + KONEX 전종목)
-# fallback: 하드코딩 주요 종목 (~500개)
+    # 최근 5일 중 데이터가 있는 가장 최근 날짜 찾기
+    for delta in range(0, 7):
+        d = today - timedelta(days=delta)
+        if d.weekday() >= 5:  # 토(5), 일(6) 스킵
+            continue
+        ds = d.strftime("%Y%m%d")
+        try:
+            df = krx.get_market_ohlcv(ds, market="KOSPI")
+            if df is not None and not df.empty and len(df) > 100:
+                return ds
+        except Exception:
+            continue
+
+    # fallback: 오늘 날짜
+    return today.strftime("%Y%m%d")
+
+
+# ── 3. Claude web_search 뉴스 보강 ───────────────────────────────────────
+def enrich_with_claude(gainers: list, losers: list, today_str: str) -> dict:
+    log("Claude 뉴스·섹터 보강...")
+
+    if not gainers and not losers:
+        return {"highlight":"","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
+
+    def fmt(s):
+        hint = KOREAN_NAME_MAP.get(s['name_kr'], "")
+        h = f' → English: "{hint}"' if hint else ""
+        return f"  {s['name_kr']} ({s['ticker']}): {s['change_pct']:+.2f}%, ₩{s['close_price']:,}{h}"
+
+    payload = json.dumps({
+        "model": MODEL,
+        "max_tokens": 4000,
+        "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+        "messages": [{"role": "user", "content": f"""Today is {today_str} (KST).
+Korean stock market actual closing data from KRX:
+
+GAINERS (top {len(gainers)}, sorted by gain):
+{chr(10).join(fmt(s) for s in gainers)}
+
+LOSERS (top {len(losers)}, sorted by drop):
+{chr(10).join(fmt(s) for s in losers)}
+
+Search Korean financial news for today and return ONLY valid JSON:
+{{
+  "highlight": "1 English sentence. Bold key theme with <strong>tags</strong>.",
+  "gainers": [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
+  "losers":  [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
+  "strong_sectors": [{{"name":"","chg":"","stocks":""}}],
+  "weak_sectors":   [{{"name":"","chg":"","stocks":""}}]
+}}
+Rules: {len(gainers)} gainers, {len(losers)} losers, 4 sectors each.
+name_en: use EXACT English name from hint. reason_en: from today's news."""}]
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages", data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "x-api-key": ANTHROPIC_KEY,
+            "anthropic-version": "2023-06-01",
+            "anthropic-beta": "web-search-2025-03-05",
+        }, method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            data = json.loads(r.read())
+        raw = "\n".join(b["text"] for b in data.get("content",[]) if b.get("type")=="text")
+        raw = re.sub(r"```json\s*|```\s*","",raw).strip()
+        m = re.search(r"\{[\s\S]*\}", raw)
+        if not m: raise ValueError(f"JSON 없음: {raw[:200]}")
+        result = json.loads(m.group(0))
+        log("  ✓ Claude 보강 완료")
+        return result
+    except Exception as e:
+        log(f"  Claude 보강 실패: {e}")
+        return {"highlight":"Korean market closed.","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
+
+
+# ── 4. 병합 ──────────────────────────────────────────────────────────────
+def merge(raw_list: list, claude_list: list) -> list:
+    cmap = {c["ticker"]: c for c in (claude_list or [])}
+    out = []
+    for s in raw_list:
+        c = cmap.get(s["ticker"], {})
+        name_en = (c.get("name_en") or KOREAN_NAME_MAP.get(s["name_kr"]) or s["name_kr"])
+        out.append({**s,
+            "name_en":   name_en,
+            "sector_en": c.get("sector_en",""),
+            "theme_en":  c.get("theme_en",""),
+            "reason_en": c.get("reason_en","—"),
+        })
+    return out
+
+
+
+
 
 def _load_krx_name_map() -> dict:
     """
@@ -1506,129 +1271,43 @@ def _init_name_map():
     log(f"  영문명 매핑 총 {len(KOREAN_NAME_MAP)}개 준비 완료")
 
 
-# ── 3. Claude 보강 ────────────────────────────────────────────────────────
-def enrich_with_claude(gainers, losers, today_str):
-    log("Claude 뉴스 보강...")
-
-    def fmt(s):
-        name_en_hint = KOREAN_NAME_MAP.get(s['name_kr'], "")
-        hint_str = f" → English name: \"{name_en_hint}\"" if name_en_hint else " → translate name carefully"
-        return f"  - {s['name_kr']} ({s['ticker']}): {s['change_pct']:+.2f}%, ₩{s['close_price']:,}{hint_str}"
-
-    gainer_lines = "\n".join(fmt(x) for x in gainers)
-    loser_lines  = "\n".join(fmt(x) for x in losers)
-
-    prompt = f"""Today is {today_str} (KST). Actual Korean stock market closing data:
-
-GAINERS:
-{gainer_lines}
-
-LOSERS:
-{loser_lines}
-
-Search the web for today's Korean stock market news. Return ONLY valid JSON, no markdown fences:
-{{
-  "highlight": "One English sentence summarizing today's market. Bold key theme with <strong>tags</strong>.",
-  "gainers": [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
-  "losers":  [{{"ticker":"","name_en":"","sector_en":"","theme_en":"","reason_en":""}}],
-  "strong_sectors": [{{"name":"","chg":"4.82","stocks":"A · B"}}],
-  "weak_sectors":   [{{"name":"","chg":"-3.11","stocks":"A · B"}}]
-}}
-
-CRITICAL RULES:
-- gainers={len(gainers)} items, losers={len(losers)} items, sectors=4 each
-- name_en: use EXACTLY the English name hint provided above (e.g. "Hanwha Systems" not "Donghwa")
-- If no hint given, use the official English company name from their investor relations website
-- All values in English
-- reason_en: 1-2 sentences based on actual news from today's web search"""
-
-    payload = json.dumps({
-        "model": MODEL,
-        "max_tokens": 4000,
-        "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-        "messages": [{"role": "user", "content": prompt}]
-    }).encode()
-
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "x-api-key": ANTHROPIC_KEY,
-            "anthropic-version": "2023-06-01",
-            "anthropic-beta": "web-search-2025-03-05",
-        },
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = json.loads(r.read())
-
-    raw = "\n".join(b["text"] for b in data.get("content", []) if b.get("type") == "text")
-    raw = re.sub(r"```json\s*", "", raw, flags=re.IGNORECASE)
-    raw = re.sub(r"```\s*", "", raw).strip()
-    m   = re.search(r"\{[\s\S]*\}", raw)
-    if not m:
-        raise ValueError(f"JSON 없음: {raw[:200]}")
-    log("✓ Claude 보강 완료")
-    return json.loads(m.group(0))
-
-
-def merge(stock_list, claude_list):
-    cmap = {c["ticker"]: c for c in (claude_list or [])}
-    return [{
-        **s,
-        "name_en":   cmap.get(s["ticker"], {}).get("name_en",   s["name_kr"]),
-        "sector_en": cmap.get(s["ticker"], {}).get("sector_en", ""),
-        "theme_en":  cmap.get(s["ticker"], {}).get("theme_en",  ""),
-        "reason_en": cmap.get(s["ticker"], {}).get("reason_en", "—"),
-    } for s in stock_list]
-
-
-# ── Main ──────────────────────────────────────────────────────────────────
+# ── HTML 빌드 + Main ──────────────────────────────────────────────────────
 def main():
     now = datetime.now(KST)
-    log(f"Build v7 — {now.strftime('%Y-%m-%d %H:%M KST')}")
-
-    # 0. KRX 전체 상장사 영문명 매핑 로드 (런타임 자동 로드)
-    log("KRX 상장사 영문명 매핑 로드...")
-    _init_name_map()
+    log(f"Korea Market Wrap v10 — {now.strftime('%Y-%m-%d %H:%M KST')}")
 
     if not ANTHROPIC_KEY:
-        log("ERROR: ANTHROPIC_API_KEY 없음")
-        sys.exit(1)
+        log("ERROR: ANTHROPIC_API_KEY 없음"); sys.exit(1)
 
-    # 1. 지수 (yfinance)
-    log("지수/환율 조회 (yfinance)...")
+    # 영문명 매핑
+    log("영문명 매핑 로드...")
+    _init_name_map()
+
+    # 1. 지수/환율
+    log("지수/환율 (yfinance)...")
     indices = get_indices()
 
-    # 2. 종목 랭킹 (네이버 pd.read_html)
+    # 2. 종목 랭킹 (pykrx)
+    log("종목 랭킹 (pykrx)...")
     gainers_raw, losers_raw = get_movers(5)
 
     if not gainers_raw and not losers_raw:
-        log("WARNING: 종목 데이터 없음 — Claude 보강 없이 빈 데이터로 빌드")
-        enriched = {
-            "highlight": "Market data temporarily unavailable.",
-            "gainers": [], "losers": [],
-            "strong_sectors": [], "weak_sectors": []
-        }
+        log("WARNING: pykrx 데이터 없음")
+        enriched = {"highlight":"Market data unavailable.","gainers":[],"losers":[],"strong_sectors":[],"weak_sectors":[]}
+        gainers_final, losers_final = [], []
     else:
-        # 3. Claude 보강
-        enriched = enrich_with_claude(
-            gainers_raw, losers_raw,
-            now.strftime("%A, %B %d, %Y")
-        )
+        # 3. Claude 뉴스 보강
+        enriched = enrich_with_claude(gainers_raw, losers_raw, now.strftime("%A, %B %d, %Y"))
+        gainers_final = merge(gainers_raw, enriched.get("gainers", []))
+        losers_final  = merge(losers_raw,  enriched.get("losers",  []))
 
     data = {
-        "market": {
-            "kospi":  indices["kospi"],
-            "kosdaq": indices["kosdaq"],
-            "usdkrw": indices["usdkrw"],
-        },
-        "highlight":      enriched.get("highlight", ""),
-        "gainers":        merge(gainers_raw, enriched.get("gainers", [])),
-        "losers":         merge(losers_raw,  enriched.get("losers",  [])),
-        "strong_sectors": enriched.get("strong_sectors", []),
-        "weak_sectors":   enriched.get("weak_sectors",   []),
+        "market": {"kospi": indices["kospi"], "kosdaq": indices["kosdaq"], "usdkrw": indices["usdkrw"]},
+        "highlight":      enriched.get("highlight",""),
+        "gainers":        gainers_final,
+        "losers":         losers_final,
+        "strong_sectors": enriched.get("strong_sectors",[]),
+        "weak_sectors":   enriched.get("weak_sectors",[]),
         "_built_at":   now.strftime("%Y-%m-%d %H:%M"),
         "_date_label": now.strftime("%a, %b %d, %Y"),
     }
