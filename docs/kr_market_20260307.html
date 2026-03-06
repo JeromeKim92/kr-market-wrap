@@ -464,6 +464,7 @@
   <div class="footer-src">FinanceDataReader · Naver Finance<br>Yahoo Finance · Claude AI</div>
 </div>
 
+<script>window.__MARKET_DATA__ = {"market": {"kospi": {"value": "—", "chg_pct": "—", "chg_abs": "—"}, "kosdaq": {"value": "—", "chg_pct": "—", "chg_abs": "—"}, "usdkrw": {"value": "—", "chg_pct": "—", "chg_abs": "—"}}, "highlight": "Market data unavailable.", "gainers": [], "losers": [], "strong_sectors": [], "weak_sectors": [], "_built_at": "2026-03-07 05:57", "_date_label": "Sat, Mar 07, 2026"};</script>
 <script>
 (function(){
   const d=new Date().toLocaleDateString('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',year:'numeric'});
@@ -677,7 +678,26 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded',renderMock);
+window.addEventListener('DOMContentLoaded',function(){
+  if(window.__MARKET_DATA__){
+    const d=window.__MARKET_DATA__;
+    const mv=d.market||{};
+    if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
+    if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
+    if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
+    if(d.highlight) document.getElementById('hlText').innerHTML=d.highlight;
+    const g=d.gainers||[],l=d.losers||[];
+    document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">📈</div>No gainer data</div>';
+    document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">📉</div>No loser data</div>';
+    if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
+    if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
+    const lbl=d._date_label||'';
+    setStatus(lbl+' · '+(g.length+l.length)+' stocks · built',true);
+    if(lbl) document.getElementById('heroDate').textContent=lbl+' · 15:30 KST';
+  } else {
+    renderMock();
+  }
+});
 </script>
 
 <!-- API Key Modal -->
