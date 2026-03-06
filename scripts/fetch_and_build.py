@@ -44,14 +44,30 @@ def _is_junk(name: str) -> bool:
     return bool(_FILTER_RE.search(name))
 
 
-# ── 1. 지수 + 환율 (yfinance) ─────────────────────────────────────────────
+# ── 1. 지수 + 환율 (yfinance → Naver fallback) ──────────────────────────
 def get_indices():
+    result = {}
+    # 1차: yfinance
+    result = _get_indices_yfinance()
+    # 실패한 항목이 있으면 Naver fallback
+    missing = [k for k, v in result.items() if v["value"] == "—"]
+    if missing:
+        log(f"  yfinance 누락 {missing} → Naver fallback")
+        naver = _get_indices_naver()
+        for k in missing:
+            if k in naver and naver[k]["value"] != "—":
+                result[k] = naver[k]
+    return result
+
+
+def _get_indices_yfinance() -> dict:
+    result = {}
     try:
         import yfinance as yf
     except ImportError:
-        log("yfinance 미설치"); return _empty_indices()
+        log("yfinance 미설치")
+        return {k: {"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
 
-    result = {}
     for key, ticker, unit, fmt_str in [
         ("kospi",  "^KS11", "pts", "{:.2f}"),
         ("kosdaq", "^KQ11", "pts", "{:.2f}"),
@@ -75,12 +91,53 @@ def get_indices():
             }
             log(f"  {key}: {result[key]['value']} ({result[key]['chg_pct']})")
         except Exception as e:
-            log(f"  {key} 실패: {e}")
+            log(f"  {key} yfinance 실패: {e}")
             result[key] = {"value":"—","chg_pct":"—","chg_abs":"—"}
     return result
 
-def _empty_indices():
-    return {k:{"value":"—","chg_pct":"—","chg_abs":"—"} for k in ("kospi","kosdaq","usdkrw")}
+
+def _get_indices_naver() -> dict:
+    """Naver Finance에서 지수/환율 가져오기 (yfinance fallback)."""
+    result = {}
+    naver_map = [
+        ("kospi",  "https://finance.naver.com/sise/sise_index.naver?code=KOSPI", "pts", "{:.2f}"),
+        ("kosdaq", "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ", "pts", "{:.2f}"),
+        ("usdkrw", "https://finance.naver.com/marketindex/exchangeDailyRecent.naver?marketindexCd=FX_USDKRW", "KRW", "{:,.0f}"),
+    ]
+    for key, url, unit, fmt_str in naver_map:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                html = r.read().decode("euc-kr", errors="replace")
+
+            if key in ("kospi", "kosdaq"):
+                # 현재가
+                m = re.search(r'<em\s+id="now_value"[^>]*>([\d,.]+)', html)
+                cur = float(m.group(1).replace(",","")) if m else 0
+                # 변동
+                m2 = re.search(r'<em\s+id="change_value_and_rate"[^>]*>\s*[\s\S]*?([\d,.]+)\s*</em>', html)
+                # 등락
+                m3 = re.search(r'<em\s+id="change_value_and_rate"[^>]*>.*?([+-]?[\d,.]+%)', html, re.S)
+                if cur > 0:
+                    chg_str = m3.group(1) if m3 else "—"
+                    abs_str = m2.group(1) if m2 else "—"
+                    sign = "+" if "+" in chg_str or (chg_str != "—" and not chg_str.startswith("-")) else ""
+                    result[key] = {
+                        "value": fmt_str.format(cur),
+                        "chg_pct": chg_str if chg_str != "—" else "—",
+                        "chg_abs": f"{sign}{abs_str} {unit}" if abs_str != "—" else "—",
+                    }
+                    log(f"  {key} (Naver): {result[key]['value']}")
+            else:
+                # 환율: 간단 파싱
+                m = re.search(r'([\d,]+\.?\d*)\s*</td>', html)
+                if m:
+                    cur = float(m.group(1).replace(",",""))
+                    result[key] = {"value": fmt_str.format(cur), "chg_pct":"—", "chg_abs":"—"}
+                    log(f"  usdkrw (Naver): {result[key]['value']}")
+        except Exception as e:
+            log(f"  {key} Naver 실패: {e}")
+    return result
 
 
 # ── 2. 종목 랭킹 (pykrx — KRX 공식 데이터) ───────────────────────────────
@@ -103,70 +160,89 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     except ImportError:
         log("pykrx 미설치 — pip install pykrx"); return [], []
 
-    # 오늘 KST 기준 가장 최근 영업일 찾기
-    trade_date = _last_trading_day()
-    log(f"  기준일: {trade_date}")
+    today = datetime.now(KST).date()
+    raw_rows = []       # (ticker, pct, close, volume, mcap, market)
+    ticker_name_map = {}
+    used_source = None
+    trade_date = None
 
-    # 1단계: OHLCV 데이터만 빠르게 수집 (종목명 조회 없이)
-    raw_rows = []  # (ticker, pct, close, volume, mcap, market)
-    df_caps = {}
-    for market in ("KOSPI", "KOSDAQ"):
-        try:
-            log(f"  pykrx {market} 시세 로드...")
-            df = krx.get_market_ohlcv(trade_date, market=market)
-            if df is None or df.empty:
-                log(f"  {market} 데이터 없음")
-                continue
+    # 최근 7일 중 데이터가 있는 영업일 찾기 (공휴일 대응)
+    for delta in range(0, 7):
+        d = today - timedelta(days=delta)
+        if d.weekday() >= 5:  # 주말 스킵
+            continue
+        ds = d.strftime("%Y%m%d")
+        log(f"  시도: {ds}")
 
-            # 시가총액 로드
+        # ── 1차: pykrx ──
+        pykrx_rows = []
+        for market in ("KOSPI", "KOSDAQ"):
             try:
-                df_cap = krx.get_market_cap(trade_date, market=market)
-                df_caps[market] = df_cap
-            except Exception:
-                df_cap = None
-
-            log(f"  {market}: {len(df)}개 종목 로드")
-
-            for ticker, row in df.iterrows():
-                pct = float(row.get("등락률", 0))
-                close = int(row.get("종가", 0))
-                if close <= 0:
+                df = krx.get_market_ohlcv(ds, market=market)
+                if df is None or df.empty:
                     continue
-                volume = int(row.get("거래량", 0))
-                mcap = 0
-                if df_cap is not None and ticker in df_cap.index:
-                    mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
-                raw_rows.append((ticker, pct, close, volume, mcap, market))
+                df_cap = None
+                try:
+                    df_cap = krx.get_market_cap(ds, market=market)
+                except Exception:
+                    pass
+                for ticker, row in df.iterrows():
+                    pct = float(row.get("등락률", 0))
+                    close = int(row.get("종가", 0))
+                    if close <= 0:
+                        continue
+                    volume = int(row.get("거래량", 0))
+                    mcap = 0
+                    if df_cap is not None and ticker in df_cap.index:
+                        mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
+                    pykrx_rows.append((ticker, pct, close, volume, mcap, market))
+            except Exception as e:
+                log(f"    pykrx {market} 실패: {e}")
 
-        except Exception as e:
-            log(f"  {market} 실패: {e}")
-            import traceback; traceback.print_exc()
+        if len(pykrx_rows) > 100:
+            raw_rows = pykrx_rows
+            trade_date = ds
+            used_source = "pykrx"
+            log(f"  ✓ pykrx {ds}: {len(raw_rows)}개 종목")
+            break
 
-    if not raw_rows:
-        log("  pykrx 실패 → KRX 직접 API fallback 시도")
-        raw_rows = _fetch_krx_direct(trade_date)
+        # ── 2차: KRX 직접 API ──
+        log(f"    pykrx {ds} 실패 → KRX 직접 시도")
+        krx_rows, krx_names = _fetch_krx_direct(ds)
+        if len(krx_rows) > 100:
+            raw_rows = krx_rows
+            ticker_name_map = krx_names
+            trade_date = ds
+            used_source = "krx_direct"
+            log(f"  ✓ KRX직접 {ds}: {len(raw_rows)}개 종목")
+            break
+
+        log(f"    {ds} 데이터 없음 → 이전 날짜 시도")
 
     if not raw_rows:
         log("  데이터 없음 → 빈 리스트 반환")
         return [], []
 
-    # 2단계: 등락률로 정렬 → 상위/하위 후보만 종목명 조회 (N+1 방지)
+    log(f"  기준일: {trade_date} (소스: {used_source})")
+
+    # 등락률로 정렬 → 상위/하위 후보만 종목명 조회
     raw_rows.sort(key=lambda x: x[1], reverse=True)
-    candidate_count = limit * 5  # 필터링 여유분
+    candidate_count = limit * 5
     top_candidates = raw_rows[:candidate_count]
     bottom_candidates = raw_rows[-candidate_count:]
-    # 중복 제거
     candidate_tickers = {r[0] for r in top_candidates + bottom_candidates}
 
-    ticker_name_map = {}
-    for t in candidate_tickers:
-        try:
-            ticker_name_map[t] = krx.get_market_ticker_name(t)
-        except Exception:
-            pass
-    log(f"  종목명 조회: {len(candidate_tickers)}개 (전체 {len(raw_rows)}개 중 후보만)")
+    # 종목명 조회: pykrx 소스면 pykrx로, 아니면 이미 KRX에서 가져온 map 사용
+    if used_source == "pykrx":
+        for t in candidate_tickers:
+            try:
+                ticker_name_map[t] = krx.get_market_ticker_name(t)
+            except Exception:
+                pass
+    # KOREAN_NAME_MAP에서 역매핑(종목명→영문명)은 아직 안 하지만,
+    # ticker_name_map에 없는 건 KOREAN_NAME_MAP fallback 사용
+    log(f"  종목명 조회: {len(ticker_name_map)}개 (후보 {len(candidate_tickers)}개)")
 
-    # 3단계: 필터링 후 최종 리스트 구성
     def to_stock(row):
         ticker, pct, close, volume, mcap, market = row
         name = ticker_name_map.get(ticker, "")
@@ -190,11 +266,13 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     return gainers, losers
 
 
-def _fetch_krx_direct(trade_date: str) -> list:
+def _fetch_krx_direct(trade_date: str) -> tuple[list, dict]:
     """pykrx 실패 시 KRX 직접 API로 OHLCV 데이터 가져오기 (fallback).
-    data.krx.co.kr OTP 기반 CSV 다운로드."""
+    data.krx.co.kr OTP 기반 CSV 다운로드.
+    Returns: (raw_rows, ticker_name_map)"""
     import csv, io
     raw_rows = []
+    ticker_name_map = {}
     otp_url = "https://data.krx.co.kr/comm/fileDn/GenerateOTP/generate.cmd"
     dl_url = "https://data.krx.co.kr/comm/fileDn/download_csv/download.cmd"
     headers = {
@@ -235,6 +313,7 @@ def _fetch_krx_direct(trade_date: str) -> list:
             for row in reader:
                 try:
                     ticker = row.get("종목코드", "").strip().strip('"')
+                    name = row.get("종목명", "").strip().strip('"')
                     close_str = row.get("종가", "0").strip().strip('"').replace(",", "")
                     pct_str = row.get("등락률", "0").strip().strip('"').replace(",", "")
                     vol_str = row.get("거래량", "0").strip().strip('"').replace(",", "")
@@ -244,6 +323,8 @@ def _fetch_krx_direct(trade_date: str) -> list:
                     if close <= 0 or not ticker:
                         continue
                     raw_rows.append((ticker, pct, close, volume, 0, market))
+                    if name:
+                        ticker_name_map[ticker] = name
                     count += 1
                 except (ValueError, KeyError):
                     continue
@@ -251,19 +332,8 @@ def _fetch_krx_direct(trade_date: str) -> list:
         except Exception as e:
             log(f"  KRX 직접 {market} 실패: {e}")
 
-    return raw_rows
+    return raw_rows, ticker_name_map
 
-
-def _last_trading_day() -> str:
-    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD
-    주말만 스킵. 공휴일은 get_market_ohlcv가 빈 DataFrame 반환하므로
-    get_movers()에서 자연스럽게 처리됨."""
-    today = datetime.now(KST).date()
-    for delta in range(0, 7):
-        d = today - timedelta(days=delta)
-        if d.weekday() < 5:  # 평일
-            return d.strftime("%Y%m%d")
-    return today.strftime("%Y%m%d")
 
 
 # ── 3. Claude web_search 뉴스 보강 ───────────────────────────────────────
