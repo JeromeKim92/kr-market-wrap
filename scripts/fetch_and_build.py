@@ -1351,12 +1351,13 @@ def main():
         last_ok = _load_last_success_snapshot()
         if last_ok:
             log("WARNING: 당일 실데이터 없음 → 마지막 정상 스냅샷으로 폴백")
+            source_label = last_ok.get("_date_label") or "unknown"
             data = {
                 **last_ok,
                 "_stale": True,
                 "_stale_reason": "today-fetch-failed",
+                "_stale_source_date_label": source_label,
                 "_built_at": now.strftime("%Y-%m-%d %H:%M"),
-                "_date_label": now.strftime("%a, %b %d, %Y"),
             }
 
     html_template = TEMPLATE.read_text(encoding="utf-8")

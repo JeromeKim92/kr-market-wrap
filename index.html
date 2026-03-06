@@ -606,11 +606,14 @@ function renderLiveData(d){
   if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
   if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
 
-  const stamp=d._date_label||d._built_at||'prebuilt';
-  setStatus(`${stamp} · ${g.length+l.length} stocks · cached`,true);
-  if(d._date_label){
+  const baseStamp=d._date_label||d._built_at||'prebuilt';
+  const staleTag=d._stale?' · stale snapshot':'';
+  setStatus(`${baseStamp} · ${g.length+l.length} stocks · cached${staleTag}`,true);
+
+  const heroLabel=d._stale_source_date_label||d._date_label||'';
+  if(heroLabel){
     const hd=document.getElementById('heroDate');
-    if(hd) hd.textContent=d._date_label+' · 15:30 KST';
+    if(hd) hd.textContent=heroLabel+(d._stale?' · STALE':'')+' · 15:30 KST';
   }
 }
 // ── API Key ──────────────────────────────────────────────────────────────────

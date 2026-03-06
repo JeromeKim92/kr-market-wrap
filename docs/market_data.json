@@ -195,8 +195,9 @@
       "stocks": "HMM · Pan Ocean"
     }
   ],
-  "_built_at": "2026-03-07 07:21",
+  "_built_at": "2026-03-07 07:45",
   "_date_label": "Sat, Mar 07, 2026",
   "_stale": true,
-  "_stale_reason": "today-fetch-failed"
+  "_stale_reason": "today-fetch-failed",
+  "_stale_source_date_label": "Sat, Mar 07, 2026"
 }
