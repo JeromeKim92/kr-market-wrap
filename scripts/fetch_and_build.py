@@ -107,7 +107,9 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
     trade_date = _last_trading_day()
     log(f"  기준일: {trade_date}")
 
-    all_stocks = []
+    # 1단계: OHLCV 데이터만 빠르게 수집 (종목명 조회 없이)
+    raw_rows = []  # (ticker, pct, close, volume, mcap, market)
+    df_caps = {}
     for market in ("KOSPI", "KOSDAQ"):
         try:
             log(f"  pykrx {market} 시세 로드...")
@@ -119,57 +121,61 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
             # 시가총액 로드
             try:
                 df_cap = krx.get_market_cap(trade_date, market=market)
+                df_caps[market] = df_cap
             except Exception:
                 df_cap = None
 
             log(f"  {market}: {len(df)}개 종목 로드")
 
             for ticker, row in df.iterrows():
-                name = krx.get_market_ticker_name(ticker)
-                if not name or _is_junk(name):
-                    continue
-
                 pct = float(row.get("등락률", 0))
                 close = int(row.get("종가", 0))
+                if close <= 0:
+                    continue
                 volume = int(row.get("거래량", 0))
-                amount = int(row.get("거래대금", 0))  # 원 단위
-
-                # 시가총액 (백만원)
                 mcap = 0
                 if df_cap is not None and ticker in df_cap.index:
                     mcap = int(df_cap.loc[ticker, "시가총액"]) // 1_000_000
-
-                if close <= 0:
-                    continue
-
-                all_stocks.append({
-                    "ticker":      ticker,
-                    "name_kr":     name,
-                    "name_en":     name,
-                    "change_pct":  round(pct, 2),
-                    "close_price": close,
-                    "volume":      volume,
-                    "market_cap":  mcap,
-                    "market":      market,
-                })
+                raw_rows.append((ticker, pct, close, volume, mcap, market))
 
         except Exception as e:
             log(f"  {market} 실패: {e}")
             import traceback; traceback.print_exc()
 
-    if not all_stocks:
+    if not raw_rows:
         log("  pykrx 데이터 없음 → 빈 리스트 반환")
         return [], []
 
-    # 등락률 기준 정렬
-    gainers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] > 0],
-        key=lambda x: x["change_pct"], reverse=True
-    )
-    losers_all = sorted(
-        [s for s in all_stocks if s["change_pct"] < 0],
-        key=lambda x: x["change_pct"]
-    )
+    # 2단계: 등락률로 정렬 → 상위/하위 후보만 종목명 조회 (N+1 방지)
+    raw_rows.sort(key=lambda x: x[1], reverse=True)
+    candidate_count = limit * 5  # 필터링 여유분
+    top_candidates = raw_rows[:candidate_count]
+    bottom_candidates = raw_rows[-candidate_count:]
+    # 중복 제거
+    candidate_tickers = {r[0] for r in top_candidates + bottom_candidates}
+
+    ticker_name_map = {}
+    for t in candidate_tickers:
+        try:
+            ticker_name_map[t] = krx.get_market_ticker_name(t)
+        except Exception:
+            pass
+    log(f"  종목명 조회: {len(candidate_tickers)}개 (전체 {len(raw_rows)}개 중 후보만)")
+
+    # 3단계: 필터링 후 최종 리스트 구성
+    def to_stock(row):
+        ticker, pct, close, volume, mcap, market = row
+        name = ticker_name_map.get(ticker, "")
+        if not name or _is_junk(name):
+            return None
+        return {
+            "ticker": ticker, "name_kr": name, "name_en": name,
+            "change_pct": round(pct, 2), "close_price": close,
+            "volume": volume, "market_cap": mcap, "market": market,
+        }
+
+    gainers_all = [s for r in top_candidates if (s := to_stock(r)) and s["change_pct"] > 0]
+    losers_all  = [s for r in reversed(bottom_candidates) if (s := to_stock(r)) and s["change_pct"] < 0]
 
     gainers = [dict(rank=i+1, **s) for i, s in enumerate(gainers_all[:limit])]
     losers  = [dict(rank=i+1, **s) for i, s in enumerate(losers_all[:limit])]
@@ -181,24 +187,14 @@ def get_movers(limit: int = 5) -> tuple[list, list]:
 
 
 def _last_trading_day() -> str:
-    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD"""
-    from pykrx import stock as krx
+    """오늘이 영업일이면 오늘, 아니면 가장 최근 평일. 형식: YYYYMMDD
+    주말만 스킵. 공휴일은 get_market_ohlcv가 빈 DataFrame 반환하므로
+    get_movers()에서 자연스럽게 처리됨."""
     today = datetime.now(KST).date()
-
-    # 최근 5일 중 데이터가 있는 가장 최근 날짜 찾기
     for delta in range(0, 7):
         d = today - timedelta(days=delta)
-        if d.weekday() >= 5:  # 토(5), 일(6) 스킵
-            continue
-        ds = d.strftime("%Y%m%d")
-        try:
-            df = krx.get_market_ohlcv(ds, market="KOSPI")
-            if df is not None and not df.empty and len(df) > 100:
-                return ds
-        except Exception:
-            continue
-
-    # fallback: 오늘 날짜
+        if d.weekday() < 5:  # 평일
+            return d.strftime("%Y%m%d")
     return today.strftime("%Y%m%d")
 
 
