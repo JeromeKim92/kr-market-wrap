@@ -476,17 +476,36 @@ if s_dot: s_dot["class"] = ["s-dot", "live"]
 if s_txt: s_txt.string = f"Updated — {DISPLAY_DATE} · {n_stocks} stocks · auto"
 
 # ── 4-6. renderMock 제거 — 이미 서버에서 렌더링했으므로 불필요 ──────────
-# DOMContentLoaded에서 renderMock 호출하는 줄을 제거
-for script_tag in soup.find_all("script"):
-    if script_tag.string and "DOMContentLoaded" in script_tag.string and "renderMock" in script_tag.string:
-        script_tag.string = script_tag.string.replace(
-            "window.addEventListener('DOMContentLoaded',renderMock);",
-            "// renderMock disabled — data pre-rendered by build script"
-        )
-        break
-
-# ── 저장 ─────────────────────────────────────────────────────────────────
+# str(soup) 이후 raw 문자열 교체가 가장 확실함
 output_html = str(soup)
+
+# renderMock 호출 제거 (여러 변형 대응)
+for pattern in [
+    "window.addEventListener('DOMContentLoaded',renderMock)",
+    'window.addEventListener("DOMContentLoaded",renderMock)',
+    "window.addEventListener('DOMContentLoaded', renderMock)",
+    'window.addEventListener("DOMContentLoaded", renderMock)',
+]:
+    if pattern in output_html:
+        output_html = output_html.replace(pattern, "// renderMock disabled by SSR build")
+        print(f"[KMW] ✓ renderMock call removed: {pattern[:50]}...")
+        break
+else:
+    # 최후 수단: 정규식으로 제거
+    before = len(output_html)
+    output_html = re.sub(
+        r"window\.addEventListener\(['\"]DOMContentLoaded['\"],\s*renderMock\)",
+        "// renderMock disabled by SSR build",
+        output_html
+    )
+    if len(output_html) != before:
+        print("[KMW] ✓ renderMock call removed (regex)")
+    else:
+        print("[KMW] ⚠ renderMock call NOT found — may cause flash")
+
+# 추가 안전장치: renderMock 함수 자체를 no-op으로 재정의하는 스크립트 삽입
+noop_script = '<script>window.renderMock=function(){};if(typeof renderMock==="function"){renderMock=function(){};}</script>'
+output_html = output_html.replace("</head>", noop_script + "\n</head>")
 
 out_main = os.path.join(DOCS_DIR, "index.html")
 out_archive = os.path.join(DOCS_DIR, f"kr_market_{DATE_STR}.html")
