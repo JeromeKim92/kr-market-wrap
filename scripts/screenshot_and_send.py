@@ -7,7 +7,7 @@ Korea Market Wrap — Screenshot & Telegram Send
 3. Telegram Bot API로 전송
 """
 
-import os, sys, json, threading, time
+import os, sys, json, re, threading, time
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 
@@ -52,14 +52,13 @@ print("[TG] Taking screenshot...")
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
-    page = browser.new_page(viewport={"width": 1080, "height": 1920})
+    page = browser.new_page(viewport={"width": 1080, "height": 1350})
 
     page.goto(f"http://127.0.0.1:{PORT}/index.html", wait_until="networkidle")
-    # market_data.json 로딩 + 렌더링 대기
     page.wait_for_timeout(3000)
 
-    # 전체 페이지 스크린샷 (스크롤 포함)
-    page.screenshot(path=str(OUTPUT_PNG), full_page=True)
+    # 1080x1350 비율로 캡처 (인스타그램 세로 비율)
+    page.screenshot(path=str(OUTPUT_PNG), clip={"x": 0, "y": 0, "width": 1080, "height": 1350})
     browser.close()
 
 png_size = os.path.getsize(OUTPUT_PNG)
@@ -69,24 +68,60 @@ print(f"[TG] ✅ Screenshot saved: {OUTPUT_PNG} ({png_size:,} bytes)")
 import urllib.request
 import urllib.parse
 
-# market_data.json에서 날짜 가져오기
+# market_data.json에서 리치 캡션 생성
 caption = "📊 Korea Market Wrap"
 try:
     with open(DOCS_DIR / "market_data.json", "r") as f:
         md = json.load(f)
     date_label = md.get("_date_label", "")
-    n_stocks = len(md.get("gainers", [])) + len(md.get("losers", []))
     kospi = md.get("market", {}).get("kospi", {})
     kosdaq = md.get("market", {}).get("kosdaq", {})
+    usdkrw = md.get("market", {}).get("usdkrw", {})
+
+    # 하이라이트 (HTML 태그 제거)
+    hl = md.get("highlight", "")
+    hl_clean = re.sub(r"<[^>]+>", "", hl)
+
+    # 상승 종목
+    gainers = md.get("gainers", [])
+    g_lines = ""
+    for s in gainers:
+        name = s.get("name_en") or s.get("name_kr") or "—"
+        pct = s.get("change_pct", 0)
+        reason = s.get("reason_en", "")
+        g_lines += f"  #{s.get('rank','')} {name} <b>{pct:+.2f}%</b>\n"
+        if reason:
+            g_lines += f"      └ {reason}\n"
+
+    # 하락 종목
+    losers = md.get("losers", [])
+    l_lines = ""
+    for s in losers:
+        name = s.get("name_en") or s.get("name_kr") or "—"
+        pct = s.get("change_pct", 0)
+        reason = s.get("reason_en", "")
+        l_lines += f"  #{s.get('rank','')} {name} <b>{pct:+.2f}%</b>\n"
+        if reason:
+            l_lines += f"      └ {reason}\n"
+
     caption = (
-        f"📊 Korea Market Wrap — {date_label}\n"
-        f"KOSPI {kospi.get('value', '—')} ({kospi.get('chg_pct', '')})\n"
-        f"KOSDAQ {kosdaq.get('value', '—')} ({kosdaq.get('chg_pct', '')})\n"
-        f"{n_stocks} stocks · auto build\n"
+        f"📊 <b>Korea Market Wrap</b> — {date_label}\n"
+        f"\n"
+        f"KOSPI {kospi.get('value','—')} ({kospi.get('chg_pct','')})\n"
+        f"KOSDAQ {kosdaq.get('value','—')} ({kosdaq.get('chg_pct','')})\n"
+        f"USD/KRW {usdkrw.get('value','—')} ({usdkrw.get('chg_pct','')})\n"
+        f"\n"
+        f"💡 {hl_clean}\n"
+        f"\n"
+        f"🟢 <b>Top Gainers</b>\n"
+        f"{g_lines}\n"
+        f"🔴 <b>Top Losers</b>\n"
+        f"{l_lines}\n"
         f"🔗 https://jeromekim92.github.io/kr-market-wrap/"
     )
-except Exception:
-    pass
+except Exception as e:
+    print(f"[TG] Caption build error: {e}")
+    import traceback; traceback.print_exc()
 
 print(f"[TG] Sending to Telegram chat {TELEGRAM_CHAT_ID}...")
 
