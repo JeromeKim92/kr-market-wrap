@@ -610,7 +610,7 @@ function renderLiveData(d){
   const staleTag=d._stale?' · stale snapshot':'';
   setStatus(`${baseStamp} · ${g.length+l.length} stocks · cached${staleTag}`,true);
 
-  const heroLabel=d._stale_source_date_label||d._date_label||'';
+  const heroLabel=d._date_label||d._stale_source_date_label||'';
   if(heroLabel){
     const hd=document.getElementById('heroDate');
     if(hd) hd.textContent=heroLabel+(d._stale?' · STALE':'')+' · 15:30 KST';
@@ -725,23 +725,15 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded',function(){
-  if(window.__MARKET_DATA__){
-    const d=window.__MARKET_DATA__;
-    const mv=d.market||{};
-    if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
-    if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
-    if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
-    if(d.highlight) document.getElementById('hlText').innerHTML=d.highlight;
-    const g=d.gainers||[],l=d.losers||[];
-    document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">📈</div>No gainer data</div>';
-    document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">📉</div>No loser data</div>';
-    if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
-    if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
-    const lbl=d._date_label||'';
-    setStatus(lbl+' · '+(g.length+l.length)+' stocks · built',true);
-    if(lbl) document.getElementById('heroDate').textContent=lbl+' · 15:30 KST';
-  } else {
+window.addEventListener('DOMContentLoaded',async ()=>{
+  if(window.__MARKET_DATA__) {
+    renderLiveData(window.__MARKET_DATA__);
+    return;
+  }
+  try{
+    const built = await loadBuiltData();
+    renderLiveData(built);
+  }catch(_){
     renderMock();
   }
 });

@@ -25,7 +25,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install \
-            finance-datareader \
             yfinance \
             pandas \
             requests \
