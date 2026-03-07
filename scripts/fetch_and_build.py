@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-Korea Market Wrap — Daily Build Script (SSR Edition)
-=====================================================
-핵심 변경: JS MOCK 교체 대신 Python이 직접 HTML DOM에 데이터를 렌더링
-→ 브라우저 JS 실행에 의존하지 않음 (100% 서버사이드 렌더링)
+Korea Market Wrap — Daily Build Script (JSON Edition)
+======================================================
+현재 index.html은 DOMContentLoaded에서 market_data.json을 fetch해서 렌더링하는 구조.
+→ Python은 데이터만 수집해서 market_data.json을 생성하면 끝.
+→ HTML/JS 수정 불필요. SSR 불필요.
 
 [지수]  1차 네이버 시세 → 2차 FDR
 [종목]  1차 네이버 파이낸셜 (KOSPI+KOSDAQ) → 2차 KRX API → 3차 FDR
 [분석]  Claude API (web search)
-[빌드]  index.html DOM 직접 교체 → docs/
+[출력]  docs/market_data.json + docs/index.html (원본 복사)
 """
 
-import os, sys, json, re, time, html as html_mod
+import os, sys, json, re, time, shutil
 import urllib.request, urllib.parse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -55,8 +56,7 @@ def fetch_index_naver(code, label):
         resp.encoding = "euc-kr"
         soup = BeautifulSoup(resp.text, "html.parser")
         now_val = soup.select_one("#now_value")
-        if not now_val:
-            raise ValueError("now_value not found")
+        if not now_val: raise ValueError("now_value not found")
         value = now_val.get_text(strip=True).replace(",", "")
         chg_tag = soup.select_one("#change_value_and_rate")
         if chg_tag:
@@ -66,17 +66,13 @@ def fetch_index_naver(code, label):
         else:
             chg_abs, chg_pct = "0", "0%"
         is_down = False
-        up_img = soup.select_one("#change_value_and_rate img")
-        if up_img and ("하락" in up_img.get("alt", "")):
+        img = soup.select_one("#change_value_and_rate img")
+        if img and "하락" in img.get("alt", ""):
             is_down = True
-        chg_pct_num = chg_pct.replace("%", "").replace("+", "").replace("-", "")
-        chg_abs_num = chg_abs.replace(",", "")
-        if is_down:
-            return {"value": f"{float(value):,.2f}", "chg_pct": f"-{chg_pct_num}%",
-                    "chg_abs": f"-{chg_abs_num} pts"}
-        else:
-            return {"value": f"{float(value):,.2f}", "chg_pct": f"+{chg_pct_num}%",
-                    "chg_abs": f"+{chg_abs_num} pts"}
+        pct_num = chg_pct.replace("%", "").replace("+", "").replace("-", "")
+        abs_num = chg_abs.replace(",", "")
+        sign = "-" if is_down else "+"
+        return {"value": f"{float(value):,.2f}", "chg_pct": f"{sign}{pct_num}%", "chg_abs": f"{sign}{abs_num} pts"}
     except Exception as e:
         print(f"  [WARN] Naver {label}: {e}")
         return None
@@ -88,22 +84,16 @@ def fetch_usdkrw_naver():
         resp = requests.get(url, headers=HEADERS, timeout=10)
         resp.encoding = "euc-kr"
         soup = BeautifulSoup(resp.text, "html.parser")
-        # 환율 박스에서 USD/KRW 추출
-        exchange_box = soup.select_one("#exchangeList .head_info .value")
-        if not exchange_box:
-            raise ValueError("exchange value not found")
-        val = float(exchange_box.get_text(strip=True).replace(",", ""))
+        box = soup.select_one("#exchangeList .head_info .value")
+        if not box: raise ValueError("not found")
+        val = float(box.get_text(strip=True).replace(",", ""))
         chg_el = soup.select_one("#exchangeList .head_info .change")
         chg = float(chg_el.get_text(strip=True).replace(",", "")) if chg_el else 0
         blind = soup.select_one("#exchangeList .head_info .blind")
         is_down = blind and "하락" in blind.get_text()
-        if is_down:
-            prev = val + chg
-            pct = -chg / prev * 100
-        else:
-            prev = val - chg
-            pct = chg / prev * 100 if prev else 0
-        return {"value": f"{val:,.0f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{val-prev:+.0f} KRW"}
+        prev = val + chg if is_down else val - chg
+        pct = ((val - prev) / prev * 100) if prev else 0
+        return {"value": f"{val:,.0f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{val - prev:+.0f} KRW"}
     except Exception as e:
         print(f"  [WARN] Naver USD/KRW: {e}")
         return None
@@ -126,16 +116,16 @@ def fetch_index_fdr(symbol, label):
         return {"value": "—", "chg_pct": "0.00%", "chg_abs": "—"}
 
 
-market = {}
-market["kospi"] = fetch_index_naver("KOSPI", "KOSPI") or fetch_index_fdr("KS11", "KOSPI")
-market["kosdaq"] = fetch_index_naver("KOSDAQ", "KOSDAQ") or fetch_index_fdr("KQ11", "KOSDAQ")
-market["usdkrw"] = fetch_usdkrw_naver() or fetch_index_fdr("USD/KRW", "USD/KRW")
-
+market = {
+    "kospi": fetch_index_naver("KOSPI", "KOSPI") or fetch_index_fdr("KS11", "KOSPI"),
+    "kosdaq": fetch_index_naver("KOSDAQ", "KOSDAQ") or fetch_index_fdr("KQ11", "KOSDAQ"),
+    "usdkrw": fetch_usdkrw_naver() or fetch_index_fdr("USD/KRW", "USD/KRW"),
+}
 for k, v in market.items():
     print(f"  ✓ {k.upper():8s} {v['value']:>10s}  {v['chg_pct']}")
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 2. Top Movers (Naver → KRX → FDR)
+# 2. Top Movers
 # ═════════════════════════════════════════════════════════════════════════════
 print("[KMW] Fetching top movers...")
 
@@ -210,7 +200,8 @@ def get_movers_krx(date_str):
             body = urllib.parse.urlencode(params).encode()
             req = urllib.request.Request("http://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd",
                                          data=body, method="POST",
-                                         headers={"User-Agent": "Mozilla/5.0", "Content-Type": "application/x-www-form-urlencoded",
+                                         headers={"User-Agent": "Mozilla/5.0",
+                                                  "Content-Type": "application/x-www-form-urlencoded",
                                                   "Referer": "http://data.krx.co.kr/"})
             with urllib.request.urlopen(req, timeout=30) as resp:
                 rows = json.loads(resp.read().decode()).get("OutBlock_1", [])
@@ -266,7 +257,7 @@ def call_claude(prompt, retries=2):
                 data = json.loads(resp.read().decode())
             return "\n".join(b["text"] for b in data.get("content", []) if b.get("type") == "text")
         except Exception as e:
-            print(f"  [WARN] Claude #{i+1}: {e}")
+            print(f"  [WARN] Claude #{i + 1}: {e}")
             if i < retries: time.sleep(5)
     return ""
 
@@ -295,17 +286,17 @@ if raw:
         except: print("  [WARN] JSON parse error")
 
 if analysis:
-    for lb in ["gainers", "losers"]:
-        ai_map = {x["ticker"]: x for x in analysis.get(lb, []) if "ticker" in x}
-        for s in movers[lb]:
+    for lb_key in ["gainers", "losers"]:
+        ai_map = {x["ticker"]: x for x in analysis.get(lb_key, []) if "ticker" in x}
+        for s in movers[lb_key]:
             e = ai_map.get(s["ticker"], {})
             s["name_en"] = e.get("name_en") or s["name_kr"]
             s["sector_en"] = e.get("sector_en", "")
             s["theme_en"] = e.get("theme_en", "")
             s["reason_en"] = e.get("reason_en", "")
 else:
-    for lb in ["gainers", "losers"]:
-        for s in movers[lb]:
+    for lb_key in ["gainers", "losers"]:
+        for s in movers[lb_key]:
             s["name_en"] = s.get("name_en") or s["name_kr"]
 
 highlight = analysis.get("highlight", f"<strong>Korean market</strong> — KOSPI {market['kospi']['chg_pct']}, KOSDAQ {market['kosdaq']['chg_pct']}.")
@@ -313,224 +304,63 @@ strong_sectors = analysis.get("strong_sectors", [])
 weak_sectors = analysis.get("weak_sectors", [])
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 4. HTML 렌더링 — Python이 직접 DOM 내용을 교체 (SSR)
+# 4. 출력: market_data.json + index.html 복사
 # ═════════════════════════════════════════════════════════════════════════════
-print("[KMW] Server-side rendering...")
+print("[KMW] Writing output...")
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
-TEMPLATE_PATH = os.path.join(ROOT_DIR, "index.html")
 DOCS_DIR = os.path.join(ROOT_DIR, "docs")
 os.makedirs(DOCS_DIR, exist_ok=True)
 
-with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
-    soup = BeautifulSoup(f.read(), "html.parser")
+# name_kr 제거 (JS에서 불필요)
+for lb_key in ["gainers", "losers"]:
+    for s in movers[lb_key]:
+        s.pop("name_kr", None)
 
-E = html_mod.escape  # HTML 이스케이프 shortcut
+# ── market_data.json (JS가 fetch하는 파일) ────────────────────────────────
+json_data = {
+    "market": market,
+    "highlight": highlight,
+    "gainers": movers["gainers"],
+    "losers": movers["losers"],
+    "strong_sectors": strong_sectors,
+    "weak_sectors": weak_sectors,
+    "_built_at": now_kst.strftime("%Y-%m-%d %H:%M"),
+    "_date_label": DISPLAY_DATE,
+}
 
+out_json = os.path.join(DOCS_DIR, "market_data.json")
+with open(out_json, "w", encoding="utf-8") as f:
+    json.dump(json_data, f, ensure_ascii=False, indent=2)
+print(f"[KMW] ✅ docs/market_data.json ({os.path.getsize(out_json):,} bytes)")
 
-# ── 4-1. 지수 카드 ───────────────────────────────────────────────────────
-def set_index(soup, prefix, data):
-    val_el = soup.find(id=f"{prefix}Val")
-    chg_el = soup.find(id=f"{prefix}Chg")
-    abs_el = soup.find(id=f"{prefix}Abs")
-    bar_el = soup.find(id=f"{prefix}Bar")
-    if val_el: val_el.string = data["value"]
-    if chg_el:
-        pct = data["chg_pct"]
-        is_up = pct.startswith("+") and pct != "+0.00%"
-        is_dn = pct.startswith("-")
-        chg_el.string = pct
-        chg_el["class"] = ["idx-chg", "up" if is_up else "dn" if is_dn else "neu"]
-    if abs_el: abs_el.string = data["chg_abs"]
-    if bar_el:
-        pct_num = float(data["chg_pct"].replace("%", "").replace("+", "")) if data["chg_pct"] else 0
-        w = max(10, min(90, 50 + pct_num * 8))
-        is_up = pct_num > 0
-        bar_el["class"] = ["idx-bar-fill", "up" if is_up else "dn" if pct_num < 0 else ""]
-        bar_el["style"] = f"width:{w:.0f}%"
+# ── index.html 복사 (원본 그대로 — JS가 JSON을 fetch해서 렌더링) ──────────
+src_html = os.path.join(ROOT_DIR, "index.html")
+dst_html = os.path.join(DOCS_DIR, "index.html")
+shutil.copy2(src_html, dst_html)
+print(f"[KMW] ✅ docs/index.html (copied from root)")
 
-
-set_index(soup, "kospi", market["kospi"])
-set_index(soup, "kosdaq", market["kosdaq"])
-set_index(soup, "usdkrw", market["usdkrw"])
-
-# ── 4-2. Hero 날짜 ──────────────────────────────────────────────────────
-hero_date = soup.find(id="heroDate")
-if hero_date:
-    hero_date.string = f"{DISPLAY_DATE} · 15:30 KST"
-
-# ── 4-3. Highlight ───────────────────────────────────────────────────────
-hl = soup.find(id="hlText")
-if hl:
-    hl.clear()
-    hl.append(BeautifulSoup(highlight, "html.parser"))
-
-# ── 4-4. 종목 카드 렌더링 ────────────────────────────────────────────────
-def fmt_vol(v):
-    if not v: return "—"
-    if v >= 1e6: return f"{v/1e6:.1f}M"
-    if v >= 1e3: return f"{v/1e3:.0f}K"
-    return str(v)
-
-def fmt_mcap(v):
-    if not v: return "—"
-    t = v / 1e6
-    if t >= 0.1: return f"{t:.1f}T KRW"
-    b = v / 1e4
-    if b >= 1: return f"{b:.0f}B KRW"
-    return f"{v:,}M KRW"
-
-def fmt_price(v):
-    return f"₩{v:,}" if v else "—"
-
-def render_card_html(s, card_type, rank):
-    is_up = card_type == "up"
-    name = E(s.get("name_en") or s.get("name_kr") or "—")
-    sector = E(s.get("sector_en", ""))
-    theme = E(s.get("theme_en", ""))
-    reason = E(s.get("reason_en", "—"))
-    sign = "+" if is_up else ""
-    pct = f"{sign}{s.get('change_pct', 0):.2f}%"
-    delay = (rank - 1) * 50
-
-    badges = ""
-    if sector: badges += f'<span class="badge badge-sector">{sector}</span>'
-    if theme: badges += f'<span class="badge badge-theme">{theme}</span>'
-
-    return f'''<div class="stock-card {'up-card' if is_up else 'dn-card'}" style="animation-delay:{delay}ms">
-  <div class="card-row1">
-    <div class="card-row1-left">
-      <div class="card-headline">
-        <span class="card-rank">#{rank}</span>
-        <span class="card-name">{name}</span>
-        <span class="card-ticker">{E(s.get("ticker",""))}</span>
-      </div>
-      <div class="card-badges">{badges}</div>
-    </div>
-    <div class="card-row1-right">
-      <span class="card-pct {'up' if is_up else 'dn'}">{pct}</span>
-      <span class="card-price">{fmt_price(s.get("close_price"))}</span>
-    </div>
-  </div>
-  <div class="card-row2">
-    <div class="card-row2-left">
-      <div class="card-reason">📰 {reason}</div>
-    </div>
-    <div class="card-row2-right">
-      <span class="card-mcap">Mkt {fmt_mcap(s.get("market_cap"))}</span>
-      <span class="card-vol">Vol {fmt_vol(s.get("volume"))}</span>
-    </div>
-  </div>
-</div>'''
-
-
-def render_sectors_html(sectors, sec_type):
-    out = ""
-    for s in sectors:
-        sign = "+" if sec_type == "up" else ""
-        out += f'''<div class="sector-tag">
-  <div class="sector-tag-left"><div class="sector-tag-name">{E(s.get("name",""))}</div><div class="sector-tag-stocks">{E(s.get("stocks",""))}</div></div>
-  <div class="sector-tag-pct {sec_type}">{sign}{E(s.get("chg",""))}%</div>
-</div>'''
-    return out
-
-
-# Gainers
-gc = soup.find(id="gainersContent")
-if gc:
-    gc.clear()
-    if movers["gainers"]:
-        cards = "".join(render_card_html(s, "up", i + 1) for i, s in enumerate(movers["gainers"]))
-        gc.append(BeautifulSoup(cards, "html.parser"))
-    else:
-        gc.append(BeautifulSoup('<div class="empty-state"><div class="empty-icon">📈</div>No data available</div>', "html.parser"))
-
-# Losers
-lc = soup.find(id="losersContent")
-if lc:
-    lc.clear()
-    if movers["losers"]:
-        cards = "".join(render_card_html(s, "dn", i + 1) for i, s in enumerate(movers["losers"]))
-        lc.append(BeautifulSoup(cards, "html.parser"))
-    else:
-        lc.append(BeautifulSoup('<div class="empty-state"><div class="empty-icon">📉</div>No data available</div>', "html.parser"))
-
-# Strong sectors
-ss = soup.find(id="strongSectors")
-if ss and strong_sectors:
-    ss.clear()
-    ss.append(BeautifulSoup(render_sectors_html(strong_sectors, "up"), "html.parser"))
-
-# Weak sectors
-ws = soup.find(id="weakSectors")
-if ws and weak_sectors:
-    ws.clear()
-    ws.append(BeautifulSoup(render_sectors_html(weak_sectors, "dn"), "html.parser"))
-
-# ── 4-5. Status ─────────────────────────────────────────────────────────
-n_stocks = len(movers["gainers"]) + len(movers["losers"])
-s_dot = soup.find(id="sDot")
-s_txt = soup.find(id="sTxt")
-if s_dot: s_dot["class"] = ["s-dot", "live"]
-if s_txt: s_txt.string = f"Updated — {DISPLAY_DATE} · {n_stocks} stocks · auto"
-
-# ── 4-6. renderMock 제거 — 이미 서버에서 렌더링했으므로 불필요 ──────────
-# str(soup) 이후 raw 문자열 교체가 가장 확실함
-output_html = str(soup)
-
-# renderMock 호출 제거 (여러 변형 대응)
-for pattern in [
-    "window.addEventListener('DOMContentLoaded',renderMock)",
-    'window.addEventListener("DOMContentLoaded",renderMock)',
-    "window.addEventListener('DOMContentLoaded', renderMock)",
-    'window.addEventListener("DOMContentLoaded", renderMock)',
-]:
-    if pattern in output_html:
-        output_html = output_html.replace(pattern, "// renderMock disabled by SSR build")
-        print(f"[KMW] ✓ renderMock call removed: {pattern[:50]}...")
-        break
-else:
-    # 최후 수단: 정규식으로 제거
-    before = len(output_html)
-    output_html = re.sub(
-        r"window\.addEventListener\(['\"]DOMContentLoaded['\"],\s*renderMock\)",
-        "// renderMock disabled by SSR build",
-        output_html
-    )
-    if len(output_html) != before:
-        print("[KMW] ✓ renderMock call removed (regex)")
-    else:
-        print("[KMW] ⚠ renderMock call NOT found — may cause flash")
-
-# 추가 안전장치: renderMock 함수 자체를 no-op으로 재정의하는 스크립트 삽입
-noop_script = '<script>window.renderMock=function(){};if(typeof renderMock==="function"){renderMock=function(){};}</script>'
-output_html = output_html.replace("</head>", noop_script + "\n</head>")
-
-out_main = os.path.join(DOCS_DIR, "index.html")
+# ── 아카이브 ──────────────────────────────────────────────────────────────
 out_archive = os.path.join(DOCS_DIR, f"kr_market_{DATE_STR}.html")
-
-with open(out_main, "w", encoding="utf-8") as f:
-    f.write(output_html)
-with open(out_archive, "w", encoding="utf-8") as f:
-    f.write(output_html)
-
-# 이전 빌드가 남긴 marketdata.json 잔재 제거
-old_json = os.path.join(DOCS_DIR, "marketdata.json")
-if os.path.exists(old_json):
-    os.remove(old_json)
-    print("[KMW] 🗑️ Removed stale marketdata.json")
-
-# 검증
-if movers["gainers"]:
-    t = movers["gainers"][0].get("ticker", "")
-    if t and t in output_html:
-        print(f"[KMW] ✓ Verified: {t} in output")
-    else:
-        print(f"[KMW] ✗ Ticker {t} NOT in output!")
-        sys.exit(1)
-
-sz = os.path.getsize(out_main)
-print(f"[KMW] ✅ docs/index.html ({sz:,} bytes)")
+shutil.copy2(dst_html, out_archive)
 print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html")
+
+# ── 이전 빌드 잔재 제거 ──────────────────────────────────────────────────
+for stale in ["marketdata.json"]:
+    stale_path = os.path.join(DOCS_DIR, stale)
+    if os.path.exists(stale_path):
+        os.remove(stale_path)
+        print(f"[KMW] 🗑️ Removed stale {stale}")
+
+# ── 검증 ──────────────────────────────────────────────────────────────────
+with open(out_json, "r") as f:
+    verify = json.load(f)
+n_g = len(verify.get("gainers", []))
+n_l = len(verify.get("losers", []))
+print(f"[KMW] ✓ Verified: {n_g} gainers, {n_l} losers in JSON")
+
+if n_g == 0 and n_l == 0:
+    print("[KMW] ⚠ WARNING: No stock data — page will show empty state")
+
 print("[KMW] Done!")
