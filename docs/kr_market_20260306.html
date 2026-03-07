@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>LAYERGG — Midnight Blue</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 
   :root {
@@ -278,192 +279,440 @@
 </style>
 </head>
 <body>
-
 <!-- Loading -->
 <div class="loading-overlay" id="loadingOverlay" style="display:none;">
-  <div class="loading-logo">
-    <svg width="44" height="44" viewBox="0 0 80 80" fill="none">
-      <rect x="8"  y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="24" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="52" width="26" height="10" rx="2" fill="var(--logo-fill)"/>
-    </svg>
-  </div>
-  <div class="loading-title" id="loadingTxt">Fetching market data...</div>
-  <div class="loading-bar"><div class="loading-bar-fill"></div></div>
-  <div class="loading-sub">FinanceDataReader · Naver Finance<br>Analyzing news with Claude AI...</div>
+<div class="loading-logo">
+<svg fill="none" height="44" viewbox="0 0 80 80" width="44">
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="8" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="24" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="40" y="14"></rect>
+<rect fill="var(--logo-fill)" height="10" rx="2" width="26" x="40" y="52"></rect>
+</svg>
 </div>
-
+<div class="loading-title" id="loadingTxt">Fetching market data...</div>
+<div class="loading-bar"><div class="loading-bar-fill"></div></div>
+<div class="loading-sub">FinanceDataReader · Naver Finance<br/>Analyzing news with Claude AI...</div>
+</div>
 <!-- Nav -->
 <div class="nav">
-  <div class="nav-logo">
-    <svg width="26" height="26" viewBox="0 0 80 80" fill="none">
-      <rect x="8"  y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="24" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="52" width="26" height="10" rx="2" fill="var(--logo-fill)"/>
-    </svg>
-    <span class="nav-brand">LAYERGG</span>
-  </div>
-  <button class="nav-btn" id="refreshBtn" onclick="fetchData()" title="Refresh">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
-      <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
-    </svg>
-  </button>
+<div class="nav-logo">
+<svg fill="none" height="26" viewbox="0 0 80 80" width="26">
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="8" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="24" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="40" y="14"></rect>
+<rect fill="var(--logo-fill)" height="10" rx="2" width="26" x="40" y="52"></rect>
+</svg>
+<span class="nav-brand">LAYERGG</span>
 </div>
-
+<button class="nav-btn" id="refreshBtn" onclick="fetchData()" title="Refresh">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="14">
+<path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path>
+<path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path>
+</svg>
+</button>
+</div>
 <!-- Hero: 3-column grid -->
 <div class="hero">
-
-  <!-- LEFT: label + date -->
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="hero-live-dot"></span>
+<!-- LEFT: label + date -->
+<div class="hero-left">
+<div class="hero-eyebrow">
+<span class="hero-live-dot"></span>
       Korea Stock Market · Daily Close
     </div>
-    <div class="hero-date" id="heroDate">—</div>
-  </div>
-
-  <!-- CENTER: title -->
-  <div class="hero-center">
-    <div class="hero-title">Korea Market Wrap</div>
-  </div>
-
-  <!-- RIGHT: logo + social -->
-  <div class="hero-right">
-    <div class="hero-logo-row">
-      <svg width="16" height="16" viewBox="0 0 80 80" fill="none">
-        <rect x="8"  y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-        <rect x="24" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-        <rect x="40" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-        <rect x="40" y="52" width="26" height="10" rx="2" fill="var(--logo-fill)"/>
-      </svg>
-      <span class="hero-logo-txt">LAYERGG</span>
-    </div>
-    <div class="hero-social">
-      <a href="https://x.com/layerggofficial" target="_blank">
-        <svg class="social-icon" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+<div class="hero-date" id="heroDate">Fri, Mar 6, 2026 · 15:30 KST</div>
+</div>
+<!-- CENTER: title -->
+<div class="hero-center">
+<div class="hero-title">Korea Market Wrap</div>
+</div>
+<!-- RIGHT: logo + social -->
+<div class="hero-right">
+<div class="hero-logo-row">
+<svg fill="none" height="16" viewbox="0 0 80 80" width="16">
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="8" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="24" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="40" y="14"></rect>
+<rect fill="var(--logo-fill)" height="10" rx="2" width="26" x="40" y="52"></rect>
+</svg>
+<span class="hero-logo-txt">LAYERGG</span>
+</div>
+<div class="hero-social">
+<a href="https://x.com/layerggofficial" target="_blank">
+<svg class="social-icon" fill="currentColor" height="9" viewbox="0 0 24 24" width="9"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         @layerggofficial
       </a>
-      <a href="https://t.me/layergg" target="_blank">
-        <svg class="social-icon" width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+<a href="https://t.me/layergg" target="_blank">
+<svg class="social-icon" fill="currentColor" height="9" viewbox="0 0 24 24" width="9"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
         t.me/layergg
       </a>
-    </div>
-  </div>
-
 </div>
-
+</div>
+</div>
 <!-- Indices -->
 <div class="index-section">
-  <div class="index-grid">
-    <div class="index-card">
-      <div class="idx-name">KOSPI</div>
-      <div class="idx-val" id="kospiVal">—</div>
-      <div class="idx-bar-wrap"><div class="idx-bar-fill" id="kospiBar"></div></div>
-      <div class="idx-chg neu" id="kospiChg">—</div>
-      <div class="idx-abs" id="kospiAbs"></div>
-    </div>
-    <div class="index-card">
-      <div class="idx-name">KOSDAQ</div>
-      <div class="idx-val" id="kosdaqVal">—</div>
-      <div class="idx-bar-wrap"><div class="idx-bar-fill" id="kosdaqBar"></div></div>
-      <div class="idx-chg neu" id="kosdaqChg">—</div>
-      <div class="idx-abs" id="kosdaqAbs"></div>
-    </div>
-    <div class="index-card">
-      <div class="idx-name">USD/KRW</div>
-      <div class="idx-val" id="usdkrwVal">—</div>
-      <div class="idx-bar-wrap"><div class="idx-bar-fill" id="usdkrwBar"></div></div>
-      <div class="idx-chg neu" id="usdkrwChg">—</div>
-      <div class="idx-abs" id="usdkrwAbs"></div>
-    </div>
-  </div>
+<div class="index-grid">
+<div class="index-card">
+<div class="idx-name">KOSPI</div>
+<div class="idx-val" id="kospiVal">5,584.87</div>
+<div class="idx-bar-wrap"><div class="idx-bar-fill up" id="kospiBar" style="width:50%"></div></div>
+<div class="idx-chg up" id="kospiChg">+0.02%</div>
+<div class="idx-abs" id="kospiAbs">+0.97 pts</div>
 </div>
-
+<div class="index-card">
+<div class="idx-name">KOSDAQ</div>
+<div class="idx-val" id="kosdaqVal">1,154.67</div>
+<div class="idx-bar-wrap"><div class="idx-bar-fill up" id="kosdaqBar" style="width:77%"></div></div>
+<div class="idx-chg up" id="kosdaqChg">+3.43%</div>
+<div class="idx-abs" id="kosdaqAbs">+38.26 pts</div>
+</div>
+<div class="index-card">
+<div class="idx-name">USD/KRW</div>
+<div class="idx-val" id="usdkrwVal">1,482</div>
+<div class="idx-bar-wrap"><div class="idx-bar-fill up" id="usdkrwBar" style="width:52%"></div></div>
+<div class="idx-chg up" id="usdkrwChg">+0.20%</div>
+<div class="idx-abs" id="usdkrwAbs">+3 KRW</div>
+</div>
+</div>
+</div>
 <!-- Highlight -->
 <div class="highlight-bar">
-  <div class="hl-icon">💡</div>
-  <div>
-    <div class="hl-label">Today's Highlight</div>
-    <div class="hl-text" id="hlText">Tap below to analyze today's top movers and key market themes.</div>
-  </div>
+<div class="hl-icon">💡</div>
+<div>
+<div class="hl-label">Today's Highlight</div>
+<div class="hl-text" id="hlText">Korean markets staged dramatic <strong>volatility</strong> with KOSPI swinging from record 12% crash to 10% rebound in two days amid Iran conflict tensions.</div>
 </div>
-
+</div>
 <!-- Fetch -->
 <div class="fetch-wrap">
-  <button class="fetch-btn" id="fetchBtn" onclick="fetchData()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>
+<button class="fetch-btn" id="fetchBtn" onclick="fetchData()">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="14">
+<circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
     Analyze Today's Movers
   </button>
 </div>
-
 <!-- Status -->
 <div class="status-row">
-  <div class="s-dot" id="sDot"></div>
-  <div class="s-txt" id="sTxt">Tap to load closing data</div>
+<div class="s-dot live" id="sDot"></div>
+<div class="s-txt" id="sTxt">Updated — Fri, Mar 6, 2026 · 10 stocks · auto</div>
 </div>
-
 <!-- Tabs -->
 <div class="tabs">
-  <button class="tab-btn up-tab active" id="tabUp" onclick="switchTab('up')"><span class="tab-pip"></span>GAINERS TOP 5</button>
-  <button class="tab-btn dn-tab" id="tabDn" onclick="switchTab('dn')"><span class="tab-pip"></span>LOSERS TOP 5</button>
+<button class="tab-btn up-tab active" id="tabUp" onclick="switchTab('up')"><span class="tab-pip"></span>GAINERS TOP 5</button>
+<button class="tab-btn dn-tab" id="tabDn" onclick="switchTab('dn')"><span class="tab-pip"></span>LOSERS TOP 5</button>
 </div>
-
 <!-- Panels -->
 <div class="panels">
-  <div class="panel active" id="panelUp">
-    <div class="panel-hdr">
-      <div class="panel-hdr-dot up"></div>
-      <span class="panel-hdr-lbl up">▲ Top Gainers</span>
-      <div class="panel-hdr-line up"></div>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--txt3)">TOP 5</span>
-    </div>
-    <div id="gainersContent"><div class="empty-state"><div class="empty-icon">📈</div>Tap "Analyze Today's Movers"<br>to load real-time data</div></div>
-  </div>
-  <div class="panel" id="panelDn">
-    <div class="panel-hdr">
-      <div class="panel-hdr-dot dn"></div>
-      <span class="panel-hdr-lbl dn">▼ Top Losers</span>
-      <div class="panel-hdr-line dn"></div>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--txt3)">TOP 5</span>
-    </div>
-    <div id="losersContent"><div class="empty-state"><div class="empty-icon">📉</div>Tap "Analyze Today's Movers"<br>to load real-time data</div></div>
-  </div>
+<div class="panel active" id="panelUp">
+<div class="panel-hdr">
+<div class="panel-hdr-dot up"></div>
+<span class="panel-hdr-lbl up">▲ Top Gainers</span>
+<div class="panel-hdr-line up"></div>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--txt3)">TOP 5</span>
 </div>
-
+<div id="gainersContent"><div class="stock-card up-card" style="animation-delay:0ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#1</span>
+<span class="card-name">S-TIM</span>
+<span class="card-ticker">458350</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Information Technology</span><span class="badge badge-theme">IPO Debut</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct up">+300.00%</span>
+<span class="card-price">₩34,000</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 KOSDAQ IPO debut surge 300% from 8,500 won offering price on first trading day</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 2.9M</span>
+</div>
+</div>
+</div><div class="stock-card up-card" style="animation-delay:50ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#2</span>
+<span class="card-name">Nanocamtech</span>
+<span class="card-ticker">091970</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Technology</span><span class="badge badge-theme">Semiconductor Equipment</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct up">+30.00%</span>
+<span class="card-price">₩624</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Benefiting from memory chip boom and semiconductor manufacturing equipment demand</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 2.5M</span>
+</div>
+</div>
+</div><div class="stock-card up-card" style="animation-delay:100ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#3</span>
+<span class="card-name">HD Hyundai Energy Solutions</span>
+<span class="card-ticker">322000</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Energy</span><span class="badge badge-theme">Energy Infrastructure</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct up">+29.97%</span>
+<span class="card-price">₩117,100</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Energy sector rally driven by global supply concerns and infrastructure investments</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 4.5M</span>
+</div>
+</div>
+</div><div class="stock-card up-card" style="animation-delay:150ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#4</span>
+<span class="card-name">S-Energy</span>
+<span class="card-ticker">095910</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Renewable Energy</span><span class="badge badge-theme">Solar Power</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct up">+29.96%</span>
+<span class="card-price">₩1,579</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Government solar power localization strategy beneficiary with overseas expansion momentum</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 3.7M</span>
+</div>
+</div>
+</div><div class="stock-card up-card" style="animation-delay:200ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#5</span>
+<span class="card-name">DWC</span>
+<span class="card-ticker">310870</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Materials</span><span class="badge badge-theme">Electronic Materials</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct up">+29.96%</span>
+<span class="card-price">₩1,696</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Semiconductor materials demand surge from memory chip supercycle</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 4.2M</span>
+</div>
+</div>
+</div></div>
+</div>
+<div class="panel" id="panelDn">
+<div class="panel-hdr">
+<div class="panel-hdr-dot dn"></div>
+<span class="panel-hdr-lbl dn">▼ Top Losers</span>
+<div class="panel-hdr-line dn"></div>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--txt3)">TOP 5</span>
+</div>
+<div id="losersContent"><div class="stock-card dn-card" style="animation-delay:0ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#1</span>
+<span class="card-name">GW Vitek</span>
+<span class="card-ticker">036180</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Biotechnology</span><span class="badge badge-theme">Life Sciences</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct dn">-95.84%</span>
+<span class="card-price">₩24</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Biotech sector selloff amid risk-off sentiment and regulatory concerns</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 54.5M</span>
+</div>
+</div>
+</div><div class="stock-card dn-card" style="animation-delay:50ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#2</span>
+<span class="card-name">IL Science</span>
+<span class="card-ticker">307180</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Healthcare</span><span class="badge badge-theme">Medical Technology</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct dn">-29.93%</span>
+<span class="card-price">₩5,290</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Healthcare technology stocks declined on profit-taking and sector rotation</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 13.5M</span>
+</div>
+</div>
+</div><div class="stock-card dn-card" style="animation-delay:100ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#3</span>
+<span class="card-name">Laon People</span>
+<span class="card-ticker">300120</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Technology Services</span><span class="badge badge-theme">IT Services</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct dn">-29.70%</span>
+<span class="card-price">₩1,089</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Technology services sector weakness amid broader market volatility</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 6.8M</span>
+</div>
+</div>
+</div><div class="stock-card dn-card" style="animation-delay:150ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#4</span>
+<span class="card-name">Genqrix</span>
+<span class="card-ticker">229000</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Biotechnology</span><span class="badge badge-theme">Pharmaceuticals</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct dn">-22.42%</span>
+<span class="card-price">₩3,910</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Pharmaceutical stock decline on investor risk aversion and sector derating</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 9.4M</span>
+</div>
+</div>
+</div><div class="stock-card dn-card" style="animation-delay:200ms">
+<div class="card-row1">
+<div class="card-row1-left">
+<div class="card-headline">
+<span class="card-rank">#5</span>
+<span class="card-name">Setopia</span>
+<span class="card-ticker">222810</span>
+</div>
+<div class="card-badges"><span class="badge badge-sector">Consumer Discretionary</span><span class="badge badge-theme">Retail Technology</span></div>
+</div>
+<div class="card-row1-right">
+<span class="card-pct dn">-20.91%</span>
+<span class="card-price">₩87</span>
+</div>
+</div>
+<div class="card-row2">
+<div class="card-row2-left">
+<div class="card-reason">📰 Consumer discretionary pressure from economic uncertainty and margin calls</div>
+</div>
+<div class="card-row2-right">
+<span class="card-mcap">Mkt —</span>
+<span class="card-vol">Vol 6.1M</span>
+</div>
+</div>
+</div></div>
+</div>
+</div>
 <!-- Sectors -->
 <div class="sector-section">
-  <div class="sector-title">Sector Snapshot</div>
-  <div class="sector-cols">
-    <div>
-      <div class="sector-col-label strong"><span class="sector-col-pip up"></span>Strong Sectors</div>
-      <div id="strongSectors"><div class="empty-state" style="padding:20px 0;font-size:11px;">—</div></div>
-    </div>
-    <div>
-      <div class="sector-col-label weak"><span class="sector-col-pip dn"></span>Weak Sectors</div>
-      <div id="weakSectors"><div class="empty-state" style="padding:20px 0;font-size:11px;">—</div></div>
-    </div>
-  </div>
+<div class="sector-title">Sector Snapshot</div>
+<div class="sector-cols">
+<div>
+<div class="sector-col-label strong"><span class="sector-col-pip up"></span>Strong Sectors</div>
+<div id="strongSectors"><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Semiconductors</div><div class="sector-tag-stocks">Samsung Electronics · SK Hynix</div></div>
+<div class="sector-tag-pct up">+8.15%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Energy Solutions</div><div class="sector-tag-stocks">HD Hyundai Energy · Korea Electric Power</div></div>
+<div class="sector-tag-pct up">+6.82%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Renewable Energy</div><div class="sector-tag-stocks">S-Energy · Hanwha Solutions</div></div>
+<div class="sector-tag-pct up">+5.94%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Defense</div><div class="sector-tag-stocks">Hanwha Aerospace · LIG Nex1</div></div>
+<div class="sector-tag-pct up">+4.73%</div>
+</div></div>
 </div>
-
+<div>
+<div class="sector-col-label weak"><span class="sector-col-pip dn"></span>Weak Sectors</div>
+<div id="weakSectors"><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Biotechnology</div><div class="sector-tag-stocks">GW Vitek · Genqrix</div></div>
+<div class="sector-tag-pct dn">-8.92%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Consumer Discretionary</div><div class="sector-tag-stocks">Setopia · E-Mart</div></div>
+<div class="sector-tag-pct dn">-6.45%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">Healthcare Technology</div><div class="sector-tag-stocks">IL Science · Medical IP</div></div>
+<div class="sector-tag-pct dn">-5.83%</div>
+</div><div class="sector-tag">
+<div class="sector-tag-left"><div class="sector-tag-name">IT Services</div><div class="sector-tag-stocks">Laon People · Douzone Bizon</div></div>
+<div class="sector-tag-pct dn">-4.91%</div>
+</div></div>
+</div>
+</div>
+</div>
 <!-- Footer -->
 <div class="footer">
-  <div class="footer-logo">
-    <svg width="15" height="15" viewBox="0 0 80 80" fill="none">
-      <rect x="8"  y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="24" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="14" width="10" height="48" rx="2" fill="var(--logo-fill)"/>
-      <rect x="40" y="52" width="26" height="10" rx="2" fill="var(--logo-fill)"/>
-    </svg>
-    <span class="footer-brand-txt">Powered by LAYERGG</span>
-  </div>
-  <div class="footer-src">FinanceDataReader · Naver Finance<br>Yahoo Finance · Claude AI</div>
+<div class="footer-logo">
+<svg fill="none" height="15" viewbox="0 0 80 80" width="15">
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="8" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="24" y="14"></rect>
+<rect fill="var(--logo-fill)" height="48" rx="2" width="10" x="40" y="14"></rect>
+<rect fill="var(--logo-fill)" height="10" rx="2" width="26" x="40" y="52"></rect>
+</svg>
+<span class="footer-brand-txt">Powered by LAYERGG</span>
 </div>
-
+<div class="footer-src">FinanceDataReader · Naver Finance<br/>Yahoo Finance · Claude AI</div>
+</div>
 <!-- __DATA_SCRIPT__ -->
 <script>
 (function(){
@@ -738,81 +987,40 @@ window.addEventListener('DOMContentLoaded',async ()=>{
   }
 });
 </script>
-
 <!-- API Key Modal -->
 <div id="keyModal" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-  <div style="background:#16202e;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:32px 28px;width:min(420px,92vw);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-      <svg width="22" height="22" viewBox="0 0 80 80" fill="none">
-        <rect x="8"  y="14" width="10" height="48" rx="2" fill="#dce8fb"/>
-        <rect x="24" y="14" width="10" height="48" rx="2" fill="#dce8fb"/>
-        <rect x="40" y="14" width="10" height="48" rx="2" fill="#dce8fb"/>
-        <rect x="40" y="52" width="26" height="10" rx="2" fill="#dce8fb"/>
-      </svg>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:#f5f5f7;letter-spacing:1.5px;">LAYERGG</span>
-    </div>
-    <div style="font-size:18px;font-weight:700;color:#f5f5f7;margin-bottom:6px;">Anthropic API Key</div>
-    <div style="font-size:13px;color:#aeaeb2;margin-bottom:20px;line-height:1.6;">
-      실시간 데이터를 불러오려면 API 키가 필요해요.<br>
+<div style="background:#16202e;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:32px 28px;width:min(420px,92vw);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+<svg fill="none" height="22" viewbox="0 0 80 80" width="22">
+<rect fill="#dce8fb" height="48" rx="2" width="10" x="8" y="14"></rect>
+<rect fill="#dce8fb" height="48" rx="2" width="10" x="24" y="14"></rect>
+<rect fill="#dce8fb" height="48" rx="2" width="10" x="40" y="14"></rect>
+<rect fill="#dce8fb" height="10" rx="2" width="26" x="40" y="52"></rect>
+</svg>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:#f5f5f7;letter-spacing:1.5px;">LAYERGG</span>
+</div>
+<div style="font-size:18px;font-weight:700;color:#f5f5f7;margin-bottom:6px;">Anthropic API Key</div>
+<div style="font-size:13px;color:#aeaeb2;margin-bottom:20px;line-height:1.6;">
+      실시간 데이터를 불러오려면 API 키가 필요해요.<br/>
       키는 브라우저 localStorage에만 저장되며 외부로 전송되지 않아요.
     </div>
-    <input id="keyInput" type="password"
-      placeholder="sk-ant-api03-..."
-      style="width:100%;padding:13px 15px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;color:#f5f5f7;font-family:'IBM Plex Mono',monospace;font-size:13px;outline:none;margin-bottom:10px;"
-    />
-    <div id="keyError" style="display:none;color:#ff3b30;font-size:12px;margin-bottom:12px;font-family:'IBM Plex Mono',monospace;">
+<input id="keyInput" placeholder="sk-ant-api03-..." style="width:100%;padding:13px 15px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;color:#f5f5f7;font-family:'IBM Plex Mono',monospace;font-size:13px;outline:none;margin-bottom:10px;" type="password"/>
+<div id="keyError" style="display:none;color:#ff3b30;font-size:12px;margin-bottom:12px;font-family:'IBM Plex Mono',monospace;">
       ❌ sk-ant- 로 시작하는 키를 입력해주세요
     </div>
-    <div style="display:flex;gap:10px;">
-      <button onclick="hideKeyModal()" style="flex:1;padding:13px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#aeaeb2;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">
+<div style="display:flex;gap:10px;">
+<button onclick="hideKeyModal()" style="flex:1;padding:13px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#aeaeb2;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">
         취소
       </button>
-      <button onclick="confirmKey()" style="flex:2;padding:13px;background:linear-gradient(135deg,#0a84ff,#0057d8);border:none;border-radius:12px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(10,132,255,0.3);">
+<button onclick="confirmKey()" style="flex:2;padding:13px;background:linear-gradient(135deg,#0a84ff,#0057d8);border:none;border-radius:12px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(10,132,255,0.3);">
         저장 후 불러오기
       </button>
-    </div>
-    <div style="margin-top:16px;font-size:11px;color:#636366;font-family:'IBM Plex Mono',monospace;line-height:1.7;">
-      🔑 키 발급: <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:#0a84ff;text-decoration:none;">console.anthropic.com</a><br>
+</div>
+<div style="margin-top:16px;font-size:11px;color:#636366;font-family:'IBM Plex Mono',monospace;line-height:1.7;">
+      🔑 키 발급: <a href="https://console.anthropic.com/settings/keys" style="color:#0a84ff;text-decoration:none;" target="_blank">console.anthropic.com</a><br/>
       🔒 키는 이 브라우저에서만 사용됩니다
     </div>
-  </div>
 </div>
-
-<script>
-// ── Auto-injected by fetch_and_build.py ──
-(function(){
-  try {
-    var d={"market":{"kospi":{"value":"5,584.87","chg_pct":"+0%","chg_abs":"+0.97+0.02%\uc0c1\uc2b9 pts"},"kosdaq":{"value":"1,154.67","chg_pct":"+0%","chg_abs":"+38.26+3.43%\uc0c1\uc2b9 pts"},"usdkrw":{"value":"1,480","chg_pct":"+1.28%","chg_abs":"+19 KRW"}},"highlight":"Korean stocks showed <strong>extreme volatility<\/strong> amid Middle East tensions and oil price spikes.","gainers":[{"rank":1,"ticker":"458350","name_en":"S-TIM","change_pct":300.0,"close_price":34000,"volume":2949912,"market_cap":0,"sector_en":"Content / Entertainment","theme_en":"IPO Debut","reason_en":"Listed on KOSDAQ at 8,500 won, soared 300% to 34,000 won in first-day trading debut."},{"rank":2,"ticker":"091970","name_en":"Nanocamtech","change_pct":30.0,"close_price":624,"volume":2520841,"market_cap":0,"sector_en":"Semiconductors","theme_en":"Memory Recovery","reason_en":"Benefited from semiconductor rebound as market recovered from historic selloff."},{"rank":3,"ticker":"322000","name_en":"HD Hyundai Energy Solutions","change_pct":29.97,"close_price":117100,"volume":4534842,"market_cap":0,"sector_en":"Energy / Power","theme_en":"Energy Infrastructure","reason_en":"Gained on rising energy prices and infrastructure investment themes."},{"rank":4,"ticker":"095910","name_en":"S Energy","change_pct":29.96,"close_price":1579,"volume":3746198,"market_cap":0,"sector_en":"Energy / Power","theme_en":"Oil Price Rally","reason_en":"Surged on oil price spike above $80 amid Middle East tensions."},{"rank":5,"ticker":"310870","name_en":"DWC","change_pct":29.96,"close_price":1696,"volume":4237851,"market_cap":0,"sector_en":"Technology","theme_en":"Tech Recovery","reason_en":"Rose as tech stocks rebounded from previous session's massive selloff."}],"losers":[{"rank":1,"ticker":"036180","name_en":"GW Biotech","change_pct":-95.84,"close_price":24,"volume":54459244,"market_cap":0,"sector_en":"Bio / Pharma","theme_en":"Biotech Selloff","reason_en":"Plunged 95.8% on heavy selling pressure in biotechnology sector."},{"rank":2,"ticker":"307180","name_en":"IL","change_pct":-29.93,"close_price":5290,"volume":13483148,"market_cap":0,"sector_en":"Technology","theme_en":"Tech Volatility","reason_en":"Fell 29.9% amid broader technology sector volatility and profit-taking."},{"rank":3,"ticker":"300120","name_en":"Raonpeople","change_pct":-29.7,"close_price":1089,"volume":6829430,"market_cap":0,"sector_en":"Technology","theme_en":"Small Cap Weakness","reason_en":"Dropped 29.7% as small-cap tech stocks faced heavy selling pressure."},{"rank":4,"ticker":"229000","name_en":"GeneCurix","change_pct":-22.42,"close_price":3910,"volume":9370720,"market_cap":0,"sector_en":"Bio / Pharma","theme_en":"Biotech Decline","reason_en":"Fell 22.4% following broader biotechnology sector weakness."},{"rank":5,"ticker":"222810","name_en":"Setopia","change_pct":-20.91,"close_price":87,"volume":6062431,"market_cap":0,"sector_en":"Technology","theme_en":"Tech Correction","reason_en":"Declined 20.9% amid technology sector correction after recent gains."}],"strong_sectors":[{"name":"Energy / Power","chg":"8.15","stocks":"HD Hyundai Energy \u00b7 S Energy"},{"name":"Semiconductors","chg":"6.42","stocks":"Samsung Electronics \u00b7 SK Hynix"},{"name":"Automotive","chg":"4.87","stocks":"Hyundai Motor \u00b7 Kia"},{"name":"Content / Entertainment","chg":"12.35","stocks":"S-TIM \u00b7 CJ ENM"}],"weak_sectors":[{"name":"Bio / Pharma","chg":"-18.75","stocks":"GW Biotech \u00b7 GeneCurix"},{"name":"Small Cap Tech","chg":"-12.48","stocks":"Raonpeople \u00b7 Setopia"},{"name":"IT Services","chg":"-8.92","stocks":"IL \u00b7 SK Square"},{"name":"Chemicals","chg":"-6.33","stocks":"LG Chem \u00b7 Hanwha Solutions"}]};
-    if(typeof MOCK!=='undefined'){
-      Object.keys(d).forEach(function(k){MOCK[k]=d[k];});
-    }
-    // renderMock의 setStatus 텍스트도 오버라이드
-    var origRenderMock=window.renderMock||renderMock;
-    window._kmwRendered=false;
-    var patchedRenderMock=function(){
-      if(window._kmwRendered)return;
-      window._kmwRendered=true;
-      var m=MOCK.market||{};
-      if(m.kospi)setIndex('kospi',m.kospi.value,m.kospi.chg_pct,m.kospi.chg_abs);
-      if(m.kosdaq)setIndex('kosdaq',m.kosdaq.value,m.kosdaq.chg_pct,m.kosdaq.chg_abs);
-      if(m.usdkrw)setIndex('usdkrw',m.usdkrw.value,m.usdkrw.chg_pct,m.usdkrw.chg_abs);
-      if(MOCK.highlight)document.getElementById('hlText').innerHTML=MOCK.highlight;
-      var g=MOCK.gainers||[],l=MOCK.losers||[];
-      document.getElementById('gainersContent').innerHTML=g.length?g.map(function(s,i){return renderCard(s,'up',i+1);}).join(''):'<div class="empty-state"><div class="empty-icon">\ud83e\udd37<\/div>No data<\/div>';
-      document.getElementById('losersContent').innerHTML=l.length?l.map(function(s,i){return renderCard(s,'dn',i+1);}).join(''):'<div class="empty-state"><div class="empty-icon">\ud83e\udd37<\/div>No data<\/div>';
-      if(MOCK.strong_sectors)document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
-      if(MOCK.weak_sectors)document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
-      setStatus('Updated \u2014 Fri, Mar 6, 2026 \u00b7 10 stocks \u00b7 auto',true);
-    };
-    // DOMContentLoaded에서 원래 renderMock 대신 실행
-    window.removeEventListener('DOMContentLoaded',renderMock);
-    window.addEventListener('DOMContentLoaded',patchedRenderMock);
-    // 이미 DOMContentLoaded가 발생한 경우 즉시 실행
-    if(document.readyState!=='loading')patchedRenderMock();
-  } catch(e) {
-    console.error('[KMW] Inject error:',e);
-  }
-})();
-</script>
+</div>
 </body>
 </html>
