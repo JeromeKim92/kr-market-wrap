@@ -635,7 +635,9 @@ weak_sectors = analysis.get("weak_sectors",
                             [{"name": "—", "chg": "0.00", "stocks": "—"}])
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 4. HTML 빌드
+# 4. HTML 빌드 — 스크립트 주입 방식
+#    정규식 MOCK 교체 대신, </body> 앞에 데이터 스크립트를 삽입
+#    → 원본 template을 건드리지 않으므로 100% 안전
 # ═════════════════════════════════════════════════════════════════════════════
 mock_data = {
     "market": market,
@@ -664,64 +666,70 @@ with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
 
 print(f"[KMW] Template size: {len(html)} chars")
 
-# ── MOCK 교체 (안전한 JS 임베딩) ──────────────────────────────────────────
-mock_json = json.dumps(mock_data, ensure_ascii=False, separators=(",", ":"))
-# HTML <script> 안에서 </ 시퀀스 이스케이프 (</script> 방지)
+# ── JSON 안전 처리 ────────────────────────────────────────────────────────
+mock_json = json.dumps(mock_data, ensure_ascii=True, separators=(",", ":"))
+# ensure_ascii=True → 한글 등을 \uXXXX로 이스케이프 (JS에서 안전)
+# </ 시퀀스 이스케이프 (</script> 방지)
 mock_json_safe = mock_json.replace("</", "<\\/")
 
-# 방법 1: 정규식
-MOCK_PATTERN = r"const MOCK\s*=\s*\{[\s\S]*?\};\s*\n(?=function renderMock)"
-mock_match = re.search(MOCK_PATTERN, html)
-
-if mock_match:
-    print(f"[KMW] ✓ Regex matched MOCK block (pos {mock_match.start()}-{mock_match.end()}, {mock_match.end()-mock_match.start()} chars)")
-    html = html[:mock_match.start()] + f"const MOCK={mock_json_safe};\n" + html[mock_match.end():]
-else:
-    # 방법 2: 문자열 기반 폴백
-    print("[KMW] ⚠ Regex failed — trying string-based replacement")
-    marker_start = "const MOCK={"
-    marker_end = "function renderMock(){"
-
-    idx_start = html.find(marker_start)
-    idx_end = html.find(marker_end)
-
-    if idx_start >= 0 and idx_end > idx_start:
-        # marker_start 부터 marker_end 직전까지 교체
-        html = html[:idx_start] + f"const MOCK={mock_json_safe};\n" + html[idx_end:]
-        print(f"[KMW] ✓ String-based replacement succeeded (pos {idx_start}-{idx_end})")
-    else:
-        print(f"[KMW] ✗ CRITICAL: Could not find MOCK block! start={idx_start} end={idx_end}")
-        sys.exit(1)
-
-# ── setStatus 교체 ────────────────────────────────────────────────────────
 n_stocks = len(movers["gainers"]) + len(movers["losers"])
-status_text = f"Updated — {DISPLAY_DATE} · {n_stocks} stocks · auto"
+status_text = f"Updated \\u2014 {DISPLAY_DATE} \\u00b7 {n_stocks} stocks \\u00b7 auto"
 
-STATUS_PATTERN = r"setStatus\('[^']*',\s*true\)"
-status_match = re.search(STATUS_PATTERN, html)
-if status_match:
-    html = re.sub(STATUS_PATTERN, f"setStatus('{status_text}',true)", html)
-    print(f"[KMW] ✓ Status text updated")
+# ── </body> 앞에 데이터 오버라이드 스크립트 삽입 ──────────────────────────
+# 이 스크립트는 메인 <script> 이후, DOMContentLoaded 이전에 실행됨
+# → MOCK 객체를 덮어쓴 뒤, renderMock()이 호출될 때 새 데이터를 렌더링
+inject_script = f"""<script>
+// ── Auto-injected by fetch_and_build.py ──
+(function(){{
+  try {{
+    var d={mock_json_safe};
+    if(typeof MOCK!=='undefined'){{
+      Object.keys(d).forEach(function(k){{MOCK[k]=d[k];}});
+    }}
+    // renderMock의 setStatus 텍스트도 오버라이드
+    var origRenderMock=window.renderMock||renderMock;
+    window._kmwRendered=false;
+    var patchedRenderMock=function(){{
+      if(window._kmwRendered)return;
+      window._kmwRendered=true;
+      var m=MOCK.market||{{}};
+      if(m.kospi)setIndex('kospi',m.kospi.value,m.kospi.chg_pct,m.kospi.chg_abs);
+      if(m.kosdaq)setIndex('kosdaq',m.kosdaq.value,m.kosdaq.chg_pct,m.kosdaq.chg_abs);
+      if(m.usdkrw)setIndex('usdkrw',m.usdkrw.value,m.usdkrw.chg_pct,m.usdkrw.chg_abs);
+      if(MOCK.highlight)document.getElementById('hlText').innerHTML=MOCK.highlight;
+      var g=MOCK.gainers||[],l=MOCK.losers||[];
+      document.getElementById('gainersContent').innerHTML=g.length?g.map(function(s,i){{return renderCard(s,'up',i+1);}}).join(''):'<div class="empty-state"><div class="empty-icon">\\ud83e\\udd37<\\/div>No data<\\/div>';
+      document.getElementById('losersContent').innerHTML=l.length?l.map(function(s,i){{return renderCard(s,'dn',i+1);}}).join(''):'<div class="empty-state"><div class="empty-icon">\\ud83e\\udd37<\\/div>No data<\\/div>';
+      if(MOCK.strong_sectors)document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
+      if(MOCK.weak_sectors)document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
+      setStatus('{status_text}',true);
+    }};
+    // DOMContentLoaded에서 원래 renderMock 대신 실행
+    window.removeEventListener('DOMContentLoaded',renderMock);
+    window.addEventListener('DOMContentLoaded',patchedRenderMock);
+    // 이미 DOMContentLoaded가 발생한 경우 즉시 실행
+    if(document.readyState!=='loading')patchedRenderMock();
+  }} catch(e) {{
+    console.error('[KMW] Inject error:',e);
+  }}
+}})();
+</script>
+</body>"""
+
+if "</body>" in html:
+    html = html.replace("</body>", inject_script)
+    print("[KMW] ✓ Data script injected before </body>")
 else:
-    print("[KMW] ⚠ Status pattern not found (non-critical)")
+    print("[KMW] ✗ CRITICAL: </body> not found in template!")
+    sys.exit(1)
 
-# ── 검증: 교체된 HTML에 실제 데이터가 있는지 확인 ──────────────────────────
-verify_ok = True
+# ── 검증 ──────────────────────────────────────────────────────────────────
 if movers["gainers"]:
     first_ticker = movers["gainers"][0].get("ticker", "")
     if first_ticker and first_ticker not in html:
-        print(f"[KMW] ✗ Verification FAILED: ticker {first_ticker} not found in output HTML!")
-        verify_ok = False
-    else:
-        print(f"[KMW] ✓ Verification passed: ticker {first_ticker} found in output")
-
-if "const MOCK=" not in html:
-    print("[KMW] ✗ Verification FAILED: 'const MOCK=' not in output HTML!")
-    verify_ok = False
-
-if not verify_ok:
-    print("[KMW] ✗ Output verification failed — aborting")
-    sys.exit(1)
+        print(f"[KMW] ✗ Verification FAILED: ticker {first_ticker} not in output!")
+        sys.exit(1)
+    print(f"[KMW] ✓ Verification: ticker {first_ticker} found")
 
 # ── 저장 ──────────────────────────────────────────────────────────────────
 out_main = os.path.join(DOCS_DIR, "index.html")
@@ -732,9 +740,7 @@ with open(out_main, "w", encoding="utf-8") as f:
 with open(out_archive, "w", encoding="utf-8") as f:
     f.write(html)
 
-# 저장 후 파일 크기 확인
 main_size = os.path.getsize(out_main)
-arch_size = os.path.getsize(out_archive)
 print(f"[KMW] ✅ docs/index.html ({main_size:,} bytes)")
-print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html ({arch_size:,} bytes)")
+print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html")
 print("[KMW] Done!")
