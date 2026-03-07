@@ -515,6 +515,12 @@ with open(out_main, "w", encoding="utf-8") as f:
 with open(out_archive, "w", encoding="utf-8") as f:
     f.write(output_html)
 
+# 이전 빌드가 남긴 marketdata.json 잔재 제거
+old_json = os.path.join(DOCS_DIR, "marketdata.json")
+if os.path.exists(old_json):
+    os.remove(old_json)
+    print("[KMW] 🗑️ Removed stale marketdata.json")
+
 # 검증
 if movers["gainers"]:
     t = movers["gainers"][0].get("ticker", "")
