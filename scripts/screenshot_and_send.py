@@ -104,20 +104,6 @@ try:
         if reason:
             l_lines += f"      └ {reason}\n"
 
-    caption = (
-        f"📊 <b>Korea Market Wrap</b> — {date_label}\n"
-        f"\n"
-        f"KOSPI {kospi.get('value','—')} ({kospi.get('chg_pct','')})\n"
-        f"KOSDAQ {kosdaq.get('value','—')} ({kosdaq.get('chg_pct','')})\n"
-        f"USD/KRW {usdkrw.get('value','—')} ({usdkrw.get('chg_pct','')})\n"
-        f"\n"
-        f"💡 {hl_clean}\n"
-        f"\n"
-        f"🟢 <b>Top Gainers</b>\n"
-        f"{g_lines}\n"
-        f"🔴 <b>Top Losers</b>\n"
-        f"{l_lines}\n"
-        f"🔗 https://jeromekim92.github.io/kr-market-wrap/"
     # 캡션을 photo용(짧은) + 텍스트 메시지용(상세)으로 분리
     photo_caption = (
         f"📊 <b>Korea Market Wrap</b> — {date_label}\n"
