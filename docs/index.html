@@ -530,7 +530,40 @@ function renderSectors(sectors,type){
     <div class="sector-tag-pct ${type}">${type==='up'?'+':''}${s.chg}%</div>
   </div>`).join('');
 }
-const MOCK={"market":{"kospi":{"value":"5,584.87","chg_pct":"+0%","chg_abs":"+0.97+0.02%상승 pts"},"kosdaq":{"value":"1,154.67","chg_pct":"+0%","chg_abs":"+38.26+3.43%상승 pts"},"usdkrw":{"value":"1,480","chg_pct":"+1.28%","chg_abs":"+19 KRW"}},"highlight":"Korean stocks ended flat after volatile <strong>geopolitical turmoil<\/strong> from Middle East conflict subsided.","gainers":[{"rank":1,"ticker":"458350","name_en":"S-Team","change_pct":300.0,"close_price":34000,"volume":2949912,"market_cap":0,"sector_en":"Chemicals","theme_en":"Semiconductor Materials","reason_en":"Partnerships in advanced packaging materials development."},{"rank":2,"ticker":"091970","name_en":"Nanocam Tech","change_pct":30.0,"close_price":624,"volume":2520841,"market_cap":0,"sector_en":"Technology","theme_en":"Semiconductor Equipment","reason_en":"Rising demand for precision manufacturing equipment."},{"rank":3,"ticker":"322000","name_en":"HD Hyundai Energy Solutions","change_pct":29.97,"close_price":117100,"volume":4534842,"market_cap":0,"sector_en":"Energy","theme_en":"Solar / Alternative Energy","reason_en":"Oil price surge boosted renewable energy sector interest."},{"rank":4,"ticker":"095910","name_en":"S Energy","change_pct":29.96,"close_price":1579,"volume":3746198,"market_cap":0,"sector_en":"Energy","theme_en":"Solar Power","reason_en":"Heightened focus on energy security amid Middle East tensions."},{"rank":5,"ticker":"310870","name_en":"DWC","change_pct":29.96,"close_price":1696,"volume":4237851,"market_cap":0,"sector_en":"Technology","theme_en":"Industrial Technology","reason_en":"Sector rotation into defensive industrial names."}],"losers":[{"rank":1,"ticker":"036180","name_en":"GW Biotech","change_pct":-95.84,"close_price":24,"volume":54459244,"market_cap":0,"sector_en":"Bio / Pharma","theme_en":"Biotech Selloff","reason_en":"Risk-off sentiment hit speculative biotech stocks hard."},{"rank":2,"ticker":"307180","name_en":"IL","change_pct":-29.93,"close_price":5290,"volume":13483148,"market_cap":0,"sector_en":"Technology","theme_en":"Tech Correction","reason_en":"Profit-taking after recent tech rally amid market volatility."},{"rank":3,"ticker":"300120","name_en":"Raon People","change_pct":-29.7,"close_price":1089,"volume":6829430,"market_cap":0,"sector_en":"IT Services","theme_en":"Software Correction","reason_en":"High-multiple software stocks suffered in risk-off environment."},{"rank":4,"ticker":"229000","name_en":"GeneCurix","change_pct":-22.42,"close_price":3910,"volume":9370720,"market_cap":0,"sector_en":"Bio / Pharma","theme_en":"Biotech Volatility","reason_en":"Biotechnology sector faced continued selling pressure."},{"rank":5,"ticker":"222810","name_en":"Setopia","change_pct":-20.91,"close_price":87,"volume":6062431,"market_cap":0,"sector_en":"Technology","theme_en":"Small-cap Tech","reason_en":"Small technology names hit by liquidity concerns."}],"strong_sectors":[{"name":"Energy","chg":"12.85","stocks":"HD Hyundai Energy · S Energy"},{"name":"Chemicals","chg":"8.42","stocks":"S-Team · LG Chem"},{"name":"Semiconductors","chg":"6.71","stocks":"Samsung Electronics · SK Hynix"},{"name":"Industrial Materials","chg":"5.23","stocks":"POSCO · Hyundai Steel"}],"weak_sectors":[{"name":"Bio / Pharma","chg":"-18.67","stocks":"GeneCurix · GW Biotech"},{"name":"Software / IT","chg":"-12.34","stocks":"Raon People · IL"},{"name":"Small-cap Tech","chg":"-9.78","stocks":"Setopia · Other Small Tech"},{"name":"Consumer Discretionary","chg":"-7.45","stocks":"Fashion · Retail"}]};
+const MOCK={
+  market:{
+    kospi: {value:"2,641.09",chg_pct:"+0.82%",chg_abs:"+21.44 pts"},
+    kosdaq:{value:"864.37",  chg_pct:"-0.31%",chg_abs:"-2.68 pts"},
+    usdkrw:{value:"1,374",  chg_pct:"-0.22%",chg_abs:"-3 KRW"}
+  },
+  highlight:"<strong>Semiconductors led the market higher</strong> on renewed AI demand optimism, while bio/pharma stocks fell sharply on a clinical trial failure.",
+  gainers:[
+    {rank:1,ticker:"000660",name_en:"SK Hynix",          change_pct:11.24,close_price:198500,volume:9820000, market_cap:144000,sector_en:"Semiconductors", theme_en:"HBM / AI",     reason_en:"Record HBM3E shipment volume confirmed for Q2; Nvidia partnership expansion cited by analysts."},
+    {rank:2,ticker:"047810",name_en:"Korea Aerospace",   change_pct:9.87, close_price:73400, volume:3410000, market_cap:29800, sector_en:"Defense",         theme_en:"Export Deal",  reason_en:"Poland signed KF-21 component supply deal worth ₩2.1T; defense export momentum continues."},
+    {rank:3,ticker:"012450",name_en:"Hanwha Aerospace",  change_pct:8.55, close_price:342000,volume:1870000, market_cap:88200, sector_en:"Defense / Aero",  theme_en:"K-Defense",    reason_en:"Australian contract win announced; orders backlog hits record ₩18T."},
+    {rank:4,ticker:"373220",name_en:"LG Energy Solution",change_pct:7.31, close_price:385000,volume:2240000, market_cap:90200, sector_en:"EV Battery",      theme_en:"IRA Benefit",  reason_en:"US IRA subsidy confirmed for Arizona plant; GM supply deal extended through 2030."},
+    {rank:5,ticker:"005380",name_en:"Hyundai Motor",     change_pct:5.62, close_price:248000,volume:4130000, market_cap:53100, sector_en:"Automotive",      theme_en:"EV Expansion", reason_en:"US EV sales hit monthly record; Ioniq 9 pre-orders exceeded forecasts by 40%."}
+  ],
+  losers:[
+    {rank:1,ticker:"068270",name_en:"Celltrion",  change_pct:-9.81,close_price:148500,volume:5620000,market_cap:20600,sector_en:"Bio / Pharma",    theme_en:"Clinical Fail",  reason_en:"Phase 3 trial for CT-P59 missed primary endpoint; FDA complete response letter expected."},
+    {rank:2,ticker:"035720",name_en:"Kakao",      change_pct:-8.43,close_price:36800, volume:8930000,market_cap:16300,sector_en:"Platform",         theme_en:"Regulatory",     reason_en:"FTC levied ₩96B fine for antitrust violations; second enforcement action this year."},
+    {rank:3,ticker:"036570",name_en:"NCsoft",     change_pct:-7.22,close_price:178000,volume:1240000,market_cap:3880, sector_en:"Gaming",           theme_en:"User Decline",   reason_en:"Lineage W MAU fell 18% MoM; FY2025 guidance cut with no new IP launch timeline."},
+    {rank:4,ticker:"011200",name_en:"HMM Co.",    change_pct:-6.54,close_price:14350, volume:7410000,market_cap:12600,sector_en:"Shipping",         theme_en:"Rate Pressure",  reason_en:"SCFI container freight index dropped 4.2% WoW; overcapacity fears resurface."},
+    {rank:5,ticker:"030200",name_en:"KT Corp.",   change_pct:-5.88,close_price:32100, volume:3820000,market_cap:8760, sector_en:"Telecom",          theme_en:"Margin Squeeze", reason_en:"5G capex guidance raised 15%; operating margin outlook trimmed on rising costs."}
+  ],
+  strong_sectors:[
+    {name:"Semiconductors",chg:"4.82",stocks:"SK Hynix · Samsung Elec"},
+    {name:"Defense",       chg:"6.21",stocks:"KAI · Hanwha Aero"},
+    {name:"EV Battery",    chg:"3.14",stocks:"LG ES · Samsung SDI"},
+    {name:"Automotive",    chg:"2.88",stocks:"Hyundai · Kia"}
+  ],
+  weak_sectors:[
+    {name:"Bio / Pharma",chg:"-5.44",stocks:"Celltrion · Samsung Bio"},
+    {name:"Platform",    chg:"-4.11",stocks:"Kakao · Naver"},
+    {name:"Gaming",      chg:"-3.78",stocks:"NCsoft · Netmarble"},
+    {name:"Shipping",    chg:"-2.93",stocks:"HMM · Pan Ocean"}
+  ]
+};
 function renderMock(){
   const m=MOCK.market;
   setIndex('kospi', m.kospi.value, m.kospi.chg_pct, m.kospi.chg_abs);
@@ -541,7 +574,7 @@ function renderMock(){
   document.getElementById('losersContent').innerHTML=MOCK.losers.map((s,i)=>renderCard(s,'dn',i+1)).join('');
   document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
   document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
-  setStatus('Updated — Fri, Mar 6, 2026 · 10 stocks · auto',true);
+  setStatus('Preview — Wed, Mar 5, 2026 · Tap refresh for live data',true);
 }
 
 async function loadBuiltData(){
@@ -745,5 +778,41 @@ window.addEventListener('DOMContentLoaded',async ()=>{
   </div>
 </div>
 
+<script>
+// ── Auto-injected by fetch_and_build.py ──
+(function(){
+  try {
+    var d={"market":{"kospi":{"value":"5,584.87","chg_pct":"+0%","chg_abs":"+0.97+0.02%\uc0c1\uc2b9 pts"},"kosdaq":{"value":"1,154.67","chg_pct":"+0%","chg_abs":"+38.26+3.43%\uc0c1\uc2b9 pts"},"usdkrw":{"value":"1,480","chg_pct":"+1.28%","chg_abs":"+19 KRW"}},"highlight":"Korean markets faced <strong>extreme volatility<\/strong> amid geopolitical tensions, with KOSPI experiencing record swings while semiconductor and energy sectors dominated headlines.","gainers":[{"rank":1,"ticker":"458350","name_en":"S-TIM","change_pct":300.0,"close_price":34000,"volume":2949912,"market_cap":0,"sector_en":"Energy Solutions","theme_en":"Oil Price Surge","reason_en":"Benefited from Middle East conflict driving energy prices higher amid supply disruption fears."},{"rank":2,"ticker":"091970","name_en":"Nanocamtech","change_pct":30.0,"close_price":624,"volume":2520841,"market_cap":0,"sector_en":"Technology","theme_en":"Semiconductor Recovery","reason_en":"Rode tech sector rebound after massive selloff as HBM demand remains strong."},{"rank":3,"ticker":"322000","name_en":"HD Hyundai Energy Solutions","change_pct":29.97,"close_price":117100,"volume":4534842,"market_cap":0,"sector_en":"Energy Infrastructure","theme_en":"Energy Security","reason_en":"Gained on government energy supply alerts and infrastructure investment focus."},{"rank":4,"ticker":"095910","name_en":"S-Energy","change_pct":29.96,"close_price":1579,"volume":3746198,"market_cap":0,"sector_en":"Renewable Energy","theme_en":"Power Generation","reason_en":"Solar energy solutions benefited from sector rotation beyond semiconductors."},{"rank":5,"ticker":"310870","name_en":"DWC","change_pct":29.96,"close_price":1696,"volume":4237851,"market_cap":0,"sector_en":"Manufacturing","theme_en":"Industrial Recovery","reason_en":"Manufacturing rebound as market sought non-tech exposure after volatile week."}],"losers":[{"rank":1,"ticker":"036180","name_en":"GW Biotech","change_pct":-95.84,"close_price":24,"volume":54459244,"market_cap":0,"sector_en":"Biotechnology","theme_en":"Risk-Off Sentiment","reason_en":"Small-cap biotech hit hardest by risk aversion during Middle East conflict escalation."},{"rank":2,"ticker":"307180","name_en":"IL","change_pct":-29.93,"close_price":5290,"volume":13483148,"market_cap":0,"sector_en":"Industrial Materials","theme_en":"Export Concerns","reason_en":"Industrial materials weakened on fears of trade disruption from geopolitical tensions."},{"rank":3,"ticker":"300120","name_en":"Raon People","change_pct":-29.7,"close_price":1089,"volume":6829430,"market_cap":0,"sector_en":"Technology Services","theme_en":"Tech Selloff","reason_en":"Tech services declined during semiconductor sector volatility and profit-taking."},{"rank":4,"ticker":"229000","name_en":"GenCurix","change_pct":-22.42,"close_price":3910,"volume":9370720,"market_cap":0,"sector_en":"Bio/Pharma","theme_en":"Biotech Weakness","reason_en":"Biotech sector underperformed as investors fled to safer sectors amid market turmoil."},{"rank":5,"ticker":"222810","name_en":"Setopia","change_pct":-20.91,"close_price":87,"volume":6062431,"market_cap":0,"sector_en":"Chemicals","theme_en":"Cyclical Decline","reason_en":"Chemical stocks declined on concerns about economic impact from oil price spike."}],"strong_sectors":[{"name":"Energy Solutions","chg":"12.45","stocks":"HD Hyundai Energy \u00b7 S-TIM"},{"name":"Semiconductors","chg":"8.23","stocks":"Samsung Electronics \u00b7 SK Hynix"},{"name":"Automotive","chg":"6.18","stocks":"Hyundai Motor \u00b7 Kia"},{"name":"Power Generation","chg":"4.92","stocks":"LG Energy Solution \u00b7 S-Energy"}],"weak_sectors":[{"name":"Biotechnology","chg":"-18.67","stocks":"GenCurix \u00b7 GW Biotech"},{"name":"Chemicals","chg":"-8.34","stocks":"Setopia \u00b7 LG Chem"},{"name":"Tech Services","chg":"-7.21","stocks":"Raon People \u00b7 Naver"},{"name":"Industrial Materials","chg":"-5.89","stocks":"IL \u00b7 POSCO"}]};
+    if(typeof MOCK!=='undefined'){
+      Object.keys(d).forEach(function(k){MOCK[k]=d[k];});
+    }
+    // renderMock의 setStatus 텍스트도 오버라이드
+    var origRenderMock=window.renderMock||renderMock;
+    window._kmwRendered=false;
+    var patchedRenderMock=function(){
+      if(window._kmwRendered)return;
+      window._kmwRendered=true;
+      var m=MOCK.market||{};
+      if(m.kospi)setIndex('kospi',m.kospi.value,m.kospi.chg_pct,m.kospi.chg_abs);
+      if(m.kosdaq)setIndex('kosdaq',m.kosdaq.value,m.kosdaq.chg_pct,m.kosdaq.chg_abs);
+      if(m.usdkrw)setIndex('usdkrw',m.usdkrw.value,m.usdkrw.chg_pct,m.usdkrw.chg_abs);
+      if(MOCK.highlight)document.getElementById('hlText').innerHTML=MOCK.highlight;
+      var g=MOCK.gainers||[],l=MOCK.losers||[];
+      document.getElementById('gainersContent').innerHTML=g.length?g.map(function(s,i){return renderCard(s,'up',i+1);}).join(''):'<div class="empty-state"><div class="empty-icon">\ud83e\udd37<\/div>No data<\/div>';
+      document.getElementById('losersContent').innerHTML=l.length?l.map(function(s,i){return renderCard(s,'dn',i+1);}).join(''):'<div class="empty-state"><div class="empty-icon">\ud83e\udd37<\/div>No data<\/div>';
+      if(MOCK.strong_sectors)document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
+      if(MOCK.weak_sectors)document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
+      setStatus('Updated \u2014 Fri, Mar 6, 2026 \u00b7 10 stocks \u00b7 auto',true);
+    };
+    // DOMContentLoaded에서 원래 renderMock 대신 실행
+    window.removeEventListener('DOMContentLoaded',renderMock);
+    window.addEventListener('DOMContentLoaded',patchedRenderMock);
+    // 이미 DOMContentLoaded가 발생한 경우 즉시 실행
+    if(document.readyState!=='loading')patchedRenderMock();
+  } catch(e) {
+    console.error('[KMW] Inject error:',e);
+  }
+})();
+</script>
 </body>
 </html>
