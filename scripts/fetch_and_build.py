@@ -662,21 +662,68 @@ print(f"[KMW] Reading template: {TEMPLATE_PATH}")
 with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
     html = f.read()
 
-mock_json = json.dumps(mock_data, ensure_ascii=False, separators=(",", ":"))
-html = re.sub(
-    r"const MOCK\s*=\s*\{[\s\S]*?\};\s*\n(?=function renderMock)",
-    f"const MOCK={mock_json};\n",
-    html,
-)
+print(f"[KMW] Template size: {len(html)} chars")
 
+# ── MOCK 교체 (안전한 JS 임베딩) ──────────────────────────────────────────
+mock_json = json.dumps(mock_data, ensure_ascii=False, separators=(",", ":"))
+# HTML <script> 안에서 </ 시퀀스 이스케이프 (</script> 방지)
+mock_json_safe = mock_json.replace("</", "<\\/")
+
+# 방법 1: 정규식
+MOCK_PATTERN = r"const MOCK\s*=\s*\{[\s\S]*?\};\s*\n(?=function renderMock)"
+mock_match = re.search(MOCK_PATTERN, html)
+
+if mock_match:
+    print(f"[KMW] ✓ Regex matched MOCK block (pos {mock_match.start()}-{mock_match.end()}, {mock_match.end()-mock_match.start()} chars)")
+    html = html[:mock_match.start()] + f"const MOCK={mock_json_safe};\n" + html[mock_match.end():]
+else:
+    # 방법 2: 문자열 기반 폴백
+    print("[KMW] ⚠ Regex failed — trying string-based replacement")
+    marker_start = "const MOCK={"
+    marker_end = "function renderMock(){"
+
+    idx_start = html.find(marker_start)
+    idx_end = html.find(marker_end)
+
+    if idx_start >= 0 and idx_end > idx_start:
+        # marker_start 부터 marker_end 직전까지 교체
+        html = html[:idx_start] + f"const MOCK={mock_json_safe};\n" + html[idx_end:]
+        print(f"[KMW] ✓ String-based replacement succeeded (pos {idx_start}-{idx_end})")
+    else:
+        print(f"[KMW] ✗ CRITICAL: Could not find MOCK block! start={idx_start} end={idx_end}")
+        sys.exit(1)
+
+# ── setStatus 교체 ────────────────────────────────────────────────────────
 n_stocks = len(movers["gainers"]) + len(movers["losers"])
 status_text = f"Updated — {DISPLAY_DATE} · {n_stocks} stocks · auto"
-html = re.sub(
-    r"setStatus\('Preview[^']*',\s*true\)",
-    f"setStatus('{status_text}',true)",
-    html,
-)
 
+STATUS_PATTERN = r"setStatus\('[^']*',\s*true\)"
+status_match = re.search(STATUS_PATTERN, html)
+if status_match:
+    html = re.sub(STATUS_PATTERN, f"setStatus('{status_text}',true)", html)
+    print(f"[KMW] ✓ Status text updated")
+else:
+    print("[KMW] ⚠ Status pattern not found (non-critical)")
+
+# ── 검증: 교체된 HTML에 실제 데이터가 있는지 확인 ──────────────────────────
+verify_ok = True
+if movers["gainers"]:
+    first_ticker = movers["gainers"][0].get("ticker", "")
+    if first_ticker and first_ticker not in html:
+        print(f"[KMW] ✗ Verification FAILED: ticker {first_ticker} not found in output HTML!")
+        verify_ok = False
+    else:
+        print(f"[KMW] ✓ Verification passed: ticker {first_ticker} found in output")
+
+if "const MOCK=" not in html:
+    print("[KMW] ✗ Verification FAILED: 'const MOCK=' not in output HTML!")
+    verify_ok = False
+
+if not verify_ok:
+    print("[KMW] ✗ Output verification failed — aborting")
+    sys.exit(1)
+
+# ── 저장 ──────────────────────────────────────────────────────────────────
 out_main = os.path.join(DOCS_DIR, "index.html")
 out_archive = os.path.join(DOCS_DIR, f"kr_market_{DATE_STR}.html")
 
@@ -685,6 +732,9 @@ with open(out_main, "w", encoding="utf-8") as f:
 with open(out_archive, "w", encoding="utf-8") as f:
     f.write(html)
 
-print(f"[KMW] ✅ docs/index.html")
-print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html")
+# 저장 후 파일 크기 확인
+main_size = os.path.getsize(out_main)
+arch_size = os.path.getsize(out_archive)
+print(f"[KMW] ✅ docs/index.html ({main_size:,} bytes)")
+print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html ({arch_size:,} bytes)")
 print("[KMW] Done!")
