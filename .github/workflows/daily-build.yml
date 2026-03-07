@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
@@ -26,7 +26,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install finance-datareader requests beautifulsoup4 lxml
+          pip install finance-datareader requests beautifulsoup4 lxml playwright
+          playwright install chromium --with-deps
 
       - name: Run build script
         env:
@@ -44,3 +45,9 @@ jobs:
           git diff --cached --quiet || git commit -m "📊 Market wrap — ${DATE}"
           git pull --rebase origin main || true
           git push
+
+      - name: Screenshot & send to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/screenshot_and_send.py
