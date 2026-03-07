@@ -51,14 +51,14 @@ github.com → + → New repository → `kr-market-wrap` → Public → Create
 ## 🔧 작동 방식
 
 ```
-[지수]  FinanceDataReader
-[종목]  1차 네이버 파이낸셜 → 2차 KRX 직접 API → 3차 FDR StockListing
+[지수]  1차 네이버 시세 → 2차 FinanceDataReader
+[종목]  1차 네이버 파이낸셜 (KOSPI+KOSDAQ 합산) → 2차 KRX 직접 API → 3차 FDR
 [분석]  Claude API (web search)
 [빌드]  index.html MOCK 교체 → docs/ GitHub Pages
 ```
 
-1. **FinanceDataReader** → KOSPI, KOSDAQ, USD/KRW 지수 데이터
-2. **네이버 파이낸셜** (상승/하락 TOP) → Top 5 Gainers / Losers + 개별 시가총액
+1. **네이버 시세** → KOSPI, KOSDAQ, USD/KRW 지수 (실패 시 FDR 폴백)
+2. **네이버 파이낸셜** → KOSPI(`sosok=0`) + KOSDAQ(`sosok=1`) 상승/하락 TOP 각각 수집 → 합산 정렬 → Top 5
 3. 실패 시 **KRX 직접 API** → **FDR StockListing** 순서로 폴백
 4. **Claude API** (web search) → 영문 종목명, 섹터, 테마, 사유, 하이라이트
 5. `index.html` 템플릿의 MOCK 데이터를 실제 데이터로 교체 → `docs/` 배포
@@ -82,8 +82,8 @@ kr-market-wrap/
 
 | 항목 | 1차 | 2차 | 3차 |
 |------|-----|-----|-----|
-| 지수 (KOSPI·KOSDAQ·원달러) | FinanceDataReader | — | — |
-| 종목 등락률 Top 5 | 네이버 파이낸셜 | KRX 직접 API | FDR StockListing |
+| 지수 (KOSPI·KOSDAQ·원달러) | 네이버 시세 | FinanceDataReader | — |
+| 종목 등락률 Top 5 | 네이버 파이낸셜 (KOSPI+KOSDAQ) | KRX 직접 API | FDR StockListing |
 | 종목 시가총액 | 네이버 개별 페이지 | KRX 직접 API | — |
 | 영문 분석 | Claude API + Web Search | — | — |
 
