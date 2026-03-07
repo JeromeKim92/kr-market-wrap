@@ -118,16 +118,34 @@ try:
         f"🔴 <b>Top Losers</b>\n"
         f"{l_lines}\n"
         f"🔗 https://jeromekim92.github.io/kr-market-wrap/"
+    # 캡션을 photo용(짧은) + 텍스트 메시지용(상세)으로 분리
+    photo_caption = (
+        f"📊 <b>Korea Market Wrap</b> — {date_label}\n"
+        f"KOSPI {kospi.get('value','—')} ({kospi.get('chg_pct','')})\n"
+        f"KOSDAQ {kosdaq.get('value','—')} ({kosdaq.get('chg_pct','')})\n"
+        f"USD/KRW {usdkrw.get('value','—')} ({usdkrw.get('chg_pct','')})\n"
+        f"\n"
+        f"💡 {hl_clean}"
+    )
+
+    detail_caption = (
+        f"🟢 <b>Top Gainers</b>\n"
+        f"{g_lines}\n"
+        f"🔴 <b>Top Losers</b>\n"
+        f"{l_lines}"
+        f"🔗 https://jeromekim92.github.io/kr-market-wrap/"
     )
 except Exception as e:
+    photo_caption = "📊 Korea Market Wrap"
+    detail_caption = ""
     print(f"[TG] Caption build error: {e}")
     import traceback; traceback.print_exc()
 
+print(f"[TG] Photo caption: {len(photo_caption)} chars")
+print(f"[TG] Detail message: {len(detail_caption)} chars")
 print(f"[TG] Sending to Telegram chat {TELEGRAM_CHAT_ID}...")
 
-url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
-
-# multipart/form-data 구성
+# ── 3-1. 사진 전송 (짧은 캡션) ────────────────────────────────────────────
 import mimetypes
 from io import BytesIO
 
@@ -151,13 +169,13 @@ def write_file(name, filepath, content_type="image/png"):
 
 
 write_field("chat_id", TELEGRAM_CHAT_ID)
-write_field("caption", caption)
+write_field("caption", photo_caption)
 write_field("parse_mode", "HTML")
 write_file("photo", str(OUTPUT_PNG))
 body.write(f"--{boundary}--\r\n".encode())
 
 req = urllib.request.Request(
-    url,
+    f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto",
     data=body.getvalue(),
     headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
     method="POST",
@@ -167,12 +185,41 @@ try:
     with urllib.request.urlopen(req, timeout=30) as resp:
         result = json.loads(resp.read().decode())
     if result.get("ok"):
-        print("[TG] ✅ Sent to Telegram!")
+        print("[TG] ✅ Photo sent!")
     else:
-        print(f"[TG] ✗ Telegram error: {result}")
+        print(f"[TG] ✗ Photo error: {result}")
         sys.exit(1)
 except Exception as e:
-    print(f"[TG] ✗ Send failed: {e}")
+    print(f"[TG] ✗ Photo send failed: {e}")
     sys.exit(1)
+
+# ── 3-2. 상세 텍스트 메시지 전송 ──────────────────────────────────────────
+if detail_caption.strip():
+    import time as _time
+    _time.sleep(1)  # rate limit 방지
+
+    msg_payload = json.dumps({
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": detail_caption,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True,
+    }).encode("utf-8")
+
+    msg_req = urllib.request.Request(
+        f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+        data=msg_payload,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(msg_req, timeout=30) as resp:
+            result = json.loads(resp.read().decode())
+        if result.get("ok"):
+            print("[TG] ✅ Detail message sent!")
+        else:
+            print(f"[TG] ⚠ Detail message error: {result}")
+    except Exception as e:
+        print(f"[TG] ⚠ Detail message failed: {e}")
 
 print("[TG] Done!")
