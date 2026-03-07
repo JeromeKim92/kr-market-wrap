@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install FinanceDataReader requests beautifulsoup4 lxml
+          pip install finance-datareader requests beautifulsoup4 lxml
 
       - name: Run build script
         env:
