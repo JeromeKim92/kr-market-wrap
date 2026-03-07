@@ -1,0 +1,190 @@
+{
+  "market": {
+    "kospi": {
+      "value": "5,584.87",
+      "chg_pct": "+0.02%",
+      "chg_abs": "+0.97 pts"
+    },
+    "kosdaq": {
+      "value": "1,154.67",
+      "chg_pct": "+3.43%",
+      "chg_abs": "+38.26 pts"
+    },
+    "usdkrw": {
+      "value": "1,482",
+      "chg_pct": "+0.20%",
+      "chg_abs": "+3 KRW"
+    }
+  },
+  "highlight": "Korean stocks closed mixed after <strong>volatile week</strong> amid Middle East tensions and oil price swings.",
+  "gainers": [
+    {
+      "rank": 1,
+      "ticker": "458350",
+      "name_en": "Esteem",
+      "change_pct": 300.0,
+      "close_price": 34000,
+      "volume": 2949912,
+      "market_cap": 0,
+      "sector_en": "Entertainment",
+      "theme_en": "Model Agency",
+      "reason_en": "Speculation and market volatility drive small-cap surge"
+    },
+    {
+      "rank": 2,
+      "ticker": "091970",
+      "name_en": "Nanocamtech",
+      "change_pct": 30.0,
+      "close_price": 624,
+      "volume": 2520841,
+      "market_cap": 0,
+      "sector_en": "Technology",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Benefiting from semiconductor recovery expectations"
+    },
+    {
+      "rank": 3,
+      "ticker": "322000",
+      "name_en": "HD Hyundai Energy Solutions",
+      "change_pct": 29.97,
+      "close_price": 117100,
+      "volume": 4534842,
+      "market_cap": 0,
+      "sector_en": "Energy",
+      "theme_en": "Solar Power",
+      "reason_en": "Alternative energy interest amid oil price surge and Middle East tensions"
+    },
+    {
+      "rank": 4,
+      "ticker": "095910",
+      "name_en": "S-Energy",
+      "change_pct": 29.96,
+      "close_price": 1579,
+      "volume": 3746198,
+      "market_cap": 0,
+      "sector_en": "Energy",
+      "theme_en": "Power Equipment",
+      "reason_en": "Energy infrastructure demand from geopolitical instability"
+    },
+    {
+      "rank": 5,
+      "ticker": "310870",
+      "name_en": "DWC",
+      "change_pct": 29.96,
+      "close_price": 1696,
+      "volume": 4237851,
+      "market_cap": 0,
+      "sector_en": "Materials",
+      "theme_en": "Chemicals",
+      "reason_en": "Industrial materials demand and market speculation"
+    }
+  ],
+  "losers": [
+    {
+      "rank": 1,
+      "ticker": "036180",
+      "name_en": "GW Biotech",
+      "change_pct": -95.84,
+      "close_price": 24,
+      "volume": 54459244,
+      "market_cap": 0,
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech selloff amid risk-off sentiment and regulatory concerns"
+    },
+    {
+      "rank": 2,
+      "ticker": "307180",
+      "name_en": "IL",
+      "change_pct": -29.93,
+      "close_price": 5290,
+      "volume": 13483148,
+      "market_cap": 0,
+      "sector_en": "Technology",
+      "theme_en": "Electronics",
+      "reason_en": "Tech sector pressure from semiconductor volatility"
+    },
+    {
+      "rank": 3,
+      "ticker": "300120",
+      "name_en": "Raon People",
+      "change_pct": -29.7,
+      "close_price": 1089,
+      "volume": 6829430,
+      "market_cap": 0,
+      "sector_en": "Technology",
+      "theme_en": "Software",
+      "reason_en": "Small-cap tech weakness amid market uncertainty"
+    },
+    {
+      "rank": 4,
+      "ticker": "229000",
+      "name_en": "Genexine",
+      "change_pct": -22.42,
+      "close_price": 3910,
+      "volume": 9370720,
+      "market_cap": 0,
+      "sector_en": "Healthcare",
+      "theme_en": "Pharmaceuticals",
+      "reason_en": "Healthcare sector rotation and profit-taking"
+    },
+    {
+      "rank": 5,
+      "ticker": "222810",
+      "name_en": "Setopia",
+      "change_pct": -20.91,
+      "close_price": 87,
+      "volume": 6062431,
+      "market_cap": 0,
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Tech services decline on growth concerns"
+    }
+  ],
+  "strong_sectors": [
+    {
+      "name": "Energy",
+      "chg": "8.45",
+      "stocks": "HD Hyundai Energy Solutions · S-Energy"
+    },
+    {
+      "name": "Materials",
+      "chg": "6.12",
+      "stocks": "DWC · Chemical Companies"
+    },
+    {
+      "name": "Industrials",
+      "chg": "4.78",
+      "stocks": "Power Equipment · Infrastructure"
+    },
+    {
+      "name": "Semiconductors",
+      "chg": "3.24",
+      "stocks": "Samsung Electronics · SK Hynix"
+    }
+  ],
+  "weak_sectors": [
+    {
+      "name": "Healthcare",
+      "chg": "-12.67",
+      "stocks": "GW Biotech · Genexine"
+    },
+    {
+      "name": "Software",
+      "chg": "-8.91",
+      "stocks": "Raon People · IT Services"
+    },
+    {
+      "name": "Consumer Discretionary",
+      "chg": "-6.23",
+      "stocks": "Retail · Entertainment"
+    },
+    {
+      "name": "Communications",
+      "chg": "-4.15",
+      "stocks": "Telecom · Media"
+    }
+  ],
+  "_built_at": "2026-03-07 12:11",
+  "_date_label": "Fri, Mar 6, 2026"
+}
