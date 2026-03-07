@@ -16,19 +16,19 @@
       "chg_abs": "+3 KRW"
     }
   },
-  "highlight": "Korean stocks closed mixed after <strong>volatile week</strong> amid Middle East tensions and oil price swings.",
+  "highlight": "Korean stocks closed flat with <strong>extreme volatility</strong> following historic market crash and recovery amid Middle East tensions.",
   "gainers": [
     {
       "rank": 1,
       "ticker": "458350",
-      "name_en": "Esteem",
+      "name_en": "S-Team",
       "change_pct": 300.0,
       "close_price": 34000,
       "volume": 2949912,
       "market_cap": 0,
       "sector_en": "Entertainment",
-      "theme_en": "Model Agency",
-      "reason_en": "Speculation and market volatility drive small-cap surge"
+      "theme_en": "IPO Listing",
+      "reason_en": "IPO debut on KOSDAQ with entertainment agency business model"
     },
     {
       "rank": 2,
@@ -40,7 +40,7 @@
       "market_cap": 0,
       "sector_en": "Technology",
       "theme_en": "Semiconductor Equipment",
-      "reason_en": "Benefiting from semiconductor recovery expectations"
+      "reason_en": "Recovery bounce from previous selloff in semiconductor related stocks"
     },
     {
       "rank": 3,
@@ -51,8 +51,8 @@
       "volume": 4534842,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "Solar Power",
-      "reason_en": "Alternative energy interest amid oil price surge and Middle East tensions"
+      "theme_en": "Energy Storage",
+      "reason_en": "Battery and energy solution demand amid renewable energy expansion"
     },
     {
       "rank": 4,
@@ -63,8 +63,8 @@
       "volume": 3746198,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "Power Equipment",
-      "reason_en": "Energy infrastructure demand from geopolitical instability"
+      "theme_en": "Solar Power",
+      "reason_en": "Solar panel manufacturing capacity expansion and green energy policies"
     },
     {
       "rank": 5,
@@ -75,8 +75,8 @@
       "volume": 4237851,
       "market_cap": 0,
       "sector_en": "Materials",
-      "theme_en": "Chemicals",
-      "reason_en": "Industrial materials demand and market speculation"
+      "theme_en": "Specialty Chemicals",
+      "reason_en": "Chemical processing equipment demand from semiconductor industry"
     }
   ],
   "losers": [
@@ -90,19 +90,19 @@
       "market_cap": 0,
       "sector_en": "Healthcare",
       "theme_en": "Biotechnology",
-      "reason_en": "Biotech selloff amid risk-off sentiment and regulatory concerns"
+      "reason_en": "Major selloff in biotech sector amid risk-off sentiment and margin calls"
     },
     {
       "rank": 2,
       "ticker": "307180",
-      "name_en": "IL",
+      "name_en": "AIL",
       "change_pct": -29.93,
       "close_price": 5290,
       "volume": 13483148,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Tech sector pressure from semiconductor volatility"
+      "theme_en": "AI Software",
+      "reason_en": "Tech stock correction following global AI bubble concerns"
     },
     {
       "rank": 3,
@@ -113,20 +113,20 @@
       "volume": 6829430,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Small-cap tech weakness amid market uncertainty"
+      "theme_en": "IT Services",
+      "reason_en": "Small-cap tech selloff amid high volatility and margin liquidation"
     },
     {
       "rank": 4,
       "ticker": "229000",
-      "name_en": "Genexine",
+      "name_en": "Genqrix",
       "change_pct": -22.42,
       "close_price": 3910,
       "volume": 9370720,
       "market_cap": 0,
       "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Healthcare sector rotation and profit-taking"
+      "theme_en": "Biopharmaceuticals",
+      "reason_en": "Biotech sector weakness due to risk aversion and profit-taking"
     },
     {
       "rank": 5,
@@ -137,54 +137,54 @@
       "volume": 6062431,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Tech services decline on growth concerns"
+      "theme_en": "Software Solutions",
+      "reason_en": "Software company decline amid broader tech sector correction"
     }
   ],
   "strong_sectors": [
     {
       "name": "Energy",
-      "chg": "8.45",
-      "stocks": "HD Hyundai Energy Solutions · S-Energy"
+      "chg": "5.82",
+      "stocks": "HD Hyundai Energy · S-Energy"
     },
     {
       "name": "Materials",
-      "chg": "6.12",
-      "stocks": "DWC · Chemical Companies"
+      "chg": "4.67",
+      "stocks": "Specialty Chemicals · Battery Materials"
     },
     {
-      "name": "Industrials",
-      "chg": "4.78",
-      "stocks": "Power Equipment · Infrastructure"
+      "name": "Entertainment",
+      "chg": "3.45",
+      "stocks": "S-Team · Content Creation"
     },
     {
-      "name": "Semiconductors",
-      "chg": "3.24",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Shipbuilding",
+      "chg": "2.91",
+      "stocks": "HD Korea Shipbuilding · Samsung Heavy"
     }
   ],
   "weak_sectors": [
     {
       "name": "Healthcare",
-      "chg": "-12.67",
-      "stocks": "GW Biotech · Genexine"
+      "chg": "-8.34",
+      "stocks": "Genqrix · GW Biotech"
     },
     {
       "name": "Software",
-      "chg": "-8.91",
-      "stocks": "Raon People · IT Services"
+      "chg": "-6.78",
+      "stocks": "AIL · Setopia"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-6.23",
-      "stocks": "Retail · Entertainment"
+      "name": "IT Services",
+      "chg": "-5.92",
+      "stocks": "Raon People · Tech Startups"
     },
     {
-      "name": "Communications",
-      "chg": "-4.15",
-      "stocks": "Telecom · Media"
+      "name": "Biotechnology",
+      "chg": "-4.55",
+      "stocks": "Small Pharma · Clinical Stage"
     }
   ],
-  "_built_at": "2026-03-07 12:11",
+  "_built_at": "2026-03-07 13:01",
   "_date_label": "Fri, Mar 6, 2026"
 }
