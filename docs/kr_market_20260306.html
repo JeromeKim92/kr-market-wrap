@@ -464,6 +464,7 @@
   <div class="footer-src">FinanceDataReader · Naver Finance<br>Yahoo Finance · Claude AI</div>
 </div>
 
+<!-- __DATA_SCRIPT__ -->
 <script>
 (function(){
   const d=new Date().toLocaleDateString('en-US',{timeZone:'Asia/Seoul',weekday:'short',month:'short',day:'numeric',year:'numeric'});
@@ -529,40 +530,7 @@ function renderSectors(sectors,type){
     <div class="sector-tag-pct ${type}">${type==='up'?'+':''}${s.chg}%</div>
   </div>`).join('');
 }
-const MOCK={
-  market:{
-    kospi: {value:"2,641.09",chg_pct:"+0.82%",chg_abs:"+21.44 pts"},
-    kosdaq:{value:"864.37",  chg_pct:"-0.31%",chg_abs:"-2.68 pts"},
-    usdkrw:{value:"1,374",  chg_pct:"-0.22%",chg_abs:"-3 KRW"}
-  },
-  highlight:"<strong>Semiconductors led the market higher</strong> on renewed AI demand optimism, while bio/pharma stocks fell sharply on a clinical trial failure.",
-  gainers:[
-    {rank:1,ticker:"000660",name_en:"SK Hynix",          change_pct:11.24,close_price:198500,volume:9820000, market_cap:144000,sector_en:"Semiconductors", theme_en:"HBM / AI",     reason_en:"Record HBM3E shipment volume confirmed for Q2; Nvidia partnership expansion cited by analysts."},
-    {rank:2,ticker:"047810",name_en:"Korea Aerospace",   change_pct:9.87, close_price:73400, volume:3410000, market_cap:29800, sector_en:"Defense",         theme_en:"Export Deal",  reason_en:"Poland signed KF-21 component supply deal worth ₩2.1T; defense export momentum continues."},
-    {rank:3,ticker:"012450",name_en:"Hanwha Aerospace",  change_pct:8.55, close_price:342000,volume:1870000, market_cap:88200, sector_en:"Defense / Aero",  theme_en:"K-Defense",    reason_en:"Australian contract win announced; orders backlog hits record ₩18T."},
-    {rank:4,ticker:"373220",name_en:"LG Energy Solution",change_pct:7.31, close_price:385000,volume:2240000, market_cap:90200, sector_en:"EV Battery",      theme_en:"IRA Benefit",  reason_en:"US IRA subsidy confirmed for Arizona plant; GM supply deal extended through 2030."},
-    {rank:5,ticker:"005380",name_en:"Hyundai Motor",     change_pct:5.62, close_price:248000,volume:4130000, market_cap:53100, sector_en:"Automotive",      theme_en:"EV Expansion", reason_en:"US EV sales hit monthly record; Ioniq 9 pre-orders exceeded forecasts by 40%."}
-  ],
-  losers:[
-    {rank:1,ticker:"068270",name_en:"Celltrion",  change_pct:-9.81,close_price:148500,volume:5620000,market_cap:20600,sector_en:"Bio / Pharma",    theme_en:"Clinical Fail",  reason_en:"Phase 3 trial for CT-P59 missed primary endpoint; FDA complete response letter expected."},
-    {rank:2,ticker:"035720",name_en:"Kakao",      change_pct:-8.43,close_price:36800, volume:8930000,market_cap:16300,sector_en:"Platform",         theme_en:"Regulatory",     reason_en:"FTC levied ₩96B fine for antitrust violations; second enforcement action this year."},
-    {rank:3,ticker:"036570",name_en:"NCsoft",     change_pct:-7.22,close_price:178000,volume:1240000,market_cap:3880, sector_en:"Gaming",           theme_en:"User Decline",   reason_en:"Lineage W MAU fell 18% MoM; FY2025 guidance cut with no new IP launch timeline."},
-    {rank:4,ticker:"011200",name_en:"HMM Co.",    change_pct:-6.54,close_price:14350, volume:7410000,market_cap:12600,sector_en:"Shipping",         theme_en:"Rate Pressure",  reason_en:"SCFI container freight index dropped 4.2% WoW; overcapacity fears resurface."},
-    {rank:5,ticker:"030200",name_en:"KT Corp.",   change_pct:-5.88,close_price:32100, volume:3820000,market_cap:8760, sector_en:"Telecom",          theme_en:"Margin Squeeze", reason_en:"5G capex guidance raised 15%; operating margin outlook trimmed on rising costs."}
-  ],
-  strong_sectors:[
-    {name:"Semiconductors",chg:"4.82",stocks:"SK Hynix · Samsung Elec"},
-    {name:"Defense",       chg:"6.21",stocks:"KAI · Hanwha Aero"},
-    {name:"EV Battery",    chg:"3.14",stocks:"LG ES · Samsung SDI"},
-    {name:"Automotive",    chg:"2.88",stocks:"Hyundai · Kia"}
-  ],
-  weak_sectors:[
-    {name:"Bio / Pharma",chg:"-5.44",stocks:"Celltrion · Samsung Bio"},
-    {name:"Platform",    chg:"-4.11",stocks:"Kakao · Naver"},
-    {name:"Gaming",      chg:"-3.78",stocks:"NCsoft · Netmarble"},
-    {name:"Shipping",    chg:"-2.93",stocks:"HMM · Pan Ocean"}
-  ]
-};
+const MOCK={"market":{"kospi":{"value":"—","chg_pct":"0.00%","chg_abs":"—"},"kosdaq":{"value":"—","chg_pct":"0.00%","chg_abs":"—"},"usdkrw":{"value":"1,480","chg_pct":"+1.28%","chg_abs":"+19 KRW"}},"highlight":"Korean stocks plunged on <strong>Middle East tensions</strong> driving oil higher, but energy stocks and semiconductors led sharp sector rotation.","gainers":[{"rank":1,"ticker":"322000","name_en":"HD Hyundai Energy Solutions","change_pct":29.97,"close_price":117100,"volume":4534842,"market_cap":0,"sector_en":"Energy Equipment","theme_en":"Oil Price Surge","reason_en":"Benefited from Strait of Hormuz tensions driving energy infrastructure demand."},{"rank":2,"ticker":"000390","name_en":"Samhwa Paints","change_pct":29.91,"close_price":10120,"volume":3637517,"market_cap":0,"sector_en":"Chemicals","theme_en":"Energy Materials","reason_en":"Paint and coating demand tied to energy infrastructure projects amid oil supply concerns."},{"rank":3,"ticker":"010820","name_en":"Perstech","change_pct":16.84,"close_price":9020,"volume":35319368,"market_cap":0,"sector_en":"Specialty Chemicals","theme_en":"Industrial Materials","reason_en":"Chemical processing equipment demand from energy sector expansion."},{"rank":4,"ticker":"009830","name_en":"Hanwha Solutions","change_pct":16.67,"close_price":51800,"volume":17980003,"market_cap":0,"sector_en":"Chemicals/Energy","theme_en":"Petrochemicals Rally","reason_en":"Integrated chemical and energy solutions benefiting from oil price volatility."},{"rank":5,"ticker":"010060","name_en":"OCI Holdings","change_pct":15.38,"close_price":151500,"volume":298630,"market_cap":0,"sector_en":"Chemicals","theme_en":"Polysilicon Demand","reason_en":"Solar and chemical materials demand amid energy transition acceleration."}],"losers":[{"rank":1,"ticker":"004090","name_en":"Korea Petroleum","change_pct":-17.41,"close_price":23250,"volume":1189285,"market_cap":0,"sector_en":"Oil Refining","theme_en":"Refining Margins","reason_en":"Crude oil price surge squeezed refining margins despite energy sector gains."},{"rank":2,"ticker":"011330","name_en":"Unichemy","change_pct":-16.42,"close_price":631,"volume":32682743,"market_cap":0,"sector_en":"Specialty Chemicals","theme_en":"Cost Pressures","reason_en":"Raw material cost inflation from oil price spike impacted margins."},{"rank":3,"ticker":"014530","name_en":"Kukdong Oil & Chemicals","change_pct":-12.73,"close_price":4285,"volume":9757561,"market_cap":0,"sector_en":"Petrochemicals","theme_en":"Input Cost Surge","reason_en":"Petrochemical margins compressed by rapidly rising crude oil costs."},{"rank":4,"ticker":"760024","name_en":"Kiwoom Inverse 2X Defense Top5 ETN","change_pct":-10.05,"close_price":6710,"volume":30570,"market_cap":0,"sector_en":"ETN","theme_en":"Defense Selloff","reason_en":"Inverse ETN gained as defense stocks declined after initial war premium faded."},{"rank":5,"ticker":"700035","name_en":"Hana Inverse 2X Defense Top10 ETN","change_pct":-9.57,"close_price":6800,"volume":1632587,"market_cap":0,"sector_en":"ETN","theme_en":"Defense Retreat","reason_en":"Inverse defense ETN rose as military stocks retreated from earlier war-driven gains."}],"strong_sectors":[{"name":"Semiconductors","chg":"8.45","stocks":"Samsung Electronics · SK Hynix"},{"name":"Energy Equipment","chg":"6.82","stocks":"HD Hyundai Energy · Doosan Enerbility"},{"name":"Chemicals","chg":"5.91","stocks":"LG Chem · Hanwha Solutions"},{"name":"Shipbuilding","chg":"4.73","stocks":"HD Hyundai Heavy · Hanwha Ocean"}],"weak_sectors":[{"name":"Defense","chg":"-8.26","stocks":"Hanwha Aerospace · LIG Nex1"},{"name":"Oil Refining","chg":"-6.18","stocks":"SK Innovation · S-Oil"},{"name":"Construction","chg":"-4.95","stocks":"Samsung C&T · GS E&C"},{"name":"Airlines","chg":"-3.84","stocks":"Korean Air · Asiana Airlines"}]};
 function renderMock(){
   const m=MOCK.market;
   setIndex('kospi', m.kospi.value, m.kospi.chg_pct, m.kospi.chg_abs);
@@ -573,7 +541,47 @@ function renderMock(){
   document.getElementById('losersContent').innerHTML=MOCK.losers.map((s,i)=>renderCard(s,'dn',i+1)).join('');
   document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
   document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
-  setStatus('Preview — Wed, Mar 5, 2026 · Tap refresh for live data',true);
+  setStatus('Updated — Fri, Mar 6, 2026 · 10 stocks · auto',true);
+}
+
+async function loadBuiltData(){
+  const paths=['./market_data.json','./docs/market_data.json'];
+  let lastErr='';
+  for(const p of paths){
+    try{
+      const res = await fetch(`${p}?t=${Date.now()}`, { cache:'no-store' });
+      if(!res.ok){ lastErr=`${p} HTTP ${res.status}`; continue; }
+      return await res.json();
+    }catch(err){
+      lastErr=err?.message||String(err);
+    }
+  }
+  throw new Error(lastErr||'market_data.json load failed');
+}
+
+function renderLiveData(d){
+  const mv=d.market||{};
+  if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
+  if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
+  if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
+
+  if(d.highlight) document.getElementById('hlText').innerHTML=d.highlight;
+
+  const g=d.gainers||[],l=d.losers||[];
+  document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+  document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
+  if(d.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d.strong_sectors,'up');
+  if(d.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d.weak_sectors,'dn');
+
+  const baseStamp=d._date_label||d._built_at||'prebuilt';
+  const staleTag=d._stale?' · stale snapshot':'';
+  setStatus(`${baseStamp} · ${g.length+l.length} stocks · cached${staleTag}`,true);
+
+  const heroLabel=d._date_label||d._stale_source_date_label||'';
+  if(heroLabel){
+    const hd=document.getElementById('heroDate');
+    if(hd) hd.textContent=heroLabel+(d._stale?' · STALE':'')+' · 15:30 KST';
+  }
 }
 // ── API Key ──────────────────────────────────────────────────────────────────
 function getApiKey(){ return localStorage.getItem('kmw_api_key')||''; }
@@ -604,10 +612,26 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // ── Fetch ─────────────────────────────────────────────────────────────────────
 async function fetchData(){
+  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
+
+  // 1) 기본 경로: 빌드된 정적 JSON (GitHub Pages에서 API 키 없이 동작)
+  try{
+    btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Loading latest built data...',false);
+    const built = await loadBuiltData();
+    renderLiveData(built);
+    setStatus(`${built._date_label||built._built_at||'latest'} · ${(built.gainers||[]).length + (built.losers||[]).length} stocks · from build`,true);
+    ov.style.display='none';
+    btn.disabled=rbtn.disabled=false;
+    return;
+  }catch(_){
+    ov.style.display='none';
+    btn.disabled=rbtn.disabled=false;
+  }
+
+  // 2) 폴백: 사용자 Anthropic 키로 브라우저 직접 조회
   const apiKey=getApiKey();
   if(!apiKey){ showKeyModal(); return; }
 
-  const btn=document.getElementById('fetchBtn'),rbtn=document.getElementById('refreshBtn'),ov=document.getElementById('loadingOverlay');
   btn.disabled=rbtn.disabled=true; ov.style.display='flex'; setStatus('Fetching live data...',false);
 
   const steps=[[800,'Fetching KOSPI · KOSDAQ quotes...'],[2200,'Selecting Top 5 Gainers & Losers...'],[3800,'Analyzing sectors with Claude AI...'],[5200,'Generating highlight...']];
@@ -653,17 +677,8 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
     if(!match) throw new Error('JSON 파싱 실패 — 응답에 JSON 없음');
     const d2=JSON.parse(match[0]); ov.style.display='none';
 
-    const mv=d2.market||{};
-    if(mv.kospi)  setIndex('kospi',  mv.kospi.value,  mv.kospi.chg_pct,  mv.kospi.chg_abs);
-    if(mv.kosdaq) setIndex('kosdaq', mv.kosdaq.value, mv.kosdaq.chg_pct, mv.kosdaq.chg_abs);
-    if(mv.usdkrw) setIndex('usdkrw', mv.usdkrw.value, mv.usdkrw.chg_pct, mv.usdkrw.chg_abs);
-    if(d2.highlight) document.getElementById('hlText').innerHTML=d2.highlight;
-
+    renderLiveData(d2);
     const g=d2.gainers||[],l=d2.losers||[];
-    document.getElementById('gainersContent').innerHTML=g.length?g.map((s,i)=>renderCard(s,'up',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-    document.getElementById('losersContent').innerHTML=l.length?l.map((s,i)=>renderCard(s,'dn',i+1)).join(''):'<div class="empty-state"><div class="empty-icon">🤷</div>No data</div>';
-    if(d2.strong_sectors) document.getElementById('strongSectors').innerHTML=renderSectors(d2.strong_sectors,'up');
-    if(d2.weak_sectors)   document.getElementById('weakSectors').innerHTML=renderSectors(d2.weak_sectors,'dn');
     setStatus(`${today} · ${g.length+l.length} stocks · live`,true);
 
   }catch(err){
@@ -677,7 +692,18 @@ gainers=5 items, losers=5 items, strong_sectors=4, weak_sectors=4. All text Engl
   btn.disabled=rbtn.disabled=false;
 }
 
-window.addEventListener('DOMContentLoaded',renderMock);
+window.addEventListener('DOMContentLoaded',async ()=>{
+  if(window.__MARKET_DATA__) {
+    renderLiveData(window.__MARKET_DATA__);
+    return;
+  }
+  try{
+    const built = await loadBuiltData();
+    renderLiveData(built);
+  }catch(_){
+    renderMock();
+  }
+});
 </script>
 
 <!-- API Key Modal -->
