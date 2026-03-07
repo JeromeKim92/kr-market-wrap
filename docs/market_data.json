@@ -11,9 +11,9 @@
       "chg_abs": "+38.26 pts"
     },
     "usdkrw": {
-      "value": "1,485",
-      "chg_pct": "+1.63%",
-      "chg_abs": "+24 KRW"
+      "value": "1,480",
+      "chg_pct": "+1.28%",
+      "chg_abs": "+19 KRW"
     }
   },
   "highlight": "Market data unavailable.",
@@ -21,6 +21,6 @@
   "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-03-07 07:54",
-  "_date_label": "Sat, Mar 07, 2026"
+  "_built_at": "2026-03-07 09:05",
+  "_date_label": "Fri, Mar 06, 2026"
 }
