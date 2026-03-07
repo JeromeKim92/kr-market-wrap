@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 """
-Korea Market Wrap — Daily Build Script
-========================================
-[지수]  1차 네이버 시세 → 2차 FinanceDataReader
-[종목]  1차 네이버 파이낸셜 (KOSPI+KOSDAQ) → 2차 KRX 직접 API → 3차 FDR
+Korea Market Wrap — Daily Build Script (SSR Edition)
+=====================================================
+핵심 변경: JS MOCK 교체 대신 Python이 직접 HTML DOM에 데이터를 렌더링
+→ 브라우저 JS 실행에 의존하지 않음 (100% 서버사이드 렌더링)
+
+[지수]  1차 네이버 시세 → 2차 FDR
+[종목]  1차 네이버 파이낸셜 (KOSPI+KOSDAQ) → 2차 KRX API → 3차 FDR
 [분석]  Claude API (web search)
-[빌드]  index.html MOCK 교체 → docs/ 배포
+[빌드]  index.html DOM 직접 교체 → docs/
 """
 
-import os, sys, json, re, time
+import os, sys, json, re, time, html as html_mod
 import urllib.request, urllib.parse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-# ── 날짜 설정 ────────────────────────────────────────────────────────────────
 KST = ZoneInfo("Asia/Seoul")
 now_kst = datetime.now(KST)
 
 
 def last_trading_day(dt):
     wd = dt.weekday()
-    if wd == 5:
-        return dt - timedelta(days=1)
-    if wd == 6:
-        return dt - timedelta(days=2)
+    if wd == 5: return dt - timedelta(days=1)
+    if wd == 6: return dt - timedelta(days=2)
     return dt
 
 
@@ -34,9 +34,6 @@ DISPLAY_DATE = trade_dt.strftime("%a, %b %-d, %Y")
 
 print(f"[KMW] Trade date: {DATE_STR}  ({DISPLAY_DATE})")
 
-# ═════════════════════════════════════════════════════════════════════════════
-# 공통 HTTP 헤더
-# ═════════════════════════════════════════════════════════════════════════════
 import requests
 from bs4 import BeautifulSoup
 
@@ -46,146 +43,89 @@ HEADERS = {
 }
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 1. 지수 — 1차 네이버, 2차 FDR
+# 1. 지수
 # ═════════════════════════════════════════════════════════════════════════════
 print("[KMW] Fetching indices...")
 
 
 def fetch_index_naver(code, label):
-    """
-    네이버 시세 페이지에서 지수 크롤링
-    KOSPI: code=KOSPI  → https://finance.naver.com/sise/sise_index.naver?code=KOSPI
-    KOSDAQ: code=KOSDAQ
-    """
     try:
         url = f"https://finance.naver.com/sise/sise_index.naver?code={code}"
         resp = requests.get(url, headers=HEADERS, timeout=10)
         resp.encoding = "euc-kr"
         soup = BeautifulSoup(resp.text, "html.parser")
-
-        # 현재가
         now_val = soup.select_one("#now_value")
         if not now_val:
-            raise ValueError(f"now_value not found for {code}")
+            raise ValueError("now_value not found")
         value = now_val.get_text(strip=True).replace(",", "")
-
-        # 전일대비 변동
-        chg_val = soup.select_one("#change_value_and_rate")
-        if chg_val:
-            chg_text = chg_val.get_text(strip=True)
-            # "15.30 +0.59%" 형태
-            parts = chg_text.split()
-            chg_abs = parts[0] if parts else "0"
-            chg_pct = parts[1] if len(parts) > 1 else "0%"
+        chg_tag = soup.select_one("#change_value_and_rate")
+        if chg_tag:
+            texts = chg_tag.get_text(" ", strip=True).split()
+            chg_abs = texts[0] if texts else "0"
+            chg_pct = texts[1] if len(texts) > 1 else "0%"
         else:
-            chg_abs = "0"
-            chg_pct = "0.00%"
-
-        # 상승/하락 판단
-        up_img = soup.select_one("#change_value_and_rate img")
+            chg_abs, chg_pct = "0", "0%"
         is_down = False
-        if up_img:
-            alt = up_img.get("alt", "")
-            if "하락" in alt or "down" in alt.lower():
-                is_down = True
-
-        # 부호 정리
-        chg_abs_clean = chg_abs.replace(",", "")
-        chg_pct_clean = chg_pct.replace("%", "").replace("+", "").replace("-", "")
-
+        up_img = soup.select_one("#change_value_and_rate img")
+        if up_img and ("하락" in up_img.get("alt", "")):
+            is_down = True
+        chg_pct_num = chg_pct.replace("%", "").replace("+", "").replace("-", "")
+        chg_abs_num = chg_abs.replace(",", "")
         if is_down:
-            abs_str = f"-{chg_abs_clean} pts"
-            pct_str = f"-{chg_pct_clean}%"
+            return {"value": f"{float(value):,.2f}", "chg_pct": f"-{chg_pct_num}%",
+                    "chg_abs": f"-{chg_abs_num} pts"}
         else:
-            abs_str = f"+{chg_abs_clean} pts"
-            pct_str = f"+{chg_pct_clean}%"
-
-        val_str = f"{float(value):,.2f}"
-        print(f"  [Naver] {label}: {val_str}  {pct_str}")
-        return {"value": val_str, "chg_pct": pct_str, "chg_abs": abs_str}
-
+            return {"value": f"{float(value):,.2f}", "chg_pct": f"+{chg_pct_num}%",
+                    "chg_abs": f"+{chg_abs_num} pts"}
     except Exception as e:
-        print(f"  [WARN] Naver index {label} failed: {e}")
+        print(f"  [WARN] Naver {label}: {e}")
         return None
 
 
 def fetch_usdkrw_naver():
-    """네이버 환율 페이지에서 USD/KRW"""
     try:
-        url = "https://finance.naver.com/marketindex/exchangeDetail.naver?marketindexCd=FX_USDKRW"
+        url = "https://finance.naver.com/marketindex/"
         resp = requests.get(url, headers=HEADERS, timeout=10)
         resp.encoding = "euc-kr"
         soup = BeautifulSoup(resp.text, "html.parser")
-
-        # 현재가
-        val_tag = soup.select_one(".no_today .blind") or soup.select_one("#exchangeAsk .no_today")
-        if not val_tag:
-            # 대안: 메타태그에서
-            for meta in soup.find_all("meta"):
-                if meta.get("property") == "og:description":
-                    m = re.search(r"([\d,]+\.?\d*)", meta.get("content", ""))
-                    if m:
-                        val = float(m.group(1).replace(",", ""))
-                        return {"value": f"{val:,.0f}", "chg_pct": "0.00%", "chg_abs": "—"}
-            raise ValueError("USD/KRW value not found")
-
-        val = float(val_tag.get_text(strip=True).replace(",", ""))
-
-        # 변동
-        chg_tag = soup.select_one(".no_exday .blind")
-        chg = float(chg_tag.get_text(strip=True).replace(",", "")) if chg_tag else 0
-
-        # 상승/하락
-        is_down = False
-        compare_area = soup.select_one(".no_exday")
-        if compare_area:
-            cls = compare_area.get("class", [])
-            if any("minus" in c or "down" in c for c in cls):
-                is_down = True
-            img = compare_area.find("img")
-            if img and ("하락" in img.get("alt", "") or "down" in img.get("alt", "").lower()):
-                is_down = True
-
-        prev = val + chg if is_down else val - chg
-        pct = ((val - prev) / prev * 100) if prev else 0
-
-        result = {
-            "value": f"{val:,.0f}",
-            "chg_pct": f"{pct:+.2f}%",
-            "chg_abs": f"{val - prev:+.0f} KRW",
-        }
-        print(f"  [Naver] USD/KRW: {result['value']}  {result['chg_pct']}")
-        return result
-
+        # 환율 박스에서 USD/KRW 추출
+        exchange_box = soup.select_one("#exchangeList .head_info .value")
+        if not exchange_box:
+            raise ValueError("exchange value not found")
+        val = float(exchange_box.get_text(strip=True).replace(",", ""))
+        chg_el = soup.select_one("#exchangeList .head_info .change")
+        chg = float(chg_el.get_text(strip=True).replace(",", "")) if chg_el else 0
+        blind = soup.select_one("#exchangeList .head_info .blind")
+        is_down = blind and "하락" in blind.get_text()
+        if is_down:
+            prev = val + chg
+            pct = -chg / prev * 100
+        else:
+            prev = val - chg
+            pct = chg / prev * 100 if prev else 0
+        return {"value": f"{val:,.0f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{val-prev:+.0f} KRW"}
     except Exception as e:
-        print(f"  [WARN] Naver USD/KRW failed: {e}")
+        print(f"  [WARN] Naver USD/KRW: {e}")
         return None
 
 
 def fetch_index_fdr(symbol, label):
-    """FDR 폴백"""
     try:
         import FinanceDataReader as fdr
         df = fdr.DataReader(symbol, START_STR)
-        if df.empty:
-            raise ValueError(f"No data for {symbol}")
-        row = df.iloc[-1]
-        prev = df.iloc[-2] if len(df) >= 2 else row
-        close = row["Close"]
-        prev_close = prev["Close"]
+        if df.empty: raise ValueError("empty")
+        row, prev = df.iloc[-1], df.iloc[-2] if len(df) >= 2 else df.iloc[-1]
+        close, prev_close = row["Close"], prev["Close"]
         chg = close - prev_close
         pct = (chg / prev_close) * 100
-
         if symbol == "USD/KRW":
             return {"value": f"{close:,.0f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{chg:+.0f} KRW"}
-        else:
-            return {"value": f"{close:,.2f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{chg:+.2f} pts"}
+        return {"value": f"{close:,.2f}", "chg_pct": f"{pct:+.2f}%", "chg_abs": f"{chg:+.2f} pts"}
     except Exception as e:
-        print(f"  [WARN] FDR {label} failed: {e}")
+        print(f"  [WARN] FDR {label}: {e}")
         return {"value": "—", "chg_pct": "0.00%", "chg_abs": "—"}
 
 
-# 지수 수집: 네이버 → FDR
 market = {}
 market["kospi"] = fetch_index_naver("KOSPI", "KOSPI") or fetch_index_fdr("KS11", "KOSPI")
 market["kosdaq"] = fetch_index_naver("KOSDAQ", "KOSDAQ") or fetch_index_fdr("KQ11", "KOSDAQ")
@@ -195,317 +135,110 @@ for k, v in market.items():
     print(f"  ✓ {k.upper():8s} {v['value']:>10s}  {v['chg_pct']}")
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 2-A. 네이버 파이낸셜 — Top Movers (Primary)
-#      ★ KOSPI(sosok=0) + KOSDAQ(sosok=1) 모두 수집 후 합산 정렬
+# 2. Top Movers (Naver → KRX → FDR)
 # ═════════════════════════════════════════════════════════════════════════════
 print("[KMW] Fetching top movers...")
 
 
-def parse_naver_sise_table(url, limit=10):
-    """
-    네이버 상승/하락 TOP 페이지 파싱
-    Returns: list of dicts
-    """
+def parse_naver_sise(url, limit=10):
     resp = requests.get(url, headers=HEADERS, timeout=15)
     resp.encoding = "euc-kr"
     soup = BeautifulSoup(resp.text, "html.parser")
-
     table = soup.find("table", class_="type_2")
-    if not table:
-        raise ValueError(f"Table not found at {url}")
-
-    rows = table.find_all("tr")
+    if not table: raise ValueError("Table not found")
     results = []
-
-    for tr in rows:
+    for tr in table.find_all("tr"):
         tds = tr.find_all("td")
-        if len(tds) < 7:
-            continue
-
-        name_tag = tds[1].find("a")
-        if not name_tag:
-            continue
-
-        name_kr = name_tag.get_text(strip=True)
-        href = name_tag.get("href", "")
-        code_match = re.search(r"code=(\d{6})", href)
-        if not code_match:
-            continue
-        ticker = code_match.group(1)
-
-        close_text = tds[2].get_text(strip=True).replace(",", "")
-        pct_text = tds[4].get_text(strip=True).replace("%", "").replace("+", "").replace("-", "")
-        vol_text = tds[5].get_text(strip=True).replace(",", "")
-
+        if len(tds) < 7: continue
+        a = tds[1].find("a")
+        if not a: continue
+        m = re.search(r"code=(\d{6})", a.get("href", ""))
+        if not m: continue
         try:
-            close = int(close_text)
-            pct = float(pct_text)
-            vol = int(vol_text)
-        except ValueError:
-            continue
-
-        if close <= 0:
-            continue
-
-        results.append({
-            "ticker": ticker,
-            "name_kr": name_kr,
-            "close_price": close,
-            "change_pct": pct,
-            "volume": vol,
-            "market_cap": 0,
-        })
-
-        if len(results) >= limit:
-            break
-
+            close = int(tds[2].get_text(strip=True).replace(",", ""))
+            pct = float(tds[4].get_text(strip=True).replace("%", "").replace("+", "").replace("-", ""))
+            vol = int(tds[5].get_text(strip=True).replace(",", ""))
+            if close <= 0: continue
+            results.append({"ticker": m.group(1), "name_kr": a.get_text(strip=True),
+                            "close_price": close, "change_pct": pct, "volume": vol, "market_cap": 0})
+        except ValueError: continue
+        if len(results) >= limit: break
     return results
 
 
-def fetch_naver_market_cap(ticker):
-    """네이버 개별 종목 페이지에서 시가총액 (백만원)"""
+def fetch_naver_mcap(ticker):
     try:
-        url = f"https://finance.naver.com/item/main.naver?code={ticker}"
-        resp = requests.get(url, headers=HEADERS, timeout=10)
+        resp = requests.get(f"https://finance.naver.com/item/main.naver?code={ticker}", headers=HEADERS, timeout=10)
         resp.encoding = "euc-kr"
-        match = re.search(r'id="_market_sum"[^>]*>([\d,]+)', resp.text)
-        if match:
-            cap_eok = int(match.group(1).replace(",", ""))
-            return cap_eok * 100  # 억원 → 백만원
-    except Exception:
-        pass
-    return 0
+        m = re.search(r'id="_market_sum"[^>]*>([\d,]+)', resp.text)
+        return int(m.group(1).replace(",", "")) * 100 if m else 0
+    except: return 0
 
 
-def get_top_movers_naver():
-    """
-    네이버 파이낸셜 상승/하락 TOP
-    ★ KOSPI(sosok=0) + KOSDAQ(sosok=1) 모두 수집 → 합산 정렬 → Top 5
-    """
+def get_movers_naver():
     try:
-        # ── 상승 TOP: KOSPI + KOSDAQ ──
-        gainers_kospi = parse_naver_sise_table(
-            "https://finance.naver.com/sise/sise_rise.naver?sosok=0", limit=10
-        )
-        gainers_kosdaq = parse_naver_sise_table(
-            "https://finance.naver.com/sise/sise_rise.naver?sosok=1", limit=10
-        )
-        all_gainers = gainers_kospi + gainers_kosdaq
-        # 등락률 내림차순 정렬 → Top 5
-        all_gainers.sort(key=lambda x: x["change_pct"], reverse=True)
-        top_gainers = all_gainers[:5]
-
-        print(f"  [Naver] Gainers: KOSPI {len(gainers_kospi)} + KOSDAQ {len(gainers_kosdaq)} → Top 5")
-
-        # ── 하락 TOP: KOSPI + KOSDAQ ──
-        losers_kospi = parse_naver_sise_table(
-            "https://finance.naver.com/sise/sise_fall.naver?sosok=0", limit=10
-        )
-        losers_kosdaq = parse_naver_sise_table(
-            "https://finance.naver.com/sise/sise_fall.naver?sosok=1", limit=10
-        )
-        all_losers = losers_kospi + losers_kosdaq
-        # 등락률 내림차순 정렬 (숫자가 클수록 낙폭 큼) → Top 5
-        all_losers.sort(key=lambda x: x["change_pct"], reverse=True)
-        top_losers = all_losers[:5]
-
-        print(f"  [Naver] Losers: KOSPI {len(losers_kospi)} + KOSDAQ {len(losers_kosdaq)} → Top 5")
-
-        if not top_gainers and not top_losers:
-            raise ValueError("Naver returned empty results for both markets")
-
-        # ── 결과 조립 + 시가총액 개별 조회 ──
-        results = {"gainers": [], "losers": []}
-
-        for label, raw_list in [("gainers", top_gainers), ("losers", top_losers)]:
-            for rank, s in enumerate(raw_list, 1):
-                mcap = fetch_naver_market_cap(s["ticker"])
-                pct = s["change_pct"]
-                if label == "losers":
-                    pct = -abs(pct)  # 하락은 음수로
-
-                results[label].append({
-                    "rank": rank,
-                    "ticker": s["ticker"],
-                    "name_kr": s["name_kr"],
-                    "name_en": "",
-                    "change_pct": pct,
-                    "close_price": s["close_price"],
-                    "volume": s["volume"],
-                    "market_cap": mcap,
-                    "sector_en": "",
-                    "theme_en": "",
-                    "reason_en": "",
-                })
-
-        return results
-
+        g0 = parse_naver_sise("https://finance.naver.com/sise/sise_rise.naver?sosok=0", 10)
+        g1 = parse_naver_sise("https://finance.naver.com/sise/sise_rise.naver?sosok=1", 10)
+        l0 = parse_naver_sise("https://finance.naver.com/sise/sise_fall.naver?sosok=0", 10)
+        l1 = parse_naver_sise("https://finance.naver.com/sise/sise_fall.naver?sosok=1", 10)
+        all_g = sorted(g0 + g1, key=lambda x: x["change_pct"], reverse=True)[:5]
+        all_l = sorted(l0 + l1, key=lambda x: x["change_pct"], reverse=True)[:5]
+        print(f"  [Naver] G: KOSPI {len(g0)} + KOSDAQ {len(g1)} → {len(all_g)}")
+        print(f"  [Naver] L: KOSPI {len(l0)} + KOSDAQ {len(l1)} → {len(all_l)}")
+        if not all_g and not all_l: raise ValueError("empty")
+        r = {"gainers": [], "losers": []}
+        for label, lst in [("gainers", all_g), ("losers", all_l)]:
+            for rank, s in enumerate(lst, 1):
+                pct = s["change_pct"] if label == "gainers" else -abs(s["change_pct"])
+                r[label].append({
+                    "rank": rank, "ticker": s["ticker"], "name_kr": s["name_kr"], "name_en": "",
+                    "change_pct": pct, "close_price": s["close_price"], "volume": s["volume"],
+                    "market_cap": fetch_naver_mcap(s["ticker"]),
+                    "sector_en": "", "theme_en": "", "reason_en": ""})
+        return r
     except Exception as e:
-        print(f"  [WARN] Naver failed: {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"  [WARN] Naver: {e}")
         return None
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# 2-B. KRX 직접 API (Secondary)
-# ═════════════════════════════════════════════════════════════════════════════
-
-KRX_URL = "http://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd"
-KRX_HEADERS_POST = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Referer": "http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020101",
-    "Content-Type": "application/x-www-form-urlencoded",
-}
-
-
-def get_top_movers_krx(date_str):
+def get_movers_krx(date_str):
     for delta in range(4):
-        dt = datetime.strptime(date_str, "%Y%m%d") - timedelta(days=delta)
-        ds = dt.strftime("%Y%m%d")
+        ds = (datetime.strptime(date_str, "%Y%m%d") - timedelta(days=delta)).strftime("%Y%m%d")
         try:
-            params = {
-                "bld": "dbms/MDC/STAT/standard/MDCSTAT01501",
-                "locale": "ko_KR",
-                "mktId": "ALL",
-                "trdDd": ds,
-                "share": "1",
-                "money": "1",
-                "csvxls_isNo": "false",
-            }
-            body = urllib.parse.urlencode(params).encode("utf-8")
-            req = urllib.request.Request(KRX_URL, data=body, headers=KRX_HEADERS_POST, method="POST")
+            params = {"bld": "dbms/MDC/STAT/standard/MDCSTAT01501", "locale": "ko_KR",
+                      "mktId": "ALL", "trdDd": ds, "share": "1", "money": "1", "csvxls_isNo": "false"}
+            body = urllib.parse.urlencode(params).encode()
+            req = urllib.request.Request("http://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd",
+                                         data=body, method="POST",
+                                         headers={"User-Agent": "Mozilla/5.0", "Content-Type": "application/x-www-form-urlencoded",
+                                                  "Referer": "http://data.krx.co.kr/"})
             with urllib.request.urlopen(req, timeout=30) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-
-            rows = data.get("OutBlock_1", [])
-            if not rows:
-                continue
-
-            all_stocks = []
+                rows = json.loads(resp.read().decode()).get("OutBlock_1", [])
+            if not rows: continue
+            stocks = []
             for r in rows:
                 try:
                     vol = int(r.get("ACC_TRDVOL", "0").replace(",", ""))
                     close = int(r.get("TDD_CLSPRC", "0").replace(",", ""))
                     pct = float(r.get("FLUC_RT", "0").replace(",", ""))
-                    mcap_raw = r.get("MKTCAP", "0").replace(",", "")
-                    mcap = int(int(mcap_raw) / 1_000_000) if mcap_raw else 0
-                    if close <= 0:
-                        continue
-                    all_stocks.append({
-                        "ticker": r.get("ISU_SRT_CD", ""),
-                        "name_kr": r.get("ISU_ABBRV", "—"),
-                        "close_price": close,
-                        "change_pct": pct,
-                        "volume": vol,
-                        "market_cap": mcap,
-                    })
-                except (ValueError, KeyError):
-                    continue
-
-            if all_stocks:
-                print(f"  [KRX] {len(all_stocks)} stocks for {ds}")
-                sorted_up = sorted(all_stocks, key=lambda x: x["change_pct"], reverse=True)[:5]
-                sorted_dn = sorted(all_stocks, key=lambda x: x["change_pct"])[:5]
-
-                results = {"gainers": [], "losers": []}
-                for label, subset in [("gainers", sorted_up), ("losers", sorted_dn)]:
-                    for rank, s in enumerate(subset, 1):
-                        results[label].append({
-                            "rank": rank, "ticker": s["ticker"], "name_kr": s["name_kr"],
-                            "name_en": "", "change_pct": s["change_pct"],
-                            "close_price": s["close_price"], "volume": s["volume"],
-                            "market_cap": s["market_cap"],
-                            "sector_en": "", "theme_en": "", "reason_en": "",
-                        })
-                return results
-        except Exception as e:
-            print(f"  [WARN] KRX {ds}: {e}")
-            continue
+                    mcap = int(int(r.get("MKTCAP", "0").replace(",", "")) / 1e6)
+                    if close <= 0: continue
+                    stocks.append({"ticker": r.get("ISU_SRT_CD", ""), "name_kr": r.get("ISU_ABBRV", ""),
+                                   "close_price": close, "change_pct": pct, "volume": vol, "market_cap": mcap})
+                except: continue
+            if stocks:
+                up = sorted(stocks, key=lambda x: x["change_pct"], reverse=True)[:5]
+                dn = sorted(stocks, key=lambda x: x["change_pct"])[:5]
+                r = {"gainers": [], "losers": []}
+                for lb, sub in [("gainers", up), ("losers", dn)]:
+                    for rk, s in enumerate(sub, 1):
+                        r[lb].append({**s, "rank": rk, "name_en": "", "sector_en": "", "theme_en": "", "reason_en": ""})
+                return r
+        except: continue
     return None
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-# 2-C. FDR StockListing (Tertiary)
-# ═════════════════════════════════════════════════════════════════════════════
-
-def get_top_movers_fdr():
-    print("  [FDR] Fallback...")
-    import FinanceDataReader as fdr
-
-    results_all = []
-    for mkt in ["KOSPI", "KOSDAQ"]:
-        try:
-            listing = fdr.StockListing(mkt)
-            if listing.empty:
-                continue
-            ratio_col = None
-            for col_name in ["ChagesRatio", "ChangesRatio", "ChangeRatio"]:
-                if col_name in listing.columns:
-                    ratio_col = col_name
-                    break
-            code_col = "Code" if "Code" in listing.columns else "Symbol"
-            name_col = "Name" if "Name" in listing.columns else "name"
-
-            for _, row in listing.iterrows():
-                try:
-                    vol = int(row.get("Volume", 0) or 0)
-                    close = int(row.get("Close", 0) or 0)
-                    pct = float(row.get(ratio_col, 0) or 0) if ratio_col else 0
-                    if close <= 0:
-                        continue
-                    mcap = int(row.get("Marcap", 0) / 1_000_000) if "Marcap" in listing.columns and row.get("Marcap") else 0
-                    results_all.append({
-                        "ticker": str(row.get(code_col, "")),
-                        "name_kr": str(row.get(name_col, "—")),
-                        "close_price": close, "change_pct": round(pct, 2),
-                        "volume": vol, "market_cap": mcap,
-                    })
-                except (ValueError, KeyError, TypeError):
-                    continue
-        except Exception as e:
-            print(f"  [WARN] FDR {mkt}: {e}")
-
-    if not results_all:
-        return {"gainers": [], "losers": []}
-
-    sorted_up = sorted(results_all, key=lambda x: x["change_pct"], reverse=True)[:5]
-    sorted_dn = sorted(results_all, key=lambda x: x["change_pct"])[:5]
-    results = {"gainers": [], "losers": []}
-    for label, subset in [("gainers", sorted_up), ("losers", sorted_dn)]:
-        for rank, s in enumerate(subset, 1):
-            results[label].append({
-                "rank": rank, "ticker": s["ticker"], "name_kr": s["name_kr"],
-                "name_en": "", "change_pct": s["change_pct"],
-                "close_price": s["close_price"], "volume": s["volume"],
-                "market_cap": s["market_cap"],
-                "sector_en": "", "theme_en": "", "reason_en": "",
-            })
-    return results
-
-
-# ── 실행: Naver → KRX → FDR ─────────────────────────────────────────────────
-movers = None
-
-try:
-    movers = get_top_movers_naver()
-except Exception as e:
-    print(f"  [WARN] Naver primary failed: {e}")
-
-if not movers or (not movers.get("gainers") and not movers.get("losers")):
-    print("  [Fallback → KRX]")
-    try:
-        movers = get_top_movers_krx(DATE_STR)
-    except Exception as e:
-        print(f"  [WARN] KRX secondary failed: {e}")
-
-if not movers or (not movers.get("gainers") and not movers.get("losers")):
-    print("  [Fallback → FDR]")
-    movers = get_top_movers_fdr()
-
-if not movers:
-    movers = {"gainers": [], "losers": []}
-
+movers = get_movers_naver() or get_movers_krx(DATE_STR) or {"gainers": [], "losers": []}
 print(f"  ✓ Gainers: {len(movers['gainers'])}  Losers: {len(movers['losers'])}")
 for g in movers["gainers"]:
     print(f"    ▲ {g['name_kr']} ({g['ticker']})  {g['change_pct']:+.2f}%")
@@ -513,146 +246,76 @@ for l in movers["losers"]:
     print(f"    ▼ {l['name_kr']} ({l['ticker']})  {l['change_pct']:+.2f}%")
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 3. Claude API — 분석
+# 3. Claude API
 # ═════════════════════════════════════════════════════════════════════════════
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 if not ANTHROPIC_API_KEY:
-    print("[ERROR] ANTHROPIC_API_KEY not set")
-    sys.exit(1)
+    print("[ERROR] ANTHROPIC_API_KEY not set"); sys.exit(1)
 
 
-def call_claude(prompt, max_retries=2):
-    payload = json.dumps({
-        "model": "claude-sonnet-4-20250514",
-        "max_tokens": 4000,
-        "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-        "messages": [{"role": "user", "content": prompt}],
-    }).encode("utf-8")
-
-    headers = {
-        "Content-Type": "application/json",
-        "x-api-key": ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "anthropic-beta": "web-search-2025-03-05",
-    }
-
-    for attempt in range(max_retries + 1):
+def call_claude(prompt, retries=2):
+    payload = json.dumps({"model": "claude-sonnet-4-20250514", "max_tokens": 4000,
+                          "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                          "messages": [{"role": "user", "content": prompt}]}).encode()
+    hdrs = {"Content-Type": "application/json", "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01", "anthropic-beta": "web-search-2025-03-05"}
+    for i in range(retries + 1):
         try:
-            req = urllib.request.Request(
-                "https://api.anthropic.com/v1/messages",
-                data=payload, headers=headers, method="POST",
-            )
+            req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=payload, headers=hdrs, method="POST")
             with urllib.request.urlopen(req, timeout=120) as resp:
                 data = json.loads(resp.read().decode())
-            texts = [b["text"] for b in data.get("content", []) if b.get("type") == "text"]
-            return "\n".join(texts)
+            return "\n".join(b["text"] for b in data.get("content", []) if b.get("type") == "text")
         except Exception as e:
-            print(f"  [WARN] Claude attempt {attempt + 1}: {e}")
-            if attempt < max_retries:
-                time.sleep(5)
+            print(f"  [WARN] Claude #{i+1}: {e}")
+            if i < retries: time.sleep(5)
     return ""
 
 
-print("[KMW] Calling Claude API for analysis...")
+print("[KMW] Calling Claude API...")
+gb = json.dumps([{"ticker": g["ticker"], "name_kr": g["name_kr"], "change_pct": g["change_pct"]} for g in movers["gainers"]], ensure_ascii=False)
+lb = json.dumps([{"ticker": l["ticker"], "name_kr": l["name_kr"], "change_pct": l["change_pct"]} for l in movers["losers"]], ensure_ascii=False)
 
-gainers_brief = json.dumps(
-    [{"ticker": g["ticker"], "name_kr": g["name_kr"],
-      "change_pct": g["change_pct"], "close_price": g["close_price"]}
-     for g in movers["gainers"]], ensure_ascii=False,
-)
-losers_brief = json.dumps(
-    [{"ticker": l["ticker"], "name_kr": l["name_kr"],
-      "change_pct": l["change_pct"], "close_price": l["close_price"]}
-     for l in movers["losers"]], ensure_ascii=False,
-)
+prompt = f"""Today is {DISPLAY_DATE} (KST). Korean stock market just closed.
+KOSPI: {market['kospi']['value']} ({market['kospi']['chg_pct']}), KOSDAQ: {market['kosdaq']['value']} ({market['kosdaq']['chg_pct']}), USD/KRW: {market['usdkrw']['value']} ({market['usdkrw']['chg_pct']})
+Top 5 Gainers: {gb}
+Top 5 Losers: {lb}
+Use web search for context. Return ONLY JSON:
+{{"highlight":"One sentence with <strong>key</strong>.","gainers":[{{"ticker":"...","name_en":"...","sector_en":"...","theme_en":"...","reason_en":"..."}}],"losers":[same],"strong_sectors":[{{"name":"...","chg":"4.82","stocks":"A · B"}}],"weak_sectors":[same]}}
+gainers/losers: match my tickers in order. strong/weak_sectors: 4 each. All English. ONLY JSON."""
 
-analysis_prompt = f"""Today is {DISPLAY_DATE} (KST). Korean stock market just closed.
-
-KOSPI: {market['kospi']['value']} ({market['kospi']['chg_pct']})
-KOSDAQ: {market['kosdaq']['value']} ({market['kosdaq']['chg_pct']})
-USD/KRW: {market['usdkrw']['value']} ({market['usdkrw']['chg_pct']})
-
-Top 5 Gainers: {gainers_brief}
-Top 5 Losers: {losers_brief}
-
-Use web search to find today's Korean market news for these stocks.
-Return ONLY a JSON object with this schema:
-
-{{
-  "highlight": "One English sentence with <strong>key theme</strong>.",
-  "gainers": [
-    {{"ticker":"000660","name_en":"SK Hynix","sector_en":"Semiconductors","theme_en":"HBM / AI","reason_en":"Brief reason."}}
-  ],
-  "losers": [
-    {{"ticker":"068270","name_en":"Celltrion","sector_en":"Bio / Pharma","theme_en":"Earnings Miss","reason_en":"Brief reason."}}
-  ],
-  "strong_sectors": [{{"name":"Semiconductors","chg":"4.82","stocks":"SK Hynix · Samsung Elec"}}],
-  "weak_sectors": [{{"name":"Bio / Pharma","chg":"-3.11","stocks":"Celltrion · Samsung Bio"}}]
-}}
-
-RULES:
-- gainers/losers: match the tickers I provided, in order. Fill name_en, sector_en, theme_en, reason_en.
-- strong_sectors: 4 items. weak_sectors: 4 items.
-- All text English. Return ONLY JSON, no markdown."""
-
-raw_response = call_claude(analysis_prompt)
-
+raw = call_claude(prompt)
 analysis = {}
-if raw_response:
-    cleaned = re.sub(r"```json\s*", "", raw_response)
-    cleaned = re.sub(r"```\s*", "", cleaned).strip()
-    match = re.search(r"\{[\s\S]*\}", cleaned)
-    if match:
+if raw:
+    c = re.sub(r"```json\s*|```\s*", "", raw).strip()
+    m = re.search(r"\{[\s\S]*\}", c)
+    if m:
         try:
-            analysis = json.loads(match.group(0))
-            print("[KMW] Claude analysis parsed ✓")
-        except json.JSONDecodeError as e:
-            print(f"  [WARN] JSON parse error: {e}")
+            analysis = json.loads(m.group(0))
+            print("[KMW] Claude ✓")
+        except: print("  [WARN] JSON parse error")
 
 if analysis:
-    for label in ["gainers", "losers"]:
-        ai_list = analysis.get(label, [])
-        ai_map = {item["ticker"]: item for item in ai_list if "ticker" in item}
-        for stock in movers[label]:
-            enriched = ai_map.get(stock["ticker"], {})
-            stock["name_en"] = enriched.get("name_en") or stock["name_kr"]
-            stock["sector_en"] = enriched.get("sector_en", "")
-            stock["theme_en"] = enriched.get("theme_en", "")
-            stock["reason_en"] = enriched.get("reason_en", "")
+    for lb in ["gainers", "losers"]:
+        ai_map = {x["ticker"]: x for x in analysis.get(lb, []) if "ticker" in x}
+        for s in movers[lb]:
+            e = ai_map.get(s["ticker"], {})
+            s["name_en"] = e.get("name_en") or s["name_kr"]
+            s["sector_en"] = e.get("sector_en", "")
+            s["theme_en"] = e.get("theme_en", "")
+            s["reason_en"] = e.get("reason_en", "")
 else:
-    for label in ["gainers", "losers"]:
-        for stock in movers[label]:
-            stock["name_en"] = stock.get("name_en") or stock["name_kr"]
+    for lb in ["gainers", "losers"]:
+        for s in movers[lb]:
+            s["name_en"] = s.get("name_en") or s["name_kr"]
 
-highlight = analysis.get(
-    "highlight",
-    f"<strong>Korean market update</strong> — KOSPI {market['kospi']['chg_pct']}, "
-    f"KOSDAQ {market['kosdaq']['chg_pct']} on {DISPLAY_DATE}.",
-)
-strong_sectors = analysis.get("strong_sectors",
-                              [{"name": "—", "chg": "0.00", "stocks": "—"}])
-weak_sectors = analysis.get("weak_sectors",
-                            [{"name": "—", "chg": "0.00", "stocks": "—"}])
+highlight = analysis.get("highlight", f"<strong>Korean market</strong> — KOSPI {market['kospi']['chg_pct']}, KOSDAQ {market['kosdaq']['chg_pct']}.")
+strong_sectors = analysis.get("strong_sectors", [])
+weak_sectors = analysis.get("weak_sectors", [])
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 4. HTML 빌드 — 스크립트 주입 방식
-#    정규식 MOCK 교체 대신, </body> 앞에 데이터 스크립트를 삽입
-#    → 원본 template을 건드리지 않으므로 100% 안전
+# 4. HTML 렌더링 — Python이 직접 DOM 내용을 교체 (SSR)
 # ═════════════════════════════════════════════════════════════════════════════
-mock_data = {
-    "market": market,
-    "highlight": highlight,
-    "gainers": movers["gainers"],
-    "losers": movers["losers"],
-    "strong_sectors": strong_sectors,
-    "weak_sectors": weak_sectors,
-}
-for label in ["gainers", "losers"]:
-    for s in mock_data[label]:
-        s.pop("name_kr", None)
-
-print("[KMW] Final data preview:")
-print(json.dumps(mock_data, indent=2, ensure_ascii=False)[:1200] + " ...")
+print("[KMW] Server-side rendering...")
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
@@ -660,87 +323,189 @@ TEMPLATE_PATH = os.path.join(ROOT_DIR, "index.html")
 DOCS_DIR = os.path.join(ROOT_DIR, "docs")
 os.makedirs(DOCS_DIR, exist_ok=True)
 
-print(f"[KMW] Reading template: {TEMPLATE_PATH}")
 with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
-    html = f.read()
+    soup = BeautifulSoup(f.read(), "html.parser")
 
-print(f"[KMW] Template size: {len(html)} chars")
+E = html_mod.escape  # HTML 이스케이프 shortcut
 
-# ── JSON 안전 처리 ────────────────────────────────────────────────────────
-mock_json = json.dumps(mock_data, ensure_ascii=True, separators=(",", ":"))
-# ensure_ascii=True → 한글 등을 \uXXXX로 이스케이프 (JS에서 안전)
-# </ 시퀀스 이스케이프 (</script> 방지)
-mock_json_safe = mock_json.replace("</", "<\\/")
 
+# ── 4-1. 지수 카드 ───────────────────────────────────────────────────────
+def set_index(soup, prefix, data):
+    val_el = soup.find(id=f"{prefix}Val")
+    chg_el = soup.find(id=f"{prefix}Chg")
+    abs_el = soup.find(id=f"{prefix}Abs")
+    bar_el = soup.find(id=f"{prefix}Bar")
+    if val_el: val_el.string = data["value"]
+    if chg_el:
+        pct = data["chg_pct"]
+        is_up = pct.startswith("+") and pct != "+0.00%"
+        is_dn = pct.startswith("-")
+        chg_el.string = pct
+        chg_el["class"] = ["idx-chg", "up" if is_up else "dn" if is_dn else "neu"]
+    if abs_el: abs_el.string = data["chg_abs"]
+    if bar_el:
+        pct_num = float(data["chg_pct"].replace("%", "").replace("+", "")) if data["chg_pct"] else 0
+        w = max(10, min(90, 50 + pct_num * 8))
+        is_up = pct_num > 0
+        bar_el["class"] = ["idx-bar-fill", "up" if is_up else "dn" if pct_num < 0 else ""]
+        bar_el["style"] = f"width:{w:.0f}%"
+
+
+set_index(soup, "kospi", market["kospi"])
+set_index(soup, "kosdaq", market["kosdaq"])
+set_index(soup, "usdkrw", market["usdkrw"])
+
+# ── 4-2. Hero 날짜 ──────────────────────────────────────────────────────
+hero_date = soup.find(id="heroDate")
+if hero_date:
+    hero_date.string = f"{DISPLAY_DATE} · 15:30 KST"
+
+# ── 4-3. Highlight ───────────────────────────────────────────────────────
+hl = soup.find(id="hlText")
+if hl:
+    hl.clear()
+    hl.append(BeautifulSoup(highlight, "html.parser"))
+
+# ── 4-4. 종목 카드 렌더링 ────────────────────────────────────────────────
+def fmt_vol(v):
+    if not v: return "—"
+    if v >= 1e6: return f"{v/1e6:.1f}M"
+    if v >= 1e3: return f"{v/1e3:.0f}K"
+    return str(v)
+
+def fmt_mcap(v):
+    if not v: return "—"
+    t = v / 1e6
+    if t >= 0.1: return f"{t:.1f}T KRW"
+    b = v / 1e4
+    if b >= 1: return f"{b:.0f}B KRW"
+    return f"{v:,}M KRW"
+
+def fmt_price(v):
+    return f"₩{v:,}" if v else "—"
+
+def render_card_html(s, card_type, rank):
+    is_up = card_type == "up"
+    name = E(s.get("name_en") or s.get("name_kr") or "—")
+    sector = E(s.get("sector_en", ""))
+    theme = E(s.get("theme_en", ""))
+    reason = E(s.get("reason_en", "—"))
+    sign = "+" if is_up else ""
+    pct = f"{sign}{s.get('change_pct', 0):.2f}%"
+    delay = (rank - 1) * 50
+
+    badges = ""
+    if sector: badges += f'<span class="badge badge-sector">{sector}</span>'
+    if theme: badges += f'<span class="badge badge-theme">{theme}</span>'
+
+    return f'''<div class="stock-card {'up-card' if is_up else 'dn-card'}" style="animation-delay:{delay}ms">
+  <div class="card-row1">
+    <div class="card-row1-left">
+      <div class="card-headline">
+        <span class="card-rank">#{rank}</span>
+        <span class="card-name">{name}</span>
+        <span class="card-ticker">{E(s.get("ticker",""))}</span>
+      </div>
+      <div class="card-badges">{badges}</div>
+    </div>
+    <div class="card-row1-right">
+      <span class="card-pct {'up' if is_up else 'dn'}">{pct}</span>
+      <span class="card-price">{fmt_price(s.get("close_price"))}</span>
+    </div>
+  </div>
+  <div class="card-row2">
+    <div class="card-row2-left">
+      <div class="card-reason">📰 {reason}</div>
+    </div>
+    <div class="card-row2-right">
+      <span class="card-mcap">Mkt {fmt_mcap(s.get("market_cap"))}</span>
+      <span class="card-vol">Vol {fmt_vol(s.get("volume"))}</span>
+    </div>
+  </div>
+</div>'''
+
+
+def render_sectors_html(sectors, sec_type):
+    out = ""
+    for s in sectors:
+        sign = "+" if sec_type == "up" else ""
+        out += f'''<div class="sector-tag">
+  <div class="sector-tag-left"><div class="sector-tag-name">{E(s.get("name",""))}</div><div class="sector-tag-stocks">{E(s.get("stocks",""))}</div></div>
+  <div class="sector-tag-pct {sec_type}">{sign}{E(s.get("chg",""))}%</div>
+</div>'''
+    return out
+
+
+# Gainers
+gc = soup.find(id="gainersContent")
+if gc:
+    gc.clear()
+    if movers["gainers"]:
+        cards = "".join(render_card_html(s, "up", i + 1) for i, s in enumerate(movers["gainers"]))
+        gc.append(BeautifulSoup(cards, "html.parser"))
+    else:
+        gc.append(BeautifulSoup('<div class="empty-state"><div class="empty-icon">📈</div>No data available</div>', "html.parser"))
+
+# Losers
+lc = soup.find(id="losersContent")
+if lc:
+    lc.clear()
+    if movers["losers"]:
+        cards = "".join(render_card_html(s, "dn", i + 1) for i, s in enumerate(movers["losers"]))
+        lc.append(BeautifulSoup(cards, "html.parser"))
+    else:
+        lc.append(BeautifulSoup('<div class="empty-state"><div class="empty-icon">📉</div>No data available</div>', "html.parser"))
+
+# Strong sectors
+ss = soup.find(id="strongSectors")
+if ss and strong_sectors:
+    ss.clear()
+    ss.append(BeautifulSoup(render_sectors_html(strong_sectors, "up"), "html.parser"))
+
+# Weak sectors
+ws = soup.find(id="weakSectors")
+if ws and weak_sectors:
+    ws.clear()
+    ws.append(BeautifulSoup(render_sectors_html(weak_sectors, "dn"), "html.parser"))
+
+# ── 4-5. Status ─────────────────────────────────────────────────────────
 n_stocks = len(movers["gainers"]) + len(movers["losers"])
-status_text = f"Updated \\u2014 {DISPLAY_DATE} \\u00b7 {n_stocks} stocks \\u00b7 auto"
+s_dot = soup.find(id="sDot")
+s_txt = soup.find(id="sTxt")
+if s_dot: s_dot["class"] = ["s-dot", "live"]
+if s_txt: s_txt.string = f"Updated — {DISPLAY_DATE} · {n_stocks} stocks · auto"
 
-# ── </body> 앞에 데이터 오버라이드 스크립트 삽입 ──────────────────────────
-# 이 스크립트는 메인 <script> 이후, DOMContentLoaded 이전에 실행됨
-# → MOCK 객체를 덮어쓴 뒤, renderMock()이 호출될 때 새 데이터를 렌더링
-inject_script = f"""<script>
-// ── Auto-injected by fetch_and_build.py ──
-(function(){{
-  try {{
-    var d={mock_json_safe};
-    if(typeof MOCK!=='undefined'){{
-      Object.keys(d).forEach(function(k){{MOCK[k]=d[k];}});
-    }}
-    // renderMock의 setStatus 텍스트도 오버라이드
-    var origRenderMock=window.renderMock||renderMock;
-    window._kmwRendered=false;
-    var patchedRenderMock=function(){{
-      if(window._kmwRendered)return;
-      window._kmwRendered=true;
-      var m=MOCK.market||{{}};
-      if(m.kospi)setIndex('kospi',m.kospi.value,m.kospi.chg_pct,m.kospi.chg_abs);
-      if(m.kosdaq)setIndex('kosdaq',m.kosdaq.value,m.kosdaq.chg_pct,m.kosdaq.chg_abs);
-      if(m.usdkrw)setIndex('usdkrw',m.usdkrw.value,m.usdkrw.chg_pct,m.usdkrw.chg_abs);
-      if(MOCK.highlight)document.getElementById('hlText').innerHTML=MOCK.highlight;
-      var g=MOCK.gainers||[],l=MOCK.losers||[];
-      document.getElementById('gainersContent').innerHTML=g.length?g.map(function(s,i){{return renderCard(s,'up',i+1);}}).join(''):'<div class="empty-state"><div class="empty-icon">\\ud83e\\udd37<\\/div>No data<\\/div>';
-      document.getElementById('losersContent').innerHTML=l.length?l.map(function(s,i){{return renderCard(s,'dn',i+1);}}).join(''):'<div class="empty-state"><div class="empty-icon">\\ud83e\\udd37<\\/div>No data<\\/div>';
-      if(MOCK.strong_sectors)document.getElementById('strongSectors').innerHTML=renderSectors(MOCK.strong_sectors,'up');
-      if(MOCK.weak_sectors)document.getElementById('weakSectors').innerHTML=renderSectors(MOCK.weak_sectors,'dn');
-      setStatus('{status_text}',true);
-    }};
-    // DOMContentLoaded에서 원래 renderMock 대신 실행
-    window.removeEventListener('DOMContentLoaded',renderMock);
-    window.addEventListener('DOMContentLoaded',patchedRenderMock);
-    // 이미 DOMContentLoaded가 발생한 경우 즉시 실행
-    if(document.readyState!=='loading')patchedRenderMock();
-  }} catch(e) {{
-    console.error('[KMW] Inject error:',e);
-  }}
-}})();
-</script>
-</body>"""
+# ── 4-6. renderMock 제거 — 이미 서버에서 렌더링했으므로 불필요 ──────────
+# DOMContentLoaded에서 renderMock 호출하는 줄을 제거
+for script_tag in soup.find_all("script"):
+    if script_tag.string and "DOMContentLoaded" in script_tag.string and "renderMock" in script_tag.string:
+        script_tag.string = script_tag.string.replace(
+            "window.addEventListener('DOMContentLoaded',renderMock);",
+            "// renderMock disabled — data pre-rendered by build script"
+        )
+        break
 
-if "</body>" in html:
-    html = html.replace("</body>", inject_script)
-    print("[KMW] ✓ Data script injected before </body>")
-else:
-    print("[KMW] ✗ CRITICAL: </body> not found in template!")
-    sys.exit(1)
+# ── 저장 ─────────────────────────────────────────────────────────────────
+output_html = str(soup)
 
-# ── 검증 ──────────────────────────────────────────────────────────────────
-if movers["gainers"]:
-    first_ticker = movers["gainers"][0].get("ticker", "")
-    if first_ticker and first_ticker not in html:
-        print(f"[KMW] ✗ Verification FAILED: ticker {first_ticker} not in output!")
-        sys.exit(1)
-    print(f"[KMW] ✓ Verification: ticker {first_ticker} found")
-
-# ── 저장 ──────────────────────────────────────────────────────────────────
 out_main = os.path.join(DOCS_DIR, "index.html")
 out_archive = os.path.join(DOCS_DIR, f"kr_market_{DATE_STR}.html")
 
 with open(out_main, "w", encoding="utf-8") as f:
-    f.write(html)
+    f.write(output_html)
 with open(out_archive, "w", encoding="utf-8") as f:
-    f.write(html)
+    f.write(output_html)
 
-main_size = os.path.getsize(out_main)
-print(f"[KMW] ✅ docs/index.html ({main_size:,} bytes)")
+# 검증
+if movers["gainers"]:
+    t = movers["gainers"][0].get("ticker", "")
+    if t and t in output_html:
+        print(f"[KMW] ✓ Verified: {t} in output")
+    else:
+        print(f"[KMW] ✗ Ticker {t} NOT in output!")
+        sys.exit(1)
+
+sz = os.path.getsize(out_main)
+print(f"[KMW] ✅ docs/index.html ({sz:,} bytes)")
 print(f"[KMW] ✅ docs/kr_market_{DATE_STR}.html")
 print("[KMW] Done!")
