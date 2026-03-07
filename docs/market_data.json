@@ -11,36 +11,36 @@
       "chg_abs": "+38.26 pts"
     },
     "usdkrw": {
-      "value": "1,482",
-      "chg_pct": "+0.20%",
-      "chg_abs": "+3 KRW"
+      "value": "1,485",
+      "chg_pct": "+0.41%",
+      "chg_abs": "+6 KRW"
     }
   },
-  "highlight": "Korean markets experienced extreme <strong>volatility</strong> with KOSPI closing nearly flat at 5,584.87 after dramatic swings driven by Middle East tensions and UBS upgrade.",
+  "highlight": "Korean stocks showed extreme volatility after <strong>oil prices</strong> surged on Iran war fears.",
   "gainers": [
     {
       "rank": 1,
       "ticker": "458350",
-      "name_en": "Esteem",
+      "name_en": "E-Steem",
       "change_pct": 300.0,
       "close_price": 34000,
       "volume": 2949912,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "IPO Debut",
-      "reason_en": "New KOSDAQ listing debut with 300% gain on first trading day"
+      "sector_en": "Entertainment/Media",
+      "theme_en": "Model Management & Entertainment Agency",
+      "reason_en": "Potential beneficiary of Korean cultural content expansion and rising market sentiment recovery"
     },
     {
       "rank": 2,
       "ticker": "091970",
-      "name_en": "Nano Chem Tech",
+      "name_en": "Nanocam Tech",
       "change_pct": 30.0,
       "close_price": 624,
       "volume": 2520841,
       "market_cap": 0,
-      "sector_en": "Chemicals",
-      "theme_en": "Specialty Materials",
-      "reason_en": "Strong momentum in semiconductor packaging materials amid tech recovery"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Semiconductor sector rebound after massive selloff, technical bounce from oversold levels"
     },
     {
       "rank": 3,
@@ -50,21 +50,21 @@
       "close_price": 117100,
       "volume": 4534842,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Alternative Energy",
-      "reason_en": "Oil price surge from Middle East conflict boosting renewable energy demand"
+      "sector_en": "Renewable Energy",
+      "theme_en": "Solar Power Solutions",
+      "reason_en": "Middle East conflict boosted alternative energy demand as oil disruption concerns mounted"
     },
     {
       "rank": 4,
       "ticker": "095910",
-      "name_en": "S Energy",
+      "name_en": "S-Energy",
       "change_pct": 29.96,
       "close_price": 1579,
       "volume": 3746198,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Alternative Energy",
-      "reason_en": "Benefiting from energy supply concerns due to Strait of Hormuz tensions"
+      "sector_en": "Renewable Energy",
+      "theme_en": "Solar Manufacturing & Power Generation",
+      "reason_en": "Rising oil prices increased interest in renewable energy alternatives amid supply concerns"
     },
     {
       "rank": 5,
@@ -75,58 +75,58 @@
       "volume": 4237851,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Semiconductor Components",
-      "reason_en": "Tech sector rebound following UBS upgrade and semiconductor demand recovery"
+      "theme_en": "Display Components",
+      "reason_en": "Technology sector recovery momentum following previous session's sharp decline"
     }
   ],
   "losers": [
     {
       "rank": 1,
       "ticker": "036180",
-      "name_en": "GW Biotech",
+      "name_en": "GW Vitech",
       "change_pct": -95.84,
       "close_price": 24,
       "volume": 54459244,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Clinical Trials",
-      "reason_en": "Major clinical trial setback or regulatory issues causing massive decline"
+      "theme_en": "Life Sciences Equipment",
+      "reason_en": "Biotech sector selloff amid risk-off sentiment and funding concerns for smaller companies"
     },
     {
       "rank": 2,
       "ticker": "307180",
-      "name_en": "IL",
+      "name_en": "I.L.",
       "change_pct": -29.93,
       "close_price": 5290,
       "volume": 13483148,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Risk-off sentiment hitting smaller tech companies amid market volatility"
+      "theme_en": "Future Mobility Platform",
+      "reason_en": "Convertible bond overhang and structural issues despite recent debt reduction efforts"
     },
     {
       "rank": 3,
       "ticker": "300120",
-      "name_en": "RaonPeople",
+      "name_en": "Raon People",
       "change_pct": -29.7,
       "close_price": 1089,
       "volume": 6829430,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Profit-taking and deleveraging in high-beta technology stocks"
+      "theme_en": "AI Solutions",
+      "reason_en": "AI sector profit-taking after recent gains, competitive pressures in rapidly evolving market"
     },
     {
       "rank": 4,
       "ticker": "229000",
-      "name_en": "GenCurix",
+      "name_en": "GeneCurix",
       "change_pct": -22.42,
       "close_price": 3910,
       "volume": 9370720,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Diagnostics",
-      "reason_en": "Biotech sector weakness amid broader risk aversion and funding concerns"
+      "theme_en": "Medical Diagnostics",
+      "reason_en": "Healthcare sector weakness amid broader market volatility and risk aversion"
     },
     {
       "rank": 5,
@@ -137,54 +137,54 @@
       "volume": 6062431,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Small-cap tech selloff as investors flee to quality amid geopolitical risks"
+      "theme_en": "Software Solutions",
+      "reason_en": "Small-cap tech selloff as investors fled to quality amid geopolitical uncertainty"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Energy",
-      "chg": "8.45",
-      "stocks": "HD Hyundai Energy · S Energy"
-    },
-    {
-      "name": "Entertainment",
-      "chg": "6.12",
-      "stocks": "Esteem · Blitz Way Entertainment"
-    },
-    {
-      "name": "Materials",
-      "chg": "4.87",
-      "stocks": "Samsung SDI · Nano Chem Tech"
+      "name": "Renewable Energy",
+      "chg": "15.3",
+      "stocks": "HD Hyundai Energy Solutions · S-Energy"
     },
     {
       "name": "Semiconductors",
-      "chg": "3.94",
+      "chg": "8.7",
       "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Automotive",
+      "chg": "4.1",
+      "stocks": "Hyundai Motor · Kia"
+    },
+    {
+      "name": "Entertainment",
+      "chg": "12.5",
+      "stocks": "E-Steem · SM Entertainment"
     }
   ],
   "weak_sectors": [
     {
       "name": "Biotechnology",
-      "chg": "-15.32",
-      "stocks": "GW Biotech · GenCurix"
+      "chg": "-18.4",
+      "stocks": "GW Vitech · GeneCurix"
     },
     {
-      "name": "Small-cap Technology",
-      "chg": "-12.84",
-      "stocks": "IL · RaonPeople"
+      "name": "Small-cap Tech",
+      "chg": "-12.7",
+      "stocks": "Raon People · Setopia"
     },
     {
-      "name": "Software Services",
-      "chg": "-8.76",
-      "stocks": "Setopia · IT Services"
+      "name": "Financial Services",
+      "chg": "-6.2",
+      "stocks": "Shinhan Financial · KB Financial"
     },
     {
-      "name": "Healthcare",
-      "chg": "-6.23",
-      "stocks": "Medical Devices · Pharmaceuticals"
+      "name": "Chemicals",
+      "chg": "-4.8",
+      "stocks": "LG Chem · SK Innovation"
     }
   ],
-  "_built_at": "2026-03-07 13:06",
+  "_built_at": "2026-03-07 20:30",
   "_date_label": "Fri, Mar 6, 2026"
 }
