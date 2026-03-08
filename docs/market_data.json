@@ -16,7 +16,7 @@
       "chg_abs": "+6 KRW"
     }
   },
-  "highlight": "Korean stocks recovered from historic volatility as the <strong>KOSPI</strong> gained marginally after a dramatic 9.6% rebound, while geopolitical tensions and energy concerns continue to drive market swings.",
+  "highlight": "Korean stocks recovered Friday after the <strong>historic volatility</strong> following Iran conflict, with KOSDAQ surging 3.43% on tech rebound.",
   "gainers": [
     {
       "rank": 1,
@@ -27,20 +27,20 @@
       "volume": 2949912,
       "market_cap": 0,
       "sector_en": "Entertainment",
-      "theme_en": "IPO debut",
-      "reason_en": "KOSDAQ new listing debut with 300% surge on first trading day"
+      "theme_en": "K-Culture/Content",
+      "reason_en": "Model agency benefiting from Korean entertainment industry recovery and international expansion"
     },
     {
       "rank": 2,
       "ticker": "091970",
-      "name_en": "NanoCamTech",
+      "name_en": "Nanocamtech",
       "change_pct": 30.0,
       "close_price": 624,
       "volume": 2520841,
       "market_cap": 0,
-      "sector_en": "Semiconductors",
-      "theme_en": "Technology",
-      "reason_en": "Semiconductor equipment rally amid tech sector recovery"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductors",
+      "reason_en": "Camera module technology demand surge from AI and smartphone applications"
     },
     {
       "rank": 3,
@@ -51,8 +51,8 @@
       "volume": 4534842,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "Solar energy",
-      "reason_en": "Alternative energy demand surge due to Middle East conflict and oil price spikes"
+      "theme_en": "ESS/Battery",
+      "reason_en": "Energy storage system demand driven by AI data center infrastructure build-out"
     },
     {
       "rank": 4,
@@ -63,8 +63,8 @@
       "volume": 3746198,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "Solar energy",
-      "reason_en": "Solar energy momentum from geopolitical tensions and energy security concerns"
+      "theme_en": "Solar/Renewable",
+      "reason_en": "Solar panel manufacturer benefiting from global renewable energy transition"
     },
     {
       "rank": 5,
@@ -74,9 +74,9 @@
       "close_price": 1696,
       "volume": 4237851,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Tech sector rebound following semiconductor recovery"
+      "sector_en": "Materials",
+      "theme_en": "Electronic Materials",
+      "reason_en": "Electronic component materials demand from semiconductor industry recovery"
     }
   ],
   "losers": [
@@ -88,21 +88,21 @@
       "close_price": 24,
       "volume": 54459244,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Medical devices",
-      "reason_en": "Biotech sector weakness amid market volatility and profit-taking"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "RNA vaccine CMO business facing regulatory uncertainties and funding challenges"
     },
     {
       "rank": 2,
       "ticker": "307180",
-      "name_en": "IL",
+      "name_en": "IEL",
       "change_pct": -29.93,
       "close_price": 5290,
       "volume": 13483148,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Tech sector correction after recent gains"
+      "theme_en": "IT Services",
+      "reason_en": "IT service company hit by reduced corporate spending amid economic uncertainty"
     },
     {
       "rank": 3,
@@ -114,19 +114,19 @@
       "market_cap": 0,
       "sector_en": "Technology",
       "theme_en": "Software",
-      "reason_en": "Small-cap tech selloff amid market uncertainty"
+      "reason_en": "Software solutions provider pressured by weak enterprise demand and competition"
     },
     {
       "rank": 4,
       "ticker": "229000",
-      "name_en": "GenCurix",
+      "name_en": "Genqurix",
       "change_pct": -22.42,
       "close_price": 3910,
       "volume": 9370720,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
+      "sector_en": "Healthcare",
       "theme_en": "Diagnostics",
-      "reason_en": "Biotech sector weakness following profit-taking"
+      "reason_en": "Medical diagnostics company facing margin pressure from healthcare budget cuts"
     },
     {
       "rank": 5,
@@ -136,55 +136,55 @@
       "close_price": 87,
       "volume": 6062431,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Tech correction amid volatile market conditions"
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Retail/Distribution",
+      "reason_en": "Consumer discretionary spending decline affecting retail distribution networks"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Energy",
-      "chg": "8.45",
-      "stocks": "HD Hyundai Energy · S-Energy"
-    },
-    {
-      "name": "Solar Power",
-      "chg": "7.23",
-      "stocks": "Hanwha Solutions · OCI"
-    },
-    {
-      "name": "Entertainment",
-      "chg": "5.67",
-      "stocks": "ESteem · Blitzway Entertainment"
-    },
-    {
       "name": "Semiconductors",
-      "chg": "4.82",
+      "chg": "8.45",
       "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Energy Solutions",
+      "chg": "6.82",
+      "stocks": "HD Hyundai Energy · LG Energy"
+    },
+    {
+      "name": "Defense",
+      "chg": "5.67",
+      "stocks": "Hanwha Systems · LIG Nex1"
+    },
+    {
+      "name": "Power Equipment",
+      "chg": "4.93",
+      "stocks": "Hyosung Heavy · Doosan Enerbility"
     }
   ],
   "weak_sectors": [
     {
       "name": "Biotechnology",
-      "chg": "-6.34",
-      "stocks": "GW Vitek · GenCurix"
+      "chg": "-7.21",
+      "stocks": "GW Vitek · Genqurix"
     },
     {
-      "name": "Software",
-      "chg": "-4.87",
-      "stocks": "Raon People · Setopia"
+      "name": "IT Services",
+      "chg": "-5.84",
+      "stocks": "IEL · Raon People"
     },
     {
-      "name": "Small-cap Tech",
-      "chg": "-3.92",
-      "stocks": "IL · Various SMEs"
+      "name": "Consumer Discretionary",
+      "chg": "-4.76",
+      "stocks": "Setopia · Retail Chains"
     },
     {
-      "name": "Diagnostics",
-      "chg": "-3.45",
-      "stocks": "Medical device companies · Test kit makers"
+      "name": "Traditional Manufacturing",
+      "chg": "-3.42",
+      "stocks": "Steel Companies · Chemicals"
     }
   ],
-  "_built_at": "2026-03-07 20:51",
-  "_date_label": "Fri, Mar 6, 2026"
+  "_built_at": "2026-03-09 04:24",
+  "_date_label": "Mon, Mar 9, 2026"
 }
