@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,584.87",
-      "chg_pct": "+0.02%",
-      "chg_abs": "+0.97 pts"
+      "value": "5,251.87",
+      "chg_pct": "+5.96%",
+      "chg_abs": "+333.00 pts"
     },
     "kosdaq": {
-      "value": "1,154.67",
-      "chg_pct": "+3.43%",
-      "chg_abs": "+38.26 pts"
+      "value": "1,102.28",
+      "chg_pct": "+4.54%",
+      "chg_abs": "+52.39 pts"
     },
     "usdkrw": {
-      "value": "1,485",
-      "chg_pct": "+0.41%",
-      "chg_abs": "+6 KRW"
+      "value": "1,490",
+      "chg_pct": "+0.34%",
+      "chg_abs": "+5 KRW"
     }
   },
-  "highlight": "Korean stocks recovered Friday after the <strong>historic volatility</strong> following Iran conflict, with KOSDAQ surging 3.43% on tech rebound.",
+  "highlight": "Korean markets opened dramatically lower as <strong>oil prices surged above $110</strong> amid Middle East tensions and supply disruptions through the Strait of Hormuz.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "458350",
-      "name_en": "ESteem",
-      "change_pct": 300.0,
-      "close_price": 34000,
-      "volume": 2949912,
+      "ticker": "520009",
+      "name_en": "Mirae Asset Leveraged Oil Futures Mixed ETN(H)",
+      "change_pct": 60.0,
+      "close_price": 17600,
+      "volume": 106482,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "K-Culture/Content",
-      "reason_en": "Model agency benefiting from Korean entertainment industry recovery and international expansion"
+      "sector_en": "Energy",
+      "theme_en": "Oil & Gas ETF",
+      "reason_en": "Oil prices surged 30% to $118 after Iran conflict escalated"
     },
     {
       "rank": 2,
-      "ticker": "091970",
-      "name_en": "Nanocamtech",
-      "change_pct": 30.0,
-      "close_price": 624,
-      "volume": 2520841,
+      "ticker": "580068",
+      "name_en": "KB S&P Leveraged WTI Oil Futures ETN B",
+      "change_pct": 60.0,
+      "close_price": 60855,
+      "volume": 31215,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductors",
-      "reason_en": "Camera module technology demand surge from AI and smartphone applications"
+      "sector_en": "Energy",
+      "theme_en": "Oil & Gas ETF",
+      "reason_en": "WTI crude futures jumped to multi-year highs above $110"
     },
     {
       "rank": 3,
-      "ticker": "322000",
-      "name_en": "HD Hyundai Energy Solutions",
-      "change_pct": 29.97,
-      "close_price": 117100,
-      "volume": 4534842,
+      "ticker": "530133",
+      "name_en": "Samsung Bloomberg Leveraged WTI Oil Futures ETN B",
+      "change_pct": 59.99,
+      "close_price": 60565,
+      "volume": 55608,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "ESS/Battery",
-      "reason_en": "Energy storage system demand driven by AI data center infrastructure build-out"
+      "theme_en": "Oil & Gas ETF",
+      "reason_en": "Leveraged exposure to oil futures amid supply shock"
     },
     {
       "rank": 4,
-      "ticker": "095910",
-      "name_en": "S-Energy",
-      "change_pct": 29.96,
-      "close_price": 1579,
-      "volume": 3746198,
+      "ticker": "500093",
+      "name_en": "Shinhan Bloomberg Leveraged WTI Oil Futures ETN B",
+      "change_pct": 59.98,
+      "close_price": 60415,
+      "volume": 2929,
       "market_cap": 0,
       "sector_en": "Energy",
-      "theme_en": "Solar/Renewable",
-      "reason_en": "Solar panel manufacturer benefiting from global renewable energy transition"
+      "theme_en": "Oil & Gas ETF",
+      "reason_en": "Benefited from largest oil price spike since 1988"
     },
     {
       "rank": 5,
-      "ticker": "310870",
-      "name_en": "DYC",
-      "change_pct": 29.96,
-      "close_price": 1696,
-      "volume": 4237851,
+      "ticker": "610088",
+      "name_en": "Meritz Solactive 2X WTI Oil Futures ETN(H)",
+      "change_pct": 59.98,
+      "close_price": 57640,
+      "volume": 2109,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Electronic Materials",
-      "reason_en": "Electronic component materials demand from semiconductor industry recovery"
+      "sector_en": "Energy",
+      "theme_en": "Oil & Gas ETF",
+      "reason_en": "Double-leveraged oil exposure during geopolitical crisis"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "036180",
-      "name_en": "GW Vitek",
-      "change_pct": -95.84,
-      "close_price": 24,
-      "volume": 54459244,
+      "ticker": "204630",
+      "name_en": "Studio Santa Claus Entertainment",
+      "change_pct": -72.04,
+      "close_price": 1300,
+      "volume": 3340621,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "RNA vaccine CMO business facing regulatory uncertainties and funding challenges"
+      "sector_en": "Entertainment & Media",
+      "theme_en": "Entertainment",
+      "reason_en": "Risk-off sentiment amid geopolitical tensions hurt speculative stocks"
     },
     {
       "rank": 2,
-      "ticker": "307180",
-      "name_en": "IEL",
-      "change_pct": -29.93,
-      "close_price": 5290,
-      "volume": 13483148,
+      "ticker": "550043",
+      "name_en": "N2 Inverse Leveraged WTI Oil Futures ETN(H)",
+      "change_pct": -48.57,
+      "close_price": 18,
+      "volume": 164500630,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "IT service company hit by reduced corporate spending amid economic uncertainty"
+      "sector_en": "Energy",
+      "theme_en": "Inverse Oil ETF",
+      "reason_en": "Inverse oil ETN crushed by oil price surge"
     },
     {
       "rank": 3,
-      "ticker": "300120",
-      "name_en": "Raon People",
-      "change_pct": -29.7,
-      "close_price": 1089,
-      "volume": 6829430,
+      "ticker": "570117",
+      "name_en": "Hanwha Investment Bloomberg Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": -47.0,
+      "close_price": 4150,
+      "volume": 1918803,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Software solutions provider pressured by weak enterprise demand and competition"
+      "sector_en": "Energy",
+      "theme_en": "Inverse Oil ETF",
+      "reason_en": "Double-inverse exposure to oil during price spike"
     },
     {
       "rank": 4,
-      "ticker": "229000",
-      "name_en": "Genqurix",
-      "change_pct": -22.42,
-      "close_price": 3910,
-      "volume": 9370720,
+      "ticker": "700030",
+      "name_en": "Hana S&P Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": -46.82,
+      "close_price": 4145,
+      "volume": 1087861,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Diagnostics",
-      "reason_en": "Medical diagnostics company facing margin pressure from healthcare budget cuts"
+      "sector_en": "Energy",
+      "theme_en": "Inverse Oil ETF",
+      "reason_en": "Leveraged short oil position amid supply disruptions"
     },
     {
       "rank": 5,
-      "ticker": "222810",
-      "name_en": "Setopia",
-      "change_pct": -20.91,
-      "close_price": 87,
-      "volume": 6062431,
+      "ticker": "610089",
+      "name_en": "Meritz Solactive -2X WTI Oil Futures ETN(H)",
+      "change_pct": -45.29,
+      "close_price": 4385,
+      "volume": 1375730,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Retail/Distribution",
-      "reason_en": "Consumer discretionary spending decline affecting retail distribution networks"
+      "sector_en": "Energy",
+      "theme_en": "Inverse Oil ETF",
+      "reason_en": "Negative oil exposure during Middle East crisis"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "8.45",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Energy",
+      "chg": "+45.2",
+      "stocks": "Oil ETNs · Gas Utilities"
     },
     {
-      "name": "Energy Solutions",
-      "chg": "6.82",
-      "stocks": "HD Hyundai Energy · LG Energy"
+      "name": "Materials",
+      "chg": "+8.4",
+      "stocks": "Steel · Chemicals"
     },
     {
-      "name": "Defense",
-      "chg": "5.67",
-      "stocks": "Hanwha Systems · LIG Nex1"
+      "name": "Utilities",
+      "chg": "+6.1",
+      "stocks": "Electric · Infrastructure"
     },
     {
-      "name": "Power Equipment",
-      "chg": "4.93",
-      "stocks": "Hyosung Heavy · Doosan Enerbility"
+      "name": "Consumer Staples",
+      "chg": "+3.7",
+      "stocks": "Food · Retail"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Biotechnology",
-      "chg": "-7.21",
-      "stocks": "GW Vitek · Genqurix"
+      "name": "Technology",
+      "chg": "-12.0",
+      "stocks": "Samsung · SK Hynix"
     },
     {
-      "name": "IT Services",
-      "chg": "-5.84",
-      "stocks": "IEL · Raon People"
+      "name": "Consumer Cyclicals",
+      "chg": "-9.8",
+      "stocks": "Hyundai · Entertainment"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-4.76",
-      "stocks": "Setopia · Retail Chains"
+      "name": "Industrials",
+      "chg": "-8.5",
+      "stocks": "Aerospace · Heavy Machinery"
     },
     {
-      "name": "Traditional Manufacturing",
-      "chg": "-3.42",
-      "stocks": "Steel Companies · Chemicals"
+      "name": "Financials",
+      "chg": "-6.2",
+      "stocks": "Banks · Insurance"
     }
   ],
-  "_built_at": "2026-03-09 04:24",
+  "_built_at": "2026-03-09 16:51",
   "_date_label": "Mon, Mar 9, 2026"
 }
