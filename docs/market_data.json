@@ -1,82 +1,82 @@
 {
   "market": {
     "kospi": {
-      "value": "5,251.87",
-      "chg_pct": "+5.96%",
-      "chg_abs": "+333.00 pts"
+      "value": "5,532.59",
+      "chg_pct": "+5.35%",
+      "chg_abs": "+280.72 pts"
     },
     "kosdaq": {
-      "value": "1,102.28",
-      "chg_pct": "+4.54%",
-      "chg_abs": "+52.39 pts"
+      "value": "1,137.68",
+      "chg_pct": "+3.21%",
+      "chg_abs": "+35.40 pts"
     },
     "usdkrw": {
-      "value": "1,490",
-      "chg_pct": "+0.34%",
-      "chg_abs": "+5 KRW"
+      "value": "1,466",
+      "chg_pct": "+0.10%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean markets opened dramatically lower as <strong>oil prices surged above $110</strong> amid Middle East tensions and supply disruptions through the Strait of Hormuz.",
+  "highlight": "WTI crude oil staged a <strong>sharp correction</strong> from recent highs as geopolitical tensions in the Middle East eased.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "520009",
-      "name_en": "Mirae Asset Leveraged Oil Futures Mixed ETN(H)",
-      "change_pct": 60.0,
-      "close_price": 17600,
-      "volume": 106482,
+      "ticker": "570117",
+      "name_en": "Korea Investment Bloomberg Inverse 2X WTI Crude Oil ETN B",
+      "change_pct": 42.41,
+      "close_price": 5910,
+      "volume": 843374,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas ETF",
-      "reason_en": "Oil prices surged 30% to $118 after Iran conflict escalated"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Sharp gains on WTI crude oil price decline following easing geopolitical tensions"
     },
     {
       "rank": 2,
-      "ticker": "580068",
-      "name_en": "KB S&P Leveraged WTI Oil Futures ETN B",
-      "change_pct": 60.0,
-      "close_price": 60855,
-      "volume": 31215,
+      "ticker": "700030",
+      "name_en": "Hana S&P Inverse 2X WTI Crude Oil Futures ETN B",
+      "change_pct": 41.98,
+      "close_price": 5885,
+      "volume": 778358,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas ETF",
-      "reason_en": "WTI crude futures jumped to multi-year highs above $110"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Benefited from oil price pullback as Middle East tensions cooled"
     },
     {
       "rank": 3,
-      "ticker": "530133",
-      "name_en": "Samsung Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": 59.99,
-      "close_price": 60565,
-      "volume": 55608,
+      "ticker": "610089",
+      "name_en": "Meritz Solactive -2X WTI Crude Oil Futures ETN(H)",
+      "change_pct": 39.11,
+      "close_price": 6100,
+      "volume": 1034983,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas ETF",
-      "reason_en": "Leveraged exposure to oil futures amid supply shock"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Inverse oil exposure gained on crude price correction from $119 highs"
     },
     {
       "rank": 4,
-      "ticker": "500093",
-      "name_en": "Shinhan Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": 59.98,
-      "close_price": 60415,
-      "volume": 2929,
+      "ticker": "500094",
+      "name_en": "Shinhan Bloomberg Inverse 2X WTI Crude Oil ETN B",
+      "change_pct": 36.08,
+      "close_price": 5865,
+      "volume": 243836,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas ETF",
-      "reason_en": "Benefited from largest oil price spike since 1988"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Leveraged inverse oil product surged on WTI retreat below $91"
     },
     {
       "rank": 5,
-      "ticker": "610088",
-      "name_en": "Meritz Solactive 2X WTI Oil Futures ETN(H)",
-      "change_pct": 59.98,
-      "close_price": 57640,
-      "volume": 2109,
+      "ticker": "530134",
+      "name_en": "Samsung Bloomberg Inverse 2X WTI Crude Oil ETN B",
+      "change_pct": 34.32,
+      "close_price": 5910,
+      "volume": 2467456,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas ETF",
-      "reason_en": "Double-leveraged oil exposure during geopolitical crisis"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Double inverse oil ETN gained as crude fell from session highs"
     }
   ],
   "losers": [
@@ -84,107 +84,107 @@
       "rank": 1,
       "ticker": "204630",
       "name_en": "Studio Santa Claus Entertainment",
-      "change_pct": -72.04,
-      "close_price": 1300,
-      "volume": 3340621,
+      "change_pct": -31.54,
+      "close_price": 890,
+      "volume": 1588296,
       "market_cap": 0,
-      "sector_en": "Entertainment & Media",
+      "sector_en": "Communication Services",
       "theme_en": "Entertainment",
-      "reason_en": "Risk-off sentiment amid geopolitical tensions hurt speculative stocks"
+      "reason_en": "Entertainment company faced profit-taking after strong gains in 2026"
     },
     {
       "rank": 2,
-      "ticker": "550043",
-      "name_en": "N2 Inverse Leveraged WTI Oil Futures ETN(H)",
-      "change_pct": -48.57,
-      "close_price": 18,
-      "volume": 164500630,
+      "ticker": "530031",
+      "name_en": "Samsung Leverage WTI Crude Oil Futures ETN",
+      "change_pct": -25.18,
+      "close_price": 2600,
+      "volume": 25030536,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Inverse Oil ETF",
-      "reason_en": "Inverse oil ETN crushed by oil price surge"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Leveraged oil exposure declined sharply on crude price pullback"
     },
     {
       "rank": 3,
-      "ticker": "570117",
-      "name_en": "Hanwha Investment Bloomberg Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": -47.0,
-      "close_price": 4150,
-      "volume": 1918803,
+      "ticker": "500093",
+      "name_en": "Shinhan Bloomberg Leverage WTI Crude Oil ETN B",
+      "change_pct": -24.69,
+      "close_price": 45500,
+      "volume": 20612,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Inverse Oil ETF",
-      "reason_en": "Double-inverse exposure to oil during price spike"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Long oil leverage product fell on WTI correction from recent highs"
     },
     {
       "rank": 4,
-      "ticker": "700030",
-      "name_en": "Hana S&P Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": -46.82,
-      "close_price": 4145,
-      "volume": 1087861,
+      "ticker": "570116",
+      "name_en": "Korea Investment Bloomberg Leverage WTI Crude Oil ETN B",
+      "change_pct": -24.62,
+      "close_price": 45825,
+      "volume": 79054,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Inverse Oil ETF",
-      "reason_en": "Leveraged short oil position amid supply disruptions"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Leveraged crude exposure hurt by oil price decline from $90+ levels"
     },
     {
       "rank": 5,
-      "ticker": "610089",
-      "name_en": "Meritz Solactive -2X WTI Oil Futures ETN(H)",
-      "change_pct": -45.29,
-      "close_price": 4385,
-      "volume": 1375730,
+      "ticker": "520009",
+      "name_en": "Mirae Asset Leverage Oil Futures Mixed ETN(H)",
+      "change_pct": -24.55,
+      "close_price": 13280,
+      "volume": 471953,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Inverse Oil ETF",
-      "reason_en": "Negative oil exposure during Middle East crisis"
+      "sector_en": "Financials",
+      "theme_en": "Energy Derivatives",
+      "reason_en": "Oil futures leverage product declined on energy price correction"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Energy",
-      "chg": "+45.2",
-      "stocks": "Oil ETNs · Gas Utilities"
+      "name": "Technology",
+      "chg": "6.82",
+      "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Industrials",
+      "chg": "5.94",
+      "stocks": "HD Hyundai Heavy · Hanwha Aerospace"
     },
     {
       "name": "Materials",
-      "chg": "+8.4",
-      "stocks": "Steel · Chemicals"
+      "chg": "4.85",
+      "stocks": "POSCO Holdings · LG Chem"
     },
     {
-      "name": "Utilities",
-      "chg": "+6.1",
-      "stocks": "Electric · Infrastructure"
-    },
-    {
-      "name": "Consumer Staples",
-      "chg": "+3.7",
-      "stocks": "Food · Retail"
+      "name": "Financials",
+      "chg": "3.76",
+      "stocks": "KB Financial · Shinhan Financial"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Technology",
-      "chg": "-12.0",
-      "stocks": "Samsung · SK Hynix"
+      "name": "Energy",
+      "chg": "-2.45",
+      "stocks": "S-Oil · SK Innovation"
     },
     {
-      "name": "Consumer Cyclicals",
-      "chg": "-9.8",
-      "stocks": "Hyundai · Entertainment"
+      "name": "Consumer Discretionary",
+      "chg": "-1.82",
+      "stocks": "Hyundai Motor · Kia"
     },
     {
-      "name": "Industrials",
-      "chg": "-8.5",
-      "stocks": "Aerospace · Heavy Machinery"
+      "name": "Utilities",
+      "chg": "-1.34",
+      "stocks": "Korea Electric Power · SK E&S"
     },
     {
-      "name": "Financials",
-      "chg": "-6.2",
-      "stocks": "Banks · Insurance"
+      "name": "Real Estate",
+      "chg": "-0.89",
+      "stocks": "Korean Realty Trust · Lotte Reit"
     }
   ],
-  "_built_at": "2026-03-09 16:51",
-  "_date_label": "Mon, Mar 9, 2026"
+  "_built_at": "2026-03-10 16:44",
+  "_date_label": "Tue, Mar 10, 2026"
 }
