@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,532.59",
-      "chg_pct": "+5.35%",
-      "chg_abs": "+280.72 pts"
+      "value": "5,609.95",
+      "chg_pct": "+1.40%",
+      "chg_abs": "+77.36 pts"
     },
     "kosdaq": {
-      "value": "1,137.68",
-      "chg_pct": "+3.21%",
-      "chg_abs": "+35.40 pts"
+      "value": "1,136.83",
+      "chg_pct": "+0.07%",
+      "chg_abs": "+0.85 pts"
     },
     "usdkrw": {
-      "value": "1,466",
-      "chg_pct": "+0.10%",
-      "chg_abs": "+2 KRW"
+      "value": "1,473",
+      "chg_pct": "+0.18%",
+      "chg_abs": "+3 KRW"
     }
   },
-  "highlight": "WTI crude oil staged a <strong>sharp correction</strong> from recent highs as geopolitical tensions in the Middle East eased.",
+  "highlight": "Korean stocks rebounded strongly today as <strong>Middle East tensions ease</strong>, with KOSPI gaining 1.40% amid bargain hunting in semiconductors and defense sectors.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "570117",
-      "name_en": "Korea Investment Bloomberg Inverse 2X WTI Crude Oil ETN B",
-      "change_pct": 42.41,
-      "close_price": 5910,
-      "volume": 843374,
+      "ticker": "004410",
+      "name_en": "Seoul Food Industrial Co Ltd",
+      "change_pct": 30.0,
+      "close_price": 247,
+      "volume": 155288031,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Sharp gains on WTI crude oil price decline following easing geopolitical tensions"
+      "sector_en": "Food & Beverages",
+      "theme_en": "Consumer Staples Recovery",
+      "reason_en": "Defensive stock benefiting from rotation to consumer staples amid market volatility"
     },
     {
       "rank": 2,
-      "ticker": "700030",
-      "name_en": "Hana S&P Inverse 2X WTI Crude Oil Futures ETN B",
-      "change_pct": 41.98,
-      "close_price": 5885,
-      "volume": 778358,
+      "ticker": "065440",
+      "name_en": "Eluon Corp",
+      "change_pct": 30.0,
+      "close_price": 1690,
+      "volume": 2940087,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Benefited from oil price pullback as Middle East tensions cooled"
+      "sector_en": "Information Technology",
+      "theme_en": "5G/Mobile Network Solutions",
+      "reason_en": "Telecommunications infrastructure provider gaining on mobile network expansion themes"
     },
     {
       "rank": 3,
-      "ticker": "610089",
-      "name_en": "Meritz Solactive -2X WTI Crude Oil Futures ETN(H)",
-      "change_pct": 39.11,
-      "close_price": 6100,
-      "volume": 1034983,
+      "ticker": "307870",
+      "name_en": "B2EN Corp",
+      "change_pct": 30.0,
+      "close_price": 806,
+      "volume": 1816378,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Inverse oil exposure gained on crude price correction from $119 highs"
+      "sector_en": "Information Technology",
+      "theme_en": "Software Solutions",
+      "reason_en": "Software development company benefiting from digital transformation demand"
     },
     {
       "rank": 4,
-      "ticker": "500094",
-      "name_en": "Shinhan Bloomberg Inverse 2X WTI Crude Oil ETN B",
-      "change_pct": 36.08,
-      "close_price": 5865,
-      "volume": 243836,
+      "ticker": "369370",
+      "name_en": "Blitzway Entertainment",
+      "change_pct": 30.0,
+      "close_price": 1222,
+      "volume": 214212,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Leveraged inverse oil product surged on WTI retreat below $91"
+      "sector_en": "Entertainment",
+      "theme_en": "K-Content/Media",
+      "reason_en": "Entertainment company riding the global K-culture wave and content monetization"
     },
     {
       "rank": 5,
-      "ticker": "530134",
-      "name_en": "Samsung Bloomberg Inverse 2X WTI Crude Oil ETN B",
-      "change_pct": 34.32,
-      "close_price": 5910,
-      "volume": 2467456,
+      "ticker": "031860",
+      "name_en": "DHX Company",
+      "change_pct": 29.98,
+      "close_price": 802,
+      "volume": 1948815,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Double inverse oil ETN gained as crude fell from session highs"
+      "sector_en": "Technology Hardware",
+      "theme_en": "Electronic Components",
+      "reason_en": "Electronic components manufacturer benefiting from tech sector recovery"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "204630",
-      "name_en": "Studio Santa Claus Entertainment",
-      "change_pct": -31.54,
-      "close_price": 890,
-      "volume": 1588296,
+      "ticker": "222810",
+      "name_en": "Setopia",
+      "change_pct": -22.73,
+      "close_price": 51,
+      "volume": 3534417,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Entertainment",
-      "reason_en": "Entertainment company faced profit-taking after strong gains in 2026"
+      "sector_en": "Technology",
+      "theme_en": "Biotech/Healthcare IT",
+      "reason_en": "Healthcare technology stock facing profit-taking after recent gains"
     },
     {
       "rank": 2,
-      "ticker": "530031",
-      "name_en": "Samsung Leverage WTI Crude Oil Futures ETN",
-      "change_pct": -25.18,
-      "close_price": 2600,
-      "volume": 25030536,
+      "ticker": "448900",
+      "name_en": "Korea PIM",
+      "change_pct": -19.36,
+      "close_price": 137000,
+      "volume": 646443,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Leveraged oil exposure declined sharply on crude price pullback"
+      "sector_en": "Materials",
+      "theme_en": "Specialty Chemicals",
+      "reason_en": "Chemical company pressured by rising raw material costs and demand concerns"
     },
     {
       "rank": 3,
-      "ticker": "500093",
-      "name_en": "Shinhan Bloomberg Leverage WTI Crude Oil ETN B",
-      "change_pct": -24.69,
-      "close_price": 45500,
-      "volume": 20612,
+      "ticker": "204630",
+      "name_en": "Studio Santa Claus",
+      "change_pct": -19.1,
+      "close_price": 720,
+      "volume": 898420,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Long oil leverage product fell on WTI correction from recent highs"
+      "sector_en": "Entertainment",
+      "theme_en": "Game Development",
+      "reason_en": "Gaming company declining on mobile game market competition and monetization challenges"
     },
     {
       "rank": 4,
-      "ticker": "570116",
-      "name_en": "Korea Investment Bloomberg Leverage WTI Crude Oil ETN B",
-      "change_pct": -24.62,
-      "close_price": 45825,
-      "volume": 79054,
+      "ticker": "036180",
+      "name_en": "GW Biotech",
+      "change_pct": -17.65,
+      "close_price": 14,
+      "volume": 15691318,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Leveraged crude exposure hurt by oil price decline from $90+ levels"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech stock facing regulatory uncertainty and clinical trial concerns"
     },
     {
       "rank": 5,
-      "ticker": "520009",
-      "name_en": "Mirae Asset Leverage Oil Futures Mixed ETN(H)",
-      "change_pct": -24.55,
-      "close_price": 13280,
-      "volume": 471953,
+      "ticker": "700029",
+      "name_en": "Hana S&P Leveraged WTI Crude Oil Futures ETN B",
+      "change_pct": -12.81,
+      "close_price": 39460,
+      "volume": 584,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Energy Derivatives",
-      "reason_en": "Oil futures leverage product declined on energy price correction"
+      "sector_en": "Energy",
+      "theme_en": "Oil ETN",
+      "reason_en": "Leveraged oil ETN declining as crude prices moderate following Middle East tension reduction"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "6.82",
+      "name": "Brokerage/Securities",
+      "chg": "8.50",
+      "stocks": "Mirae Asset · KB Securities"
+    },
+    {
+      "name": "Semiconductors",
+      "chg": "6.20",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Industrials",
-      "chg": "5.94",
-      "stocks": "HD Hyundai Heavy · Hanwha Aerospace"
+      "name": "Pharmaceuticals",
+      "chg": "4.80",
+      "stocks": "Samsung Biologics · Celltrion"
     },
     {
-      "name": "Materials",
-      "chg": "4.85",
-      "stocks": "POSCO Holdings · LG Chem"
-    },
-    {
-      "name": "Financials",
-      "chg": "3.76",
-      "stocks": "KB Financial · Shinhan Financial"
+      "name": "Automotive",
+      "chg": "3.90",
+      "stocks": "Hyundai Motor · Kia Corp"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Energy",
-      "chg": "-2.45",
+      "name": "Energy/Oil",
+      "chg": "-5.60",
       "stocks": "S-Oil · SK Innovation"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-1.82",
-      "stocks": "Hyundai Motor · Kia"
+      "name": "Construction",
+      "chg": "-3.80",
+      "stocks": "Samsung C&T · Daewoo E&C"
     },
     {
-      "name": "Utilities",
-      "chg": "-1.34",
-      "stocks": "Korea Electric Power · SK E&S"
+      "name": "Steel/Metals",
+      "chg": "-3.20",
+      "stocks": "POSCO · Hyundai Steel"
     },
     {
-      "name": "Real Estate",
-      "chg": "-0.89",
-      "stocks": "Korean Realty Trust · Lotte Reit"
+      "name": "Chemicals",
+      "chg": "-2.90",
+      "stocks": "LG Chem · SK Materials"
     }
   ],
-  "_built_at": "2026-03-10 16:44",
-  "_date_label": "Tue, Mar 10, 2026"
+  "_built_at": "2026-03-11 16:46",
+  "_date_label": "Wed, Mar 11, 2026"
 }
