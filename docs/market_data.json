@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,583.25",
-      "chg_pct": "+0.48%",
-      "chg_abs": "+26.70 pts"
+      "value": "5,487.24",
+      "chg_pct": "+1.72%",
+      "chg_abs": "+96.01 pts"
     },
     "kosdaq": {
-      "value": "1,148.40",
-      "chg_pct": "+1.02%",
-      "chg_abs": "+11.57 pts"
+      "value": "1,152.96",
+      "chg_pct": "+0.40%",
+      "chg_abs": "+4.56 pts"
     },
     "usdkrw": {
-      "value": "1,478",
-      "chg_pct": "+0.07%",
-      "chg_abs": "+1 KRW"
+      "value": "1,496",
+      "chg_pct": "+0.35%",
+      "chg_abs": "+5 KRW"
     }
   },
-  "highlight": "Korean markets recovered from recent <strong>volatility</strong> with KOSPI rising 0.48% as oil price stability eased Middle East concerns.",
+  "highlight": "Korean stocks rebounded strongly from war-induced volatility as <strong>AI-pharma themes</strong> and <strong>chipmaker resilience</strong> drove market recovery.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "039980",
-      "name_en": "Polaris AI Corp",
+      "ticker": "041910",
+      "name_en": "Polaris AI Pharma",
       "change_pct": 30.0,
-      "close_price": 1755,
-      "volume": 31523974,
+      "close_price": 8190,
+      "volume": 11108474,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "AI Software",
-      "reason_en": "AI sector momentum as markets stabilized from recent volatility"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "AI-Powered Drug Development",
+      "reason_en": "Strategic CDMO partnerships and AI pharmaceutical platform expansion boosting investor confidence"
     },
     {
       "rank": 2,
-      "ticker": "123010",
-      "name_en": "RnT-X Co Ltd",
+      "ticker": "195990",
+      "name_en": "AB Probio",
       "change_pct": 30.0,
-      "close_price": 949,
-      "volume": 4030656,
+      "close_price": 1430,
+      "volume": 3505939,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Biotech",
-      "reason_en": "Biotech sector recovery following market stabilization from oil price relief"
+      "theme_en": "Probiotics & Biotech",
+      "reason_en": "Rising demand for biotech solutions and health-focused product portfolio growth"
     },
     {
       "rank": 3,
-      "ticker": "179530",
-      "name_en": "Adbiotech Co Ltd",
-      "change_pct": 29.99,
-      "close_price": 1920,
-      "volume": 1789095,
+      "ticker": "377220",
+      "name_en": "From Bio",
+      "change_pct": 30.0,
+      "close_price": 1560,
+      "volume": 1443049,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Biotech",
-      "reason_en": "Biotechnology theme strength amid sector rotation into growth stocks"
+      "theme_en": "Biopharmaceuticals",
+      "reason_en": "Strong fundamentals in bio-pharmaceutical development and therapeutic innovations"
     },
     {
       "rank": 4,
-      "ticker": "188260",
-      "name_en": "Senigen Co Ltd",
-      "change_pct": 29.97,
-      "close_price": 1999,
-      "volume": 848349,
+      "ticker": "258610",
+      "name_en": "Kailum",
+      "change_pct": 29.95,
+      "close_price": 1497,
+      "volume": 1489899,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech",
-      "reason_en": "Strong biotech sector performance as risk appetite returned to growth sectors"
+      "sector_en": "Technology",
+      "theme_en": "Tech Solutions",
+      "reason_en": "Technology sector recovery following market stabilization after geopolitical tensions"
     },
     {
       "rank": 5,
-      "ticker": "369370",
-      "name_en": "Blitzway Entertainment Co Ltd",
-      "change_pct": 29.95,
-      "close_price": 1588,
-      "volume": 1296436,
+      "ticker": "041020",
+      "name_en": "Polaris Office",
+      "change_pct": 29.94,
+      "close_price": 5100,
+      "volume": 7973394,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "Content",
-      "reason_en": "Entertainment content theme benefited from market recovery and risk-on sentiment"
+      "sector_en": "Software",
+      "theme_en": "AI Software Solutions",
+      "reason_en": "AI document solutions gaining traction with enterprise adoption and productivity focus"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "036180",
-      "name_en": "GW Biotech Co Ltd",
-      "change_pct": -35.71,
-      "close_price": 9,
-      "volume": 23855419,
+      "ticker": "222810",
+      "name_en": "Setopia",
+      "change_pct": -64.29,
+      "close_price": 15,
+      "volume": 5125811,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech",
-      "reason_en": "Company-specific issues overshadowed broader biotech sector recovery"
+      "sector_en": "Information Security",
+      "theme_en": "Cybersecurity",
+      "reason_en": "Massive correction after speculative run-up, negative earnings and high valuation concerns"
     },
     {
       "rank": 2,
-      "ticker": "012340",
-      "name_en": "Neointech Co Ltd",
-      "change_pct": -29.93,
-      "close_price": 384,
-      "volume": 11472628,
+      "ticker": "036180",
+      "name_en": "G2B Tech",
+      "change_pct": -44.44,
+      "close_price": 5,
+      "volume": 19079847,
       "market_cap": 0,
-      "sector_en": "Industrial Technology",
-      "theme_en": "Manufacturing",
-      "reason_en": "Industrial stocks lagged as investors rotated into growth sectors"
+      "sector_en": "Biotechnology",
+      "theme_en": "Bio Solutions",
+      "reason_en": "Profit-taking in biotech sector amid market volatility and sector rotation"
     },
     {
       "rank": 3,
-      "ticker": "031860",
-      "name_en": "DHX Company Ltd",
-      "change_pct": -29.93,
-      "close_price": 562,
-      "volume": 14816011,
+      "ticker": "008500",
+      "name_en": "Iljung Industry",
+      "change_pct": -17.95,
+      "close_price": 2400,
+      "volume": 175040,
       "market_cap": 0,
-      "sector_en": "Industrial Technology",
+      "sector_en": "Industrial Materials",
       "theme_en": "Manufacturing",
-      "reason_en": "Manufacturing sector weakness amid shift toward technology themes"
+      "reason_en": "Industrial sector pressures from supply chain concerns and economic uncertainty"
     },
     {
       "rank": 4,
-      "ticker": "610089",
-      "name_en": "Meritz Solar -2X WTI Oil Futures ETN(H)",
-      "change_pct": -20.0,
-      "close_price": 5300,
-      "volume": 1248354,
+      "ticker": "188260",
+      "name_en": "Senigen",
+      "change_pct": -15.51,
+      "close_price": 1689,
+      "volume": 1006701,
       "market_cap": 0,
-      "sector_en": "ETF",
-      "theme_en": "Oil Inverse",
-      "reason_en": "Oil price stabilization hurt inverse oil ETN performance"
+      "sector_en": "Biotechnology",
+      "theme_en": "Gene Therapy",
+      "reason_en": "Biotech sector correction following recent gains and regulatory uncertainty"
     },
     {
       "rank": 5,
-      "ticker": "700030",
-      "name_en": "Hana S&P Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": -19.5,
-      "close_price": 5180,
-      "volume": 612190,
+      "ticker": "210120",
+      "name_en": "Canvas N",
+      "change_pct": -14.28,
+      "close_price": 1513,
+      "volume": 647427,
       "market_cap": 0,
-      "sector_en": "ETF",
-      "theme_en": "Oil Inverse",
-      "reason_en": "Inverse oil products declined as crude prices stabilized from geopolitical tensions"
+      "sector_en": "Technology",
+      "theme_en": "Digital Solutions",
+      "reason_en": "Technology sector consolidation after strong run-up, profit-taking activities"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "3.84",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Semiconductors",
+      "chg": "8.32",
+      "stocks": "Samsung • SK Hynix"
     },
     {
-      "name": "Biotechnology",
-      "chg": "4.21",
-      "stocks": "Samsung Biologics · Celltrion"
+      "name": "AI Pharmaceuticals",
+      "chg": "6.85",
+      "stocks": "Polaris AI Pharma • Celltrion"
     },
     {
-      "name": "Automobiles",
-      "chg": "2.87",
-      "stocks": "Hyundai Motor · Kia Corp"
+      "name": "Robotics & Automation",
+      "chg": "5.67",
+      "stocks": "Doosan Robotics • Hyundai Rotem"
     },
     {
-      "name": "AI & Semiconductors",
-      "chg": "5.12",
-      "stocks": "SK Hynix · Samsung Electronics"
+      "name": "Renewable Energy",
+      "chg": "4.23",
+      "stocks": "Hanwha Solutions • OCI Holdings"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Oil & Gas",
-      "chg": "-3.45",
-      "stocks": "S-Oil · GS Caltex"
+      "name": "Cybersecurity",
+      "chg": "-12.45",
+      "stocks": "Setopia • AhnLab"
     },
     {
-      "name": "Steel",
-      "chg": "-2.18",
-      "stocks": "POSCO · Hyundai Steel"
+      "name": "Traditional Manufacturing",
+      "chg": "-8.76",
+      "stocks": "Iljung Industry • Posco Holdings"
     },
     {
-      "name": "Chemicals",
-      "chg": "-1.87",
-      "stocks": "LG Chem · Lotte Chemical"
+      "name": "Real Estate Services",
+      "chg": "-6.34",
+      "stocks": "KB Real Estate • Hanyang"
     },
     {
-      "name": "Shipping",
-      "chg": "-2.94",
-      "stocks": "HMM · Hyundai Merchant Marine"
+      "name": "Consumer Discretionary",
+      "chg": "-4.89",
+      "stocks": "Lotte Shopping • Shinsegae"
     }
   ],
-  "_built_at": "2026-03-12 16:49",
-  "_date_label": "Thu, Mar 12, 2026"
+  "_built_at": "2026-03-13 16:48",
+  "_date_label": "Fri, Mar 13, 2026"
 }
