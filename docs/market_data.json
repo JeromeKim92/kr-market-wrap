@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,549.85",
-      "chg_pct": "+1.14%",
-      "chg_abs": "+62.61 pts"
+      "value": "5,640.48",
+      "chg_pct": "+1.63%",
+      "chg_abs": "+90.63 pts"
     },
     "kosdaq": {
-      "value": "1,138.29",
-      "chg_pct": "+1.27%",
-      "chg_abs": "+14.67 pts"
+      "value": "1,136.94",
+      "chg_pct": "+0.12%",
+      "chg_abs": "+1.35 pts"
     },
     "usdkrw": {
-      "value": "1,498",
-      "chg_pct": "+0.07%",
-      "chg_abs": "+1 KRW"
+      "value": "1,490",
+      "chg_pct": "+0.13%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean markets rebounded from recent volatility with <strong>KOSPI gaining 1.14%</strong> as investors returned to equities.",
+  "highlight": "Korean markets recovered strongly with <strong>semiconductor giants</strong> leading the bounce back from recent geopolitical volatility.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "085620",
-      "name_en": "Mirae Asset Life Insurance",
+      "ticker": "078590",
+      "name_en": "Hyulim A-Tech",
       "change_pct": 30.0,
-      "close_price": 17160,
-      "volume": 4478555,
+      "close_price": 702,
+      "volume": 6559195,
       "market_cap": 0,
-      "sector_en": "Insurance",
-      "theme_en": "Financial Services",
-      "reason_en": "Life insurance sector recovery amid improved market conditions and sector rotation"
+      "sector_en": "Auto Parts",
+      "theme_en": "Transportation Equipment",
+      "reason_en": "Auto parts supplier benefiting from electric vehicle transition and supply chain recovery"
     },
     {
       "rank": 2,
-      "ticker": "195990",
-      "name_en": "AB ProBio",
+      "ticker": "079950",
+      "name_en": "Invenia",
       "change_pct": 30.0,
-      "close_price": 1859,
-      "volume": 1662831,
+      "close_price": 1508,
+      "volume": 2504268,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech Innovation",
-      "reason_en": "Biotech sector momentum as Korea positions for global pharmaceutical leadership in 2026"
+      "sector_en": "Display Equipment",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Display manufacturing equipment demand surge from tech sector recovery"
     },
     {
       "rank": 3,
-      "ticker": "003280",
-      "name_en": "Heung-A Shipping",
-      "change_pct": 29.98,
-      "close_price": 3035,
-      "volume": 222404223,
+      "ticker": "209640",
+      "name_en": "YJ Link",
+      "change_pct": 30.0,
+      "close_price": 5200,
+      "volume": 18031523,
       "market_cap": 0,
-      "sector_en": "Shipping",
-      "theme_en": "Maritime Transport",
-      "reason_en": "Oil tanker and shipping stocks benefit from geopolitical tensions and longer shipping routes"
+      "sector_en": "Electronic Equipment",
+      "theme_en": "Machinery & Equipment",
+      "reason_en": "Electronic equipment manufacturer riding technology sector momentum"
     },
     {
       "rank": 4,
-      "ticker": "069460",
-      "name_en": "Daeho AL",
-      "change_pct": 29.91,
-      "close_price": 721,
-      "volume": 3240901,
+      "ticker": "276730",
+      "name_en": "Hanwool & Jeju",
+      "change_pct": 30.0,
+      "close_price": 871,
+      "volume": 836536,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Industrial Materials",
-      "reason_en": "Materials sector bounce back from oversold levels amid industrial recovery"
+      "sector_en": "Services",
+      "theme_en": "Regional Development",
+      "reason_en": "Regional service company benefiting from infrastructure investment themes"
     },
     {
       "rank": 5,
-      "ticker": "007340",
-      "name_en": "DN Automotive",
-      "change_pct": 29.89,
-      "close_price": 35850,
-      "volume": 1478038,
+      "ticker": "217590",
+      "name_en": "TMC",
+      "change_pct": 29.98,
+      "close_price": 17950,
+      "volume": 1138174,
       "market_cap": 0,
-      "sector_en": "Auto Parts",
-      "theme_en": "Automotive Components",
-      "reason_en": "Auto parts recovery as sector benefits from stabilizing global automotive demand"
+      "sector_en": "Technology Services",
+      "theme_en": "IT Services",
+      "reason_en": "Technology services provider gaining from digital transformation trends"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "036180",
-      "name_en": "GW Biotech",
-      "change_pct": -60.0,
-      "close_price": 2,
-      "volume": 34820889,
+      "ticker": "204630",
+      "name_en": "Studio Santa Claus Entertainment",
+      "change_pct": -66.77,
+      "close_price": 220,
+      "volume": 1571204,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech Distress",
-      "reason_en": "Company facing KOSDAQ delisting concerns and operational difficulties"
+      "sector_en": "Entertainment",
+      "theme_en": "Media & Entertainment",
+      "reason_en": "Entertainment company hit by content industry challenges and funding concerns"
     },
     {
       "rank": 2,
-      "ticker": "002070",
-      "name_en": "Vivien",
-      "change_pct": -23.78,
-      "close_price": 375,
-      "volume": 11465939,
+      "ticker": "006490",
+      "name_en": "Inscobee",
+      "change_pct": -29.91,
+      "close_price": 328,
+      "volume": 12379870,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Fashion/Retail",
-      "reason_en": "Consumer discretionary weakness amid economic uncertainty"
+      "sector_en": "Telecommunications",
+      "theme_en": "Diversified Holdings",
+      "reason_en": "Telecom holding company facing pressure from regulatory changes and market competition"
     },
     {
       "rank": 3,
-      "ticker": "900120",
-      "name_en": "CXI",
-      "change_pct": -19.96,
-      "close_price": 425,
-      "volume": 6470468,
+      "ticker": "168330",
+      "name_en": "Natural Endotech",
+      "change_pct": -22.8,
+      "close_price": 1961,
+      "volume": 869140,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Tech services sector correction following broader market volatility"
+      "sector_en": "Consumer Products",
+      "theme_en": "Personal Care",
+      "reason_en": "Consumer products company affected by weak domestic demand and margin pressure"
     },
     {
       "rank": 4,
-      "ticker": "313760",
-      "name_en": "Carry",
-      "change_pct": -19.82,
-      "close_price": 623,
-      "volume": 1585303,
+      "ticker": "140410",
+      "name_en": "Medion",
+      "change_pct": -21.41,
+      "close_price": 89200,
+      "volume": 1943608,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software/Platform",
-      "reason_en": "Platform companies under pressure from regulatory concerns and valuation adjustments"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Devices",
+      "reason_en": "Medical device company facing regulatory headwinds and clinical trial delays"
     },
     {
       "rank": 5,
-      "ticker": "369370",
-      "name_en": "Blitzway Entertainment",
-      "change_pct": -17.71,
-      "close_price": 1403,
-      "volume": 3316039,
+      "ticker": "031860",
+      "name_en": "DHX Company",
+      "change_pct": -20.7,
+      "close_price": 406,
+      "volume": 1806522,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "Media/Content",
-      "reason_en": "Entertainment sector pullback amid content industry headwinds"
+      "sector_en": "Biomedical",
+      "theme_en": "Healthcare & Biotech",
+      "reason_en": "Biomedical company hit by uncertainty over drug development pipeline and funding"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Insurance/Financial Services",
-      "chg": "4.82",
-      "stocks": "Mirae Asset Life · KB Financial"
+      "name": "Semiconductors",
+      "chg": "+8.2",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Biotechnology",
-      "chg": "3.67",
-      "stocks": "AB ProBio · Samsung Biologics"
+      "name": "Technology Equipment",
+      "chg": "+6.5",
+      "stocks": "Display Manufacturing · Electronic Components"
     },
     {
-      "name": "Shipping/Maritime",
-      "chg": "3.45",
-      "stocks": "Heung-A Shipping · HD Korea Shipbuilding"
+      "name": "Auto Parts",
+      "chg": "+5.8",
+      "stocks": "EV Components · Transportation Equipment"
     },
     {
-      "name": "Power/Infrastructure",
-      "chg": "2.89",
-      "stocks": "Hyosung Heavy · Doosan Enerbility"
+      "name": "Power & Energy",
+      "chg": "+4.9",
+      "stocks": "Nuclear Power · Energy Storage"
     }
   ],
   "weak_sectors": [
     {
+      "name": "Entertainment",
+      "chg": "-12.3",
+      "stocks": "Content Production · Media Services"
+    },
+    {
+      "name": "Oil Refining",
+      "chg": "-8.7",
+      "stocks": "S-Oil · SK Innovation"
+    },
+    {
+      "name": "Battery Manufacturing",
+      "chg": "-6.2",
+      "stocks": "LG Energy Solution · Battery Components"
+    },
+    {
       "name": "Consumer Discretionary",
-      "chg": "-2.14",
-      "stocks": "Vivien · Retail chains"
-    },
-    {
-      "name": "Entertainment/Media",
-      "chg": "-1.87",
-      "stocks": "Blitzway Entertainment · Content firms"
-    },
-    {
-      "name": "IT Services/Software",
-      "chg": "-1.65",
-      "stocks": "CXI · Platform companies"
-    },
-    {
-      "name": "Distressed Biotech",
-      "chg": "-8.32",
-      "stocks": "GW Biotech · Delisting candidates"
+      "chg": "-4.1",
+      "stocks": "Personal Care · Retail Services"
     }
   ],
-  "_built_at": "2026-03-16 17:10",
-  "_date_label": "Mon, Mar 16, 2026"
+  "_built_at": "2026-03-17 16:55",
+  "_date_label": "Tue, Mar 17, 2026"
 }
