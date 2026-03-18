@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,640.48",
-      "chg_pct": "+1.63%",
-      "chg_abs": "+90.63 pts"
+      "value": "5,925.03",
+      "chg_pct": "+5.04%",
+      "chg_abs": "+284.55 pts"
     },
     "kosdaq": {
-      "value": "1,136.94",
-      "chg_pct": "+0.12%",
-      "chg_abs": "+1.35 pts"
+      "value": "1,164.38",
+      "chg_pct": "+2.41%",
+      "chg_abs": "+27.44 pts"
     },
     "usdkrw": {
-      "value": "1,490",
-      "chg_pct": "+0.13%",
+      "value": "1,486",
+      "chg_pct": "+0.15%",
       "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean markets recovered strongly with <strong>semiconductor giants</strong> leading the bounce back from recent geopolitical volatility.",
+  "highlight": "KOSPI surged <strong>5.04%</strong> to close at 5,925.03 as technology stocks led gains amid cooling geopolitical tensions and AI demand optimism.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "078590",
-      "name_en": "Hyulim A-Tech",
+      "ticker": "145210",
+      "name_en": "Dynamic Design",
       "change_pct": 30.0,
-      "close_price": 702,
-      "volume": 6559195,
+      "close_price": 299,
+      "volume": 1369964,
       "market_cap": 0,
-      "sector_en": "Auto Parts",
-      "theme_en": "Transportation Equipment",
-      "reason_en": "Auto parts supplier benefiting from electric vehicle transition and supply chain recovery"
+      "sector_en": "Industrial",
+      "theme_en": "Tire Manufacturing Equipment",
+      "reason_en": "Manufacturing sector rotation and automotive equipment demand"
     },
     {
       "rank": 2,
-      "ticker": "079950",
-      "name_en": "Invenia",
+      "ticker": "058450",
+      "name_en": "Hanjoo ART",
       "change_pct": 30.0,
-      "close_price": 1508,
-      "volume": 2504268,
+      "close_price": 546,
+      "volume": 2658571,
       "market_cap": 0,
-      "sector_en": "Display Equipment",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Display manufacturing equipment demand surge from tech sector recovery"
+      "sector_en": "Entertainment",
+      "theme_en": "Content Technology",
+      "reason_en": "Digital content and entertainment tech rally"
     },
     {
       "rank": 3,
-      "ticker": "209640",
-      "name_en": "YJ Link",
+      "ticker": "376900",
+      "name_en": "Rokit Healthcare",
       "change_pct": 30.0,
-      "close_price": 5200,
-      "volume": 18031523,
+      "close_price": 128700,
+      "volume": 869541,
       "market_cap": 0,
-      "sector_en": "Electronic Equipment",
-      "theme_en": "Machinery & Equipment",
-      "reason_en": "Electronic equipment manufacturer riding technology sector momentum"
+      "sector_en": "Healthcare",
+      "theme_en": "3D Bioprinting",
+      "reason_en": "AI-driven personalized organ regeneration platform momentum"
     },
     {
       "rank": 4,
-      "ticker": "276730",
-      "name_en": "Hanwool & Jeju",
-      "change_pct": 30.0,
-      "close_price": 871,
-      "volume": 836536,
+      "ticker": "177350",
+      "name_en": "Vessel",
+      "change_pct": 29.99,
+      "close_price": 1413,
+      "volume": 13287594,
       "market_cap": 0,
-      "sector_en": "Services",
-      "theme_en": "Regional Development",
-      "reason_en": "Regional service company benefiting from infrastructure investment themes"
+      "sector_en": "Biotech",
+      "theme_en": "Medical Devices",
+      "reason_en": "Healthcare technology sector strength"
     },
     {
       "rank": 5,
-      "ticker": "217590",
-      "name_en": "TMC",
+      "ticker": "226590",
+      "name_en": "MDVice",
       "change_pct": 29.98,
-      "close_price": 17950,
-      "volume": 1138174,
+      "close_price": 36200,
+      "volume": 2542336,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT Services",
-      "reason_en": "Technology services provider gaining from digital transformation trends"
+      "sector_en": "Medical",
+      "theme_en": "Medical Equipment",
+      "reason_en": "Healthcare sector rotation and medical device demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "204630",
-      "name_en": "Studio Santa Claus Entertainment",
-      "change_pct": -66.77,
-      "close_price": 220,
-      "volume": 1571204,
+      "ticker": "700025",
+      "name_en": "Hana Bloomberg 2X Natural Gas Futures ETN(H) B",
+      "change_pct": -14.87,
+      "close_price": 1924,
+      "volume": 159824,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "Media & Entertainment",
-      "reason_en": "Entertainment company hit by content industry challenges and funding concerns"
+      "sector_en": "Commodities",
+      "theme_en": "Energy ETF",
+      "reason_en": "Natural gas price decline on stabilized Hormuz Strait tensions"
     },
     {
       "rank": 2,
-      "ticker": "006490",
-      "name_en": "Inscobee",
-      "change_pct": -29.91,
-      "close_price": 328,
-      "volume": 12379870,
+      "ticker": "012320",
+      "name_en": "Kyungdong Invest",
+      "change_pct": -14.84,
+      "close_price": 66000,
+      "volume": 215610,
       "market_cap": 0,
-      "sector_en": "Telecommunications",
-      "theme_en": "Diversified Holdings",
-      "reason_en": "Telecom holding company facing pressure from regulatory changes and market competition"
+      "sector_en": "Investment",
+      "theme_en": "Real Estate Investment",
+      "reason_en": "Investment sector weakness amid market rotation"
     },
     {
       "rank": 3,
-      "ticker": "168330",
-      "name_en": "Natural Endotech",
-      "change_pct": -22.8,
-      "close_price": 1961,
-      "volume": 869140,
+      "ticker": "760027",
+      "name_en": "Kiwoom Inverse 2X Power TOP5 ETN",
+      "change_pct": -14.02,
+      "close_price": 13585,
+      "volume": 11765,
       "market_cap": 0,
-      "sector_en": "Consumer Products",
-      "theme_en": "Personal Care",
-      "reason_en": "Consumer products company affected by weak domestic demand and margin pressure"
+      "sector_en": "Utilities",
+      "theme_en": "Power Inverse ETF",
+      "reason_en": "Power sector strength leading to inverse ETF decline"
     },
     {
       "rank": 4,
-      "ticker": "140410",
-      "name_en": "Medion",
-      "change_pct": -21.41,
-      "close_price": 89200,
-      "volume": 1943608,
+      "ticker": "152550",
+      "name_en": "Korea ANKOR Oil Field",
+      "change_pct": -13.91,
+      "close_price": 260,
+      "volume": 23133079,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Devices",
-      "reason_en": "Medical device company facing regulatory headwinds and clinical trial delays"
+      "sector_en": "Energy",
+      "theme_en": "Oil & Gas",
+      "reason_en": "Oil price volatility concerns despite Middle East tension easing"
     },
     {
       "rank": 5,
-      "ticker": "031860",
-      "name_en": "DHX Company",
-      "change_pct": -20.7,
-      "close_price": 406,
-      "volume": 1806522,
+      "ticker": "003280",
+      "name_en": "Heung-A Shipping",
+      "change_pct": -13.88,
+      "close_price": 2915,
+      "volume": 17196418,
       "market_cap": 0,
-      "sector_en": "Biomedical",
-      "theme_en": "Healthcare & Biotech",
-      "reason_en": "Biomedical company hit by uncertainty over drug development pipeline and funding"
+      "sector_en": "Transportation",
+      "theme_en": "Shipping",
+      "reason_en": "Shipping cost normalization as supply chain concerns ease"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "+8.2",
+      "name": "Technology",
+      "chg": "6.25",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Technology Equipment",
-      "chg": "+6.5",
-      "stocks": "Display Manufacturing · Electronic Components"
+      "name": "Healthcare",
+      "chg": "5.80",
+      "stocks": "Rokit Healthcare · Celltrion"
     },
     {
-      "name": "Auto Parts",
-      "chg": "+5.8",
-      "stocks": "EV Components · Transportation Equipment"
+      "name": "Automotive",
+      "chg": "4.50",
+      "stocks": "Hyundai Motor · Kia Corporation"
     },
     {
-      "name": "Power & Energy",
-      "chg": "+4.9",
-      "stocks": "Nuclear Power · Energy Storage"
+      "name": "Energy Storage",
+      "chg": "4.20",
+      "stocks": "LG Energy Solution · SK Square"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Entertainment",
-      "chg": "-12.3",
-      "stocks": "Content Production · Media Services"
+      "name": "Commodities ETFs",
+      "chg": "-12.50",
+      "stocks": "Natural Gas ETN · Energy Futures"
     },
     {
-      "name": "Oil Refining",
-      "chg": "-8.7",
-      "stocks": "S-Oil · SK Innovation"
+      "name": "Shipping",
+      "chg": "-10.80",
+      "stocks": "Heung-A Shipping · Maritime Transport"
     },
     {
-      "name": "Battery Manufacturing",
-      "chg": "-6.2",
-      "stocks": "LG Energy Solution · Battery Components"
+      "name": "Traditional Energy",
+      "chg": "-9.20",
+      "stocks": "Oil Fields · Gas Utilities"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-4.1",
-      "stocks": "Personal Care · Retail Services"
+      "name": "Real Estate Investment",
+      "chg": "-8.50",
+      "stocks": "Investment Trusts · Property Funds"
     }
   ],
-  "_built_at": "2026-03-17 16:55",
-  "_date_label": "Tue, Mar 17, 2026"
+  "_built_at": "2026-03-18 16:56",
+  "_date_label": "Wed, Mar 18, 2026"
 }
