@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,925.03",
-      "chg_pct": "+5.04%",
-      "chg_abs": "+284.55 pts"
+      "value": "5,763.22",
+      "chg_pct": "+2.73%",
+      "chg_abs": "+161.81 pts"
     },
     "kosdaq": {
-      "value": "1,164.38",
-      "chg_pct": "+2.41%",
-      "chg_abs": "+27.44 pts"
+      "value": "1,143.48",
+      "chg_pct": "+1.79%",
+      "chg_abs": "+20.90 pts"
     },
     "usdkrw": {
-      "value": "1,486",
-      "chg_pct": "+0.15%",
-      "chg_abs": "+2 KRW"
+      "value": "1,501",
+      "chg_pct": "+0.29%",
+      "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "KOSPI surged <strong>5.04%</strong> to close at 5,925.03 as technology stocks led gains amid cooling geopolitical tensions and AI demand optimism.",
+  "highlight": "Korean stocks surge as <strong>semiconductor</strong> giants drive AI rally amid government market reforms",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "145210",
-      "name_en": "Dynamic Design",
+      "ticker": "279600",
+      "name_en": "Mediagen",
       "change_pct": 30.0,
-      "close_price": 299,
-      "volume": 1369964,
+      "close_price": 6760,
+      "volume": 103519,
       "market_cap": 0,
-      "sector_en": "Industrial",
-      "theme_en": "Tire Manufacturing Equipment",
-      "reason_en": "Manufacturing sector rotation and automotive equipment demand"
+      "sector_en": "Technology",
+      "theme_en": "Media Technology",
+      "reason_en": "AI and media technology rally momentum"
     },
     {
       "rank": 2,
-      "ticker": "058450",
-      "name_en": "Hanjoo ART",
-      "change_pct": 30.0,
-      "close_price": 546,
-      "volume": 2658571,
+      "ticker": "002780",
+      "name_en": "Jinheung Enterprise",
+      "change_pct": 29.98,
+      "close_price": 1045,
+      "volume": 66076371,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "Content Technology",
-      "reason_en": "Digital content and entertainment tech rally"
+      "sector_en": "Materials",
+      "theme_en": "Manufacturing",
+      "reason_en": "Industrial automation and manufacturing revival"
     },
     {
       "rank": 3,
-      "ticker": "376900",
-      "name_en": "Rokit Healthcare",
-      "change_pct": 30.0,
-      "close_price": 128700,
-      "volume": 869541,
+      "ticker": "008700",
+      "name_en": "Anam Electronics",
+      "change_pct": 29.98,
+      "close_price": 1574,
+      "volume": 14630944,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "3D Bioprinting",
-      "reason_en": "AI-driven personalized organ regeneration platform momentum"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductors",
+      "reason_en": "Semiconductor packaging demand surge"
     },
     {
       "rank": 4,
-      "ticker": "177350",
-      "name_en": "Vessel",
-      "change_pct": 29.99,
-      "close_price": 1413,
-      "volume": 13287594,
+      "ticker": "089150",
+      "name_en": "KCT",
+      "change_pct": 29.98,
+      "close_price": 3295,
+      "volume": 5917914,
       "market_cap": 0,
-      "sector_en": "Biotech",
-      "theme_en": "Medical Devices",
-      "reason_en": "Healthcare technology sector strength"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "System integration and digital transformation"
     },
     {
       "rank": 5,
-      "ticker": "226590",
-      "name_en": "MDVice",
-      "change_pct": 29.98,
-      "close_price": 36200,
-      "volume": 2542336,
+      "ticker": "031860",
+      "name_en": "DHX Company",
+      "change_pct": 29.97,
+      "close_price": 503,
+      "volume": 2314880,
       "market_cap": 0,
-      "sector_en": "Medical",
-      "theme_en": "Medical Equipment",
-      "reason_en": "Healthcare sector rotation and medical device demand"
+      "sector_en": "Healthcare",
+      "theme_en": "Biomedical",
+      "reason_en": "Biomedical equipment and healthcare expansion"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "700025",
-      "name_en": "Hana Bloomberg 2X Natural Gas Futures ETN(H) B",
-      "change_pct": -14.87,
-      "close_price": 1924,
-      "volume": 159824,
+      "ticker": "263750",
+      "name_en": "Pearl Abyss",
+      "change_pct": -29.88,
+      "close_price": 46000,
+      "volume": 4316098,
       "market_cap": 0,
-      "sector_en": "Commodities",
-      "theme_en": "Energy ETF",
-      "reason_en": "Natural gas price decline on stabilized Hormuz Strait tensions"
+      "sector_en": "Communication Services",
+      "theme_en": "Gaming",
+      "reason_en": "Gaming sector correction after overvaluation"
     },
     {
       "rank": 2,
-      "ticker": "012320",
-      "name_en": "Kyungdong Invest",
-      "change_pct": -14.84,
-      "close_price": 66000,
-      "volume": 215610,
+      "ticker": "550064",
+      "name_en": "N2 Leveraged Silver Futures ETN(H)",
+      "change_pct": -15.49,
+      "close_price": 61145,
+      "volume": 5108,
       "market_cap": 0,
-      "sector_en": "Investment",
-      "theme_en": "Real Estate Investment",
-      "reason_en": "Investment sector weakness amid market rotation"
+      "sector_en": "Financials",
+      "theme_en": "Commodities ETN",
+      "reason_en": "Silver futures decline and leverage amplification"
     },
     {
       "rank": 3,
-      "ticker": "760027",
-      "name_en": "Kiwoom Inverse 2X Power TOP5 ETN",
-      "change_pct": -14.02,
-      "close_price": 13585,
-      "volume": 11765,
+      "ticker": "530061",
+      "name_en": "Samsung Leveraged Silver Futures ETN(H)",
+      "change_pct": -15.22,
+      "close_price": 52560,
+      "volume": 103775,
       "market_cap": 0,
-      "sector_en": "Utilities",
-      "theme_en": "Power Inverse ETF",
-      "reason_en": "Power sector strength leading to inverse ETF decline"
+      "sector_en": "Financials",
+      "theme_en": "Commodities ETN",
+      "reason_en": "Precious metals selloff impacting leveraged products"
     },
     {
       "rank": 4,
-      "ticker": "152550",
-      "name_en": "Korea ANKOR Oil Field",
-      "change_pct": -13.91,
-      "close_price": 260,
-      "volume": 23133079,
+      "ticker": "145210",
+      "name_en": "Dynamic Design",
+      "change_pct": -15.05,
+      "close_price": 254,
+      "volume": 13236162,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas",
-      "reason_en": "Oil price volatility concerns despite Middle East tension easing"
+      "sector_en": "Industrials",
+      "theme_en": "Design Services",
+      "reason_en": "Design sector weakness amid market rotation"
     },
     {
       "rank": 5,
-      "ticker": "003280",
-      "name_en": "Heung-A Shipping",
-      "change_pct": -13.88,
-      "close_price": 2915,
-      "volume": 17196418,
+      "ticker": "610100",
+      "name_en": "Meritz 2X Silver Futures ETN(H)",
+      "change_pct": -15.01,
+      "close_price": 12655,
+      "volume": 145904,
       "market_cap": 0,
-      "sector_en": "Transportation",
-      "theme_en": "Shipping",
-      "reason_en": "Shipping cost normalization as supply chain concerns ease"
+      "sector_en": "Financials",
+      "theme_en": "Commodities ETN",
+      "reason_en": "Commodity ETN decline following precious metals drop"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "6.25",
+      "name": "Semiconductors",
+      "chg": "8.20",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Healthcare",
-      "chg": "5.80",
-      "stocks": "Rokit Healthcare · Celltrion"
+      "name": "Technology Hardware",
+      "chg": "6.45",
+      "stocks": "LG Electronics · Samsung SDI"
     },
     {
       "name": "Automotive",
-      "chg": "4.50",
+      "chg": "4.53",
       "stocks": "Hyundai Motor · Kia Corporation"
     },
     {
       "name": "Energy Storage",
-      "chg": "4.20",
-      "stocks": "LG Energy Solution · SK Square"
+      "chg": "4.12",
+      "stocks": "LG Energy Solution · SK Innovation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Commodities ETFs",
-      "chg": "-12.50",
-      "stocks": "Natural Gas ETN · Energy Futures"
+      "name": "Gaming",
+      "chg": "-12.85",
+      "stocks": "Pearl Abyss · Krafton"
     },
     {
-      "name": "Shipping",
-      "chg": "-10.80",
-      "stocks": "Heung-A Shipping · Maritime Transport"
+      "name": "Precious Metals ETNs",
+      "chg": "-15.24",
+      "stocks": "Leveraged Silver ETNs · Gold ETNs"
     },
     {
-      "name": "Traditional Energy",
-      "chg": "-9.20",
-      "stocks": "Oil Fields · Gas Utilities"
+      "name": "Real Estate",
+      "chg": "-3.67",
+      "stocks": "SH Corp · Lotte REIT"
     },
     {
-      "name": "Real Estate Investment",
-      "chg": "-8.50",
-      "stocks": "Investment Trusts · Property Funds"
+      "name": "Consumer Discretionary",
+      "chg": "-2.89",
+      "stocks": "Lotte Shopping · Shinsegae"
     }
   ],
-  "_built_at": "2026-03-18 16:56",
-  "_date_label": "Wed, Mar 18, 2026"
+  "_built_at": "2026-03-19 16:50",
+  "_date_label": "Thu, Mar 19, 2026"
 }
