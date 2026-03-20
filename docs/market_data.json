@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,763.22",
-      "chg_pct": "+2.73%",
-      "chg_abs": "+161.81 pts"
+      "value": "5,781.20",
+      "chg_pct": "+0.31%",
+      "chg_abs": "+17.98 pts"
     },
     "kosdaq": {
-      "value": "1,143.48",
-      "chg_pct": "+1.79%",
-      "chg_abs": "+20.90 pts"
+      "value": "1,161.52",
+      "chg_pct": "+1.58%",
+      "chg_abs": "+18.04 pts"
     },
     "usdkrw": {
-      "value": "1,501",
-      "chg_pct": "+0.29%",
+      "value": "1,495",
+      "chg_pct": "+0.24%",
       "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "Korean stocks surge as <strong>semiconductor</strong> giants drive AI rally amid government market reforms",
+  "highlight": "Korean markets recovered with KOSPI posting modest gains as <strong>biotechnology</strong> stocks led the rally following IM Biologics' spectacular IPO debut.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "279600",
-      "name_en": "Mediagen",
-      "change_pct": 30.0,
-      "close_price": 6760,
-      "volume": 103519,
+      "ticker": "493280",
+      "name_en": "IM Biologics",
+      "change_pct": 300.0,
+      "close_price": 104000,
+      "volume": 1095248,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Media Technology",
-      "reason_en": "AI and media technology rally momentum"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "IPO debut with 300% price limit surge on first trading day, autoimmune disease antibody treatment developer with $1.8 trillion licensing deals"
     },
     {
       "rank": 2,
-      "ticker": "002780",
-      "name_en": "Jinheung Enterprise",
-      "change_pct": 29.98,
-      "close_price": 1045,
-      "volume": 66076371,
+      "ticker": "004960",
+      "name_en": "Hanshin Engineering",
+      "change_pct": 29.99,
+      "close_price": 17730,
+      "volume": 1107884,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Manufacturing",
-      "reason_en": "Industrial automation and manufacturing revival"
+      "sector_en": "Industrials",
+      "theme_en": "Construction",
+      "reason_en": "Construction and engineering services benefiting from infrastructure spending and government construction projects"
     },
     {
       "rank": 3,
-      "ticker": "008700",
-      "name_en": "Anam Electronics",
+      "ticker": "046970",
+      "name_en": "Woori",
       "change_pct": 29.98,
-      "close_price": 1574,
-      "volume": 14630944,
+      "close_price": 2710,
+      "volume": 16195873,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Semiconductors",
-      "reason_en": "Semiconductor packaging demand surge"
+      "theme_en": "Electronics",
+      "reason_en": "Electronic components and materials riding the semiconductor recovery wave and AI hardware demand"
     },
     {
       "rank": 4,
-      "ticker": "089150",
-      "name_en": "KCT",
-      "change_pct": 29.98,
-      "close_price": 3295,
-      "volume": 5917914,
+      "ticker": "001515",
+      "name_en": "SK Securities Preferred",
+      "change_pct": 29.97,
+      "close_price": 4185,
+      "volume": 1846049,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "System integration and digital transformation"
+      "sector_en": "Financials",
+      "theme_en": "Securities",
+      "reason_en": "Financial services benefiting from increased trading volumes and market volatility creating commission income opportunities"
     },
     {
       "rank": 5,
-      "ticker": "031860",
-      "name_en": "DHX Company",
-      "change_pct": 29.97,
-      "close_price": 503,
-      "volume": 2314880,
+      "ticker": "189860",
+      "name_en": "Sejeon Electric",
+      "change_pct": 29.92,
+      "close_price": 6210,
+      "volume": 1753081,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biomedical",
-      "reason_en": "Biomedical equipment and healthcare expansion"
+      "sector_en": "Industrials",
+      "theme_en": "Electrical Equipment",
+      "reason_en": "Electric equipment manufacturer gaining from infrastructure modernization and renewable energy expansion"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "263750",
-      "name_en": "Pearl Abyss",
-      "change_pct": -29.88,
-      "close_price": 46000,
-      "volume": 4316098,
+      "ticker": "058450",
+      "name_en": "Hanju ART",
+      "change_pct": -21.44,
+      "close_price": 557,
+      "volume": 6743039,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Gaming",
-      "reason_en": "Gaming sector correction after overvaluation"
+      "sector_en": "Technology",
+      "theme_en": "Display Technology",
+      "reason_en": "Display and optical equipment facing competitive pressures and reduced demand from consumer electronics slowdown"
     },
     {
       "rank": 2,
-      "ticker": "550064",
-      "name_en": "N2 Leveraged Silver Futures ETN(H)",
-      "change_pct": -15.49,
-      "close_price": 61145,
-      "volume": 5108,
+      "ticker": "104200",
+      "name_en": "NHN Bugs",
+      "change_pct": -13.82,
+      "close_price": 5050,
+      "volume": 618454,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Commodities ETN",
-      "reason_en": "Silver futures decline and leverage amplification"
+      "sector_en": "Communication Services",
+      "theme_en": "Digital Media",
+      "reason_en": "Music streaming and digital content services under pressure from competition and subscription model challenges"
     },
     {
       "rank": 3,
-      "ticker": "530061",
-      "name_en": "Samsung Leveraged Silver Futures ETN(H)",
-      "change_pct": -15.22,
-      "close_price": 52560,
-      "volume": 103775,
+      "ticker": "039310",
+      "name_en": "Sejung",
+      "change_pct": -12.75,
+      "close_price": 1998,
+      "volume": 1070390,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Commodities ETN",
-      "reason_en": "Precious metals selloff impacting leveraged products"
+      "sector_en": "Industrials",
+      "theme_en": "Manufacturing",
+      "reason_en": "Industrial manufacturing facing cost pressures from raw materials and reduced export demand"
     },
     {
       "rank": 4,
       "ticker": "145210",
       "name_en": "Dynamic Design",
-      "change_pct": -15.05,
-      "close_price": 254,
-      "volume": 13236162,
+      "change_pct": -12.6,
+      "close_price": 222,
+      "volume": 4577121,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Design Services",
-      "reason_en": "Design sector weakness amid market rotation"
+      "sector_en": "Technology",
+      "theme_en": "Software Design",
+      "reason_en": "Design software and services experiencing margin compression from market competition and client budget cuts"
     },
     {
       "rank": 5,
-      "ticker": "610100",
-      "name_en": "Meritz 2X Silver Futures ETN(H)",
-      "change_pct": -15.01,
-      "close_price": 12655,
-      "volume": 145904,
+      "ticker": "393890",
+      "name_en": "WCP",
+      "change_pct": -12.38,
+      "close_price": 13230,
+      "volume": 3022095,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Commodities ETN",
-      "reason_en": "Commodity ETN decline following precious metals drop"
+      "sector_en": "Industrials",
+      "theme_en": "Industrial Services",
+      "reason_en": "Industrial services and consulting facing reduced corporate spending and project delays"
     }
   ],
   "strong_sectors": [
     {
+      "name": "Biotechnology",
+      "chg": "+8.25",
+      "stocks": "IM Biologics · Samsung Biologics"
+    },
+    {
+      "name": "Healthcare",
+      "chg": "+4.82",
+      "stocks": "SK Biopharmaceuticals · Hanmi Pharm"
+    },
+    {
+      "name": "Energy",
+      "chg": "+3.76",
+      "stocks": "S-Oil · Korea Electric Power"
+    },
+    {
       "name": "Semiconductors",
-      "chg": "8.20",
+      "chg": "+2.91",
       "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
-      "name": "Technology Hardware",
-      "chg": "6.45",
-      "stocks": "LG Electronics · Samsung SDI"
-    },
-    {
-      "name": "Automotive",
-      "chg": "4.53",
-      "stocks": "Hyundai Motor · Kia Corporation"
-    },
-    {
-      "name": "Energy Storage",
-      "chg": "4.12",
-      "stocks": "LG Energy Solution · SK Innovation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Gaming",
-      "chg": "-12.85",
-      "stocks": "Pearl Abyss · Krafton"
+      "name": "Media & Entertainment",
+      "chg": "-5.43",
+      "stocks": "NHN Bugs · Kakao Entertainment"
     },
     {
-      "name": "Precious Metals ETNs",
-      "chg": "-15.24",
-      "stocks": "Leveraged Silver ETNs · Gold ETNs"
+      "name": "Construction Materials",
+      "chg": "-4.27",
+      "stocks": "Sejung · Hyundai Engineering"
     },
     {
-      "name": "Real Estate",
-      "chg": "-3.67",
-      "stocks": "SH Corp · Lotte REIT"
+      "name": "Consumer Electronics",
+      "chg": "-3.18",
+      "stocks": "LG Display · LG Electronics"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-2.89",
-      "stocks": "Lotte Shopping · Shinsegae"
+      "name": "Real Estate Services",
+      "chg": "-2.65",
+      "stocks": "WCP · Dynamic Design"
     }
   ],
-  "_built_at": "2026-03-19 16:50",
-  "_date_label": "Thu, Mar 19, 2026"
+  "_built_at": "2026-03-20 16:49",
+  "_date_label": "Fri, Mar 20, 2026"
 }
