@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,781.20",
-      "chg_pct": "+0.31%",
-      "chg_abs": "+17.98 pts"
+      "value": "5,405.75",
+      "chg_pct": "+6.49%",
+      "chg_abs": "+375.45 pts"
     },
     "kosdaq": {
-      "value": "1,161.52",
-      "chg_pct": "+1.58%",
-      "chg_abs": "+18.04 pts"
+      "value": "1,096.89",
+      "chg_pct": "+5.56%",
+      "chg_abs": "+64.63 pts"
     },
     "usdkrw": {
-      "value": "1,495",
-      "chg_pct": "+0.24%",
-      "chg_abs": "+4 KRW"
+      "value": "1,514",
+      "chg_pct": "+0.50%",
+      "chg_abs": "+8 KRW"
     }
   },
-  "highlight": "Korean markets recovered with KOSPI posting modest gains as <strong>biotechnology</strong> stocks led the rally following IM Biologics' spectacular IPO debut.",
+  "highlight": "Korean stocks surged as <strong>silver inverse ETNs</strong> gained over 30% following a major precious metals selloff amid Middle East tensions easing.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "493280",
-      "name_en": "IM Biologics",
-      "change_pct": 300.0,
-      "close_price": 104000,
-      "volume": 1095248,
+      "ticker": "530062",
+      "name_en": "Samsung Inverse 2X Silver Futures ETN(H)",
+      "change_pct": 39.02,
+      "close_price": 57,
+      "volume": 19333947,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "IPO debut with 300% price limit surge on first trading day, autoimmune disease antibody treatment developer with $1.8 trillion licensing deals"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Inverse Silver Commodity",
+      "reason_en": "Silver futures declined sharply as geopolitical tensions eased, benefiting inverse silver ETNs that profit from falling silver prices"
     },
     {
       "rank": 2,
-      "ticker": "004960",
-      "name_en": "Hanshin Engineering",
-      "change_pct": 29.99,
-      "close_price": 17730,
-      "volume": 1107884,
+      "ticker": "580081",
+      "name_en": "KB Inverse 2X Silver Futures ETN",
+      "change_pct": 34.08,
+      "close_price": 61755,
+      "volume": 3699,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Construction",
-      "reason_en": "Construction and engineering services benefiting from infrastructure spending and government construction projects"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Inverse Silver Commodity",
+      "reason_en": "Leveraged inverse exposure to silver futures provided amplified gains as precious metals sold off on reduced safe-haven demand"
     },
     {
       "rank": 3,
-      "ticker": "046970",
-      "name_en": "Woori",
-      "change_pct": 29.98,
-      "close_price": 2710,
-      "volume": 16195873,
+      "ticker": "610101",
+      "name_en": "Meritz Inverse 2X Silver Futures ETN(H)",
+      "change_pct": 33.96,
+      "close_price": 57870,
+      "volume": 613,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Electronic components and materials riding the semiconductor recovery wave and AI hardware demand"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Inverse Silver Commodity",
+      "reason_en": "Double inverse silver ETN surged as silver futures declined amid easing Middle East conflict concerns and profit-taking"
     },
     {
       "rank": 4,
-      "ticker": "001515",
-      "name_en": "SK Securities Preferred",
-      "change_pct": 29.97,
-      "close_price": 4185,
-      "volume": 1846049,
+      "ticker": "520093",
+      "name_en": "Mirae Asset Inverse 2X Silver Futures ETN B",
+      "change_pct": 33.05,
+      "close_price": 3120,
+      "volume": 1631726,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Securities",
-      "reason_en": "Financial services benefiting from increased trading volumes and market volatility creating commission income opportunities"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Inverse Silver Commodity",
+      "reason_en": "2X inverse silver exposure generated strong returns as silver prices retreated from recent highs on reduced geopolitical risk"
     },
     {
       "rank": 5,
-      "ticker": "189860",
-      "name_en": "Sejeon Electric",
-      "change_pct": 29.92,
-      "close_price": 6210,
-      "volume": 1753081,
+      "ticker": "500030",
+      "name_en": "Shinhan Inverse 2X Silver Futures ETN(H)",
+      "change_pct": 31.67,
+      "close_price": 79,
+      "volume": 2451316,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Electrical Equipment",
-      "reason_en": "Electric equipment manufacturer gaining from infrastructure modernization and renewable energy expansion"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Inverse Silver Commodity",
+      "reason_en": "Inverse leveraged silver ETN benefited from sharp silver futures decline as safe-haven flows reversed on improving sentiment"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "058450",
-      "name_en": "Hanju ART",
-      "change_pct": -21.44,
-      "close_price": 557,
-      "volume": 6743039,
+      "ticker": "610100",
+      "name_en": "Meritz 2X Silver Futures ETN(H)",
+      "change_pct": -27.86,
+      "close_price": 8895,
+      "volume": 74066,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Display Technology",
-      "reason_en": "Display and optical equipment facing competitive pressures and reduced demand from consumer electronics slowdown"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Leveraged Silver Commodity",
+      "reason_en": "Double leveraged silver ETN declined sharply as silver futures sold off amid reduced geopolitical tensions and profit-taking"
     },
     {
       "rank": 2,
-      "ticker": "104200",
-      "name_en": "NHN Bugs",
-      "change_pct": -13.82,
-      "close_price": 5050,
-      "volume": 618454,
+      "ticker": "550064",
+      "name_en": "NH-Amundi 2X Leverage Silver Futures ETN(H)",
+      "change_pct": -27.8,
+      "close_price": 43180,
+      "volume": 122652,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Digital Media",
-      "reason_en": "Music streaming and digital content services under pressure from competition and subscription model challenges"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Leveraged Silver Commodity",
+      "reason_en": "2X leveraged silver exposure amplified losses as precious metals retreated from highs on easing Middle East concerns"
     },
     {
       "rank": 3,
-      "ticker": "039310",
-      "name_en": "Sejung",
-      "change_pct": -12.75,
-      "close_price": 1998,
-      "volume": 1070390,
+      "ticker": "160190",
+      "name_en": "Haigen R&M",
+      "change_pct": -27.74,
+      "close_price": 37650,
+      "volume": 1375093,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Manufacturing",
-      "reason_en": "Industrial manufacturing facing cost pressures from raw materials and reduced export demand"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech stock declined amid broader risk-on sentiment favoring growth sectors over defensive healthcare plays"
     },
     {
       "rank": 4,
-      "ticker": "145210",
-      "name_en": "Dynamic Design",
-      "change_pct": -12.6,
-      "close_price": 222,
-      "volume": 4577121,
+      "ticker": "520092",
+      "name_en": "Mirae Asset Leverage Silver Futures ETN B",
+      "change_pct": -27.66,
+      "close_price": 34210,
+      "volume": 224994,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Design",
-      "reason_en": "Design software and services experiencing margin compression from market competition and client budget cuts"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Leveraged Silver Commodity",
+      "reason_en": "Leveraged silver ETN fell as underlying silver futures declined on reduced safe-haven demand and profit-taking activities"
     },
     {
       "rank": 5,
-      "ticker": "393890",
-      "name_en": "WCP",
-      "change_pct": -12.38,
-      "close_price": 13230,
-      "volume": 3022095,
+      "ticker": "580026",
+      "name_en": "KB S&P Leverage Silver Futures ETN(H)",
+      "change_pct": -27.04,
+      "close_price": 43875,
+      "volume": 37929,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Industrial Services",
-      "reason_en": "Industrial services and consulting facing reduced corporate spending and project delays"
+      "sector_en": "ETF/ETN",
+      "theme_en": "Leveraged Silver Commodity",
+      "reason_en": "Leveraged silver futures ETN declined as precious metals corrected from recent highs amid improving risk sentiment"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Biotechnology",
-      "chg": "+8.25",
-      "stocks": "IM Biologics · Samsung Biologics"
-    },
-    {
-      "name": "Healthcare",
-      "chg": "+4.82",
-      "stocks": "SK Biopharmaceuticals · Hanmi Pharm"
-    },
-    {
-      "name": "Energy",
-      "chg": "+3.76",
-      "stocks": "S-Oil · Korea Electric Power"
-    },
-    {
       "name": "Semiconductors",
-      "chg": "+2.91",
+      "chg": "8.42",
       "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Technology Hardware",
+      "chg": "7.15",
+      "stocks": "LG Electronics · Samsung SDI"
+    },
+    {
+      "name": "Automotive",
+      "chg": "6.78",
+      "stocks": "Hyundai Motor · Kia"
+    },
+    {
+      "name": "Shipbuilding",
+      "chg": "5.94",
+      "stocks": "Hanwha Ocean · HD Hyundai Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Media & Entertainment",
-      "chg": "-5.43",
-      "stocks": "NHN Bugs · Kakao Entertainment"
+      "name": "Leveraged Silver ETNs",
+      "chg": "-27.65",
+      "stocks": "Meritz 2X Silver · NH Leverage Silver"
     },
     {
-      "name": "Construction Materials",
-      "chg": "-4.27",
-      "stocks": "Sejung · Hyundai Engineering"
+      "name": "Biotechnology",
+      "chg": "-4.23",
+      "stocks": "Celltrion · Samsung Biologics"
     },
     {
-      "name": "Consumer Electronics",
-      "chg": "-3.18",
-      "stocks": "LG Display · LG Electronics"
+      "name": "Steel",
+      "chg": "-3.87",
+      "stocks": "POSCO Holdings · Hyundai Steel"
     },
     {
-      "name": "Real Estate Services",
-      "chg": "-2.65",
-      "stocks": "WCP · Dynamic Design"
+      "name": "Petrochemicals",
+      "chg": "-3.45",
+      "stocks": "LG Chem · SK Innovation"
     }
   ],
-  "_built_at": "2026-03-20 16:49",
-  "_date_label": "Fri, Mar 20, 2026"
+  "_built_at": "2026-03-23 17:04",
+  "_date_label": "Mon, Mar 23, 2026"
 }
