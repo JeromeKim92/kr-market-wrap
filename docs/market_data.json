@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,553.92",
-      "chg_pct": "+2.74%",
-      "chg_abs": "+148.17 pts"
+      "value": "5,642.21",
+      "chg_pct": "+1.59%",
+      "chg_abs": "+88.29 pts"
     },
     "kosdaq": {
-      "value": "1,121.44",
-      "chg_pct": "+2.24%",
-      "chg_abs": "+24.55 pts"
+      "value": "1,159.55",
+      "chg_pct": "+3.40%",
+      "chg_abs": "+38.11 pts"
     },
     "usdkrw": {
-      "value": "1,492",
-      "chg_pct": "+0.20%",
-      "chg_abs": "+3 KRW"
+      "value": "1,503",
+      "chg_pct": "+0.37%",
+      "chg_abs": "+6 KRW"
     }
   },
-  "highlight": "Korean markets surged 2.74% as <strong>geopolitical tensions</strong> eased and oil prices retreated from extreme levels.",
+  "highlight": "Korean markets surged with <strong>KOSPI gaining 1.59%</strong> and <strong>KOSDAQ jumping 3.40%</strong> as semiconductor and biotech sectors led broad-based recovery amid easing geopolitical tensions.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "065530",
-      "name_en": "Wirables",
-      "change_pct": 30.0,
-      "close_price": 1846,
-      "volume": 18185035,
+      "ticker": "408470",
+      "name_en": "HanPass",
+      "change_pct": 43.16,
+      "close_price": 27200,
+      "volume": 31991139,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics Components",
-      "reason_en": "Technology sector rally amid semiconductor momentum and AI infrastructure demand"
+      "sector_en": "Financial Technology",
+      "theme_en": "Fintech Solutions",
+      "reason_en": "Foreign resident financial services platform benefiting from increased demand for cross-border payment solutions"
     },
     {
       "rank": 2,
-      "ticker": "066310",
-      "name_en": "QSI",
-      "change_pct": 29.98,
-      "close_price": 13180,
-      "volume": 3597405,
+      "ticker": "003535",
+      "name_en": "Hanwha Investment Securities Pref",
+      "change_pct": 30.0,
+      "close_price": 11180,
+      "volume": 959971,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Benefited from broader semiconductor sector strength and memory chip demand recovery"
+      "sector_en": "Financial Services",
+      "theme_en": "Investment Securities",
+      "reason_en": "Strong market recovery driving increased trading volumes and brokerage income expectations"
     },
     {
       "rank": 3,
-      "ticker": "080520",
-      "name_en": "Auditech",
-      "change_pct": 29.98,
-      "close_price": 3945,
-      "volume": 854832,
+      "ticker": "084850",
+      "name_en": "ITM Semiconductor",
+      "change_pct": 30.0,
+      "close_price": 12610,
+      "volume": 51536,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Audio Electronics",
-      "reason_en": "Tech hardware rally driven by consumer electronics recovery and AI-related demand"
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Semiconductor sector rally on AI demand and memory chip supply constraints driving equipment needs"
     },
     {
       "rank": 4,
-      "ticker": "290660",
-      "name_en": "Neofect",
-      "change_pct": 29.98,
-      "close_price": 1652,
-      "volume": 26364224,
+      "ticker": "115440",
+      "name_en": "Woori Net",
+      "change_pct": 30.0,
+      "close_price": 12870,
+      "volume": 4460096,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Digital Healthcare",
-      "reason_en": "Healthcare technology surge amid AI applications in medical devices and rehabilitation"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Technology sector momentum and digital transformation demand boosting IT service providers"
     },
     {
       "rank": 5,
-      "ticker": "046970",
-      "name_en": "Woori Industrial",
-      "change_pct": 29.97,
-      "close_price": 4575,
-      "volume": 17560654,
+      "ticker": "348150",
+      "name_en": "KoBioLabs",
+      "change_pct": 29.98,
+      "close_price": 6720,
+      "volume": 1028093,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Manufacturing",
-      "reason_en": "Industrial sector strength from power equipment demand and infrastructure investment"
+      "sector_en": "Healthcare",
+      "theme_en": "Microbiome Therapeutics",
+      "reason_en": "Biotech rally on microbiome drug development progress and recent US patent acquisition for immune disorder treatments"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "348370",
-      "name_en": "Enchem",
-      "change_pct": -29.94,
-      "close_price": 29950,
-      "volume": 3028551,
+      "ticker": "610101",
+      "name_en": "Meritz Inverse 2X Silver Futures ETN(H)",
+      "change_pct": -16.54,
+      "close_price": 42600,
+      "volume": 3038,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Chemicals",
-      "reason_en": "Chemical sector pressured by Chinese oversupply and weak petrochemical pricing"
+      "sector_en": "Financials",
+      "theme_en": "Commodity ETN",
+      "reason_en": "Inverse silver ETN declining as precious metals recover from recent volatility"
     },
     {
       "rank": 2,
-      "ticker": "031860",
-      "name_en": "DHX Company",
-      "change_pct": -29.35,
-      "close_price": 402,
-      "volume": 621536,
+      "ticker": "306040",
+      "name_en": "SJ Group",
+      "change_pct": -15.84,
+      "close_price": 6430,
+      "volume": 1490616,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "IT services decline amid profit-taking and sector rotation out of smaller tech names"
+      "sector_en": "Industrials",
+      "theme_en": "Industrial Conglomerate",
+      "reason_en": "Industrial sector weakness amid supply chain concerns and margin pressure"
     },
     {
       "rank": 3,
-      "ticker": "234340",
-      "name_en": "Hecto Financial",
-      "change_pct": -23.18,
-      "close_price": 30650,
-      "volume": 2643624,
+      "ticker": "570119",
+      "name_en": "Korea Investment Inverse 2X Silver Futures ETN",
+      "change_pct": -15.52,
+      "close_price": 45185,
+      "volume": 271,
       "market_cap": 0,
       "sector_en": "Financials",
-      "theme_en": "Fintech",
-      "reason_en": "Fintech weakness from regulatory concerns and competition from traditional banks"
+      "theme_en": "Commodity ETN",
+      "reason_en": "Inverse precious metals positioning hurt by commodity market stabilization"
     },
     {
       "rank": 4,
-      "ticker": "006490",
-      "name_en": "Inscobee",
-      "change_pct": -20.56,
-      "close_price": 228,
-      "volume": 5990460,
+      "ticker": "060900",
+      "name_en": "Agent AI",
+      "change_pct": -15.22,
+      "close_price": 390,
+      "volume": 25639413,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Pharma sector pullback following recent gains and profit-taking pressure"
+      "sector_en": "Technology",
+      "theme_en": "Artificial Intelligence",
+      "reason_en": "AI stock profit-taking after recent rally and valuation concerns in smaller AI companies"
     },
     {
       "rank": 5,
-      "ticker": "288330",
-      "name_en": "Parataxis Korea",
-      "change_pct": -20.55,
-      "close_price": 580,
-      "volume": 3081119,
+      "ticker": "290660",
+      "name_en": "Neofect",
+      "change_pct": -13.5,
+      "close_price": 1429,
+      "volume": 16017276,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Logistics",
-      "reason_en": "Logistics sector decline from higher oil costs and supply chain disruption concerns"
+      "sector_en": "Healthcare",
+      "theme_en": "Digital Healthcare",
+      "reason_en": "Healthcare technology selloff on regulatory uncertainty and competitive pressure in digital therapeutics"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Information Technology",
-      "chg": "8.70",
+      "name": "Semiconductors",
+      "chg": "5.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Semiconductors",
-      "chg": "6.85",
-      "stocks": "Samsung · SK Hynix"
+      "name": "Biotechnology",
+      "chg": "4.25",
+      "stocks": "KoBioLabs · Celltrion"
     },
     {
-      "name": "Healthcare Technology",
-      "chg": "5.42",
-      "stocks": "Samsung Biologics · Celltrion"
+      "name": "Technology Hardware",
+      "chg": "3.91",
+      "stocks": "LG Energy Solution · Samsung SDI"
     },
     {
-      "name": "Power Equipment",
-      "chg": "4.91",
-      "stocks": "Doosan Enerbility · Hyundai Heavy"
+      "name": "Financial Technology",
+      "chg": "3.64",
+      "stocks": "HanPass · Kakao Pay"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Petrochemicals",
-      "chg": "-6.10",
-      "stocks": "LG Chem · SK Innovation"
+      "name": "Precious Metals ETNs",
+      "chg": "-16.03",
+      "stocks": "Meritz Inverse Silver · Korea Investment Inverse Silver"
     },
     {
-      "name": "Steel",
-      "chg": "-4.25",
-      "stocks": "POSCO · Hyundai Steel"
+      "name": "Digital Healthcare",
+      "chg": "-14.36",
+      "stocks": "Neofect · Medpacto"
     },
     {
-      "name": "Shipping",
-      "chg": "-3.80",
-      "stocks": "HMM · SM Line"
+      "name": "Industrial Conglomerates",
+      "chg": "-15.84",
+      "stocks": "SJ Group · Daehan Steel"
     },
     {
-      "name": "Construction Materials",
-      "chg": "-2.95",
-      "stocks": "Cemex Korea · Sampyo Cement"
+      "name": "Small-Cap AI",
+      "chg": "-15.22",
+      "stocks": "Agent AI · AI Holdings"
     }
   ],
-  "_built_at": "2026-03-24 16:56",
-  "_date_label": "Tue, Mar 24, 2026"
+  "_built_at": "2026-03-25 16:55",
+  "_date_label": "Wed, Mar 25, 2026"
 }
