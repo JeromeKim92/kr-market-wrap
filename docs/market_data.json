@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,642.21",
-      "chg_pct": "+1.59%",
-      "chg_abs": "+88.29 pts"
+      "value": "5,460.46",
+      "chg_pct": "+3.22%",
+      "chg_abs": "+181.75 pts"
     },
     "kosdaq": {
-      "value": "1,159.55",
-      "chg_pct": "+3.40%",
-      "chg_abs": "+38.11 pts"
+      "value": "1,136.64",
+      "chg_pct": "+1.98%",
+      "chg_abs": "+22.91 pts"
     },
     "usdkrw": {
-      "value": "1,503",
-      "chg_pct": "+0.37%",
-      "chg_abs": "+6 KRW"
+      "value": "1,506",
+      "chg_pct": "+0.13%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean markets surged with <strong>KOSPI gaining 1.59%</strong> and <strong>KOSDAQ jumping 3.40%</strong> as semiconductor and biotech sectors led broad-based recovery amid easing geopolitical tensions.",
+  "highlight": "Korean stocks surged with <strong>semiconductor</strong> leadership as AI-driven memory demand propels KOSPI toward 5,000 target in 2026.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "408470",
-      "name_en": "HanPass",
-      "change_pct": 43.16,
-      "close_price": 27200,
-      "volume": 31991139,
+      "ticker": "225430",
+      "name_en": "KM Pharmaceutical",
+      "change_pct": 30.0,
+      "close_price": 624,
+      "volume": 4553178,
       "market_cap": 0,
-      "sector_en": "Financial Technology",
-      "theme_en": "Fintech Solutions",
-      "reason_en": "Foreign resident financial services platform benefiting from increased demand for cross-border payment solutions"
+      "sector_en": "Personal Care Products",
+      "theme_en": "Healthcare & Consumer Goods",
+      "reason_en": "Positive earnings turnaround and new business restructuring with oral care products driving growth"
     },
     {
       "rank": 2,
-      "ticker": "003535",
-      "name_en": "Hanwha Investment Securities Pref",
-      "change_pct": 30.0,
-      "close_price": 11180,
-      "volume": 959971,
+      "ticker": "013000",
+      "name_en": "Sewoo Global",
+      "change_pct": 29.99,
+      "close_price": 1478,
+      "volume": 8655535,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment Securities",
-      "reason_en": "Strong market recovery driving increased trading volumes and brokerage income expectations"
+      "sector_en": "Construction & Engineering",
+      "theme_en": "Infrastructure Development",
+      "reason_en": "Infrastructure investment boom and government construction spending supporting sector growth"
     },
     {
       "rank": 3,
-      "ticker": "084850",
-      "name_en": "ITM Semiconductor",
-      "change_pct": 30.0,
-      "close_price": 12610,
-      "volume": 51536,
+      "ticker": "050760",
+      "name_en": "S-Polytech",
+      "change_pct": 29.99,
+      "close_price": 1634,
+      "volume": 2133851,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Semiconductor sector rally on AI demand and memory chip supply constraints driving equipment needs"
+      "sector_en": "Chemicals & Materials",
+      "theme_en": "Industrial Materials",
+      "reason_en": "Strong chemical sector performance driven by export recovery and industrial demand"
     },
     {
       "rank": 4,
-      "ticker": "115440",
-      "name_en": "Woori Net",
-      "change_pct": 30.0,
-      "close_price": 12870,
-      "volume": 4460096,
+      "ticker": "014160",
+      "name_en": "Daeyoung Packaging",
+      "change_pct": 29.98,
+      "close_price": 1409,
+      "volume": 48359648,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Technology sector momentum and digital transformation demand boosting IT service providers"
+      "sector_en": "Paper & Packaging",
+      "theme_en": "Consumer Packaging",
+      "reason_en": "Rising packaging demand from e-commerce and consumer goods sector recovery"
     },
     {
       "rank": 5,
-      "ticker": "348150",
-      "name_en": "KoBioLabs",
-      "change_pct": 29.98,
-      "close_price": 6720,
-      "volume": 1028093,
+      "ticker": "152550",
+      "name_en": "Korea ANKOR Petroleum",
+      "change_pct": 29.96,
+      "close_price": 308,
+      "volume": 94881271,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Microbiome Therapeutics",
-      "reason_en": "Biotech rally on microbiome drug development progress and recent US patent acquisition for immune disorder treatments"
+      "sector_en": "Oil & Gas Exploration",
+      "theme_en": "Energy Resources",
+      "reason_en": "Energy sector benefiting from crude oil price stabilization and exploration activities"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "610101",
-      "name_en": "Meritz Inverse 2X Silver Futures ETN(H)",
-      "change_pct": -16.54,
-      "close_price": 42600,
-      "volume": 3038,
+      "ticker": "408470",
+      "name_en": "Hanpass",
+      "change_pct": -20.59,
+      "close_price": 21600,
+      "volume": 4596861,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Commodity ETN",
-      "reason_en": "Inverse silver ETN declining as precious metals recover from recent volatility"
+      "sector_en": "Technology Services",
+      "theme_en": "IT Solutions",
+      "reason_en": "Tech sector rotation away from smaller players amid market volatility and margin pressure"
     },
     {
       "rank": 2,
-      "ticker": "306040",
-      "name_en": "SJ Group",
-      "change_pct": -15.84,
-      "close_price": 6430,
-      "volume": 1490616,
+      "ticker": "009830",
+      "name_en": "Hanwha Solutions",
+      "change_pct": -18.22,
+      "close_price": 36800,
+      "volume": 10598663,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Industrial Conglomerate",
-      "reason_en": "Industrial sector weakness amid supply chain concerns and margin pressure"
+      "sector_en": "Chemicals & Energy",
+      "theme_en": "Renewable Energy",
+      "reason_en": "Chemical sector pressure from cost inflation and renewable energy transition challenges"
     },
     {
       "rank": 3,
-      "ticker": "570119",
-      "name_en": "Korea Investment Inverse 2X Silver Futures ETN",
-      "change_pct": -15.52,
-      "close_price": 45185,
-      "volume": 271,
+      "ticker": "003535",
+      "name_en": "Hanwha Investment Securities Pref",
+      "change_pct": -15.3,
+      "close_price": 9470,
+      "volume": 1231507,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Commodity ETN",
-      "reason_en": "Inverse precious metals positioning hurt by commodity market stabilization"
+      "sector_en": "Financial Services",
+      "theme_en": "Investment Banking",
+      "reason_en": "Financial sector weakness from market volatility impacting trading revenues"
     },
     {
       "rank": 4,
-      "ticker": "060900",
-      "name_en": "Agent AI",
-      "change_pct": -15.22,
-      "close_price": 390,
-      "volume": 25639413,
+      "ticker": "137940",
+      "name_en": "NextEye",
+      "change_pct": -15.19,
+      "close_price": 240,
+      "volume": 18530608,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Artificial Intelligence",
-      "reason_en": "AI stock profit-taking after recent rally and valuation concerns in smaller AI companies"
+      "sector_en": "Healthcare Technology",
+      "theme_en": "Medical Devices",
+      "reason_en": "Healthcare tech consolidation concerns and regulatory uncertainty affecting growth outlook"
     },
     {
       "rank": 5,
-      "ticker": "290660",
-      "name_en": "Neofect",
-      "change_pct": -13.5,
-      "close_price": 1429,
-      "volume": 16017276,
+      "ticker": "179900",
+      "name_en": "UTI",
+      "change_pct": -14.77,
+      "close_price": 17020,
+      "volume": 1289784,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Digital Healthcare",
-      "reason_en": "Healthcare technology selloff on regulatory uncertainty and competitive pressure in digital therapeutics"
+      "sector_en": "Software & Services",
+      "theme_en": "IT Services",
+      "reason_en": "IT services sector facing competitive pressure and economic slowdown concerns"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "5.82",
+      "chg": "6.85",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Biotechnology",
-      "chg": "4.25",
-      "stocks": "KoBioLabs · Celltrion"
+      "name": "Shipbuilding & Heavy Industries",
+      "chg": "5.42",
+      "stocks": "HD Hyundai Heavy · Hyosung Heavy"
     },
     {
-      "name": "Technology Hardware",
-      "chg": "3.91",
-      "stocks": "LG Energy Solution · Samsung SDI"
+      "name": "Defense & Aerospace",
+      "chg": "4.96",
+      "stocks": "Hanwha Aerospace · KAI"
     },
     {
-      "name": "Financial Technology",
-      "chg": "3.64",
-      "stocks": "HanPass · Kakao Pay"
+      "name": "Power & Energy Equipment",
+      "chg": "4.33",
+      "stocks": "HD Hyundai Electric · Doosan Enerbility"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Precious Metals ETNs",
-      "chg": "-16.03",
-      "stocks": "Meritz Inverse Silver · Korea Investment Inverse Silver"
+      "name": "Chemicals & Petrochemicals",
+      "chg": "-3.67",
+      "stocks": "Hanwha Solutions · LG Chem"
     },
     {
-      "name": "Digital Healthcare",
-      "chg": "-14.36",
-      "stocks": "Neofect · Medpacto"
+      "name": "Financial Services",
+      "chg": "-2.98",
+      "stocks": "Hanwha Investment · Mirae Asset"
     },
     {
-      "name": "Industrial Conglomerates",
-      "chg": "-15.84",
-      "stocks": "SJ Group · Daehan Steel"
+      "name": "Healthcare Technology",
+      "chg": "-2.54",
+      "stocks": "NextEye · Celltrion Healthcare"
     },
     {
-      "name": "Small-Cap AI",
-      "chg": "-15.22",
-      "stocks": "Agent AI · AI Holdings"
+      "name": "IT Services",
+      "chg": "-2.21",
+      "stocks": "UTI · Hanpass"
     }
   ],
-  "_built_at": "2026-03-25 16:55",
-  "_date_label": "Wed, Mar 25, 2026"
+  "_built_at": "2026-03-26 17:04",
+  "_date_label": "Thu, Mar 26, 2026"
 }
