@@ -1,190 +1,148 @@
 {
   "market": {
     "kospi": {
-      "value": "5,460.46",
-      "chg_pct": "+3.22%",
-      "chg_abs": "+181.75 pts"
+      "value": "5,438.87",
+      "chg_pct": "+0.40%",
+      "chg_abs": "+21.59 pts"
     },
     "kosdaq": {
-      "value": "1,136.64",
-      "chg_pct": "+1.98%",
-      "chg_abs": "+22.91 pts"
+      "value": "1,141.51",
+      "chg_pct": "+0.43%",
+      "chg_abs": "+4.87 pts"
     },
     "usdkrw": {
-      "value": "1,506",
-      "chg_pct": "+0.13%",
-      "chg_abs": "+2 KRW"
+      "value": "1,508",
+      "chg_pct": "+0.02%",
+      "chg_abs": "+0 KRW"
     }
   },
-  "highlight": "Korean stocks surged with <strong>semiconductor</strong> leadership as AI-driven memory demand propels KOSPI toward 5,000 target in 2026.",
+  "highlight": "<strong>Korean market</strong> — KOSPI +0.40%, KOSDAQ +0.43%.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "225430",
-      "name_en": "KM Pharmaceutical",
+      "ticker": "049080",
+      "name_en": "기가레인",
       "change_pct": 30.0,
-      "close_price": 624,
-      "volume": 4553178,
+      "close_price": 1079,
+      "volume": 61216270,
       "market_cap": 0,
-      "sector_en": "Personal Care Products",
-      "theme_en": "Healthcare & Consumer Goods",
-      "reason_en": "Positive earnings turnaround and new business restructuring with oral care products driving growth"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
-      "ticker": "013000",
-      "name_en": "Sewoo Global",
-      "change_pct": 29.99,
-      "close_price": 1478,
-      "volume": 8655535,
+      "ticker": "289080",
+      "name_en": "SV인베스트먼트",
+      "change_pct": 30.0,
+      "close_price": 4550,
+      "volume": 13803818,
       "market_cap": 0,
-      "sector_en": "Construction & Engineering",
-      "theme_en": "Infrastructure Development",
-      "reason_en": "Infrastructure investment boom and government construction spending supporting sector growth"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "050760",
-      "name_en": "S-Polytech",
-      "change_pct": 29.99,
-      "close_price": 1634,
-      "volume": 2133851,
+      "ticker": "452300",
+      "name_en": "캡스톤파트너스",
+      "change_pct": 29.98,
+      "close_price": 4010,
+      "volume": 12754216,
       "market_cap": 0,
-      "sector_en": "Chemicals & Materials",
-      "theme_en": "Industrial Materials",
-      "reason_en": "Strong chemical sector performance driven by export recovery and industrial demand"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "014160",
-      "name_en": "Daeyoung Packaging",
-      "change_pct": 29.98,
-      "close_price": 1409,
-      "volume": 48359648,
+      "ticker": "046970",
+      "name_en": "우리로",
+      "change_pct": 29.97,
+      "close_price": 7720,
+      "volume": 27984711,
       "market_cap": 0,
-      "sector_en": "Paper & Packaging",
-      "theme_en": "Consumer Packaging",
-      "reason_en": "Rising packaging demand from e-commerce and consumer goods sector recovery"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
-      "ticker": "152550",
-      "name_en": "Korea ANKOR Petroleum",
-      "change_pct": 29.96,
-      "close_price": 308,
-      "volume": 94881271,
+      "ticker": "225430",
+      "name_en": "케이엠제약",
+      "change_pct": 29.97,
+      "close_price": 811,
+      "volume": 2470921,
       "market_cap": 0,
-      "sector_en": "Oil & Gas Exploration",
-      "theme_en": "Energy Resources",
-      "reason_en": "Energy sector benefiting from crude oil price stabilization and exploration activities"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "408470",
-      "name_en": "Hanpass",
-      "change_pct": -20.59,
-      "close_price": 21600,
-      "volume": 4596861,
+      "ticker": "123010",
+      "name_en": "알엔티엑스",
+      "change_pct": -25.86,
+      "close_price": 1144,
+      "volume": 1662428,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT Solutions",
-      "reason_en": "Tech sector rotation away from smaller players amid market volatility and margin pressure"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
-      "ticker": "009830",
-      "name_en": "Hanwha Solutions",
-      "change_pct": -18.22,
-      "close_price": 36800,
-      "volume": 10598663,
+      "ticker": "013000",
+      "name_en": "세우글로벌",
+      "change_pct": -13.73,
+      "close_price": 1275,
+      "volume": 5088973,
       "market_cap": 0,
-      "sector_en": "Chemicals & Energy",
-      "theme_en": "Renewable Energy",
-      "reason_en": "Chemical sector pressure from cost inflation and renewable energy transition challenges"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "003535",
-      "name_en": "Hanwha Investment Securities Pref",
-      "change_pct": -15.3,
-      "close_price": 9470,
-      "volume": 1231507,
+      "ticker": "288330",
+      "name_en": "파라택시스코리아",
+      "change_pct": -13.6,
+      "close_price": 521,
+      "volume": 2137041,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment Banking",
-      "reason_en": "Financial sector weakness from market volatility impacting trading revenues"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "137940",
-      "name_en": "NextEye",
-      "change_pct": -15.19,
-      "close_price": 240,
-      "volume": 18530608,
+      "ticker": "226340",
+      "name_en": "본느",
+      "change_pct": -13.0,
+      "close_price": 482,
+      "volume": 3361801,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Medical Devices",
-      "reason_en": "Healthcare tech consolidation concerns and regulatory uncertainty affecting growth outlook"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
-      "ticker": "179900",
-      "name_en": "UTI",
-      "change_pct": -14.77,
-      "close_price": 17020,
-      "volume": 1289784,
+      "ticker": "071320",
+      "name_en": "지역난방공사",
+      "change_pct": -11.97,
+      "close_price": 79400,
+      "volume": 104304,
       "market_cap": 0,
-      "sector_en": "Software & Services",
-      "theme_en": "IT Services",
-      "reason_en": "IT services sector facing competitive pressure and economic slowdown concerns"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
-  "strong_sectors": [
-    {
-      "name": "Semiconductors",
-      "chg": "6.85",
-      "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
-      "name": "Shipbuilding & Heavy Industries",
-      "chg": "5.42",
-      "stocks": "HD Hyundai Heavy · Hyosung Heavy"
-    },
-    {
-      "name": "Defense & Aerospace",
-      "chg": "4.96",
-      "stocks": "Hanwha Aerospace · KAI"
-    },
-    {
-      "name": "Power & Energy Equipment",
-      "chg": "4.33",
-      "stocks": "HD Hyundai Electric · Doosan Enerbility"
-    }
-  ],
-  "weak_sectors": [
-    {
-      "name": "Chemicals & Petrochemicals",
-      "chg": "-3.67",
-      "stocks": "Hanwha Solutions · LG Chem"
-    },
-    {
-      "name": "Financial Services",
-      "chg": "-2.98",
-      "stocks": "Hanwha Investment · Mirae Asset"
-    },
-    {
-      "name": "Healthcare Technology",
-      "chg": "-2.54",
-      "stocks": "NextEye · Celltrion Healthcare"
-    },
-    {
-      "name": "IT Services",
-      "chg": "-2.21",
-      "stocks": "UTI · Hanpass"
-    }
-  ],
-  "_built_at": "2026-03-26 17:04",
-  "_date_label": "Thu, Mar 26, 2026"
+  "strong_sectors": [],
+  "weak_sectors": [],
+  "_built_at": "2026-03-27 17:01",
+  "_date_label": "Fri, Mar 27, 2026"
 }
