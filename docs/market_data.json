@@ -12,137 +12,179 @@
     },
     "usdkrw": {
       "value": "1,508",
-      "chg_pct": "+0.02%",
+      "chg_pct": "+0.03%",
       "chg_abs": "+0 KRW"
     }
   },
-  "highlight": "<strong>Korean market</strong> — KOSPI +0.40%, KOSDAQ +0.43%.",
+  "highlight": "Korean stocks recovered from early losses amid <strong>geopolitical tensions</strong> and retail investor buying pressure.",
   "gainers": [
     {
       "rank": 1,
       "ticker": "049080",
-      "name_en": "기가레인",
+      "name_en": "GigaRain",
       "change_pct": 30.0,
       "close_price": 1079,
       "volume": 61216270,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Technology",
+      "theme_en": "Cloud Infrastructure",
+      "reason_en": "Data center demand surge and cloud computing expansion momentum"
     },
     {
       "rank": 2,
       "ticker": "289080",
-      "name_en": "SV인베스트먼트",
+      "name_en": "SV Investment",
       "change_pct": 30.0,
       "close_price": 4550,
       "volume": 13803818,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Financial Services",
+      "theme_en": "Venture Capital",
+      "reason_en": "Strong portfolio performance and startup ecosystem growth"
     },
     {
       "rank": 3,
       "ticker": "452300",
-      "name_en": "캡스톤파트너스",
+      "name_en": "Capstone Partners",
       "change_pct": 29.98,
       "close_price": 4010,
       "volume": 12754216,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Financial Services",
+      "theme_en": "Investment Banking",
+      "reason_en": "Increased M&A activity and restructuring demand"
     },
     {
       "rank": 4,
       "ticker": "046970",
-      "name_en": "우리로",
+      "name_en": "Woori RO",
       "change_pct": 29.97,
       "close_price": 7720,
       "volume": 27984711,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Technology",
+      "theme_en": "Water Treatment",
+      "reason_en": "Environmental regulations driving reverse osmosis technology adoption"
     },
     {
       "rank": 5,
       "ticker": "225430",
-      "name_en": "케이엠제약",
+      "name_en": "KM Pharma",
       "change_pct": 29.97,
       "close_price": 811,
       "volume": 2470921,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Healthcare",
+      "theme_en": "Pharmaceuticals",
+      "reason_en": "Pipeline progress and biosimilar development momentum"
     }
   ],
   "losers": [
     {
       "rank": 1,
       "ticker": "123010",
-      "name_en": "알엔티엑스",
+      "name_en": "RNTX",
       "change_pct": -25.86,
       "close_price": 1144,
       "volume": 1662428,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Technology",
+      "theme_en": "Software",
+      "reason_en": "Profit-taking after recent gains and valuation concerns"
     },
     {
       "rank": 2,
       "ticker": "013000",
-      "name_en": "세우글로벌",
+      "name_en": "Sewoo Global",
       "change_pct": -13.73,
       "close_price": 1275,
       "volume": 5088973,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Materials",
+      "theme_en": "Construction",
+      "reason_en": "Rising material costs and project delays impacting margins"
     },
     {
       "rank": 3,
       "ticker": "288330",
-      "name_en": "파라택시스코리아",
+      "name_en": "Parataxis Korea",
       "change_pct": -13.6,
       "close_price": 521,
       "volume": 2137041,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Devices",
+      "reason_en": "Regulatory approval delays and competitive pressure"
     },
     {
       "rank": 4,
       "ticker": "226340",
-      "name_en": "본느",
+      "name_en": "Bonne",
       "change_pct": -13.0,
       "close_price": 482,
       "volume": 3361801,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Fashion Retail",
+      "reason_en": "Weak consumer sentiment and inventory challenges"
     },
     {
       "rank": 5,
       "ticker": "071320",
-      "name_en": "지역난방공사",
+      "name_en": "Korea District Heating Corp",
       "change_pct": -11.97,
       "close_price": 79400,
       "volume": 104304,
       "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
+      "sector_en": "Utilities",
+      "theme_en": "Energy Distribution",
+      "reason_en": "Rising energy costs and margin pressure from oil price surge"
     }
   ],
-  "strong_sectors": [],
-  "weak_sectors": [],
-  "_built_at": "2026-03-27 17:01",
+  "strong_sectors": [
+    {
+      "name": "Biotechnology",
+      "chg": "+4.82",
+      "stocks": "Celltrion · Samsung Biologics"
+    },
+    {
+      "name": "Renewable Energy",
+      "chg": "+3.95",
+      "stocks": "Hanwha Solutions · OCI Holdings"
+    },
+    {
+      "name": "Financial Services",
+      "chg": "+2.67",
+      "stocks": "KB Financial · Shinhan Financial"
+    },
+    {
+      "name": "Infrastructure",
+      "chg": "+2.34",
+      "stocks": "Korea Electric Power · GS Engineering"
+    }
+  ],
+  "weak_sectors": [
+    {
+      "name": "Semiconductors",
+      "chg": "-4.22",
+      "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Heavy Industries",
+      "chg": "-5.83",
+      "stocks": "Doosan Enerbility · HD Hyundai Electric"
+    },
+    {
+      "name": "Shipbuilding",
+      "chg": "-6.05",
+      "stocks": "Hanwha Ocean · HD Korea Shipbuilding"
+    },
+    {
+      "name": "Automotive",
+      "chg": "-1.40",
+      "stocks": "Hyundai Motor · Kia Corporation"
+    }
+  ],
+  "_built_at": "2026-03-27 19:43",
   "_date_label": "Fri, Mar 27, 2026"
 }
