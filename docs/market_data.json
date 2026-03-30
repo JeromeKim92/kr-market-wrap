@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,438.87",
-      "chg_pct": "+0.40%",
-      "chg_abs": "+21.59 pts"
+      "value": "5,277.30",
+      "chg_pct": "+2.97%",
+      "chg_abs": "+161.57 pts"
     },
     "kosdaq": {
-      "value": "1,141.51",
-      "chg_pct": "+0.43%",
-      "chg_abs": "+4.87 pts"
+      "value": "1,107.05",
+      "chg_pct": "+3.02%",
+      "chg_abs": "+34.46 pts"
     },
     "usdkrw": {
-      "value": "1,508",
-      "chg_pct": "+0.03%",
-      "chg_abs": "+0 KRW"
+      "value": "1,517",
+      "chg_pct": "+0.55%",
+      "chg_abs": "+8 KRW"
     }
   },
-  "highlight": "Korean stocks recovered from early losses amid <strong>geopolitical tensions</strong> and retail investor buying pressure.",
+  "highlight": "Korean stocks surged with <strong>KOSPI rising 2.97%</strong> as peace talks in Middle East eased geopolitical tensions.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "049080",
-      "name_en": "GigaRain",
+      "ticker": "161000",
+      "name_en": "Aekyung Chemical",
       "change_pct": 30.0,
-      "close_price": 1079,
-      "volume": 61216270,
+      "close_price": 14820,
+      "volume": 12466195,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Cloud Infrastructure",
-      "reason_en": "Data center demand surge and cloud computing expansion momentum"
+      "sector_en": "Chemicals & Petrochemicals",
+      "theme_en": "Battery Materials",
+      "reason_en": "TPC production facility commercial launch at Ulsan plant driving sodium battery materials growth prospects"
     },
     {
       "rank": 2,
-      "ticker": "289080",
-      "name_en": "SV Investment",
+      "ticker": "058110",
+      "name_en": "MEC ICS",
       "change_pct": 30.0,
-      "close_price": 4550,
-      "volume": 13803818,
+      "close_price": 2665,
+      "volume": 631546,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Venture Capital",
-      "reason_en": "Strong portfolio performance and startup ecosystem growth"
+      "sector_en": "Technology Hardware",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "AI chip demand surge benefiting semiconductor equipment and testing solutions"
     },
     {
       "rank": 3,
-      "ticker": "452300",
-      "name_en": "Capstone Partners",
-      "change_pct": 29.98,
-      "close_price": 4010,
-      "volume": 12754216,
+      "ticker": "078860",
+      "name_en": "Stage One Entertainment",
+      "change_pct": 30.0,
+      "close_price": 624,
+      "volume": 4017504,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment Banking",
-      "reason_en": "Increased M&A activity and restructuring demand"
+      "sector_en": "Entertainment & Media",
+      "theme_en": "Content Creation",
+      "reason_en": "Strong content pipeline and streaming platform expansion driving growth momentum"
     },
     {
       "rank": 4,
-      "ticker": "046970",
-      "name_en": "Woori RO",
+      "ticker": "049120",
+      "name_en": "Fine D&C",
       "change_pct": 29.97,
-      "close_price": 7720,
-      "volume": 27984711,
+      "close_price": 863,
+      "volume": 1396963,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Water Treatment",
-      "reason_en": "Environmental regulations driving reverse osmosis technology adoption"
+      "sector_en": "Construction & Materials",
+      "theme_en": "Infrastructure Development",
+      "reason_en": "Infrastructure spending increase and construction material demand recovery"
     },
     {
       "rank": 5,
-      "ticker": "225430",
-      "name_en": "KM Pharma",
-      "change_pct": 29.97,
-      "close_price": 811,
-      "volume": 2470921,
+      "ticker": "020400",
+      "name_en": "Daedong Metal",
+      "change_pct": 29.96,
+      "close_price": 12190,
+      "volume": 4250133,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Pipeline progress and biosimilar development momentum"
+      "sector_en": "Industrial Materials",
+      "theme_en": "Metal Processing",
+      "reason_en": "Industrial recovery and metal price stabilization boosting manufacturing demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "123010",
-      "name_en": "RNTX",
-      "change_pct": -25.86,
-      "close_price": 1144,
-      "volume": 1662428,
+      "ticker": "007720",
+      "name_en": "Sonosquare",
+      "change_pct": -19.21,
+      "close_price": 408,
+      "volume": 3237862,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Profit-taking after recent gains and valuation concerns"
+      "sector_en": "Retail & Distribution",
+      "theme_en": "E-commerce Platform",
+      "reason_en": "Profit-taking after recent gains and competitive pressure in online retail space"
     },
     {
       "rank": 2,
-      "ticker": "013000",
-      "name_en": "Sewoo Global",
-      "change_pct": -13.73,
-      "close_price": 1275,
-      "volume": 5088973,
+      "ticker": "039310",
+      "name_en": "Sejung",
+      "change_pct": -17.6,
+      "close_price": 2060,
+      "volume": 1313661,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Construction",
-      "reason_en": "Rising material costs and project delays impacting margins"
+      "sector_en": "Industrial Equipment",
+      "theme_en": "Manufacturing Components",
+      "reason_en": "Weak industrial demand and supply chain cost pressures impacting margins"
     },
     {
       "rank": 3,
-      "ticker": "288330",
-      "name_en": "Parataxis Korea",
-      "change_pct": -13.6,
-      "close_price": 521,
-      "volume": 2137041,
+      "ticker": "276040",
+      "name_en": "Skonec Entertainment",
+      "change_pct": -16.0,
+      "close_price": 420,
+      "volume": 1642589,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Devices",
-      "reason_en": "Regulatory approval delays and competitive pressure"
+      "sector_en": "Software & Gaming",
+      "theme_en": "Metaverse Platform",
+      "reason_en": "Metaverse sector consolidation concerns and delayed platform monetization"
     },
     {
       "rank": 4,
-      "ticker": "226340",
-      "name_en": "Bonne",
-      "change_pct": -13.0,
-      "close_price": 482,
-      "volume": 3361801,
+      "ticker": "475830",
+      "name_en": "Orum Therapeutics",
+      "change_pct": -15.57,
+      "close_price": 94900,
+      "volume": 465890,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Fashion Retail",
-      "reason_en": "Weak consumer sentiment and inventory challenges"
+      "sector_en": "Biotechnology",
+      "theme_en": "Drug Development",
+      "reason_en": "Clinical trial uncertainty and biotech sector valuation concerns"
     },
     {
       "rank": 5,
-      "ticker": "071320",
-      "name_en": "Korea District Heating Corp",
-      "change_pct": -11.97,
-      "close_price": 79400,
-      "volume": 104304,
+      "ticker": "078350",
+      "name_en": "Hanyang Digitech",
+      "change_pct": -14.92,
+      "close_price": 29650,
+      "volume": 588099,
       "market_cap": 0,
-      "sector_en": "Utilities",
-      "theme_en": "Energy Distribution",
-      "reason_en": "Rising energy costs and margin pressure from oil price surge"
+      "sector_en": "Technology Services",
+      "theme_en": "Digital Solutions",
+      "reason_en": "Technology sector rotation and competitive pricing pressure in digital services"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Biotechnology",
-      "chg": "+4.82",
+      "name": "Semiconductors & Memory",
+      "chg": "+5.8",
+      "stocks": "Samsung Electronics · SK Hynix"
+    },
+    {
+      "name": "Chemicals & Materials",
+      "chg": "+4.9",
+      "stocks": "Aekyung Chemical · LG Chem"
+    },
+    {
+      "name": "Defense & Aerospace",
+      "chg": "+4.2",
+      "stocks": "Hyundai Rotem · Korean Air"
+    },
+    {
+      "name": "Pharmaceuticals & Biotech",
+      "chg": "+3.7",
       "stocks": "Celltrion · Samsung Biologics"
-    },
-    {
-      "name": "Renewable Energy",
-      "chg": "+3.95",
-      "stocks": "Hanwha Solutions · OCI Holdings"
-    },
-    {
-      "name": "Financial Services",
-      "chg": "+2.67",
-      "stocks": "KB Financial · Shinhan Financial"
-    },
-    {
-      "name": "Infrastructure",
-      "chg": "+2.34",
-      "stocks": "Korea Electric Power · GS Engineering"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "-4.22",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Entertainment & Media",
+      "chg": "-3.1",
+      "stocks": "CJ ENM · Kakao Entertainment"
     },
     {
-      "name": "Heavy Industries",
-      "chg": "-5.83",
-      "stocks": "Doosan Enerbility · HD Hyundai Electric"
+      "name": "Real Estate & Construction",
+      "chg": "-2.8",
+      "stocks": "GS E&C · Daelim Industrial"
     },
     {
-      "name": "Shipbuilding",
-      "chg": "-6.05",
-      "stocks": "Hanwha Ocean · HD Korea Shipbuilding"
+      "name": "Retail & E-commerce",
+      "chg": "-2.4",
+      "stocks": "Sonosquare · Lotte Shopping"
     },
     {
-      "name": "Automotive",
-      "chg": "-1.40",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Utilities & Energy",
+      "chg": "-1.9",
+      "stocks": "KEPCO · GS Caltex"
     }
   ],
-  "_built_at": "2026-03-27 19:43",
-  "_date_label": "Fri, Mar 27, 2026"
+  "_built_at": "2026-03-30 17:23",
+  "_date_label": "Mon, Mar 30, 2026"
 }
