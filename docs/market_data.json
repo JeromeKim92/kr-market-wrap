@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,277.30",
-      "chg_pct": "+2.97%",
-      "chg_abs": "+161.57 pts"
+      "value": "5,052.46",
+      "chg_pct": "+4.26%",
+      "chg_abs": "+224.84 pts"
     },
     "kosdaq": {
-      "value": "1,107.05",
-      "chg_pct": "+3.02%",
-      "chg_abs": "+34.46 pts"
+      "value": "1,052.39",
+      "chg_pct": "+4.94%",
+      "chg_abs": "+54.66 pts"
     },
     "usdkrw": {
-      "value": "1,517",
-      "chg_pct": "+0.55%",
-      "chg_abs": "+8 KRW"
+      "value": "1,531",
+      "chg_pct": "+0.89%",
+      "chg_abs": "+14 KRW"
     }
   },
-  "highlight": "Korean stocks surged with <strong>KOSPI rising 2.97%</strong> as peace talks in Middle East eased geopolitical tensions.",
+  "highlight": "Korean stocks soared <strong>4.26%</strong> amid Middle East de-escalation hopes and global AI chip demand surge.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "161000",
-      "name_en": "Aekyung Chemical",
-      "change_pct": 30.0,
-      "close_price": 14820,
-      "volume": 12466195,
+      "ticker": "394420",
+      "name_en": "Recensmedical",
+      "change_pct": 67.73,
+      "close_price": 18450,
+      "volume": 22914392,
       "market_cap": 0,
-      "sector_en": "Chemicals & Petrochemicals",
-      "theme_en": "Battery Materials",
-      "reason_en": "TPC production facility commercial launch at Ulsan plant driving sodium battery materials growth prospects"
+      "sector_en": "Medical Devices",
+      "theme_en": "IPO Debut",
+      "reason_en": "New listing on KOSDAQ with cutting-edge precision cooling anesthesia technology, 67% surge on debut day"
     },
     {
       "rank": 2,
-      "ticker": "058110",
-      "name_en": "MEC ICS",
-      "change_pct": 30.0,
-      "close_price": 2665,
-      "volume": 631546,
+      "ticker": "001515",
+      "name_en": "SK Securities Preferred",
+      "change_pct": 29.98,
+      "close_price": 6460,
+      "volume": 3558724,
       "market_cap": 0,
-      "sector_en": "Technology Hardware",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "AI chip demand surge benefiting semiconductor equipment and testing solutions"
+      "sector_en": "Financial Services",
+      "theme_en": "Semiconductor Rally",
+      "reason_en": "Beneficiary of SK Group's semiconductor boom and broadening market rally beyond tech giants"
     },
     {
       "rank": 3,
-      "ticker": "078860",
-      "name_en": "Stage One Entertainment",
-      "change_pct": 30.0,
-      "close_price": 624,
-      "volume": 4017504,
+      "ticker": "008355",
+      "name_en": "Namsun Aluminum Preferred",
+      "change_pct": 29.98,
+      "close_price": 16650,
+      "volume": 47649,
       "market_cap": 0,
-      "sector_en": "Entertainment & Media",
-      "theme_en": "Content Creation",
-      "reason_en": "Strong content pipeline and streaming platform expansion driving growth momentum"
+      "sector_en": "Non-ferrous Metals",
+      "theme_en": "Aluminum Demand",
+      "reason_en": "Rising aluminum prices and construction material demand recovery amid infrastructure investment"
     },
     {
       "rank": 4,
-      "ticker": "049120",
-      "name_en": "Fine D&C",
+      "ticker": "018470",
+      "name_en": "Choil Aluminum",
       "change_pct": 29.97,
-      "close_price": 863,
-      "volume": 1396963,
+      "close_price": 1609,
+      "volume": 75986983,
       "market_cap": 0,
-      "sector_en": "Construction & Materials",
-      "theme_en": "Infrastructure Development",
-      "reason_en": "Infrastructure spending increase and construction material demand recovery"
+      "sector_en": "Non-ferrous Metals",
+      "theme_en": "Aluminum Processing",
+      "reason_en": "Aluminum foil and battery material demand from EV sector growth and metal price strength"
     },
     {
       "rank": 5,
-      "ticker": "020400",
-      "name_en": "Daedong Metal",
+      "ticker": "008350",
+      "name_en": "Namsun Aluminum",
       "change_pct": 29.96,
-      "close_price": 12190,
-      "volume": 4250133,
+      "close_price": 1800,
+      "volume": 91058007,
       "market_cap": 0,
-      "sector_en": "Industrial Materials",
-      "theme_en": "Metal Processing",
-      "reason_en": "Industrial recovery and metal price stabilization boosting manufacturing demand"
+      "sector_en": "Non-ferrous Metals",
+      "theme_en": "Construction Materials",
+      "reason_en": "Aluminum window frames and automotive parts benefiting from construction recovery"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "007720",
-      "name_en": "Sonosquare",
-      "change_pct": -19.21,
-      "close_price": 408,
-      "volume": 3237862,
+      "ticker": "000250",
+      "name_en": "Sam Chun Dang Pharm",
+      "change_pct": -29.98,
+      "close_price": 829000,
+      "volume": 1221552,
       "market_cap": 0,
-      "sector_en": "Retail & Distribution",
-      "theme_en": "E-commerce Platform",
-      "reason_en": "Profit-taking after recent gains and competitive pressure in online retail space"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Profit Taking",
+      "reason_en": "Heavy profit-taking after recent biosimilar success and European licensing deals momentum fades"
     },
     {
       "rank": 2,
-      "ticker": "039310",
-      "name_en": "Sejung",
-      "change_pct": -17.6,
-      "close_price": 2060,
-      "volume": 1313661,
+      "ticker": "131030",
+      "name_en": "Optus Pharm",
+      "change_pct": -29.96,
+      "close_price": 13490,
+      "volume": 1443409,
       "market_cap": 0,
-      "sector_en": "Industrial Equipment",
-      "theme_en": "Manufacturing Components",
-      "reason_en": "Weak industrial demand and supply chain cost pressures impacting margins"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Parent Company Decline",
+      "reason_en": "Following parent Sam Chun Dang Pharm's decline despite strong eye drop market position"
     },
     {
       "rank": 3,
-      "ticker": "276040",
-      "name_en": "Skonec Entertainment",
-      "change_pct": -16.0,
-      "close_price": 420,
-      "volume": 1642589,
+      "ticker": "215790",
+      "name_en": "Inno Instrument",
+      "change_pct": -23.8,
+      "close_price": 717,
+      "volume": 8083283,
       "market_cap": 0,
-      "sector_en": "Software & Gaming",
-      "theme_en": "Metaverse Platform",
-      "reason_en": "Metaverse sector consolidation concerns and delayed platform monetization"
+      "sector_en": "Precision Instruments",
+      "theme_en": "Semiconductor Correction",
+      "reason_en": "Semiconductor equipment sector cooling off after extended rally"
     },
     {
       "rank": 4,
-      "ticker": "475830",
-      "name_en": "Orum Therapeutics",
-      "change_pct": -15.57,
-      "close_price": 94900,
-      "volume": 465890,
+      "ticker": "225430",
+      "name_en": "KM Pharm",
+      "change_pct": -22.2,
+      "close_price": 820,
+      "volume": 62083938,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Drug Development",
-      "reason_en": "Clinical trial uncertainty and biotech sector valuation concerns"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Sector Rotation",
+      "reason_en": "Pharmaceutical sector facing headwinds as investors rotate to cyclical sectors"
     },
     {
       "rank": 5,
-      "ticker": "078350",
-      "name_en": "Hanyang Digitech",
-      "change_pct": -14.92,
-      "close_price": 29650,
-      "volume": 588099,
+      "ticker": "091810",
+      "name_en": "T'way Air",
+      "change_pct": -21.85,
+      "close_price": 844,
+      "volume": 16047912,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "Digital Solutions",
-      "reason_en": "Technology sector rotation and competitive pricing pressure in digital services"
+      "sector_en": "Airlines",
+      "theme_en": "Travel Concerns",
+      "reason_en": "Middle East tensions affecting international travel demand and route operations"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors & Memory",
-      "chg": "+5.8",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Semiconductors",
+      "chg": "6.82",
+      "stocks": "Samsung · SK Hynix"
     },
     {
-      "name": "Chemicals & Materials",
-      "chg": "+4.9",
-      "stocks": "Aekyung Chemical · LG Chem"
+      "name": "Medical Devices",
+      "chg": "5.94",
+      "stocks": "Recensmedical · Medytox"
     },
     {
-      "name": "Defense & Aerospace",
-      "chg": "+4.2",
-      "stocks": "Hyundai Rotem · Korean Air"
+      "name": "Non-ferrous Metals",
+      "chg": "5.47",
+      "stocks": "Namsun Aluminum · Choil Aluminum"
     },
     {
-      "name": "Pharmaceuticals & Biotech",
-      "chg": "+3.7",
-      "stocks": "Celltrion · Samsung Biologics"
+      "name": "Financial Services",
+      "chg": "4.15",
+      "stocks": "SK Securities · Mirae Asset"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Entertainment & Media",
-      "chg": "-3.1",
-      "stocks": "CJ ENM · Kakao Entertainment"
+      "name": "Pharmaceuticals",
+      "chg": "-3.21",
+      "stocks": "Sam Chun Dang · Optus"
     },
     {
-      "name": "Real Estate & Construction",
-      "chg": "-2.8",
-      "stocks": "GS E&C · Daelim Industrial"
+      "name": "Airlines",
+      "chg": "-2.87",
+      "stocks": "T'way Air · Korean Air"
     },
     {
-      "name": "Retail & E-commerce",
-      "chg": "-2.4",
-      "stocks": "Sonosquare · Lotte Shopping"
+      "name": "Precision Instruments",
+      "chg": "-2.43",
+      "stocks": "Inno Instrument · Woosung"
     },
     {
-      "name": "Utilities & Energy",
-      "chg": "-1.9",
-      "stocks": "KEPCO · GS Caltex"
+      "name": "Construction",
+      "chg": "-1.65",
+      "stocks": "Samsung C&T · Daelim"
     }
   ],
-  "_built_at": "2026-03-30 17:23",
-  "_date_label": "Mon, Mar 30, 2026"
+  "_built_at": "2026-03-31 17:10",
+  "_date_label": "Tue, Mar 31, 2026"
 }
