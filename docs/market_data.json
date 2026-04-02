@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,478.70",
-      "chg_pct": "+8.44%",
-      "chg_abs": "+426.24 pts"
+      "value": "5,234.05",
+      "chg_pct": "+4.47%",
+      "chg_abs": "+244.65 pts"
     },
     "kosdaq": {
-      "value": "1,116.18",
-      "chg_pct": "+6.06%",
-      "chg_abs": "+63.79 pts"
+      "value": "1,056.34",
+      "chg_pct": "+5.36%",
+      "chg_abs": "+59.84 pts"
     },
     "usdkrw": {
-      "value": "1,506",
-      "chg_pct": "+0.27%",
-      "chg_abs": "+4 KRW"
+      "value": "1,516",
+      "chg_pct": "+0.22%",
+      "chg_abs": "+3 KRW"
     }
   },
-  "highlight": "Korean stocks surged 8.44% as <strong>defense stocks dominated</strong> with Middle East tensions driving unprecedented rally in military-related ETNs and contractors.",
+  "highlight": "South Korea's KOSPI surged <strong>4.47%</strong> to close at 5,234.05, driven by strong export growth and semiconductor earnings momentum as AI infrastructure demand accelerates.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "550092",
-      "name_en": "N2 Monthly Leverage Defense Industry Top5 ETN",
-      "change_pct": 41.11,
-      "close_price": 250000,
-      "volume": 621,
+      "ticker": "215790",
+      "name_en": "Innoinstrument",
+      "change_pct": 29.94,
+      "close_price": 1211,
+      "volume": 33032500,
       "market_cap": 0,
-      "sector_en": "Defense",
-      "theme_en": "Military ETN",
-      "reason_en": "Massive defense industry rally amid Middle East military tensions and Iran conflict escalation"
+      "sector_en": "Optical Equipment",
+      "theme_en": "Optical Semiconductors",
+      "reason_en": "Nvidia mentioned optical semiconductors as core AI infrastructure technology, driving theme rally"
     },
     {
       "rank": 2,
-      "ticker": "065440",
-      "name_en": "Iruen",
-      "change_pct": 30.0,
-      "close_price": 2730,
-      "volume": 9454250,
+      "ticker": "012205",
+      "name_en": "Kyeyangelectricpref",
+      "change_pct": 29.93,
+      "close_price": 9030,
+      "volume": 1257654,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronic Components",
-      "reason_en": "Strong momentum in electronic components sector benefiting from broader tech rally"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Industrial Equipment",
+      "reason_en": "Beneficiary of industrial infrastructure investment and electrical equipment demand surge"
     },
     {
       "rank": 3,
-      "ticker": "215790",
-      "name_en": "Ino Instrument",
-      "change_pct": 29.99,
-      "close_price": 932,
-      "volume": 7858369,
+      "ticker": "079980",
+      "name_en": "Huvis",
+      "change_pct": 29.93,
+      "close_price": 3625,
+      "volume": 2564899,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Precision Instruments",
-      "reason_en": "Industrial equipment demand surge driven by manufacturing recovery and automation trends"
+      "sector_en": "Textiles",
+      "theme_en": "Advanced Materials",
+      "reason_en": "Specialty fiber materials gaining traction in high-tech applications and automotive"
     },
     {
       "rank": 4,
       "ticker": "049080",
-      "name_en": "Giga Rain",
-      "change_pct": 29.98,
-      "close_price": 1574,
-      "volume": 7694022,
+      "name_en": "Gigalane",
+      "change_pct": 29.92,
+      "close_price": 2045,
+      "volume": 72859525,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Technology services benefiting from digital transformation and AI infrastructure buildout"
+      "sector_en": "RF Semiconductors",
+      "theme_en": "5G/IoT Components",
+      "reason_en": "RF communication components essential for 5G infrastructure and IoT device expansion"
     },
     {
       "rank": 5,
-      "ticker": "010170",
-      "name_en": "Korea Telecom",
-      "change_pct": 29.97,
-      "close_price": 9410,
-      "volume": 35169325,
+      "ticker": "152550",
+      "name_en": "Korea ANKOR Oilfield",
+      "change_pct": 29.91,
+      "close_price": 304,
+      "volume": 155496031,
       "market_cap": 0,
-      "sector_en": "Telecommunications",
-      "theme_en": "Telecom Infrastructure",
-      "reason_en": "Telecom infrastructure plays gaining from 5G expansion and network modernization"
+      "sector_en": "Oil & Gas",
+      "theme_en": "Energy Speculation",
+      "reason_en": "Speculative buying on domestic energy discovery news despite being empty fund entity"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "760024",
-      "name_en": "Kiwoom Inverse 2X K-Defense TOP5 ETN",
-      "change_pct": -25.69,
-      "close_price": 6840,
-      "volume": 48017,
+      "ticker": "131030",
+      "name_en": "Optus Pharma",
+      "change_pct": -21.57,
+      "close_price": 10800,
+      "volume": 1256623,
       "market_cap": 0,
-      "sector_en": "Defense",
-      "theme_en": "Inverse Defense ETN",
-      "reason_en": "Inverse defense ETN hammered by massive rally in underlying defense stocks"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Eye Care",
+      "reason_en": "Profit-taking after recent gains from parent company Samchundang's biosimilar deals"
     },
     {
       "rank": 2,
-      "ticker": "700035",
-      "name_en": "Hana Inverse 2X K-Defense TOP10 ETN",
-      "change_pct": -25.54,
-      "close_price": 7260,
-      "volume": 673941,
+      "ticker": "309710",
+      "name_en": "IT Chem",
+      "change_pct": -18.6,
+      "close_price": 21000,
+      "volume": 381474,
       "market_cap": 0,
-      "sector_en": "Defense",
-      "theme_en": "Inverse Defense ETN",
-      "reason_en": "Double-leveraged inverse exposure to surging defense sector causing steep losses"
+      "sector_en": "Specialty Chemicals",
+      "theme_en": "Chemical Materials",
+      "reason_en": "Chemical sector weakness amid concerns over input cost inflation and demand slowdown"
     },
     {
       "rank": 3,
-      "ticker": "152550",
-      "name_en": "Korea ANKOR Oilfield",
-      "change_pct": -22.52,
-      "close_price": 234,
-      "volume": 44486743,
+      "ticker": "000250",
+      "name_en": "Samchundang Pharma",
+      "change_pct": -18.15,
+      "close_price": 609000,
+      "volume": 1303888,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas",
-      "reason_en": "Energy sector weakness despite high oil prices due to geopolitical uncertainty"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Biotechnology",
+      "reason_en": "Correction after biosimilar partnership announcements, valuation adjustment following rally"
     },
     {
       "rank": 4,
-      "ticker": "760028",
-      "name_en": "Kiwoom Inverse 2X Semiconductor TOP10 ETN",
-      "change_pct": -22.36,
-      "close_price": 12885,
-      "volume": 117552,
+      "ticker": "307930",
+      "name_en": "Company K",
+      "change_pct": -17.59,
+      "close_price": 7400,
+      "volume": 1193168,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Inverse Semiconductor ETN",
-      "reason_en": "Inverse semiconductor ETN declining as chip stocks like Samsung and SK Hynix surged"
+      "sector_en": "IT Services",
+      "theme_en": "Software Services",
+      "reason_en": "Tech service companies facing margin pressure amid competitive market environment"
     },
     {
       "rank": 5,
-      "ticker": "700036",
-      "name_en": "Hana Inverse 2X Semiconductor ETN",
-      "change_pct": -21.9,
-      "close_price": 12925,
-      "volume": 206992,
+      "ticker": "217330",
+      "name_en": "Cytogen",
+      "change_pct": -16.34,
+      "close_price": 3890,
+      "volume": 440838,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Inverse Semiconductor ETN",
-      "reason_en": "Leveraged inverse semiconductor exposure hurt by strong semiconductor rally"
+      "sector_en": "Biotechnology",
+      "theme_en": "Drug R&D",
+      "reason_en": "Biotech selloff on clinical trial uncertainties and funding concerns for R&D companies"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Defense & Aerospace",
-      "chg": "+25.48",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
-    },
-    {
       "name": "Semiconductors",
-      "chg": "+12.76",
+      "chg": "7.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Technology Hardware",
-      "chg": "+8.92",
-      "stocks": "SK Square · LG Electronics"
+      "name": "Automotive",
+      "chg": "6.45",
+      "stocks": "Hyundai Motor · Kia Corp"
     },
     {
-      "name": "Automotive",
-      "chg": "+9.21",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Technology Hardware",
+      "chg": "5.91",
+      "stocks": "LG Electronics · Samsung SDI"
+    },
+    {
+      "name": "Energy Storage",
+      "chg": "5.67",
+      "stocks": "LG Energy Solution · SK Innovation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Energy & Oil",
-      "chg": "-8.43",
-      "stocks": "Korea ANKOR · S-Oil"
+      "name": "Pharmaceuticals",
+      "chg": "-3.24",
+      "stocks": "Celltrion · Samsung Biologics"
     },
     {
-      "name": "Inverse ETNs",
-      "chg": "-24.12",
-      "stocks": "Defense Inverse · Semiconductor Inverse"
+      "name": "Chemicals",
+      "chg": "-2.87",
+      "stocks": "LG Chem · Lotte Chemical"
     },
     {
-      "name": "Steel & Materials",
-      "chg": "-4.67",
-      "stocks": "POSCO · Hyundai Steel"
+      "name": "Real Estate",
+      "chg": "-2.43",
+      "stocks": "GS E&C · Daelim Industrial"
     },
     {
-      "name": "Shipbuilding",
-      "chg": "-3.82",
-      "stocks": "HD Hyundai Heavy · Samsung Heavy"
+      "name": "Utilities",
+      "chg": "-1.96",
+      "stocks": "Korea Electric Power · Korea Gas"
     }
   ],
-  "_built_at": "2026-04-01 17:17",
-  "_date_label": "Wed, Apr 1, 2026"
+  "_built_at": "2026-04-02 17:09",
+  "_date_label": "Thu, Apr 2, 2026"
 }
