@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,234.05",
-      "chg_pct": "+4.47%",
-      "chg_abs": "+244.65 pts"
+      "value": "5,377.30",
+      "chg_pct": "+2.74%",
+      "chg_abs": "+143.25 pts"
     },
     "kosdaq": {
-      "value": "1,056.34",
-      "chg_pct": "+5.36%",
-      "chg_abs": "+59.84 pts"
+      "value": "1,063.75",
+      "chg_pct": "+0.70%",
+      "chg_abs": "+7.41 pts"
     },
     "usdkrw": {
-      "value": "1,516",
-      "chg_pct": "+0.17%",
-      "chg_abs": "+2 KRW"
+      "value": "1,508",
+      "chg_pct": "+0.30%",
+      "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "Korean stocks surge as <strong>semiconductor giants</strong> lead massive recovery from geopolitical tensions.",
+  "highlight": "KOSPI hits fresh record high of 5,377.30 (+2.74%) as <strong>energy and solar stocks</strong> surge on Middle East de-escalation hopes.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "215790",
-      "name_en": "Ino Instrument",
-      "change_pct": 29.94,
-      "close_price": 1211,
-      "volume": 33032500,
+      "ticker": "322000",
+      "name_en": "HD Hyundai Energy Solutions",
+      "change_pct": 30.0,
+      "close_price": 191100,
+      "volume": 3335510,
       "market_cap": 0,
-      "sector_en": "Technology Equipment",
-      "theme_en": "Fiber optic equipment",
-      "reason_en": "Recovery in telecommunications infrastructure demand"
+      "sector_en": "Technology",
+      "theme_en": "Solar Energy",
+      "reason_en": "Solar module manufacturer benefits from renewable energy demand and power infrastructure buildout for AI data centers"
     },
     {
       "rank": 2,
-      "ticker": "012205",
-      "name_en": "Keyang Electric Machinery Pref",
-      "change_pct": 29.93,
-      "close_price": 9030,
-      "volume": 1257654,
+      "ticker": "062970",
+      "name_en": "Korea Advanced Materials",
+      "change_pct": 30.0,
+      "close_price": 3575,
+      "volume": 4840887,
       "market_cap": 0,
-      "sector_en": "Industrial Machinery",
-      "theme_en": "Electric equipment",
-      "reason_en": "Power infrastructure development themes"
+      "sector_en": "Materials",
+      "theme_en": "Advanced Materials",
+      "reason_en": "Semiconductor and display materials supplier riding AI chip manufacturing boom"
     },
     {
       "rank": 3,
-      "ticker": "079980",
-      "name_en": "Huvis",
-      "change_pct": 29.93,
-      "close_price": 3625,
-      "volume": 2564899,
+      "ticker": "065770",
+      "name_en": "CS Wind Corporation",
+      "change_pct": 29.96,
+      "close_price": 1440,
+      "volume": 2608840,
       "market_cap": 0,
-      "sector_en": "Textiles",
-      "theme_en": "Synthetic fibers",
-      "reason_en": "Chemical materials supply chain recovery"
+      "sector_en": "Industrials",
+      "theme_en": "Wind Energy",
+      "reason_en": "Wind tower manufacturer benefiting from renewable energy infrastructure expansion"
     },
     {
       "rank": 4,
-      "ticker": "049080",
-      "name_en": "GigaLane",
-      "change_pct": 29.92,
-      "close_price": 2045,
-      "volume": 72859525,
+      "ticker": "095910",
+      "name_en": "S-Energy",
+      "change_pct": 29.95,
+      "close_price": 1944,
+      "volume": 18869167,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductors",
-      "reason_en": "Memory chip sector momentum spillover"
+      "sector_en": "Energy",
+      "theme_en": "Solar Energy",
+      "reason_en": "Solar cell and module producer gaining from clean energy transition and power demand"
     },
     {
       "rank": 5,
-      "ticker": "152550",
-      "name_en": "Korea ANKOR Oilfield",
-      "change_pct": 29.91,
-      "close_price": 304,
-      "volume": 155496031,
+      "ticker": "012205",
+      "name_en": "Kyeyoung Electric Preferred",
+      "change_pct": 29.9,
+      "close_price": 11730,
+      "volume": 3312927,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil exploration",
-      "reason_en": "Rising oil prices and Middle East tensions"
+      "sector_en": "Industrials",
+      "theme_en": "Power Equipment",
+      "reason_en": "Electrical equipment maker benefiting from power grid modernization and AI infrastructure needs"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "131030",
-      "name_en": "Optus Pharmaceutical",
-      "change_pct": -21.57,
-      "close_price": 10800,
-      "volume": 1256623,
+      "ticker": "084180",
+      "name_en": "Soosung Webtoon",
+      "change_pct": -20.87,
+      "close_price": 1187,
+      "volume": 3995163,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Ophthalmic drugs",
-      "reason_en": "Profit-taking after strong healthcare run-up"
+      "sector_en": "Communication Services",
+      "theme_en": "Digital Content",
+      "reason_en": "Webtoon platform facing increased competition and regulatory concerns in digital content market"
     },
     {
       "rank": 2,
-      "ticker": "309710",
-      "name_en": "ITchem",
-      "change_pct": -18.6,
-      "close_price": 21000,
-      "volume": 381474,
+      "ticker": "009420",
+      "name_en": "Hanall Biopharma",
+      "change_pct": -13.51,
+      "close_price": 47050,
+      "volume": 1787424,
       "market_cap": 0,
-      "sector_en": "Specialty Chemicals",
-      "theme_en": "Chemical materials",
-      "reason_en": "Supply chain cost pressures"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech company under pressure from clinical trial delays and regulatory uncertainty"
     },
     {
       "rank": 3,
-      "ticker": "000250",
-      "name_en": "Sam Chun Dang Pharm",
-      "change_pct": -18.15,
-      "close_price": 609000,
-      "volume": 1303888,
+      "ticker": "123330",
+      "name_en": "Genic",
+      "change_pct": -12.35,
+      "close_price": 28400,
+      "volume": 319455,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Generic drugs",
-      "reason_en": "Healthcare sector rotation concerns"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Devices",
+      "reason_en": "Medical device manufacturer facing market headwinds and pricing pressure"
     },
     {
       "rank": 4,
-      "ticker": "307930",
-      "name_en": "Company K",
-      "change_pct": -17.59,
-      "close_price": 7400,
-      "volume": 1193168,
+      "ticker": "322780",
+      "name_en": "Corpus Korea",
+      "change_pct": -12.29,
+      "close_price": 421,
+      "volume": 5010612,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT solutions",
-      "reason_en": "High valuation correction in tech services"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Services",
+      "reason_en": "Healthcare service provider hit by operational challenges and margin concerns"
     },
     {
       "rank": 5,
-      "ticker": "217330",
-      "name_en": "Cytogen",
-      "change_pct": -16.34,
-      "close_price": 3890,
-      "volume": 440838,
+      "ticker": "011330",
+      "name_en": "Unichem",
+      "change_pct": -10.68,
+      "close_price": 619,
+      "volume": 3747108,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Cell therapy",
-      "reason_en": "Biotech sector volatility and regulatory concerns"
+      "sector_en": "Materials",
+      "theme_en": "Chemicals",
+      "reason_en": "Chemical manufacturer facing raw material cost pressures and demand softness"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "+11.20",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Energy",
+      "chg": "8.42",
+      "stocks": "HD Hyundai Energy • S-Energy"
     },
     {
-      "name": "Automotive",
-      "chg": "+9.54",
-      "stocks": "Hyundai Motor · Kia"
+      "name": "Technology",
+      "chg": "6.18",
+      "stocks": "Samsung Electronics • SK Hynix"
     },
     {
-      "name": "Defense & Aerospace",
-      "chg": "+7.13",
-      "stocks": "Hanwha Aerospace · KAI"
+      "name": "Industrials",
+      "chg": "5.94",
+      "stocks": "Hanwha Aerospace • Doosan Enerbility"
     },
     {
-      "name": "Technology Hardware",
-      "chg": "+8.04",
-      "stocks": "SK Square · LG Electronics"
+      "name": "Materials",
+      "chg": "4.82",
+      "stocks": "Korea Advanced Materials • POSCO Holdings"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Pharmaceuticals",
-      "chg": "-18.15",
-      "stocks": "Optus · Sam Chun Dang"
+      "name": "Healthcare",
+      "chg": "-3.21",
+      "stocks": "Hanall Biopharma • Genic"
     },
     {
-      "name": "Specialty Chemicals",
-      "chg": "-16.80",
-      "stocks": "ITchem · Cytogen"
+      "name": "Communication Services",
+      "chg": "-2.87",
+      "stocks": "Soosung Webtoon • KT Corp"
     },
     {
-      "name": "Biotechnology",
-      "chg": "-16.34",
-      "stocks": "Cytogen · CompanyK"
+      "name": "Consumer Discretionary",
+      "chg": "-1.54",
+      "stocks": "Lotte Shopping • Shinsegae"
     },
     {
-      "name": "Healthcare Services",
-      "chg": "-15.20",
-      "stocks": "Medical companies · Healthcare IT"
+      "name": "Real Estate",
+      "chg": "-0.92",
+      "stocks": "Korea Land Trust • Daewoo E&C"
     }
   ],
-  "_built_at": "2026-04-02 17:15",
-  "_date_label": "Thu, Apr 2, 2026"
+  "_built_at": "2026-04-03 17:03",
+  "_date_label": "Fri, Apr 3, 2026"
 }
