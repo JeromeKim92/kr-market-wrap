@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,494.78",
-      "chg_pct": "+0.82%",
-      "chg_abs": "+44.45 pts"
+      "value": "5,872.34",
+      "chg_pct": "+6.87%",
+      "chg_abs": "+377.56 pts"
     },
     "kosdaq": {
-      "value": "1,036.73",
-      "chg_pct": "+1.02%",
-      "chg_abs": "+10.64 pts"
+      "value": "1,089.85",
+      "chg_pct": "+5.12%",
+      "chg_abs": "+53.12 pts"
     },
     "usdkrw": {
-      "value": "1,497",
-      "chg_pct": "+0.75%",
-      "chg_abs": "+11 KRW"
+      "value": "1,479",
+      "chg_pct": "+1.25%",
+      "chg_abs": "+18 KRW"
     }
   },
-  "highlight": "Korean stocks <strong>recovered modestly</strong> as geopolitical tensions ease despite ongoing Middle East concerns.",
+  "highlight": "Oil prices plunged <strong>16% below $100/barrel</strong> after US-Iran ceasefire deal reopened Strait of Hormuz, sparking massive rallies in inverse oil ETNs while crushing leveraged oil products.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "019660",
-      "name_en": "Globon Co",
-      "change_pct": 30.0,
-      "close_price": 2730,
-      "volume": 1446098,
+      "ticker": "520050",
+      "name_en": "Mirae Asset Inverse 2X Oil Futures ETN (H)",
+      "change_pct": 36.53,
+      "close_price": 3065,
+      "volume": 2881747,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Optical Communications",
-      "reason_en": "US optical communications equipment rally boosted telecommunications theme"
+      "sector_en": "Financial",
+      "theme_en": "Inverse Oil Exposure",
+      "reason_en": "Oil prices crashed 16% after US-Iran ceasefire deal reopened Strait of Hormuz, benefiting inverse oil products"
     },
     {
       "rank": 2,
-      "ticker": "109080",
-      "name_en": "Opticis Co",
-      "change_pct": 30.0,
-      "close_price": 16120,
-      "volume": 1960835,
+      "ticker": "530134",
+      "name_en": "Samsung Bloomberg Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": 33.9,
+      "close_price": 3950,
+      "volume": 8240265,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Optical Communications",
-      "reason_en": "Strong performance driven by optical equipment sector momentum amid AI infrastructure demand"
+      "sector_en": "Financial",
+      "theme_en": "Inverse Oil Exposure",
+      "reason_en": "WTI crude tumbled 19% following ceasefire agreement, driving massive gains in inverse oil ETNs"
     },
     {
       "rank": 3,
-      "ticker": "308100",
-      "name_en": "Hyungji Global Co",
-      "change_pct": 30.0,
-      "close_price": 1222,
-      "volume": 10394613,
+      "ticker": "570117",
+      "name_en": "Hanwha Bloomberg Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": 32.66,
+      "close_price": 3940,
+      "volume": 1895859,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Industrial Materials",
-      "reason_en": "Beneficiary of export recovery and industrial sector rotation"
+      "sector_en": "Financial",
+      "theme_en": "Inverse Oil Exposure",
+      "reason_en": "Crude oil plunge from geopolitical de-escalation created windfall for inverse oil exposure products"
     },
     {
       "rank": 4,
-      "ticker": "092600",
-      "name_en": "NCC Co",
-      "change_pct": 29.99,
-      "close_price": 1153,
-      "volume": 5553851,
+      "ticker": "700030",
+      "name_en": "Hana S&P Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": 31.62,
+      "close_price": 3850,
+      "volume": 622355,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Defense Technology",
-      "reason_en": "Defense sector strength amid Middle East tensions and military spending increases"
+      "sector_en": "Financial",
+      "theme_en": "Inverse Oil Exposure",
+      "reason_en": "Brent crude fell 14% to $94/barrel as Iran agreed to reopen shipping routes, benefiting inverse positions"
     },
     {
       "rank": 5,
-      "ticker": "288980",
-      "name_en": "Moadata Co",
-      "change_pct": 29.97,
-      "close_price": 1171,
-      "volume": 12048366,
+      "ticker": "500094",
+      "name_en": "Shinhan Bloomberg Inverse 2X WTI Oil Futures ETN B",
+      "change_pct": 31.43,
+      "close_price": 3910,
+      "volume": 1749412,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Artificial Intelligence",
-      "reason_en": "AI data analytics company gaining from semiconductor and tech sector recovery"
+      "sector_en": "Financial",
+      "theme_en": "Inverse Oil Exposure",
+      "reason_en": "Oil's biggest single-day drop in six years from Middle East ceasefire boosted inverse oil ETN performance"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "060230",
-      "name_en": "JK Synapse Co",
-      "change_pct": -19.31,
-      "close_price": 535,
-      "volume": 16844222,
+      "ticker": "570116",
+      "name_en": "Hanwha Bloomberg Leveraged WTI Oil Futures ETN B",
+      "change_pct": -36.49,
+      "close_price": 48655,
+      "volume": 61177,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Biotechnology sector weakness following Trump's 15% tariff on Korean pharmaceutical products"
+      "sector_en": "Financial",
+      "theme_en": "Leveraged Oil Exposure",
+      "reason_en": "WTI crude's 19% plunge from US-Iran ceasefire devastated leveraged oil products"
     },
     {
       "rank": 2,
-      "ticker": "131030",
-      "name_en": "Optus Pharmaceuticals",
-      "change_pct": -17.24,
-      "close_price": 8980,
-      "volume": 1206032,
+      "ticker": "500093",
+      "name_en": "Shinhan Bloomberg Leveraged WTI Oil Futures ETN B",
+      "change_pct": -36.2,
+      "close_price": 48765,
+      "volume": 19976,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Pharmaceutical sector pressured by new US trade tariffs and regulatory concerns"
+      "sector_en": "Financial",
+      "theme_en": "Leveraged Oil Exposure",
+      "reason_en": "Oil price collapse following geopolitical de-escalation hammered leveraged oil exposure products"
     },
     {
       "rank": 3,
-      "ticker": "000250",
-      "name_en": "Samcheondang Pharmaceutical",
-      "change_pct": -16.02,
-      "close_price": 519000,
-      "volume": 1004575,
+      "ticker": "530133",
+      "name_en": "Samsung Bloomberg Leveraged WTI Oil Futures ETN B",
+      "change_pct": -36.13,
+      "close_price": 48545,
+      "volume": 93172,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Traditional pharmaceutical company hit by sector-wide selling amid tariff concerns"
+      "sector_en": "Financial",
+      "theme_en": "Leveraged Oil Exposure",
+      "reason_en": "Crude oil's biggest drop in six years from ceasefire deal crushed leveraged oil positions"
     },
     {
       "rank": 4,
-      "ticker": "026910",
-      "name_en": "Kwangjin Industrial",
-      "change_pct": -15.97,
-      "close_price": 1442,
-      "volume": 462904,
+      "ticker": "700029",
+      "name_en": "Hana S&P Leveraged WTI Oil Futures ETN B",
+      "change_pct": -36.08,
+      "close_price": 48985,
+      "volume": 782,
       "market_cap": 0,
-      "sector_en": "Industrial",
-      "theme_en": "Manufacturing",
-      "reason_en": "Industrial sector weakness as geopolitical tensions impact export-oriented manufacturers"
+      "sector_en": "Financial",
+      "theme_en": "Leveraged Oil Exposure",
+      "reason_en": "Brent crude's 14% fall as Strait of Hormuz reopened severely impacted leveraged oil ETNs"
     },
     {
       "rank": 5,
-      "ticker": "058450",
-      "name_en": "Hanju ART Co",
-      "change_pct": -15.97,
-      "close_price": 647,
-      "volume": 418462,
+      "ticker": "530031",
+      "name_en": "Samsung Leveraged WTI Oil Futures ETN",
+      "change_pct": -36.01,
+      "close_price": 2790,
+      "volume": 11165587,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Display Technology",
-      "reason_en": "Technology hardware weakness amid broader tech sector volatility and supply chain concerns"
+      "sector_en": "Financial",
+      "theme_en": "Leveraged Oil Exposure",
+      "reason_en": "Oil price crash from Middle East peace prospects devastated all leveraged oil derivative products"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Energy",
-      "chg": "5.64",
-      "stocks": "Korea Electric Power · Hanwha Aerospace"
-    },
-    {
-      "name": "Defense",
-      "chg": "4.82",
-      "stocks": "Hanwha Aerospace · KAI"
-    },
-    {
-      "name": "Technology Hardware",
-      "chg": "3.45",
+      "name": "Technology",
+      "chg": "+9.4",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Renewable Energy",
-      "chg": "3.21",
-      "stocks": "CS Wind · Doosan Enerbility"
+      "name": "Financial Services",
+      "chg": "+7.0",
+      "stocks": "KB Financial Group · Shinhan Financial"
+    },
+    {
+      "name": "Industrial",
+      "chg": "+5.4",
+      "stocks": "Doosan Enerbility · Hanwha Aerospace"
+    },
+    {
+      "name": "Consumer Discretionary",
+      "chg": "+4.3",
+      "stocks": "Hyundai Motor · Kia Corporation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Pharmaceuticals",
-      "chg": "-4.15",
-      "stocks": "Samcheondang · Optus Pharma"
+      "name": "Energy",
+      "chg": "-25.8",
+      "stocks": "Oil ETNs · Energy Infrastructure"
     },
     {
-      "name": "Traditional Manufacturing",
-      "chg": "-3.87",
-      "stocks": "Kwangjin Industrial · Hyundai Heavy"
+      "name": "Materials",
+      "chg": "-8.2",
+      "stocks": "Petrochemicals · Steel"
     },
     {
-      "name": "Consumer Staples",
-      "chg": "-2.93",
-      "stocks": "CJ CheilJedang · Nongshim"
+      "name": "Utilities",
+      "chg": "-4.1",
+      "stocks": "Power Generation · Gas Distribution"
     },
     {
-      "name": "Shipping",
-      "chg": "-2.41",
-      "stocks": "HMM · Korea Line Corp"
+      "name": "Real Estate",
+      "chg": "-2.3",
+      "stocks": "REITs · Property Development"
     }
   ],
-  "_built_at": "2026-04-07 17:15",
-  "_date_label": "Tue, Apr 7, 2026"
+  "_built_at": "2026-04-08 17:14",
+  "_date_label": "Wed, Apr 8, 2026"
 }
