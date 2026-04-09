@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,872.34",
-      "chg_pct": "+6.87%",
-      "chg_abs": "+377.56 pts"
+      "value": "5,778.01",
+      "chg_pct": "+1.61%",
+      "chg_abs": "+94.33 pts"
     },
     "kosdaq": {
-      "value": "1,089.85",
-      "chg_pct": "+5.12%",
-      "chg_abs": "+53.12 pts"
+      "value": "1,076.00",
+      "chg_pct": "+1.27%",
+      "chg_abs": "+13.85 pts"
     },
     "usdkrw": {
-      "value": "1,479",
-      "chg_pct": "+1.25%",
-      "chg_abs": "+18 KRW"
+      "value": "1,482",
+      "chg_pct": "+0.09%",
+      "chg_abs": "+1 KRW"
     }
   },
-  "highlight": "Oil prices plunged <strong>16% below $100/barrel</strong> after US-Iran ceasefire deal reopened Strait of Hormuz, sparking massive rallies in inverse oil ETNs while crushing leveraged oil products.",
+  "highlight": "Korean stocks surged as <strong>semiconductor giants</strong> led record gains following Samsung's blowout Q1 earnings.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "520050",
-      "name_en": "Mirae Asset Inverse 2X Oil Futures ETN (H)",
-      "change_pct": 36.53,
-      "close_price": 3065,
-      "volume": 2881747,
+      "ticker": "017900",
+      "name_en": "Kwangduk Optics",
+      "change_pct": 30.0,
+      "close_price": 10530,
+      "volume": 38525476,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse Oil Exposure",
-      "reason_en": "Oil prices crashed 16% after US-Iran ceasefire deal reopened Strait of Hormuz, benefiting inverse oil products"
+      "sector_en": "Electronics Components",
+      "theme_en": "Optical Components",
+      "reason_en": "Speculative buying in optical component stocks amid tech sector rally and semiconductor strength"
     },
     {
       "rank": 2,
-      "ticker": "530134",
-      "name_en": "Samsung Bloomberg Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": 33.9,
-      "close_price": 3950,
-      "volume": 8240265,
+      "ticker": "069540",
+      "name_en": "Light Electronics",
+      "change_pct": 30.0,
+      "close_price": 4225,
+      "volume": 58825334,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse Oil Exposure",
-      "reason_en": "WTI crude tumbled 19% following ceasefire agreement, driving massive gains in inverse oil ETNs"
+      "sector_en": "Electronics Components",
+      "theme_en": "LED/Semiconductor Components",
+      "reason_en": "Beneficiary of semiconductor upcycle and AI-driven demand for electronic components"
     },
     {
       "rank": 3,
-      "ticker": "570117",
-      "name_en": "Hanwha Bloomberg Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": 32.66,
-      "close_price": 3940,
-      "volume": 1895859,
+      "ticker": "153460",
+      "name_en": "Nabel",
+      "change_pct": 30.0,
+      "close_price": 9100,
+      "volume": 138842,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse Oil Exposure",
-      "reason_en": "Crude oil plunge from geopolitical de-escalation created windfall for inverse oil exposure products"
+      "sector_en": "Technology",
+      "theme_en": "Software Solutions",
+      "reason_en": "Small-cap tech momentum following record Samsung earnings and tech sector optimism"
     },
     {
       "rank": 4,
-      "ticker": "700030",
-      "name_en": "Hana S&P Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": 31.62,
-      "close_price": 3850,
-      "volume": 622355,
+      "ticker": "900100",
+      "name_en": "Ameridge",
+      "change_pct": 30.0,
+      "close_price": 325,
+      "volume": 1408212,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse Oil Exposure",
-      "reason_en": "Brent crude fell 14% to $94/barrel as Iran agreed to reopen shipping routes, benefiting inverse positions"
+      "sector_en": "Investment",
+      "theme_en": "Private Equity",
+      "reason_en": "Investment firms riding broad market rally and positive semiconductor sector outlook"
     },
     {
       "rank": 5,
-      "ticker": "500094",
-      "name_en": "Shinhan Bloomberg Inverse 2X WTI Oil Futures ETN B",
-      "change_pct": 31.43,
-      "close_price": 3910,
-      "volume": 1749412,
+      "ticker": "053260",
+      "name_en": "Kumgang Steel",
+      "change_pct": 29.98,
+      "close_price": 5810,
+      "volume": 4469448,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse Oil Exposure",
-      "reason_en": "Oil's biggest single-day drop in six years from Middle East ceasefire boosted inverse oil ETN performance"
+      "sector_en": "Materials",
+      "theme_en": "Steel Manufacturing",
+      "reason_en": "Industrial materials surge on semiconductor fab construction demand and infrastructure spending"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "570116",
-      "name_en": "Hanwha Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": -36.49,
-      "close_price": 48655,
-      "volume": 61177,
+      "ticker": "011000",
+      "name_en": "Jinwon Life Science",
+      "change_pct": -14.34,
+      "close_price": 699,
+      "volume": 5960125,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Leveraged Oil Exposure",
-      "reason_en": "WTI crude's 19% plunge from US-Iran ceasefire devastated leveraged oil products"
+      "sector_en": "Healthcare",
+      "theme_en": "Pharmaceuticals",
+      "reason_en": "Profit-taking in biotech names amid sector rotation toward semiconductors and tech"
     },
     {
       "rank": 2,
-      "ticker": "500093",
-      "name_en": "Shinhan Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": -36.2,
-      "close_price": 48765,
-      "volume": 19976,
+      "ticker": "206560",
+      "name_en": "Dexter",
+      "change_pct": -12.48,
+      "close_price": 2455,
+      "volume": 1044765,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Leveraged Oil Exposure",
-      "reason_en": "Oil price collapse following geopolitical de-escalation hammered leveraged oil exposure products"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Equipment",
+      "reason_en": "Healthcare equipment weakness as investors pivot to AI and semiconductor themes"
     },
     {
       "rank": 3,
-      "ticker": "530133",
-      "name_en": "Samsung Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": -36.13,
-      "close_price": 48545,
-      "volume": 93172,
+      "ticker": "005965",
+      "name_en": "Dongbu Construction Pfd",
+      "change_pct": -12.01,
+      "close_price": 21250,
+      "volume": 35823,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Leveraged Oil Exposure",
-      "reason_en": "Crude oil's biggest drop in six years from ceasefire deal crushed leveraged oil positions"
+      "sector_en": "Construction",
+      "theme_en": "Infrastructure",
+      "reason_en": "Construction sector underperformance amid concerns over project delays and funding issues"
     },
     {
       "rank": 4,
-      "ticker": "700029",
-      "name_en": "Hana S&P Leveraged WTI Oil Futures ETN B",
-      "change_pct": -36.08,
-      "close_price": 48985,
-      "volume": 782,
+      "ticker": "006490",
+      "name_en": "Inscobi",
+      "change_pct": -11.4,
+      "close_price": 505,
+      "volume": 4013230,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Leveraged Oil Exposure",
-      "reason_en": "Brent crude's 14% fall as Strait of Hormuz reopened severely impacted leveraged oil ETNs"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech selloff as risk capital flows into semiconductor winners with clearer earnings visibility"
     },
     {
       "rank": 5,
-      "ticker": "530031",
-      "name_en": "Samsung Leveraged WTI Oil Futures ETN",
-      "change_pct": -36.01,
-      "close_price": 2790,
-      "volume": 11165587,
+      "ticker": "289220",
+      "name_en": "Giant Step",
+      "change_pct": -10.93,
+      "close_price": 2770,
+      "volume": 599803,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Leveraged Oil Exposure",
-      "reason_en": "Oil price crash from Middle East peace prospects devastated all leveraged oil derivative products"
+      "sector_en": "Technology",
+      "theme_en": "Gaming/Entertainment",
+      "reason_en": "Gaming sector pressure from competition and regulatory concerns in entertainment tech"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "+9.4",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Semiconductors",
+      "chg": "8.42",
+      "stocks": "Samsung · SK Hynix"
     },
     {
-      "name": "Financial Services",
-      "chg": "+7.0",
-      "stocks": "KB Financial Group · Shinhan Financial"
+      "name": "Electronics Components",
+      "chg": "6.28",
+      "stocks": "Kwangduk · Light Electronics"
     },
     {
-      "name": "Industrial",
-      "chg": "+5.4",
-      "stocks": "Doosan Enerbility · Hanwha Aerospace"
+      "name": "Technology Hardware",
+      "chg": "5.91",
+      "stocks": "LG Electronics · Samsung SDI"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "+4.3",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Industrial Materials",
+      "chg": "4.73",
+      "stocks": "Kumgang Steel · Posco Holdings"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Energy",
-      "chg": "-25.8",
-      "stocks": "Oil ETNs · Energy Infrastructure"
+      "name": "Pharmaceuticals",
+      "chg": "-3.24",
+      "stocks": "Jinwon Life · Samsung Biologics"
     },
     {
-      "name": "Materials",
-      "chg": "-8.2",
-      "stocks": "Petrochemicals · Steel"
+      "name": "Construction",
+      "chg": "-2.87",
+      "stocks": "Dongbu Construction · GS Engineering"
     },
     {
-      "name": "Utilities",
-      "chg": "-4.1",
-      "stocks": "Power Generation · Gas Distribution"
+      "name": "Biotechnology",
+      "chg": "-2.45",
+      "stocks": "Inscobi · Celltrion"
     },
     {
-      "name": "Real Estate",
-      "chg": "-2.3",
-      "stocks": "REITs · Property Development"
+      "name": "Entertainment",
+      "chg": "-2.13",
+      "stocks": "Giant Step · Netmarble"
     }
   ],
-  "_built_at": "2026-04-08 17:14",
-  "_date_label": "Wed, Apr 8, 2026"
+  "_built_at": "2026-04-09 17:22",
+  "_date_label": "Thu, Apr 9, 2026"
 }
