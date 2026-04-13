@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "5,858.87",
-      "chg_pct": "+1.40%",
-      "chg_abs": "+80.86 pts"
+      "value": "5,808.62",
+      "chg_pct": "+0.86%",
+      "chg_abs": "+50.25 pts"
     },
     "kosdaq": {
-      "value": "1,093.63",
-      "chg_pct": "+1.64%",
-      "chg_abs": "+17.63 pts"
+      "value": "1,099.84",
+      "chg_pct": "+0.57%",
+      "chg_abs": "+6.21 pts"
     },
     "usdkrw": {
-      "value": "1,486",
-      "chg_pct": "+0.70%",
-      "chg_abs": "+10 KRW"
+      "value": "1,487",
+      "chg_pct": "+0.09%",
+      "chg_abs": "+1 KRW"
     }
   },
-  "highlight": "Korean markets rose <strong>1.40%</strong> today driven by technology strength and semiconductor gains.",
+  "highlight": "Korean markets closed with modest gains as <strong>semiconductor</strong> and AI infrastructure demand continued to support tech stocks amid ongoing geopolitical tensions.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "020400",
-      "name_en": "Daedong Metal",
+      "ticker": "115440",
+      "name_en": "Wooritech",
       "change_pct": 30.0,
-      "close_price": 7020,
-      "volume": 119046,
+      "close_price": 16900,
+      "volume": 12898005,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Metal foundry parts",
-      "reason_en": "Automotive industry recovery and metal casting demand surge"
+      "sector_en": "Technology",
+      "theme_en": "Network Equipment",
+      "reason_en": "AI infrastructure demand and 5G network expansion driving demand for networking solutions"
     },
     {
       "rank": 2,
-      "ticker": "072950",
-      "name_en": "Bitsaem Electronics",
+      "ticker": "368600",
+      "name_en": "ICH",
       "change_pct": 30.0,
-      "close_price": 10790,
-      "volume": 2426751,
+      "close_price": 1157,
+      "volume": 1361265,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "LED displays & microLED",
-      "reason_en": "Strong Q4 2025 earnings growth of 77% and microLED momentum"
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Benefiting from semiconductor industry expansion and equipment upgrade cycles"
     },
     {
       "rank": 3,
-      "ticker": "088800",
-      "name_en": "Acetech",
-      "change_pct": 30.0,
-      "close_price": 5590,
-      "volume": 11886968,
+      "ticker": "027040",
+      "name_en": "Seoul Electronics Telecom",
+      "change_pct": 29.98,
+      "close_price": 581,
+      "volume": 6089924,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Industrial technology",
-      "reason_en": "Industrial automation and precision equipment demand"
+      "theme_en": "Electronics Components",
+      "reason_en": "Strong demand for electronic components in AI and tech infrastructure projects"
     },
     {
       "rank": 4,
-      "ticker": "153460",
-      "name_en": "Neable",
-      "change_pct": 30.0,
-      "close_price": 11830,
-      "volume": 71499,
+      "ticker": "109070",
+      "name_en": "Jusung Corporation",
+      "change_pct": 29.97,
+      "close_price": 1778,
+      "volume": 4810500,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software solutions",
-      "reason_en": "Digital transformation and enterprise software adoption"
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Memory chip production expansion driving equipment demand particularly for DRAM"
     },
     {
       "rank": 5,
-      "ticker": "033200",
-      "name_en": "Moatech",
-      "change_pct": 29.96,
-      "close_price": 4490,
-      "volume": 438555,
+      "ticker": "148250",
+      "name_en": "RN2 Technologies",
+      "change_pct": 29.97,
+      "close_price": 5160,
+      "volume": 943831,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Manufacturing tech",
-      "reason_en": "Semiconductor equipment and manufacturing solutions"
+      "theme_en": "Display Technology",
+      "reason_en": "Growing demand for high-specification displays in AI data centers and devices"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "121850",
-      "name_en": "Coiz",
-      "change_pct": -19.63,
-      "close_price": 3460,
-      "volume": 5077535,
+      "ticker": "208640",
+      "name_en": "SomeAge",
+      "change_pct": -18.3,
+      "close_price": 183,
+      "volume": 11846493,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Digital services",
-      "reason_en": "Profit-taking after recent gains and sector rotation"
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Digital Content",
+      "reason_en": "Weak consumer spending on digital entertainment amid economic uncertainty"
     },
     {
       "rank": 2,
-      "ticker": "005810",
-      "name_en": "Poongsan Holdings",
-      "change_pct": -14.48,
-      "close_price": 46350,
-      "volume": 1235392,
+      "ticker": "095340",
+      "name_en": "ISC",
+      "change_pct": -15.92,
+      "close_price": 216500,
+      "volume": 682724,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Non-ferrous metals",
-      "reason_en": "Metal price volatility and industrial demand concerns"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Concerns over reduced IT spending and margin pressure in services sector"
     },
     {
       "rank": 3,
-      "ticker": "026910",
-      "name_en": "Kwangjin Industry",
-      "change_pct": -13.02,
-      "close_price": 1630,
-      "volume": 694002,
+      "ticker": "121850",
+      "name_en": "Koiz",
+      "change_pct": -15.03,
+      "close_price": 2940,
+      "volume": 1271852,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Industrial materials",
-      "reason_en": "Construction slowdown and material cost pressures"
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Beauty & Personal Care",
+      "reason_en": "Inventory concerns and weakening consumer demand for beauty products"
     },
     {
       "rank": 4,
-      "ticker": "282330",
-      "name_en": "BGF Retail",
-      "change_pct": -11.3,
-      "close_price": 131100,
-      "volume": 75689,
+      "ticker": "009415",
+      "name_en": "Taeyoung Engineering",
+      "change_pct": -13.78,
+      "close_price": 7760,
+      "volume": 64893,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Convenience stores",
-      "reason_en": "Weak consumer spending and retail margin compression"
+      "sector_en": "Real Estate",
+      "theme_en": "Construction",
+      "reason_en": "High interest rates and reduced construction activity impacting profitability"
     },
     {
       "rank": 5,
-      "ticker": "086450",
-      "name_en": "Dong-Kook Pharmaceutical",
-      "change_pct": -10.18,
-      "close_price": 25600,
-      "volume": 2090976,
+      "ticker": "500094",
+      "name_en": "Shinhan Bloomberg Inverse 2X WTI Oil ETN B",
+      "change_pct": -10.98,
+      "close_price": 3285,
+      "volume": 711310,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Regulatory concerns and competitive pressure in drug market"
+      "sector_en": "Energy",
+      "theme_en": "Oil Inverse ETF",
+      "reason_en": "Oil prices rising on Iran conflict concerns causing losses for inverse oil products"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "3.24",
-      "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
       "name": "Semiconductors",
-      "chg": "4.12",
+      "chg": "8.45",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Energy Equipment",
-      "chg": "2.87",
-      "stocks": "Doosan Enerbility · Hanwha Aerospace"
+      "name": "Aerospace & Defense",
+      "chg": "6.23",
+      "stocks": "Hanwha Aerospace · Korean Air"
     },
     {
-      "name": "Automotive",
-      "chg": "2.15",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Technology Hardware",
+      "chg": "5.78",
+      "stocks": "LG Display · Samsung SDI"
+    },
+    {
+      "name": "Energy Infrastructure",
+      "chg": "4.82",
+      "stocks": "Korea Electric Power · GS Energy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Retail",
-      "chg": "-2.34",
-      "stocks": "BGF Retail · Lotte Shopping"
-    },
-    {
-      "name": "Pharmaceuticals",
-      "chg": "-1.89",
-      "stocks": "Dong-Kook Pharmaceutical · Celltrion"
-    },
-    {
       "name": "Construction",
-      "chg": "-1.56",
-      "stocks": "Daewoo E&C · Samsung C&T"
+      "chg": "-5.67",
+      "stocks": "Hyundai Engineering · Daelim Industrial"
     },
     {
-      "name": "Non-ferrous Metals",
-      "chg": "-2.78",
-      "stocks": "Poongsan Holdings · Korea Zinc"
+      "name": "Consumer Discretionary",
+      "chg": "-4.23",
+      "stocks": "Lotte Shopping · E-Mart"
+    },
+    {
+      "name": "Petrochemicals",
+      "chg": "-3.89",
+      "stocks": "LG Chem · SK Innovation"
+    },
+    {
+      "name": "Traditional Manufacturing",
+      "chg": "-2.34",
+      "stocks": "POSCO · Hyundai Steel"
     }
   ],
-  "_built_at": "2026-04-10 17:22",
-  "_date_label": "Fri, Apr 10, 2026"
+  "_built_at": "2026-04-13 18:02",
+  "_date_label": "Mon, Apr 13, 2026"
 }
