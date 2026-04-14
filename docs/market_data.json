@@ -1,190 +1,148 @@
 {
   "market": {
     "kospi": {
-      "value": "5,808.62",
-      "chg_pct": "+0.86%",
-      "chg_abs": "+50.25 pts"
+      "value": "5,967.75",
+      "chg_pct": "+2.74%",
+      "chg_abs": "+159.13 pts"
     },
     "kosdaq": {
-      "value": "1,099.84",
-      "chg_pct": "+0.57%",
-      "chg_abs": "+6.21 pts"
+      "value": "1,121.88",
+      "chg_pct": "+2.00%",
+      "chg_abs": "+22.04 pts"
     },
     "usdkrw": {
-      "value": "1,487",
-      "chg_pct": "+0.09%",
-      "chg_abs": "+1 KRW"
+      "value": "1,474",
+      "chg_pct": "+0.43%",
+      "chg_abs": "+6 KRW"
     }
   },
-  "highlight": "Korean markets closed with modest gains as <strong>semiconductor</strong> and AI infrastructure demand continued to support tech stocks amid ongoing geopolitical tensions.",
+  "highlight": "<strong>Korean market</strong> — KOSPI +2.74%, KOSDAQ +2.00%.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "115440",
-      "name_en": "Wooritech",
+      "ticker": "038060",
+      "name_en": "루멘스",
       "change_pct": 30.0,
-      "close_price": 16900,
-      "volume": 12898005,
+      "close_price": 975,
+      "volume": 7535450,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Network Equipment",
-      "reason_en": "AI infrastructure demand and 5G network expansion driving demand for networking solutions"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
       "ticker": "368600",
-      "name_en": "ICH",
-      "change_pct": 30.0,
-      "close_price": 1157,
-      "volume": 1361265,
+      "name_en": "아이씨에이치",
+      "change_pct": 29.99,
+      "close_price": 1504,
+      "volume": 7814424,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Benefiting from semiconductor industry expansion and equipment upgrade cycles"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "027040",
-      "name_en": "Seoul Electronics Telecom",
+      "ticker": "432720",
+      "name_en": "퀄리타스반도체",
       "change_pct": 29.98,
-      "close_price": 581,
-      "volume": 6089924,
+      "close_price": 20550,
+      "volume": 11942154,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics Components",
-      "reason_en": "Strong demand for electronic components in AI and tech infrastructure projects"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "109070",
-      "name_en": "Jusung Corporation",
+      "ticker": "035200",
+      "name_en": "프럼파스트",
       "change_pct": 29.97,
-      "close_price": 1778,
-      "volume": 4810500,
+      "close_price": 4900,
+      "volume": 2337878,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Memory chip production expansion driving equipment demand particularly for DRAM"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
-      "ticker": "148250",
-      "name_en": "RN2 Technologies",
+      "ticker": "073540",
+      "name_en": "에프알텍",
       "change_pct": 29.97,
-      "close_price": 5160,
-      "volume": 943831,
+      "close_price": 6440,
+      "volume": 6364475,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Display Technology",
-      "reason_en": "Growing demand for high-specification displays in AI data centers and devices"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "208640",
-      "name_en": "SomeAge",
-      "change_pct": -18.3,
-      "close_price": 183,
-      "volume": 11846493,
+      "ticker": "069920",
+      "name_en": "엑시온그룹",
+      "change_pct": -17.81,
+      "close_price": 346,
+      "volume": 3784959,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Digital Content",
-      "reason_en": "Weak consumer spending on digital entertainment amid economic uncertainty"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
-      "ticker": "095340",
-      "name_en": "ISC",
-      "change_pct": -15.92,
-      "close_price": 216500,
-      "volume": 682724,
+      "ticker": "520097",
+      "name_en": "미래에셋 1.5X S&P500 VIX S/T선물 ETN",
+      "change_pct": -11.99,
+      "close_price": 21985,
+      "volume": 134,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Concerns over reduced IT spending and margin pressure in services sector"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "121850",
-      "name_en": "Koiz",
-      "change_pct": -15.03,
-      "close_price": 2940,
-      "volume": 1271852,
+      "ticker": "700029",
+      "name_en": "하나 S&P 레버리지 WTI원유 선물 ETN B",
+      "change_pct": -9.89,
+      "close_price": 53055,
+      "volume": 395,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Beauty & Personal Care",
-      "reason_en": "Inventory concerns and weakening consumer demand for beauty products"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "009415",
-      "name_en": "Taeyoung Engineering",
-      "change_pct": -13.78,
-      "close_price": 7760,
-      "volume": 64893,
+      "ticker": "570116",
+      "name_en": "한투 레버리지WTI원유선물 ETN B",
+      "change_pct": -9.64,
+      "close_price": 53030,
+      "volume": 3664,
       "market_cap": 0,
-      "sector_en": "Real Estate",
-      "theme_en": "Construction",
-      "reason_en": "High interest rates and reduced construction activity impacting profitability"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
-      "ticker": "500094",
-      "name_en": "Shinhan Bloomberg Inverse 2X WTI Oil ETN B",
-      "change_pct": -10.98,
-      "close_price": 3285,
-      "volume": 711310,
+      "ticker": "530031",
+      "name_en": "삼성 레버리지 WTI원유 선물 ETN",
+      "change_pct": -9.57,
+      "close_price": 3025,
+      "volume": 3717274,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil Inverse ETF",
-      "reason_en": "Oil prices rising on Iran conflict concerns causing losses for inverse oil products"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
-  "strong_sectors": [
-    {
-      "name": "Semiconductors",
-      "chg": "8.45",
-      "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
-      "name": "Aerospace & Defense",
-      "chg": "6.23",
-      "stocks": "Hanwha Aerospace · Korean Air"
-    },
-    {
-      "name": "Technology Hardware",
-      "chg": "5.78",
-      "stocks": "LG Display · Samsung SDI"
-    },
-    {
-      "name": "Energy Infrastructure",
-      "chg": "4.82",
-      "stocks": "Korea Electric Power · GS Energy"
-    }
-  ],
-  "weak_sectors": [
-    {
-      "name": "Construction",
-      "chg": "-5.67",
-      "stocks": "Hyundai Engineering · Daelim Industrial"
-    },
-    {
-      "name": "Consumer Discretionary",
-      "chg": "-4.23",
-      "stocks": "Lotte Shopping · E-Mart"
-    },
-    {
-      "name": "Petrochemicals",
-      "chg": "-3.89",
-      "stocks": "LG Chem · SK Innovation"
-    },
-    {
-      "name": "Traditional Manufacturing",
-      "chg": "-2.34",
-      "stocks": "POSCO · Hyundai Steel"
-    }
-  ],
-  "_built_at": "2026-04-13 18:02",
-  "_date_label": "Mon, Apr 13, 2026"
+  "strong_sectors": [],
+  "weak_sectors": [],
+  "_built_at": "2026-04-14 17:28",
+  "_date_label": "Tue, Apr 14, 2026"
 }
