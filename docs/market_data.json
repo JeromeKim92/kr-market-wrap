@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "6,091.39",
-      "chg_pct": "+2.07%",
-      "chg_abs": "+123.64 pts"
+      "value": "6,226.05",
+      "chg_pct": "+2.21%",
+      "chg_abs": "+134.66 pts"
     },
     "kosdaq": {
-      "value": "1,152.43",
-      "chg_pct": "+2.72%",
-      "chg_abs": "+30.55 pts"
+      "value": "1,162.97",
+      "chg_pct": "+0.91%",
+      "chg_abs": "+10.54 pts"
     },
     "usdkrw": {
-      "value": "1,475",
-      "chg_pct": "+0.10%",
-      "chg_abs": "+2 KRW"
+      "value": "1,476",
+      "chg_pct": "+0.03%",
+      "chg_abs": "+0 KRW"
     }
   },
-  "highlight": "<cite index='31-4,31-5'>Korean stocks surged as <strong>AI infrastructure</strong> demand boosted chipmakers with Samsung and SK Hynix leading gains amid tech rally</cite>.",
+  "highlight": "KOSPI surged <strong>2.21%</strong> to 6,226 as quantum computing breakthrough sparked rally in Korean tech stocks amid US-Iran diplomacy hopes.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "009415",
-      "name_en": "Taeyoung E&C Pref",
-      "change_pct": 30.0,
-      "close_price": 11050,
-      "volume": 461325,
+      "ticker": "038060",
+      "name_en": "Lumens",
+      "change_pct": 29.99,
+      "close_price": 1647,
+      "volume": 9014079,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Workout Restructuring",
-      "reason_en": "Asset divestiture visibility and management normalization expectations during workout process"
+      "sector_en": "Optical Components",
+      "theme_en": "Quantum Computing",
+      "reason_en": "Nvidia quantum breakthrough fueled rally in optical component manufacturers for quantum systems"
     },
     {
       "rank": 2,
-      "ticker": "042370",
-      "name_en": "Vitzrotech",
-      "change_pct": 30.0,
-      "close_price": 16250,
-      "volume": 5703200,
+      "ticker": "115500",
+      "name_en": "Korea Computer Systems",
+      "change_pct": 29.97,
+      "close_price": 17780,
+      "volume": 970568,
       "market_cap": 0,
-      "sector_en": "Electric Equipment",
-      "theme_en": "Energy Storage",
-      "reason_en": "Diversified electric equipment and energy storage systems amid power infrastructure build-out"
+      "sector_en": "IT Services",
+      "theme_en": "Quantum Cryptography",
+      "reason_en": "Post-quantum cryptography specialist benefited from quantum computing commercialization expectations"
     },
     {
       "rank": 3,
-      "ticker": "203650",
-      "name_en": "Dream Security",
-      "change_pct": 30.0,
-      "close_price": 2730,
-      "volume": 17780085,
+      "ticker": "258790",
+      "name_en": "SoftCamp",
+      "change_pct": 29.97,
+      "close_price": 1943,
+      "volume": 7903583,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "Cybersecurity",
-      "reason_en": "Digital security solutions demand as IT services sector gains traction"
+      "sector_en": "Software",
+      "theme_en": "Security Technology",
+      "reason_en": "Security software solutions gained on quantum encryption concerns and PQC technology focus"
     },
     {
       "rank": 4,
-      "ticker": "066310",
-      "name_en": "QSI",
-      "change_pct": 29.99,
-      "close_price": 17510,
-      "volume": 5022768,
+      "ticker": "356680",
+      "name_en": "Xgate",
+      "change_pct": 29.97,
+      "close_price": 16870,
+      "volume": 896161,
       "market_cap": 0,
-      "sector_en": "Semiconductors",
-      "theme_en": "Laser Diodes",
-      "reason_en": "LED optical device technology for micro LED applications gaining renewed attention"
+      "sector_en": "IT Services",
+      "theme_en": "Quantum Infrastructure",
+      "reason_en": "Network infrastructure provider surged on quantum computing infrastructure demand"
     },
     {
       "rank": 5,
-      "ticker": "017900",
-      "name_en": "Kwang Jeon Ja",
-      "change_pct": 29.97,
-      "close_price": 17780,
-      "volume": 5017034,
+      "ticker": "050110",
+      "name_en": "Camsys",
+      "change_pct": 29.96,
+      "close_price": 2585,
+      "volume": 1947275,
       "market_cap": 0,
-      "sector_en": "Electronics",
-      "theme_en": "Micro LED",
-      "reason_en": "Micro LED optical device technology revaluation amid continuous uptrend"
+      "sector_en": "Electronic Components",
+      "theme_en": "Quantum Hardware",
+      "reason_en": "Electronic components maker gained on quantum hardware manufacturing prospects"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "900100",
-      "name_en": "Emeridge",
-      "change_pct": -22.04,
-      "close_price": 474,
-      "volume": 5730157,
+      "ticker": "049080",
+      "name_en": "Giga Rain",
+      "change_pct": -29.95,
+      "close_price": 2000,
+      "volume": 28830406,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech Volatility",
-      "reason_en": "Speculative biotech stock experiencing profit-taking after recent volatility"
+      "sector_en": "Optical Equipment",
+      "theme_en": "Traditional Optics",
+      "reason_en": "Traditional optical equipment company declined amid sector rotation to quantum technologies"
     },
     {
       "rank": 2,
-      "ticker": "348950",
-      "name_en": "JR Global REIT",
-      "change_pct": -19.09,
-      "close_price": 1483,
-      "volume": 6907906,
+      "ticker": "215790",
+      "name_en": "Inno Instrument",
+      "change_pct": -29.95,
+      "close_price": 3040,
+      "volume": 31051930,
       "market_cap": 0,
-      "sector_en": "Real Estate",
-      "theme_en": "REIT Refinancing",
-      "reason_en": "Large-scale rights offering concerns and refinancing at higher interest rates pressuring dividend outlook"
+      "sector_en": "Measurement Equipment",
+      "theme_en": "Industrial Equipment",
+      "reason_en": "Industrial measurement equipment faced selling pressure from tech sector rotation"
     },
     {
       "rank": 3,
-      "ticker": "348080",
-      "name_en": "Quratis",
-      "change_pct": -11.73,
-      "close_price": 805,
-      "volume": 2137556,
+      "ticker": "065770",
+      "name_en": "CS",
+      "change_pct": -29.89,
+      "close_price": 1865,
+      "volume": 6007745,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Vaccine Development",
-      "reason_en": "Biotech pullback following recent gains in tuberculosis and COVID-19 vaccine development programs"
+      "sector_en": "Telecom Equipment",
+      "theme_en": "Legacy Telecom",
+      "reason_en": "Traditional telecom equipment declined as focus shifted to quantum communication"
     },
     {
       "rank": 4,
-      "ticker": "570119",
-      "name_en": "Hanwha Inverse 2X Silver ETN",
-      "change_pct": -10.11,
-      "close_price": 35875,
-      "volume": 305,
+      "ticker": "072950",
+      "name_en": "BitSam Electronics",
+      "change_pct": -29.81,
+      "close_price": 16600,
+      "volume": 9042457,
       "market_cap": 0,
-      "sector_en": "ETN",
-      "theme_en": "Commodities",
-      "reason_en": "Inverse silver ETN declining as precious metals strengthen amid geopolitical tensions"
+      "sector_en": "Electronic Components",
+      "theme_en": "Traditional Electronics",
+      "reason_en": "Conventional electronic components faced pressure from quantum technology transition"
     },
     {
       "rank": 5,
-      "ticker": "530133",
-      "name_en": "Samsung Bloomberg Leveraged WTI Oil ETN B",
-      "change_pct": -10.02,
-      "close_price": 47660,
-      "volume": 26720,
+      "ticker": "027040",
+      "name_en": "Seoul Electronic Communication",
+      "change_pct": -29.56,
+      "close_price": 691,
+      "volume": 95076641,
       "market_cap": 0,
-      "sector_en": "ETN",
-      "theme_en": "Energy",
-      "reason_en": "Oil ETN weakness despite higher crude prices due to leveraged structure adjustments"
+      "sector_en": "Communication Equipment",
+      "theme_en": "Legacy Communication",
+      "reason_en": "Traditional communication equipment declined amid quantum communication technology shift"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "4.82",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Quantum Computing",
+      "chg": "12.85",
+      "stocks": "DreamSecurity · Quantum Technology"
     },
     {
       "name": "Semiconductors",
-      "chg": "4.65",
-      "stocks": "QSI · Kwang Jeon Ja"
+      "chg": "8.42",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Defense",
-      "chg": "3.51",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
+      "name": "AI Technology",
+      "chg": "6.73",
+      "stocks": "SK Square · Naver"
     },
     {
-      "name": "Financial",
-      "chg": "2.46",
-      "stocks": "KB Financial · Shinhan Financial"
+      "name": "Cryptography Security",
+      "chg": "5.91",
+      "stocks": "KCS · SoftCamp"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Real Estate",
-      "chg": "-19.09",
-      "stocks": "JR Global REIT · REITs"
+      "name": "Traditional Optics",
+      "chg": "-7.28",
+      "stocks": "Giga Rain · Optical Components"
     },
     {
-      "name": "Biotechnology",
-      "chg": "-16.89",
-      "stocks": "Quratis · Emeridge"
+      "name": "Legacy Telecom",
+      "chg": "-5.94",
+      "stocks": "CS · Seoul Electronic"
     },
     {
-      "name": "Energy ETNs",
-      "chg": "-10.07",
-      "stocks": "Oil ETN · Silver Inverse ETN"
+      "name": "Industrial Equipment",
+      "chg": "-4.67",
+      "stocks": "Inno Instrument · BitSam Electronics"
     },
     {
-      "name": "Commodities",
-      "chg": "-8.54",
-      "stocks": "Precious Metals · Industrial Materials"
+      "name": "Energy",
+      "chg": "-3.15",
+      "stocks": "Oil Refiners · Power Generation"
     }
   ],
-  "_built_at": "2026-04-15 17:46",
-  "_date_label": "Wed, Apr 15, 2026"
+  "_built_at": "2026-04-16 17:27",
+  "_date_label": "Thu, Apr 16, 2026"
 }
