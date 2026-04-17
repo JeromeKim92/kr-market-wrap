@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "6,226.05",
-      "chg_pct": "+2.21%",
-      "chg_abs": "+134.66 pts"
+      "value": "6,191.92",
+      "chg_pct": "+0.55%",
+      "chg_abs": "+34.13 pts"
     },
     "kosdaq": {
-      "value": "1,162.97",
-      "chg_pct": "+0.91%",
-      "chg_abs": "+10.54 pts"
+      "value": "1,170.04",
+      "chg_pct": "+0.61%",
+      "chg_abs": "+7.07 pts"
     },
     "usdkrw": {
-      "value": "1,476",
-      "chg_pct": "+0.03%",
-      "chg_abs": "+0 KRW"
+      "value": "1,482",
+      "chg_pct": "+0.07%",
+      "chg_abs": "+1 KRW"
     }
   },
-  "highlight": "KOSPI surged <strong>2.21%</strong> to 6,226 as quantum computing breakthrough sparked rally in Korean tech stocks amid US-Iran diplomacy hopes.",
+  "highlight": "KOSPI hit fresh monthly highs on <strong>US-Iran diplomacy optimism</strong> and technology gains.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "038060",
-      "name_en": "Lumens",
-      "change_pct": 29.99,
-      "close_price": 1647,
-      "volume": 9014079,
+      "ticker": "049080",
+      "name_en": "GigaRain",
+      "change_pct": 30.0,
+      "close_price": 2600,
+      "volume": 79170321,
       "market_cap": 0,
-      "sector_en": "Optical Components",
-      "theme_en": "Quantum Computing",
-      "reason_en": "Nvidia quantum breakthrough fueled rally in optical component manufacturers for quantum systems"
+      "sector_en": "Technology",
+      "theme_en": "Data Infrastructure",
+      "reason_en": "Technical rebound and speculative buying momentum"
     },
     {
       "rank": 2,
-      "ticker": "115500",
-      "name_en": "Korea Computer Systems",
-      "change_pct": 29.97,
-      "close_price": 17780,
-      "volume": 970568,
+      "ticker": "253840",
+      "name_en": "Sugentech",
+      "change_pct": 30.0,
+      "close_price": 6760,
+      "volume": 12250312,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "Quantum Cryptography",
-      "reason_en": "Post-quantum cryptography specialist benefited from quantum computing commercialization expectations"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Devices",
+      "reason_en": "Diagnostic equipment demand and sector rotation"
     },
     {
       "rank": 3,
-      "ticker": "258790",
-      "name_en": "SoftCamp",
-      "change_pct": 29.97,
-      "close_price": 1943,
-      "volume": 7903583,
+      "ticker": "077970",
+      "name_en": "STX Engine",
+      "change_pct": 29.99,
+      "close_price": 44000,
+      "volume": 3620387,
       "market_cap": 0,
-      "sector_en": "Software",
-      "theme_en": "Security Technology",
-      "reason_en": "Security software solutions gained on quantum encryption concerns and PQC technology focus"
+      "sector_en": "Industrial",
+      "theme_en": "Marine Equipment",
+      "reason_en": "Shipbuilding recovery and global shipping demand"
     },
     {
       "rank": 4,
-      "ticker": "356680",
-      "name_en": "Xgate",
-      "change_pct": 29.97,
-      "close_price": 16870,
-      "volume": 896161,
+      "ticker": "309930",
+      "name_en": "JoyWorksNCo",
+      "change_pct": 29.99,
+      "close_price": 1504,
+      "volume": 1071388,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "Quantum Infrastructure",
-      "reason_en": "Network infrastructure provider surged on quantum computing infrastructure demand"
+      "sector_en": "Consumer",
+      "theme_en": "Home Furnishing",
+      "reason_en": "Food waste processor launch and retail expansion"
     },
     {
       "rank": 5,
-      "ticker": "050110",
-      "name_en": "Camsys",
-      "change_pct": 29.96,
-      "close_price": 2585,
-      "volume": 1947275,
+      "ticker": "299660",
+      "name_en": "Cellid",
+      "change_pct": 29.98,
+      "close_price": 3815,
+      "volume": 6775728,
       "market_cap": 0,
-      "sector_en": "Electronic Components",
-      "theme_en": "Quantum Hardware",
-      "reason_en": "Electronic components maker gained on quantum hardware manufacturing prospects"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Pharmaceutical research pipeline progress"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "049080",
-      "name_en": "Giga Rain",
-      "change_pct": -29.95,
-      "close_price": 2000,
-      "volume": 28830406,
+      "ticker": "208710",
+      "name_en": "Photon",
+      "change_pct": -18.96,
+      "close_price": 2800,
+      "volume": 3928422,
       "market_cap": 0,
-      "sector_en": "Optical Equipment",
-      "theme_en": "Traditional Optics",
-      "reason_en": "Traditional optical equipment company declined amid sector rotation to quantum technologies"
+      "sector_en": "Technology",
+      "theme_en": "Optics",
+      "reason_en": "Profit-taking after previous gains"
     },
     {
       "rank": 2,
-      "ticker": "215790",
-      "name_en": "Inno Instrument",
-      "change_pct": -29.95,
-      "close_price": 3040,
-      "volume": 31051930,
+      "ticker": "001810",
+      "name_en": "Moorim SP",
+      "change_pct": -16.1,
+      "close_price": 1829,
+      "volume": 5629560,
       "market_cap": 0,
-      "sector_en": "Measurement Equipment",
-      "theme_en": "Industrial Equipment",
-      "reason_en": "Industrial measurement equipment faced selling pressure from tech sector rotation"
+      "sector_en": "Materials",
+      "theme_en": "Paper & Packaging",
+      "reason_en": "Weak demand and margin pressure"
     },
     {
       "rank": 3,
-      "ticker": "065770",
-      "name_en": "CS",
-      "change_pct": -29.89,
-      "close_price": 1865,
-      "volume": 6007745,
+      "ticker": "203650",
+      "name_en": "Dream Security",
+      "change_pct": -15.8,
+      "close_price": 2985,
+      "volume": 49969692,
       "market_cap": 0,
-      "sector_en": "Telecom Equipment",
-      "theme_en": "Legacy Telecom",
-      "reason_en": "Traditional telecom equipment declined as focus shifted to quantum communication"
+      "sector_en": "Technology",
+      "theme_en": "Cybersecurity",
+      "reason_en": "Security sector consolidation concerns"
     },
     {
       "rank": 4,
-      "ticker": "072950",
-      "name_en": "BitSam Electronics",
-      "change_pct": -29.81,
-      "close_price": 16600,
-      "volume": 9042457,
+      "ticker": "388790",
+      "name_en": "LiComm",
+      "change_pct": -14.64,
+      "close_price": 7170,
+      "volume": 2776665,
       "market_cap": 0,
-      "sector_en": "Electronic Components",
-      "theme_en": "Traditional Electronics",
-      "reason_en": "Conventional electronic components faced pressure from quantum technology transition"
+      "sector_en": "Technology",
+      "theme_en": "Optical Communication",
+      "reason_en": "Autonomous vehicle regulation uncertainty"
     },
     {
       "rank": 5,
-      "ticker": "027040",
-      "name_en": "Seoul Electronic Communication",
-      "change_pct": -29.56,
-      "close_price": 691,
-      "volume": 95076641,
+      "ticker": "123010",
+      "name_en": "RNTX",
+      "change_pct": -14.08,
+      "close_price": 1709,
+      "volume": 5614690,
       "market_cap": 0,
-      "sector_en": "Communication Equipment",
-      "theme_en": "Legacy Communication",
-      "reason_en": "Traditional communication equipment declined amid quantum communication technology shift"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductors",
+      "reason_en": "Memory chip inventory adjustments"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Quantum Computing",
-      "chg": "12.85",
-      "stocks": "DreamSecurity · Quantum Technology"
-    },
-    {
       "name": "Semiconductors",
-      "chg": "8.42",
+      "chg": "3.89",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "AI Technology",
-      "chg": "6.73",
-      "stocks": "SK Square · Naver"
+      "name": "Automobiles",
+      "chg": "4.12",
+      "stocks": "Hyundai Motor · Kia Corporation"
     },
     {
-      "name": "Cryptography Security",
-      "chg": "5.91",
-      "stocks": "KCS · SoftCamp"
+      "name": "Shipbuilding",
+      "chg": "4.85",
+      "stocks": "HD Hyundai Heavy · Doosan Enerbility"
+    },
+    {
+      "name": "Financial Services",
+      "chg": "2.28",
+      "stocks": "KB Financial · Samsung Securities"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Traditional Optics",
-      "chg": "-7.28",
-      "stocks": "Giga Rain · Optical Components"
+      "name": "Defense",
+      "chg": "-2.15",
+      "stocks": "LIG Nex1 · Hanwha Aerospace"
     },
     {
-      "name": "Legacy Telecom",
-      "chg": "-5.94",
-      "stocks": "CS · Seoul Electronic"
+      "name": "Paper & Pulp",
+      "chg": "-3.42",
+      "stocks": "Moorim SP · Hansol Paper"
     },
     {
-      "name": "Industrial Equipment",
-      "chg": "-4.67",
-      "stocks": "Inno Instrument · BitSam Electronics"
+      "name": "Telecommunications",
+      "chg": "-1.87",
+      "stocks": "KT · SK Telecom"
     },
     {
-      "name": "Energy",
-      "chg": "-3.15",
-      "stocks": "Oil Refiners · Power Generation"
+      "name": "Real Estate",
+      "chg": "-2.63",
+      "stocks": "Lotte REIT · Korea Investment REIT"
     }
   ],
-  "_built_at": "2026-04-16 17:27",
-  "_date_label": "Thu, Apr 16, 2026"
+  "_built_at": "2026-04-17 17:27",
+  "_date_label": "Fri, Apr 17, 2026"
 }
