@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "6,388.47",
-      "chg_pct": "+2.72%",
-      "chg_abs": "+169.38 pts"
+      "value": "6,417.93",
+      "chg_pct": "+0.46%",
+      "chg_abs": "+29.46 pts"
     },
     "kosdaq": {
-      "value": "1,179.03",
-      "chg_pct": "+0.36%",
-      "chg_abs": "+4.18 pts"
+      "value": "1,181.12",
+      "chg_pct": "+0.18%",
+      "chg_abs": "+2.09 pts"
     },
     "usdkrw": {
-      "value": "1,472",
-      "chg_pct": "+0.04%",
-      "chg_abs": "+1 KRW"
+      "value": "1,478",
+      "chg_pct": "+0.27%",
+      "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "The <strong>KOSPI</strong> surged 2.72% to a new record high of 6,388.47, driven by <strong>technology stocks</strong> and hopes for Middle East peace.",
+  "highlight": "Korean stocks achieved <strong>record highs</strong> as AI infrastructure drives semiconductor demand and foreign investors return.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "045510",
-      "name_en": "Jeongwon NCS",
-      "change_pct": 29.96,
-      "close_price": 1297,
-      "volume": 4064416,
+      "ticker": "163730",
+      "name_en": "Finger",
+      "change_pct": 30.0,
+      "close_price": 18070,
+      "volume": 4246531,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "Software & Solutions",
-      "reason_en": "System integration and IT service demand surge"
+      "sector_en": "Software",
+      "theme_en": "Mobile platforms",
+      "reason_en": "Strong mobile gaming recovery and AI integration announcements"
     },
     {
       "rank": 2,
-      "ticker": "222080",
-      "name_en": "CIS",
-      "change_pct": 29.96,
-      "close_price": 16310,
-      "volume": 43748247,
+      "ticker": "171120",
+      "name_en": "Lion Chemtech",
+      "change_pct": 30.0,
+      "close_price": 2925,
+      "volume": 12783019,
       "market_cap": 0,
-      "sector_en": "Industrial Equipment",
-      "theme_en": "Battery Equipment",
-      "reason_en": "EV battery manufacturing equipment demand"
+      "sector_en": "Chemicals",
+      "theme_en": "Specialty chemicals",
+      "reason_en": "New product launches and expansion into high-margin segments"
     },
     {
       "rank": 3,
-      "ticker": "009415",
-      "name_en": "Taeyoung E&C Pref",
-      "change_pct": 29.95,
-      "close_price": 12280,
-      "volume": 808817,
+      "ticker": "045510",
+      "name_en": "Zungwon EN-Sys",
+      "change_pct": 29.99,
+      "close_price": 1686,
+      "volume": 2772578,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Infrastructure",
-      "reason_en": "Construction sector recovery momentum"
+      "sector_en": "Environmental",
+      "theme_en": "Environmental solutions",
+      "reason_en": "Rising demand for environmental compliance solutions"
     },
     {
       "rank": 4,
-      "ticker": "036930",
-      "name_en": "Jusung Engineering",
-      "change_pct": 29.95,
-      "close_price": 118900,
-      "volume": 10101846,
+      "ticker": "312610",
+      "name_en": "AFW",
+      "change_pct": 29.99,
+      "close_price": 1851,
+      "volume": 1716739,
       "market_cap": 0,
-      "sector_en": "Semiconductor Equipment",
-      "theme_en": "Chip Manufacturing",
-      "reason_en": "AI chip production equipment demand"
+      "sector_en": "Manufacturing",
+      "theme_en": "Industrial equipment",
+      "reason_en": "Manufacturing automation trends boosting equipment demand"
     },
     {
       "rank": 5,
-      "ticker": "107640",
-      "name_en": "Hanjung NCS",
-      "change_pct": 29.93,
-      "close_price": 72500,
-      "volume": 2706364,
+      "ticker": "023790",
+      "name_en": "Dongil Steel",
+      "change_pct": 29.98,
+      "close_price": 1305,
+      "volume": 15341597,
       "market_cap": 0,
-      "sector_en": "Energy Equipment",
-      "theme_en": "ESS & EV Battery",
-      "reason_en": "Energy storage system growth"
+      "sector_en": "Steel",
+      "theme_en": "Specialty steel",
+      "reason_en": "Infrastructure investment driving steel demand recovery"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "173940",
-      "name_en": "FNC Entertainment",
-      "change_pct": -15.84,
-      "close_price": 4250,
-      "volume": 292912,
+      "ticker": "224060",
+      "name_en": "The Cody",
+      "change_pct": -16.77,
+      "close_price": 5510,
+      "volume": 270249,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "K-pop & Media",
-      "reason_en": "Entertainment industry valuation concerns"
+      "sector_en": "Retail",
+      "theme_en": "Fashion retail",
+      "reason_en": "Weak consumer spending on discretionary items amid inflation concerns"
     },
     {
       "rank": 2,
-      "ticker": "317120",
-      "name_en": "Lanix",
-      "change_pct": -15.29,
-      "close_price": 2715,
-      "volume": 1162817,
+      "ticker": "011000",
+      "name_en": "Jin Won Life Science",
+      "change_pct": -15.38,
+      "close_price": 1139,
+      "volume": 13071898,
       "market_cap": 0,
-      "sector_en": "Semiconductors",
-      "theme_en": "System Chips",
-      "reason_en": "Automotive chip demand uncertainty"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Biopharmaceuticals",
+      "reason_en": "Regulatory setbacks and increased R&D costs pressuring margins"
     },
     {
       "rank": 3,
-      "ticker": "025770",
-      "name_en": "Korea IT&T",
-      "change_pct": -14.33,
-      "close_price": 13630,
-      "volume": 4865358,
+      "ticker": "000250",
+      "name_en": "Samchundang Pharm",
+      "change_pct": -15.25,
+      "close_price": 403000,
+      "volume": 1164210,
       "market_cap": 0,
-      "sector_en": "Telecommunications",
-      "theme_en": "IT Services",
-      "reason_en": "Telecom infrastructure spending delays"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Generic drugs",
+      "reason_en": "Generic drug price pressures and increased competition"
     },
     {
       "rank": 4,
-      "ticker": "338840",
-      "name_en": "Y-Biologics",
-      "change_pct": -14.03,
-      "close_price": 23600,
-      "volume": 717173,
+      "ticker": "189330",
+      "name_en": "CELab",
+      "change_pct": -14.53,
+      "close_price": 7650,
+      "volume": 4323604,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Antibody Drugs",
-      "reason_en": "Biotech valuation correction"
+      "theme_en": "Medical devices",
+      "reason_en": "Clinical trial delays and funding concerns affecting growth prospects"
     },
     {
       "rank": 5,
-      "ticker": "314130",
-      "name_en": "Genome & Company",
-      "change_pct": -13.25,
-      "close_price": 6090,
-      "volume": 1416548,
+      "ticker": "373170",
+      "name_en": "MiCube Solution",
+      "change_pct": -13.53,
+      "close_price": 3100,
+      "volume": 328268,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Cancer Immunotherapy",
-      "reason_en": "Clinical trial result concerns"
+      "sector_en": "IT Services",
+      "theme_en": "Enterprise software",
+      "reason_en": "Enterprise spending cuts and delayed IT project implementations"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology Hardware",
-      "chg": "4.82",
+      "name": "Semiconductors",
+      "chg": "5.2",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Semiconductor Equipment",
-      "chg": "4.15",
-      "stocks": "Jusung Engineering · Applied Materials Korea"
+      "name": "Shipbuilding",
+      "chg": "4.8",
+      "stocks": "HD Hyundai Heavy · Hanwha Aerospace"
     },
     {
-      "name": "Battery & Energy Storage",
-      "chg": "3.67",
+      "name": "Energy Storage",
+      "chg": "3.7",
       "stocks": "LG Energy Solution · Samsung SDI"
     },
     {
-      "name": "Heavy Industries",
-      "chg": "3.21",
-      "stocks": "HD Hyundai Heavy · Doosan Enerbility"
+      "name": "Defense",
+      "chg": "3.1",
+      "stocks": "Hanwha Systems · LIG Nex1"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Entertainment & Media",
-      "chg": "-2.84",
-      "stocks": "FNC Entertainment · SM Entertainment"
-    },
-    {
-      "name": "Biotechnology",
-      "chg": "-2.12",
-      "stocks": "Y-Biologics · Celltrion"
-    },
-    {
-      "name": "Telecommunications",
-      "chg": "-1.89",
-      "stocks": "Korea IT&T · KT Corp"
-    },
-    {
       "name": "Pharmaceuticals",
-      "chg": "-1.45",
-      "stocks": "Genome & Company · Hanmi Pharm"
+      "chg": "-2.8",
+      "stocks": "Celltrion · Samsung Biologics"
+    },
+    {
+      "name": "Consumer Discretionary",
+      "chg": "-2.1",
+      "stocks": "Lotte Shopping · Hyundai Department Store"
+    },
+    {
+      "name": "Chemicals",
+      "chg": "-1.9",
+      "stocks": "LG Chem · SK Innovation"
+    },
+    {
+      "name": "Real Estate",
+      "chg": "-1.6",
+      "stocks": "Korea Land & Housing · Daelim Industrial"
     }
   ],
-  "_built_at": "2026-04-21 17:59",
-  "_date_label": "Tue, Apr 21, 2026"
+  "_built_at": "2026-04-22 17:49",
+  "_date_label": "Wed, Apr 22, 2026"
 }
