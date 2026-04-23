@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "6,417.93",
-      "chg_pct": "+0.46%",
-      "chg_abs": "+29.46 pts"
+      "value": "6,475.81",
+      "chg_pct": "+0.90%",
+      "chg_abs": "+57.88 pts"
     },
     "kosdaq": {
-      "value": "1,181.12",
-      "chg_pct": "+0.18%",
-      "chg_abs": "+2.09 pts"
+      "value": "1,174.31",
+      "chg_pct": "+0.58%",
+      "chg_abs": "+6.81 pts"
     },
     "usdkrw": {
-      "value": "1,478",
-      "chg_pct": "+0.27%",
-      "chg_abs": "+4 KRW"
+      "value": "1,482",
+      "chg_pct": "+0.16%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean stocks achieved <strong>record highs</strong> as AI infrastructure drives semiconductor demand and foreign investors return.",
+  "highlight": "Korean markets extended gains as <strong>semiconductor exports surged 180%</strong> in April, driving KOSPI to new records amid foreign investor inflows.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "163730",
-      "name_en": "Finger",
+      "ticker": "006345",
+      "name_en": "Daewon Cable",
       "change_pct": 30.0,
-      "close_price": 18070,
-      "volume": 4246531,
+      "close_price": 5330,
+      "volume": 852592,
       "market_cap": 0,
-      "sector_en": "Software",
-      "theme_en": "Mobile platforms",
-      "reason_en": "Strong mobile gaming recovery and AI integration announcements"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Benefiting from AI data center power infrastructure demand and electrical grid upgrades"
     },
     {
       "rank": 2,
-      "ticker": "171120",
-      "name_en": "Lion Chemtech",
+      "ticker": "355150",
+      "name_en": "Kostecsys",
       "change_pct": 30.0,
-      "close_price": 2925,
-      "volume": 12783019,
+      "close_price": 33150,
+      "volume": 1962604,
       "market_cap": 0,
-      "sector_en": "Chemicals",
-      "theme_en": "Specialty chemicals",
-      "reason_en": "New product launches and expansion into high-margin segments"
+      "sector_en": "Semiconductors",
+      "theme_en": "Power Semiconductors",
+      "reason_en": "SiC power semiconductor spacer qualified by US global semiconductor company for EV applications"
     },
     {
       "rank": 3,
-      "ticker": "045510",
-      "name_en": "Zungwon EN-Sys",
-      "change_pct": 29.99,
-      "close_price": 1686,
-      "volume": 2772578,
+      "ticker": "012205",
+      "name_en": "Gyeyang Electric",
+      "change_pct": 29.94,
+      "close_price": 10070,
+      "volume": 2783338,
       "market_cap": 0,
-      "sector_en": "Environmental",
-      "theme_en": "Environmental solutions",
-      "reason_en": "Rising demand for environmental compliance solutions"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Industrial Equipment",
+      "reason_en": "Strong demand for electrical components and power distribution equipment"
     },
     {
       "rank": 4,
-      "ticker": "312610",
-      "name_en": "AFW",
-      "change_pct": 29.99,
-      "close_price": 1851,
-      "volume": 1716739,
+      "ticker": "308080",
+      "name_en": "Biogenecell",
+      "change_pct": 29.91,
+      "close_price": 9600,
+      "volume": 8977701,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Industrial equipment",
-      "reason_en": "Manufacturing automation trends boosting equipment demand"
+      "sector_en": "Biotechnology",
+      "theme_en": "Cell Therapy",
+      "reason_en": "Growing interest in advanced cell therapy and regenerative medicine solutions"
     },
     {
       "rank": 5,
-      "ticker": "023790",
-      "name_en": "Dongil Steel",
-      "change_pct": 29.98,
-      "close_price": 1305,
-      "volume": 15341597,
+      "ticker": "452430",
+      "name_en": "Sapien Semiconductors",
+      "change_pct": 29.88,
+      "close_price": 47600,
+      "volume": 873837,
       "market_cap": 0,
-      "sector_en": "Steel",
-      "theme_en": "Specialty steel",
-      "reason_en": "Infrastructure investment driving steel demand recovery"
+      "sector_en": "Semiconductors",
+      "theme_en": "AR/VR Display",
+      "reason_en": "Secured major CMOS backplane contract for micro-LED AR glasses launching in 2026"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "224060",
-      "name_en": "The Cody",
-      "change_pct": -16.77,
-      "close_price": 5510,
-      "volume": 270249,
+      "ticker": "900100",
+      "name_en": "Emeridge",
+      "change_pct": -23.79,
+      "close_price": 503,
+      "volume": 8563832,
       "market_cap": 0,
-      "sector_en": "Retail",
-      "theme_en": "Fashion retail",
-      "reason_en": "Weak consumer spending on discretionary items amid inflation concerns"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Profit-taking pressure after recent gains and concerns over rising operational costs"
     },
     {
       "rank": 2,
-      "ticker": "011000",
-      "name_en": "Jin Won Life Science",
-      "change_pct": -15.38,
-      "close_price": 1139,
-      "volume": 13071898,
+      "ticker": "045510",
+      "name_en": "Jungwon Ensys",
+      "change_pct": -22.89,
+      "close_price": 1300,
+      "volume": 7248973,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Biopharmaceuticals",
-      "reason_en": "Regulatory setbacks and increased R&D costs pressuring margins"
+      "sector_en": "Environmental",
+      "theme_en": "Waste Management",
+      "reason_en": "Reduced demand for environmental solutions amid economic uncertainties"
     },
     {
       "rank": 3,
-      "ticker": "000250",
-      "name_en": "Samchundang Pharm",
-      "change_pct": -15.25,
-      "close_price": 403000,
-      "volume": 1164210,
+      "ticker": "312610",
+      "name_en": "AFW",
+      "change_pct": -20.8,
+      "close_price": 1466,
+      "volume": 2378723,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Generic drugs",
-      "reason_en": "Generic drug price pressures and increased competition"
+      "sector_en": "Aerospace",
+      "theme_en": "Defense Components",
+      "reason_en": "Concerns over defense spending cuts and delayed military procurement programs"
     },
     {
       "rank": 4,
-      "ticker": "189330",
-      "name_en": "CELab",
-      "change_pct": -14.53,
-      "close_price": 7650,
-      "volume": 4323604,
+      "ticker": "208710",
+      "name_en": "Photon",
+      "change_pct": -18.19,
+      "close_price": 2855,
+      "volume": 3384943,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Medical devices",
-      "reason_en": "Clinical trial delays and funding concerns affecting growth prospects"
+      "sector_en": "Technology",
+      "theme_en": "Optical Components",
+      "reason_en": "Inventory adjustments in optical equipment markets and competition pressures"
     },
     {
       "rank": 5,
-      "ticker": "373170",
-      "name_en": "MiCube Solution",
-      "change_pct": -13.53,
-      "close_price": 3100,
-      "volume": 328268,
+      "ticker": "131760",
+      "name_en": "Fine Tech",
+      "change_pct": -17.99,
+      "close_price": 1673,
+      "volume": 64333736,
       "market_cap": 0,
-      "sector_en": "IT Services",
-      "theme_en": "Enterprise software",
-      "reason_en": "Enterprise spending cuts and delayed IT project implementations"
+      "sector_en": "Manufacturing",
+      "theme_en": "Precision Equipment",
+      "reason_en": "Weak demand from traditional manufacturing sectors amid automation shift"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "5.2",
+      "chg": "6.74",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
       "name": "Shipbuilding",
-      "chg": "4.8",
-      "stocks": "HD Hyundai Heavy · Hanwha Aerospace"
+      "chg": "5.92",
+      "stocks": "HD Hyundai Heavy · Hanwha Ocean"
     },
     {
-      "name": "Energy Storage",
-      "chg": "3.7",
-      "stocks": "LG Energy Solution · Samsung SDI"
+      "name": "Power Equipment",
+      "chg": "4.85",
+      "stocks": "Doosan Enerbility · LG Energy Solution"
     },
     {
       "name": "Defense",
-      "chg": "3.1",
-      "stocks": "Hanwha Systems · LIG Nex1"
+      "chg": "4.23",
+      "stocks": "Hanwha Aerospace · LIG Nex1"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Pharmaceuticals",
-      "chg": "-2.8",
-      "stocks": "Celltrion · Samsung Biologics"
+      "name": "Retail",
+      "chg": "-3.42",
+      "stocks": "Lotte Shopping · Shinsegae"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-2.1",
-      "stocks": "Lotte Shopping · Hyundai Department Store"
+      "name": "Construction",
+      "chg": "-2.87",
+      "stocks": "Samsung C&T · GS E&C"
     },
     {
       "name": "Chemicals",
-      "chg": "-1.9",
-      "stocks": "LG Chem · SK Innovation"
+      "chg": "-2.65",
+      "stocks": "LG Chem · Hanwha Solutions"
     },
     {
-      "name": "Real Estate",
-      "chg": "-1.6",
-      "stocks": "Korea Land & Housing · Daelim Industrial"
+      "name": "Airlines",
+      "chg": "-2.31",
+      "stocks": "Korean Air · Asiana Airlines"
     }
   ],
-  "_built_at": "2026-04-22 17:49",
-  "_date_label": "Wed, Apr 22, 2026"
+  "_built_at": "2026-04-23 17:54",
+  "_date_label": "Thu, Apr 23, 2026"
 }
