@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "6,641.02",
-      "chg_pct": "+0.39%",
-      "chg_abs": "+25.99 pts"
+      "value": "6,690.90",
+      "chg_pct": "+0.75%",
+      "chg_abs": "+49.88 pts"
     },
     "kosdaq": {
-      "value": "1,215.58",
-      "chg_pct": "+0.86%",
-      "chg_abs": "+10.60 pts"
+      "value": "1,220.26",
+      "chg_pct": "+0.39%",
+      "chg_abs": "+4.68 pts"
     },
     "usdkrw": {
-      "value": "1,474",
-      "chg_pct": "+0.05%",
-      "chg_abs": "+1 KRW"
+      "value": "1,480",
+      "chg_pct": "+0.35%",
+      "chg_abs": "+5 KRW"
     }
   },
-  "highlight": "<cite index=\"2-14,8-6,8-12\">Korean stocks hit fresh records as KOSPI reached 6,603 intraday high with strong <strong>semiconductor and infrastructure</strong> gains amid elevated oil prices and Middle East tensions.</cite>",
+  "highlight": "Korean stocks rallied for the third consecutive day as <strong>semiconductor leaders Samsung and SK Hynix</strong> drove gains amid global AI chip demand.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "001780",
-      "name_en": "ALUKO",
+      "ticker": "007610",
+      "name_en": "Seondo Electric",
       "change_pct": 30.0,
-      "close_price": 3445,
-      "volume": 51040836,
+      "close_price": 6500,
+      "volume": 8940881,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Aluminum/Non-ferrous metals",
-      "reason_en": "Construction and infrastructure demand surge amid government spending on smart cities"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Benefits from grid modernization and power transmission upgrades driven by Korea's renewable energy transition and industrial electrification needs."
     },
     {
       "rank": 2,
-      "ticker": "004430",
-      "name_en": "Songwon Industrial",
+      "ticker": "199820",
+      "name_en": "Jeil Electric",
       "change_pct": 30.0,
-      "close_price": 14560,
-      "volume": 7023996,
+      "close_price": 16640,
+      "volume": 8683445,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Steel/Industrial metals",
-      "reason_en": "Rising steel demand for renewable energy and EV infrastructure projects"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Smart Grid",
+      "reason_en": "Specializes in smart distribution equipment and electrical components for Korea's power grid automation and smart city infrastructure projects."
     },
     {
       "rank": 3,
-      "ticker": "008420",
-      "name_en": "Moonbae Steel",
-      "change_pct": 30.0,
-      "close_price": 3185,
-      "volume": 6075381,
+      "ticker": "006340",
+      "name_en": "Daewon Cable",
+      "change_pct": 29.99,
+      "close_price": 13090,
+      "volume": 85684067,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Steel/Construction materials",
-      "reason_en": "Infrastructure modernization and shipbuilding sector recovery boost"
+      "sector_en": "Cable Manufacturing",
+      "theme_en": "Power Transmission",
+      "reason_en": "Produces power cables and transmission lines essential for Korea's expanding renewable energy infrastructure and HVDC projects."
     },
     {
       "rank": 4,
-      "ticker": "058450",
-      "name_en": "Hanju ART",
-      "change_pct": 29.97,
-      "close_price": 5030,
-      "volume": 857222,
+      "ticker": "126340",
+      "name_en": "Vinatech",
+      "change_pct": 29.98,
+      "close_price": 183400,
+      "volume": 748046,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "AI/Digital solutions",
-      "reason_en": "Growing demand for AI-enabled manufacturing and automation technologies"
+      "sector_en": "Energy Storage",
+      "theme_en": "Ultracapacitor Technology",
+      "reason_en": "Leading ultracapacitor manufacturer benefiting from growing demand for energy storage solutions in EVs, renewable energy, and industrial applications."
     },
     {
       "rank": 5,
-      "ticker": "021040",
-      "name_en": "Daeho Special Steel",
-      "change_pct": 29.95,
-      "close_price": 1575,
-      "volume": 5272337,
+      "ticker": "024840",
+      "name_en": "KBI Metal",
+      "change_pct": 29.97,
+      "close_price": 3925,
+      "volume": 6406697,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Specialty steel/Marine infrastructure",
-      "reason_en": "Government marine transmission grid plans driving high-grade steel demand"
+      "sector_en": "Cable Materials",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Supplies cable materials and components for electrical infrastructure projects, benefiting from Korea's power grid expansion and modernization."
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "152550",
-      "name_en": "Korea ANKOR Oilfield",
-      "change_pct": -29.27,
-      "close_price": 58,
-      "volume": 4831423,
+      "ticker": "217620",
+      "name_en": "Sunshine Food",
+      "change_pct": -14.91,
+      "close_price": 97,
+      "volume": 3885390,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil & Gas exploration",
-      "reason_en": "Elevated oil prices and Middle East tensions hurting exploration margins"
+      "sector_en": "Food Processing",
+      "theme_en": "Consumer Staples",
+      "reason_en": "Facing margin pressure from rising raw material costs and weakening consumer spending on discretionary food products."
     },
     {
       "rank": 2,
-      "ticker": "354200",
-      "name_en": "Enzenbio",
-      "change_pct": -25.53,
-      "close_price": 1225,
-      "volume": 3390484,
+      "ticker": "061970",
+      "name_en": "LB Semicon",
+      "change_pct": -14.86,
+      "close_price": 5730,
+      "volume": 4228418,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Pharmaceuticals/Drug development",
-      "reason_en": "Profit-taking after biotech sector rally amid regulatory uncertainty"
+      "sector_en": "Semiconductors",
+      "theme_en": "Chip Components",
+      "reason_en": "Semiconductor equipment supplier suffering from inventory adjustments and reduced capex spending by memory chipmakers despite overall sector strength."
     },
     {
       "rank": 3,
-      "ticker": "217620",
-      "name_en": "Sunshine Food",
-      "change_pct": -21.38,
-      "close_price": 114,
-      "volume": 3732448,
+      "ticker": "021045",
+      "name_en": "Daeho Special Steel Preferred",
+      "change_pct": -14.04,
+      "close_price": 2970,
+      "volume": 123161,
       "market_cap": 0,
-      "sector_en": "Consumer Goods",
-      "theme_en": "Food processing",
-      "reason_en": "Rising input costs and consumer spending pressure amid inflation concerns"
+      "sector_en": "Steel",
+      "theme_en": "Industrial Materials",
+      "reason_en": "Steel sector weakness due to China's economic slowdown reducing demand for specialty steel products and construction materials."
     },
     {
       "rank": 4,
-      "ticker": "298380",
-      "name_en": "ABL Bio",
-      "change_pct": -19.28,
-      "close_price": 139400,
-      "volume": 2893304,
+      "ticker": "058450",
+      "name_en": "Hanju ART",
+      "change_pct": -13.52,
+      "close_price": 4350,
+      "volume": 1051100,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biopharmaceuticals",
-      "reason_en": "Clinical trial delays and competitive pressures in oncology pipeline"
+      "sector_en": "Construction",
+      "theme_en": "Real Estate",
+      "reason_en": "Construction and real estate services company hurt by government property cooling measures and declining construction activity."
     },
     {
       "rank": 5,
-      "ticker": "088130",
-      "name_en": "Donga Eltek",
-      "change_pct": -18.47,
-      "close_price": 11920,
-      "volume": 4624539,
+      "ticker": "139990",
+      "name_en": "Aju Steel",
+      "change_pct": -12.81,
+      "close_price": 3880,
+      "volume": 3090057,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronic components",
-      "reason_en": "Supply chain disruptions and margin pressure from semiconductor shortage"
+      "sector_en": "Steel",
+      "theme_en": "Industrial Materials",
+      "reason_en": "Steel manufacturer pressured by overcapacity concerns and weak demand from shipbuilding and construction sectors."
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "8.14",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "chg": "8.47",
+      "stocks": "Samsung · SK Hynix"
     },
     {
-      "name": "Steel & Metals",
-      "chg": "7.85",
-      "stocks": "POSCO · Hyundai Steel"
+      "name": "Electrical Equipment",
+      "chg": "6.82",
+      "stocks": "LS Electric · HD Hyundai Electric"
     },
     {
-      "name": "Construction Materials",
-      "chg": "6.92",
-      "stocks": "Aluminum companies · Cement makers"
+      "name": "Energy Storage",
+      "chg": "5.34",
+      "stocks": "Vinatech · LG Energy Solution"
     },
     {
-      "name": "Infrastructure",
-      "chg": "5.47",
-      "stocks": "HD Hyundai Heavy · Hanwha Aerospace"
+      "name": "Defense",
+      "chg": "4.15",
+      "stocks": "Hanwha Aerospace · LIG Nex1"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Biotechnology",
-      "chg": "-4.23",
-      "stocks": "ABL Bio · Enzenbio"
+      "name": "Steel",
+      "chg": "-3.74",
+      "stocks": "POSCO · Hyundai Steel"
     },
     {
-      "name": "Oil & Gas",
-      "chg": "-3.87",
-      "stocks": "Korea ANKOR · Energy explorers"
+      "name": "Food & Beverage",
+      "chg": "-2.91",
+      "stocks": "Orion · Nongshim"
     },
     {
-      "name": "Food Processing",
-      "chg": "-2.94",
-      "stocks": "Sunshine Food · Consumer staples"
+      "name": "Construction",
+      "chg": "-2.56",
+      "stocks": "Samsung C&T · Hyundai E&C"
     },
     {
-      "name": "Electronics Components",
-      "chg": "-2.15",
-      "stocks": "Donga Eltek · Component makers"
+      "name": "Chemicals",
+      "chg": "-2.13",
+      "stocks": "LG Chem · SK Innovation"
     }
   ],
-  "_built_at": "2026-04-28 18:25",
-  "_date_label": "Tue, Apr 28, 2026"
+  "_built_at": "2026-04-29 18:12",
+  "_date_label": "Wed, Apr 29, 2026"
 }
