@@ -1,82 +1,82 @@
 {
   "market": {
     "kospi": {
-      "value": "6,690.90",
-      "chg_pct": "+0.75%",
-      "chg_abs": "+49.88 pts"
+      "value": "6,598.87",
+      "chg_pct": "+1.38%",
+      "chg_abs": "+92.03 pts"
     },
     "kosdaq": {
-      "value": "1,220.26",
-      "chg_pct": "+0.39%",
-      "chg_abs": "+4.68 pts"
+      "value": "1,192.35",
+      "chg_pct": "+2.29%",
+      "chg_abs": "+27.91 pts"
     },
     "usdkrw": {
       "value": "1,480",
-      "chg_pct": "+0.35%",
-      "chg_abs": "+5 KRW"
+      "chg_pct": "+0.51%",
+      "chg_abs": "+8 KRW"
     }
   },
-  "highlight": "Korean stocks rallied for the third consecutive day as <strong>semiconductor leaders Samsung and SK Hynix</strong> drove gains amid global AI chip demand.",
+  "highlight": "Korean stocks rally continues with <strong>KOSPI hitting near-record levels</strong> amid AI boom and Middle East tensions driving oil higher.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "007610",
-      "name_en": "Seondo Electric",
-      "change_pct": 30.0,
-      "close_price": 6500,
-      "volume": 8940881,
+      "ticker": "570066",
+      "name_en": "Korea Investment Inverse 2X Vietnam VN30 Futures ETN(H)",
+      "change_pct": 43.46,
+      "close_price": 7130,
+      "volume": 1001,
       "market_cap": 0,
-      "sector_en": "Electrical Equipment",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Benefits from grid modernization and power transmission upgrades driven by Korea's renewable energy transition and industrial electrification needs."
+      "sector_en": "Financials",
+      "theme_en": "Vietnam Inverse ETN",
+      "reason_en": "Vietnam market decline triggers inverse ETN gains as geopolitical tensions affect emerging markets"
     },
     {
       "rank": 2,
-      "ticker": "199820",
-      "name_en": "Jeil Electric",
+      "ticker": "007610",
+      "name_en": "Seondo Electric",
       "change_pct": 30.0,
-      "close_price": 16640,
-      "volume": 8683445,
+      "close_price": 8450,
+      "volume": 3145637,
       "market_cap": 0,
-      "sector_en": "Electrical Equipment",
-      "theme_en": "Smart Grid",
-      "reason_en": "Specializes in smart distribution equipment and electrical components for Korea's power grid automation and smart city infrastructure projects."
+      "sector_en": "Industrials",
+      "theme_en": "Electric Power Equipment",
+      "reason_en": "Power infrastructure demand surge amid AI data center expansion and renewable energy transition"
     },
     {
       "rank": 3,
-      "ticker": "006340",
-      "name_en": "Daewon Cable",
-      "change_pct": 29.99,
-      "close_price": 13090,
-      "volume": 85684067,
+      "ticker": "403550",
+      "name_en": "SOCAR",
+      "change_pct": 30.0,
+      "close_price": 17810,
+      "volume": 120838,
       "market_cap": 0,
-      "sector_en": "Cable Manufacturing",
-      "theme_en": "Power Transmission",
-      "reason_en": "Produces power cables and transmission lines essential for Korea's expanding renewable energy infrastructure and HVDC projects."
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Car Sharing",
+      "reason_en": "Mobility services recovery and expansion plans driving investor interest in shared economy"
     },
     {
       "rank": 4,
-      "ticker": "126340",
-      "name_en": "Vinatech",
-      "change_pct": 29.98,
-      "close_price": 183400,
-      "volume": 748046,
+      "ticker": "101930",
+      "name_en": "Inhwa Precision",
+      "change_pct": 30.0,
+      "close_price": 13520,
+      "volume": 117544,
       "market_cap": 0,
-      "sector_en": "Energy Storage",
-      "theme_en": "Ultracapacitor Technology",
-      "reason_en": "Leading ultracapacitor manufacturer benefiting from growing demand for energy storage solutions in EVs, renewable energy, and industrial applications."
+      "sector_en": "Industrials",
+      "theme_en": "Precision Manufacturing",
+      "reason_en": "High dividend yield announcement and corporate value enhancement plan boosting investor confidence"
     },
     {
       "rank": 5,
-      "ticker": "024840",
-      "name_en": "KBI Metal",
-      "change_pct": 29.97,
-      "close_price": 3925,
-      "volume": 6406697,
+      "ticker": "459510",
+      "name_en": "Nau Robotics",
+      "change_pct": 30.0,
+      "close_price": 30550,
+      "volume": 1877331,
       "market_cap": 0,
-      "sector_en": "Cable Materials",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Supplies cable materials and components for electrical infrastructure projects, benefiting from Korea's power grid expansion and modernization."
+      "sector_en": "Technology",
+      "theme_en": "Industrial Robotics",
+      "reason_en": "AI-driven automation demand and overseas market expansion driving growth prospects"
     }
   ],
   "losers": [
@@ -84,107 +84,107 @@
       "rank": 1,
       "ticker": "217620",
       "name_en": "Sunshine Food",
-      "change_pct": -14.91,
-      "close_price": 97,
-      "volume": 3885390,
+      "change_pct": -37.11,
+      "close_price": 61,
+      "volume": 74570,
       "market_cap": 0,
-      "sector_en": "Food Processing",
-      "theme_en": "Consumer Staples",
-      "reason_en": "Facing margin pressure from rising raw material costs and weakening consumer spending on discretionary food products."
+      "sector_en": "Consumer Staples",
+      "theme_en": "Food Processing",
+      "reason_en": "Food cost inflation pressures and margin squeeze amid rising commodity prices"
     },
     {
       "rank": 2,
-      "ticker": "061970",
-      "name_en": "LB Semicon",
-      "change_pct": -14.86,
-      "close_price": 5730,
-      "volume": 4228418,
+      "ticker": "500094",
+      "name_en": "Shinhan Bloomberg Inverse 2X WTI Crude Oil Futures ETN B",
+      "change_pct": -18.8,
+      "close_price": 2375,
+      "volume": 4020685,
       "market_cap": 0,
-      "sector_en": "Semiconductors",
-      "theme_en": "Chip Components",
-      "reason_en": "Semiconductor equipment supplier suffering from inventory adjustments and reduced capex spending by memory chipmakers despite overall sector strength."
+      "sector_en": "Financials",
+      "theme_en": "Oil Inverse ETN",
+      "reason_en": "WTI crude oil surge above $100 due to Middle East tensions causing inverse ETN losses"
     },
     {
       "rank": 3,
-      "ticker": "021045",
-      "name_en": "Daeho Special Steel Preferred",
-      "change_pct": -14.04,
-      "close_price": 2970,
-      "volume": 123161,
+      "ticker": "530134",
+      "name_en": "Samsung Bloomberg Inverse 2X WTI Crude Oil Futures ETN B",
+      "change_pct": -18.15,
+      "close_price": 2390,
+      "volume": 16100071,
       "market_cap": 0,
-      "sector_en": "Steel",
-      "theme_en": "Industrial Materials",
-      "reason_en": "Steel sector weakness due to China's economic slowdown reducing demand for specialty steel products and construction materials."
+      "sector_en": "Financials",
+      "theme_en": "Oil Inverse ETN",
+      "reason_en": "Oil price rally from OPEC disruption and Iran tensions hurting inverse oil products"
     },
     {
       "rank": 4,
-      "ticker": "058450",
-      "name_en": "Hanju ART",
-      "change_pct": -13.52,
-      "close_price": 4350,
-      "volume": 1051100,
+      "ticker": "570117",
+      "name_en": "Korea Investment Inverse 2X WTI Crude Oil Futures ETN B",
+      "change_pct": -17.64,
+      "close_price": 2405,
+      "volume": 2379639,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Real Estate",
-      "reason_en": "Construction and real estate services company hurt by government property cooling measures and declining construction activity."
+      "sector_en": "Financials",
+      "theme_en": "Oil Inverse ETN",
+      "reason_en": "Brent crude above $111 per barrel amid geopolitical risks driving inverse ETN declines"
     },
     {
       "rank": 5,
-      "ticker": "139990",
-      "name_en": "Aju Steel",
-      "change_pct": -12.81,
-      "close_price": 3880,
-      "volume": 3090057,
+      "ticker": "580069",
+      "name_en": "KB S&P Inverse 2X WTI Crude Oil Futures ETN B",
+      "change_pct": -17.5,
+      "close_price": 2475,
+      "volume": 2930909,
       "market_cap": 0,
-      "sector_en": "Steel",
-      "theme_en": "Industrial Materials",
-      "reason_en": "Steel manufacturer pressured by overcapacity concerns and weak demand from shipbuilding and construction sectors."
+      "sector_en": "Financials",
+      "theme_en": "Oil Inverse ETN",
+      "reason_en": "Middle East uncertainty and UAE OPEC exit pushing oil higher, pressuring inverse positions"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "8.47",
-      "stocks": "Samsung · SK Hynix"
+      "name": "Technology",
+      "chg": "6.82",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Electrical Equipment",
-      "chg": "6.82",
-      "stocks": "LS Electric · HD Hyundai Electric"
+      "name": "Automotive",
+      "chg": "5.24",
+      "stocks": "Hyundai Motor · Kia Corporation"
     },
     {
       "name": "Energy Storage",
-      "chg": "5.34",
-      "stocks": "Vinatech · LG Energy Solution"
+      "chg": "4.95",
+      "stocks": "Samsung SDI · LG Energy Solution"
     },
     {
-      "name": "Defense",
-      "chg": "4.15",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
+      "name": "Defense Aerospace",
+      "chg": "3.67",
+      "stocks": "Hanwha Aerospace · HD Hyundai Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Steel",
-      "chg": "-3.74",
-      "stocks": "POSCO · Hyundai Steel"
+      "name": "Oil Inverse ETNs",
+      "chg": "-17.82",
+      "stocks": "Shinhan Oil Inverse · Samsung Oil Inverse"
     },
     {
-      "name": "Food & Beverage",
-      "chg": "-2.91",
-      "stocks": "Orion · Nongshim"
+      "name": "Food Processing",
+      "chg": "-8.43",
+      "stocks": "Sunshine Food · Food Manufacturers"
     },
     {
-      "name": "Construction",
-      "chg": "-2.56",
-      "stocks": "Samsung C&T · Hyundai E&C"
+      "name": "Biotech",
+      "chg": "-2.15",
+      "stocks": "Celltrion · Bio Companies"
     },
     {
-      "name": "Chemicals",
-      "chg": "-2.13",
-      "stocks": "LG Chem · SK Innovation"
+      "name": "Shipbuilding",
+      "chg": "-1.67",
+      "stocks": "Hanwha Ocean · Shipyard Stocks"
     }
   ],
-  "_built_at": "2026-04-29 18:12",
-  "_date_label": "Wed, Apr 29, 2026"
+  "_built_at": "2026-04-30 18:15",
+  "_date_label": "Thu, Apr 30, 2026"
 }
