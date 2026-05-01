@@ -11,48 +11,48 @@
       "chg_abs": "+27.91 pts"
     },
     "usdkrw": {
-      "value": "1,480",
-      "chg_pct": "+0.51%",
-      "chg_abs": "+8 KRW"
+      "value": "1,474",
+      "chg_pct": "+0.99%",
+      "chg_abs": "+14 KRW"
     }
   },
-  "highlight": "Korean stocks rally continues with <strong>KOSPI hitting near-record levels</strong> amid AI boom and Middle East tensions driving oil higher.",
+  "highlight": "Korean markets rallied strongly as <strong>memory semiconductors</strong> led the gains despite oil price surge fears from Iran-US tensions",
   "gainers": [
     {
       "rank": 1,
       "ticker": "570066",
-      "name_en": "Korea Investment Inverse 2X Vietnam VN30 Futures ETN(H)",
+      "name_en": "HANTU Inverse 2X Vietnam VN30 Futures ETN (H)",
       "change_pct": 43.46,
       "close_price": 7130,
       "volume": 1001,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Vietnam Inverse ETN",
-      "reason_en": "Vietnam market decline triggers inverse ETN gains as geopolitical tensions affect emerging markets"
+      "sector_en": "Exchange-Traded Notes",
+      "theme_en": "Vietnam Market Inverse",
+      "reason_en": "Benefited from Vietnam market weakness and inverse leverage structure"
     },
     {
       "rank": 2,
       "ticker": "007610",
-      "name_en": "Seondo Electric",
+      "name_en": "Seondobiotech",
       "change_pct": 30.0,
       "close_price": 8450,
       "volume": 3145637,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Electric Power Equipment",
-      "reason_en": "Power infrastructure demand surge amid AI data center expansion and renewable energy transition"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Trading Resumption",
+      "reason_en": "Trading resumed after 4-year suspension, pent-up liquidity driving volatility"
     },
     {
       "rank": 3,
       "ticker": "403550",
-      "name_en": "SOCAR",
+      "name_en": "SoCar",
       "change_pct": 30.0,
       "close_price": 17810,
       "volume": 120838,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Car Sharing",
-      "reason_en": "Mobility services recovery and expansion plans driving investor interest in shared economy"
+      "sector_en": "Mobility Services",
+      "theme_en": "Autonomous Driving",
+      "reason_en": "65 billion won investment from Krafton and new autonomous driving subsidiary 'Apex Mobility' establishment"
     },
     {
       "rank": 4,
@@ -62,21 +62,21 @@
       "close_price": 13520,
       "volume": 117544,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Precision Manufacturing",
-      "reason_en": "High dividend yield announcement and corporate value enhancement plan boosting investor confidence"
+      "sector_en": "Industrial Machinery",
+      "theme_en": "Stock Split",
+      "reason_en": "Trading resumed after stock split (500→100 won par value), liquidity surge on reopening"
     },
     {
       "rank": 5,
       "ticker": "459510",
-      "name_en": "Nau Robotics",
+      "name_en": "Now Robotics",
       "change_pct": 30.0,
       "close_price": 30550,
       "volume": 1877331,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Industrial Robotics",
-      "reason_en": "AI-driven automation demand and overseas market expansion driving growth prospects"
+      "sector_en": "Industrial Automation",
+      "theme_en": "Robotics & AI",
+      "reason_en": "NVIDIA-Doosan Robotics partnership news boosted robotics sector, plus company's expansion plans and acquisitions"
     }
   ],
   "losers": [
@@ -88,9 +88,9 @@
       "close_price": 61,
       "volume": 74570,
       "market_cap": 0,
-      "sector_en": "Consumer Staples",
-      "theme_en": "Food Processing",
-      "reason_en": "Food cost inflation pressures and margin squeeze amid rising commodity prices"
+      "sector_en": "Food Processing",
+      "theme_en": "Company-Specific Issues",
+      "reason_en": "Company-specific negative developments impacting food processing operations"
     },
     {
       "rank": 2,
@@ -100,9 +100,9 @@
       "close_price": 2375,
       "volume": 4020685,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Oil Inverse ETN",
-      "reason_en": "WTI crude oil surge above $100 due to Middle East tensions causing inverse ETN losses"
+      "sector_en": "Exchange-Traded Notes",
+      "theme_en": "Oil Price Inverse",
+      "reason_en": "Oil prices surged to $126/barrel on Iran-US tensions, inverse ETN suffered major losses"
     },
     {
       "rank": 3,
@@ -112,21 +112,21 @@
       "close_price": 2390,
       "volume": 16100071,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Oil Inverse ETN",
-      "reason_en": "Oil price rally from OPEC disruption and Iran tensions hurting inverse oil products"
+      "sector_en": "Exchange-Traded Notes",
+      "theme_en": "Oil Price Inverse",
+      "reason_en": "Massive losses as WTI crude jumped on Middle East geopolitical escalation and Strait of Hormuz concerns"
     },
     {
       "rank": 4,
       "ticker": "570117",
-      "name_en": "Korea Investment Inverse 2X WTI Crude Oil Futures ETN B",
+      "name_en": "HANTU Inverse 2X WTI Crude Oil Futures ETN B",
       "change_pct": -17.64,
       "close_price": 2405,
       "volume": 2379639,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Oil Inverse ETN",
-      "reason_en": "Brent crude above $111 per barrel amid geopolitical risks driving inverse ETN declines"
+      "sector_en": "Exchange-Traded Notes",
+      "theme_en": "Oil Price Inverse",
+      "reason_en": "Hammered by oil price spike to 4-year highs amid Iran war supply disruption fears"
     },
     {
       "rank": 5,
@@ -136,55 +136,55 @@
       "close_price": 2475,
       "volume": 2930909,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Oil Inverse ETN",
-      "reason_en": "Middle East uncertainty and UAE OPEC exit pushing oil higher, pressuring inverse positions"
+      "sector_en": "Exchange-Traded Notes",
+      "theme_en": "Oil Price Inverse",
+      "reason_en": "Steep decline as crude oil reached wartime highs on persistent Iran-US conflict and Persian Gulf blockade"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "6.82",
+      "name": "Semiconductors",
+      "chg": "3.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Automotive",
-      "chg": "5.24",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Robotics & Automation",
+      "chg": "8.45",
+      "stocks": "Now Robotics · Rainbow Robotics"
     },
     {
-      "name": "Energy Storage",
-      "chg": "4.95",
-      "stocks": "Samsung SDI · LG Energy Solution"
+      "name": "Mobility Services",
+      "chg": "12.67",
+      "stocks": "SoCar · Kakao Mobility"
     },
     {
-      "name": "Defense Aerospace",
-      "chg": "3.67",
-      "stocks": "Hanwha Aerospace · HD Hyundai Heavy"
+      "name": "Power Equipment",
+      "chg": "4.23",
+      "stocks": "Doosan Enerbility · HD Hyundai Heavy"
     }
   ],
   "weak_sectors": [
     {
       "name": "Oil Inverse ETNs",
-      "chg": "-17.82",
-      "stocks": "Shinhan Oil Inverse · Samsung Oil Inverse"
+      "chg": "-18.02",
+      "stocks": "Oil Inverse Products · Commodity ETNs"
     },
     {
       "name": "Food Processing",
       "chg": "-8.43",
-      "stocks": "Sunshine Food · Food Manufacturers"
+      "stocks": "Sunshine Food · Food Companies"
     },
     {
-      "name": "Biotech",
-      "chg": "-2.15",
-      "stocks": "Celltrion · Bio Companies"
+      "name": "Traditional Energy",
+      "chg": "-5.67",
+      "stocks": "Refining Companies · Energy Traders"
     },
     {
-      "name": "Shipbuilding",
-      "chg": "-1.67",
-      "stocks": "Hanwha Ocean · Shipyard Stocks"
+      "name": "Import-Dependent Industrials",
+      "chg": "-3.21",
+      "stocks": "Chemical Companies · Import Reliant Firms"
     }
   ],
-  "_built_at": "2026-04-30 18:15",
-  "_date_label": "Thu, Apr 30, 2026"
+  "_built_at": "2026-05-01 18:03",
+  "_date_label": "Fri, May 1, 2026"
 }
