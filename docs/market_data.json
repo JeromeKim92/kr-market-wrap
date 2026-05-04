@@ -1,82 +1,82 @@
 {
   "market": {
     "kospi": {
-      "value": "6,598.87",
-      "chg_pct": "+1.38%",
-      "chg_abs": "+92.03 pts"
+      "value": "6,936.99",
+      "chg_pct": "+5.12%",
+      "chg_abs": "+338.12 pts"
     },
     "kosdaq": {
-      "value": "1,192.35",
-      "chg_pct": "+2.29%",
-      "chg_abs": "+27.91 pts"
+      "value": "1,213.74",
+      "chg_pct": "+1.79%",
+      "chg_abs": "+21.39 pts"
     },
     "usdkrw": {
-      "value": "1,474",
-      "chg_pct": "+0.99%",
-      "chg_abs": "+14 KRW"
+      "value": "1,471",
+      "chg_pct": "+0.31%",
+      "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "Korean markets rallied strongly as <strong>memory semiconductors</strong> led the gains despite oil price surge fears from Iran-US tensions",
+  "highlight": "KOSPI soared <strong>5.12%</strong> to fresh record high of 6,937 as semiconductor rally continues with easing Middle East tensions.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "570066",
-      "name_en": "HANTU Inverse 2X Vietnam VN30 Futures ETN (H)",
-      "change_pct": 43.46,
-      "close_price": 7130,
-      "volume": 1001,
+      "ticker": "024840",
+      "name_en": "KBI Metal",
+      "change_pct": 30.0,
+      "close_price": 6630,
+      "volume": 6391133,
       "market_cap": 0,
-      "sector_en": "Exchange-Traded Notes",
-      "theme_en": "Vietnam Market Inverse",
-      "reason_en": "Benefited from Vietnam market weakness and inverse leverage structure"
+      "sector_en": "Technology",
+      "theme_en": "Electronic Components",
+      "reason_en": "Copper and electronic parts demand surge from AI infrastructure buildout"
     },
     {
       "rank": 2,
-      "ticker": "007610",
-      "name_en": "Seondobiotech",
+      "ticker": "079190",
+      "name_en": "Kespion",
       "change_pct": 30.0,
-      "close_price": 8450,
-      "volume": 3145637,
+      "close_price": 858,
+      "volume": 1257817,
       "market_cap": 0,
-      "sector_en": "Electrical Equipment",
-      "theme_en": "Trading Resumption",
-      "reason_en": "Trading resumed after 4-year suspension, pent-up liquidity driving volatility"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductors",
+      "reason_en": "AI chip demand and memory sector momentum spillover"
     },
     {
       "rank": 3,
-      "ticker": "403550",
-      "name_en": "SoCar",
+      "ticker": "322310",
+      "name_en": "Orostech",
       "change_pct": 30.0,
-      "close_price": 17810,
-      "volume": 120838,
+      "close_price": 44850,
+      "volume": 1783977,
       "market_cap": 0,
-      "sector_en": "Mobility Services",
-      "theme_en": "Autonomous Driving",
-      "reason_en": "65 billion won investment from Krafton and new autonomous driving subsidiary 'Apex Mobility' establishment"
+      "sector_en": "Technology",
+      "theme_en": "Electronic Components",
+      "reason_en": "Technology hardware supply chain benefiting from AI boom"
     },
     {
       "rank": 4,
-      "ticker": "101930",
-      "name_en": "Inhwa Precision",
-      "change_pct": 30.0,
-      "close_price": 13520,
-      "volume": 117544,
+      "ticker": "006345",
+      "name_en": "Daewon Electric Wire",
+      "change_pct": 29.98,
+      "close_price": 12920,
+      "volume": 66,
       "market_cap": 0,
-      "sector_en": "Industrial Machinery",
-      "theme_en": "Stock Split",
-      "reason_en": "Trading resumed after stock split (500→100 won par value), liquidity surge on reopening"
+      "sector_en": "Industrials",
+      "theme_en": "Infrastructure",
+      "reason_en": "Power infrastructure demand from data center expansion"
     },
     {
       "rank": 5,
-      "ticker": "459510",
-      "name_en": "Now Robotics",
-      "change_pct": 30.0,
-      "close_price": 30550,
-      "volume": 1877331,
+      "ticker": "092190",
+      "name_en": "Seoul Biosys",
+      "change_pct": 29.98,
+      "close_price": 11230,
+      "volume": 1872980,
       "market_cap": 0,
-      "sector_en": "Industrial Automation",
-      "theme_en": "Robotics & AI",
-      "reason_en": "NVIDIA-Doosan Robotics partnership news boosted robotics sector, plus company's expansion plans and acquisitions"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Sector rotation into undervalued biotech names"
     }
   ],
   "losers": [
@@ -84,107 +84,107 @@
       "rank": 1,
       "ticker": "217620",
       "name_en": "Sunshine Food",
-      "change_pct": -37.11,
-      "close_price": 61,
-      "volume": 74570,
+      "change_pct": -34.43,
+      "close_price": 40,
+      "volume": 5657077,
       "market_cap": 0,
-      "sector_en": "Food Processing",
-      "theme_en": "Company-Specific Issues",
-      "reason_en": "Company-specific negative developments impacting food processing operations"
+      "sector_en": "Consumer",
+      "theme_en": "Restaurants",
+      "reason_en": "Restaurant sector weakness amid economic uncertainty and high valuations"
     },
     {
       "rank": 2,
-      "ticker": "500094",
-      "name_en": "Shinhan Bloomberg Inverse 2X WTI Crude Oil Futures ETN B",
-      "change_pct": -18.8,
-      "close_price": 2375,
-      "volume": 4020685,
+      "ticker": "570066",
+      "name_en": "Hanwha Inverse Vietnam ETN",
+      "change_pct": -28.68,
+      "close_price": 5085,
+      "volume": 1310,
       "market_cap": 0,
-      "sector_en": "Exchange-Traded Notes",
-      "theme_en": "Oil Price Inverse",
-      "reason_en": "Oil prices surged to $126/barrel on Iran-US tensions, inverse ETN suffered major losses"
+      "sector_en": "Financials",
+      "theme_en": "Inverse ETF",
+      "reason_en": "Vietnam market strength causing inverse ETF decline"
     },
     {
       "rank": 3,
-      "ticker": "530134",
-      "name_en": "Samsung Bloomberg Inverse 2X WTI Crude Oil Futures ETN B",
-      "change_pct": -18.15,
-      "close_price": 2390,
-      "volume": 16100071,
+      "ticker": "261780",
+      "name_en": "CHA Vaccine Research",
+      "change_pct": -18.17,
+      "close_price": 3355,
+      "volume": 8300653,
       "market_cap": 0,
-      "sector_en": "Exchange-Traded Notes",
-      "theme_en": "Oil Price Inverse",
-      "reason_en": "Massive losses as WTI crude jumped on Middle East geopolitical escalation and Strait of Hormuz concerns"
+      "sector_en": "Healthcare",
+      "theme_en": "Vaccines",
+      "reason_en": "Biotech profit-taking after recent gains and regulatory concerns"
     },
     {
       "rank": 4,
-      "ticker": "570117",
-      "name_en": "HANTU Inverse 2X WTI Crude Oil Futures ETN B",
-      "change_pct": -17.64,
-      "close_price": 2405,
-      "volume": 2379639,
+      "ticker": "530133",
+      "name_en": "Samsung Leveraged WTI Oil ETN B",
+      "change_pct": -16.49,
+      "close_price": 61165,
+      "volume": 20452,
       "market_cap": 0,
-      "sector_en": "Exchange-Traded Notes",
-      "theme_en": "Oil Price Inverse",
-      "reason_en": "Hammered by oil price spike to 4-year highs amid Iran war supply disruption fears"
+      "sector_en": "Energy",
+      "theme_en": "Oil Futures",
+      "reason_en": "Oil price decline amid easing Middle East supply concerns"
     },
     {
       "rank": 5,
-      "ticker": "580069",
-      "name_en": "KB S&P Inverse 2X WTI Crude Oil Futures ETN B",
-      "change_pct": -17.5,
-      "close_price": 2475,
-      "volume": 2930909,
+      "ticker": "500093",
+      "name_en": "Shinhan Leveraged WTI Oil ETN B",
+      "change_pct": -16.39,
+      "close_price": 61500,
+      "volume": 12307,
       "market_cap": 0,
-      "sector_en": "Exchange-Traded Notes",
-      "theme_en": "Oil Price Inverse",
-      "reason_en": "Steep decline as crude oil reached wartime highs on persistent Iran-US conflict and Persian Gulf blockade"
+      "sector_en": "Energy",
+      "theme_en": "Oil Futures",
+      "reason_en": "Crude oil futures weakness following geopolitical tension relief"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "3.82",
+      "chg": "8.42",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Robotics & Automation",
-      "chg": "8.45",
-      "stocks": "Now Robotics · Rainbow Robotics"
+      "name": "Defense",
+      "chg": "5.18",
+      "stocks": "Hanwha Aerospace · Hanwha Systems"
     },
     {
-      "name": "Mobility Services",
-      "chg": "12.67",
-      "stocks": "SoCar · Kakao Mobility"
+      "name": "Shipbuilding",
+      "chg": "4.73",
+      "stocks": "HD Hyundai Heavy · Hanwha Ocean"
     },
     {
       "name": "Power Equipment",
-      "chg": "4.23",
-      "stocks": "Doosan Enerbility · HD Hyundai Heavy"
+      "chg": "4.29",
+      "stocks": "Doosan Enerbility · Hyosung Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Oil Inverse ETNs",
-      "chg": "-18.02",
-      "stocks": "Oil Inverse Products · Commodity ETNs"
+      "name": "Restaurants",
+      "chg": "-6.84",
+      "stocks": "Sunshine Food · Food Service"
     },
     {
-      "name": "Food Processing",
-      "chg": "-8.43",
-      "stocks": "Sunshine Food · Food Companies"
+      "name": "Oil & Gas",
+      "chg": "-5.92",
+      "stocks": "Oil ETNs · Energy Trading"
     },
     {
-      "name": "Traditional Energy",
-      "chg": "-5.67",
-      "stocks": "Refining Companies · Energy Traders"
+      "name": "Pharmaceuticals",
+      "chg": "-3.67",
+      "stocks": "CHA Vaccine · Biotech Names"
     },
     {
-      "name": "Import-Dependent Industrials",
-      "chg": "-3.21",
-      "stocks": "Chemical Companies · Import Reliant Firms"
+      "name": "Consumer Services",
+      "chg": "-2.41",
+      "stocks": "Retail · Entertainment"
     }
   ],
-  "_built_at": "2026-05-01 18:03",
-  "_date_label": "Fri, May 1, 2026"
+  "_built_at": "2026-05-04 17:04",
+  "_date_label": "Mon, May 4, 2026"
 }
