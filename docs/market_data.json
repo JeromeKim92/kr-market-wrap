@@ -1,82 +1,82 @@
 {
   "market": {
     "kospi": {
-      "value": "6,936.99",
-      "chg_pct": "+5.12%",
-      "chg_abs": "+338.12 pts"
+      "value": "7,384.56",
+      "chg_pct": "+6.45%",
+      "chg_abs": "+447.57 pts"
     },
     "kosdaq": {
-      "value": "1,213.74",
-      "chg_pct": "+1.79%",
-      "chg_abs": "+21.39 pts"
+      "value": "1,210.17",
+      "chg_pct": "+0.29%",
+      "chg_abs": "+3.57 pts"
     },
     "usdkrw": {
-      "value": "1,475",
-      "chg_pct": "+0.03%",
-      "chg_abs": "+0 KRW"
+      "value": "1,448",
+      "chg_pct": "+1.47%",
+      "chg_abs": "+21 KRW"
     }
   },
-  "highlight": "KOSPI's landmark surge to <strong>6,937</strong> brings the <strong>7,000 milestone</strong> tantalizingly close as semiconductor earnings drive Korea's world-beating rally.",
+  "highlight": "<strong>KOSPI surged past 7,000</strong> for the first time driven by Samsung and SK Hynix semiconductor rally amid AI boom and Middle East peace hopes.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "024840",
-      "name_en": "KBI Metal",
+      "ticker": "011790",
+      "name_en": "SKC",
       "change_pct": 30.0,
-      "close_price": 6630,
-      "volume": 6391133,
+      "close_price": 161200,
+      "volume": 2101275,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Metal Processing",
-      "reason_en": "Sharp rebound in steel and metal demand driven by infrastructure investments and supply chain normalization"
+      "sector_en": "Basic Materials",
+      "theme_en": "Specialty Chemicals",
+      "reason_en": "Battery materials and semiconductor components demand surge"
     },
     {
       "rank": 2,
-      "ticker": "079190",
-      "name_en": "KESPIA",
+      "ticker": "038060",
+      "name_en": "Lumens",
       "change_pct": 30.0,
-      "close_price": 858,
-      "volume": 1257817,
+      "close_price": 1586,
+      "volume": 12692118,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software Solutions",
-      "reason_en": "AI and digital transformation momentum boosting enterprise software demand"
+      "theme_en": "LED Manufacturing",
+      "reason_en": "AI and automotive LED applications driving growth"
     },
     {
       "rank": 3,
-      "ticker": "322310",
-      "name_en": "Oros Technology",
+      "ticker": "049120",
+      "name_en": "Fine D&C",
       "change_pct": 30.0,
-      "close_price": 44850,
-      "volume": 1783977,
+      "close_price": 4420,
+      "volume": 552169,
       "market_cap": 0,
       "sector_en": "Technology",
       "theme_en": "Semiconductor Equipment",
-      "reason_en": "Benefiting from massive semiconductor capex cycle and AI infrastructure buildout"
+      "reason_en": "Memory chip manufacturing equipment demand"
     },
     {
       "rank": 4,
-      "ticker": "006345",
-      "name_en": "Daewon Cable Preferred",
-      "change_pct": 29.98,
-      "close_price": 12920,
-      "volume": 66,
+      "ticker": "037030",
+      "name_en": "Powernet",
+      "change_pct": 29.97,
+      "close_price": 9670,
+      "volume": 13993694,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Power grid upgrade demand from AI data centers and renewable energy expansion"
+      "sector_en": "Technology",
+      "theme_en": "Power Equipment",
+      "reason_en": "AI data center infrastructure buildout"
     },
     {
       "rank": 5,
-      "ticker": "092190",
-      "name_en": "Seoul Viosys",
-      "change_pct": 29.98,
-      "close_price": 11230,
-      "volume": 1872980,
+      "ticker": "076610",
+      "name_en": "Haesung Optics",
+      "change_pct": 29.97,
+      "close_price": 2450,
+      "volume": 24500478,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "LED/Display",
-      "reason_en": "Strong demand for advanced display components and UV LED applications in emerging markets"
+      "theme_en": "Optical Components",
+      "reason_en": "Semiconductor and display equipment components"
     }
   ],
   "losers": [
@@ -84,107 +84,107 @@
       "rank": 1,
       "ticker": "217620",
       "name_en": "Sunshine Food",
-      "change_pct": -34.43,
-      "close_price": 40,
-      "volume": 5657077,
+      "change_pct": -42.5,
+      "close_price": 23,
+      "volume": 2828,
       "market_cap": 0,
       "sector_en": "Consumer Staples",
       "theme_en": "Food Processing",
-      "reason_en": "Margin pressure from rising ingredient costs and competitive pricing environment"
+      "reason_en": "Earnings disappointment and margin pressure"
     },
     {
       "rank": 2,
-      "ticker": "570066",
-      "name_en": "HANTU Inverse 2X Vietnam VN30 ETN(H)",
-      "change_pct": -28.68,
-      "close_price": 5085,
-      "volume": 1310,
+      "ticker": "338220",
+      "name_en": "VUNO",
+      "change_pct": -20.17,
+      "close_price": 13770,
+      "volume": 650930,
       "market_cap": 0,
-      "sector_en": "Financials",
-      "theme_en": "Inverse ETN",
-      "reason_en": "Vietnam market surge triggered massive losses in inverse leveraged product"
+      "sector_en": "Healthcare",
+      "theme_en": "AI Medical",
+      "reason_en": "Profit-taking after AI rally and valuation concerns"
     },
     {
       "rank": 3,
-      "ticker": "261780",
-      "name_en": "Cha Vaccine Institute",
-      "change_pct": -18.17,
-      "close_price": 3355,
-      "volume": 8300653,
+      "ticker": "035890",
+      "name_en": "Seohee Construction",
+      "change_pct": -20.15,
+      "close_price": 2675,
+      "volume": 63872,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Vaccines/Biotech",
-      "reason_en": "Post-pandemic vaccine demand normalization and regulatory approval delays"
+      "sector_en": "Industrials",
+      "theme_en": "Construction",
+      "reason_en": "Lagging behind tech-driven rally"
     },
     {
       "rank": 4,
-      "ticker": "530133",
-      "name_en": "Samsung Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": -16.49,
-      "close_price": 61165,
-      "volume": 20452,
+      "ticker": "900300",
+      "name_en": "Organic Tic Cosmetic",
+      "change_pct": -17.56,
+      "close_price": 169,
+      "volume": 119530,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil ETN",
-      "reason_en": "Oil price volatility and contango effects hurting leveraged crude oil products"
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Cosmetics",
+      "reason_en": "Weak consumer spending on discretionary items"
     },
     {
       "rank": 5,
-      "ticker": "500093",
-      "name_en": "Shinhan Bloomberg Leveraged WTI Oil Futures ETN B",
-      "change_pct": -16.39,
-      "close_price": 61500,
-      "volume": 12307,
+      "ticker": "760027",
+      "name_en": "Kiwoom Inverse 2X Power TOP5 ETN",
+      "change_pct": -17.1,
+      "close_price": 3685,
+      "volume": 435172,
       "market_cap": 0,
-      "sector_en": "Energy",
-      "theme_en": "Oil ETN",
-      "reason_en": "Similar leveraged oil exposure suffering from commodity price weakness and roll costs"
+      "sector_en": "Financial",
+      "theme_en": "Inverse ETN",
+      "reason_en": "Power sector surge causing inverse product losses"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "8.95",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "chg": "43.16",
+      "stocks": "Samsung Electronics · SK hynix"
     },
     {
-      "name": "Technology Hardware",
-      "chg": "7.23",
-      "stocks": "LG Display · Samsung SDI"
+      "name": "Machinery & Equipment",
+      "chg": "40.62",
+      "stocks": "Hanwha Engine · Power Equipment"
+    },
+    {
+      "name": "Electronics",
+      "chg": "35.20",
+      "stocks": "Display · Components"
     },
     {
       "name": "Power Equipment",
-      "chg": "6.18",
-      "stocks": "Doosan Enerbility · Hanwha Aerospace"
-    },
-    {
-      "name": "Defense/Aerospace",
-      "chg": "5.84",
-      "stocks": "KAI · Hanwha Systems"
+      "chg": "28.50",
+      "stocks": "Transformers · Grid Infrastructure"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Oil & Gas ETNs",
-      "chg": "-16.44",
-      "stocks": "Leveraged Oil ETNs · Crude Futures"
+      "name": "Construction",
+      "chg": "-12.30",
+      "stocks": "Builders · Materials"
     },
     {
       "name": "Food & Beverages",
-      "chg": "-8.77",
-      "stocks": "Sunshine Food · Consumer Staples"
+      "chg": "-8.40",
+      "stocks": "Processing · Distribution"
     },
     {
-      "name": "Biotechnology",
-      "chg": "-7.23",
-      "stocks": "Vaccine Companies · Pharma"
+      "name": "Cosmetics",
+      "chg": "-7.60",
+      "stocks": "Beauty · Personal Care"
     },
     {
-      "name": "Traditional Materials",
-      "chg": "-4.91",
-      "stocks": "Steel · Chemicals"
+      "name": "Real Estate",
+      "chg": "-5.80",
+      "stocks": "Development · REITs"
     }
   ],
-  "_built_at": "2026-05-05 18:09",
-  "_date_label": "Tue, May 5, 2026"
+  "_built_at": "2026-05-06 18:26",
+  "_date_label": "Wed, May 6, 2026"
 }
