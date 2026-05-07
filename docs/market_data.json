@@ -1,82 +1,82 @@
 {
   "market": {
     "kospi": {
-      "value": "7,384.56",
-      "chg_pct": "+6.45%",
-      "chg_abs": "+447.57 pts"
+      "value": "7,490.05",
+      "chg_pct": "+1.43%",
+      "chg_abs": "+105.49 pts"
     },
     "kosdaq": {
-      "value": "1,210.17",
-      "chg_pct": "+0.29%",
-      "chg_abs": "+3.57 pts"
+      "value": "1,199.18",
+      "chg_pct": "+0.91%",
+      "chg_abs": "+10.99 pts"
     },
     "usdkrw": {
-      "value": "1,448",
-      "chg_pct": "+1.47%",
-      "chg_abs": "+21 KRW"
+      "value": "1,452",
+      "chg_pct": "+0.20%",
+      "chg_abs": "+3 KRW"
     }
   },
-  "highlight": "<strong>KOSPI surged past 7,000</strong> for the first time driven by Samsung and SK Hynix semiconductor rally amid AI boom and Middle East peace hopes.",
+  "highlight": "Korean stocks rallied with <strong>KOSPI</strong> gaining 1.43% as semiconductor boom continues.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "011790",
-      "name_en": "SKC",
+      "ticker": "229000",
+      "name_en": "Gencurix",
       "change_pct": 30.0,
-      "close_price": 161200,
-      "volume": 2101275,
+      "close_price": 3835,
+      "volume": 1400500,
       "market_cap": 0,
-      "sector_en": "Basic Materials",
-      "theme_en": "Specialty Chemicals",
-      "reason_en": "Battery materials and semiconductor components demand surge"
+      "sector_en": "Biotechnology",
+      "theme_en": "Medical Diagnostics",
+      "reason_en": "Molecular diagnostics company specializing in cancer test kits and COVID-19 diagnostics, benefiting from biotech sector momentum"
     },
     {
       "rank": 2,
-      "ticker": "038060",
-      "name_en": "Lumens",
-      "change_pct": 30.0,
-      "close_price": 1586,
-      "volume": 12692118,
+      "ticker": "037440",
+      "name_en": "Heerim Architects",
+      "change_pct": 29.97,
+      "close_price": 7460,
+      "volume": 10063692,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "LED Manufacturing",
-      "reason_en": "AI and automotive LED applications driving growth"
+      "sector_en": "Architecture",
+      "theme_en": "Construction & Design",
+      "reason_en": "Architectural design firm likely gaining on construction sector recovery and infrastructure development projects"
     },
     {
       "rank": 3,
-      "ticker": "049120",
-      "name_en": "Fine D&C",
-      "change_pct": 30.0,
-      "close_price": 4420,
-      "volume": 552169,
+      "ticker": "006345",
+      "name_en": "Daewon Cable Pref",
+      "change_pct": 29.95,
+      "close_price": 16790,
+      "volume": 5789151,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Memory chip manufacturing equipment demand"
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Electrical cable manufacturer benefiting from AI infrastructure buildout and power equipment demand surge"
     },
     {
       "rank": 4,
-      "ticker": "037030",
-      "name_en": "Powernet",
-      "change_pct": 29.97,
-      "close_price": 9670,
-      "volume": 13993694,
+      "ticker": "009415",
+      "name_en": "Taeyoung E&C Pref",
+      "change_pct": 29.93,
+      "close_price": 14370,
+      "volume": 1517411,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Power Equipment",
-      "reason_en": "AI data center infrastructure buildout"
+      "sector_en": "Construction",
+      "theme_en": "Infrastructure",
+      "reason_en": "Construction company gaining on infrastructure development and building sector recovery momentum"
     },
     {
       "rank": 5,
-      "ticker": "076610",
-      "name_en": "Haesung Optics",
-      "change_pct": 29.97,
-      "close_price": 2450,
-      "volume": 24500478,
+      "ticker": "072950",
+      "name_en": "Bitsem",
+      "change_pct": 29.93,
+      "close_price": 17060,
+      "volume": 8584684,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Optical Components",
-      "reason_en": "Semiconductor and display equipment components"
+      "sector_en": "Electronics",
+      "theme_en": "Electronic Components",
+      "reason_en": "Electronic components manufacturer riding the technology sector rally and semiconductor supply chain demand"
     }
   ],
   "losers": [
@@ -84,107 +84,107 @@
       "rank": 1,
       "ticker": "217620",
       "name_en": "Sunshine Food",
-      "change_pct": -42.5,
-      "close_price": 23,
-      "volume": 2828,
+      "change_pct": -78.26,
+      "close_price": 5,
+      "volume": 9568664,
       "market_cap": 0,
-      "sector_en": "Consumer Staples",
+      "sector_en": "Food & Beverage",
       "theme_en": "Food Processing",
-      "reason_en": "Earnings disappointment and margin pressure"
+      "reason_en": "Food processing company facing severe decline possibly due to operational issues or restructuring concerns"
     },
     {
       "rank": 2,
-      "ticker": "338220",
-      "name_en": "VUNO",
-      "change_pct": -20.17,
-      "close_price": 13770,
-      "volume": 650930,
+      "ticker": "105550",
+      "name_en": "Edge Foundry",
+      "change_pct": -28.48,
+      "close_price": 909,
+      "volume": 7547453,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "AI Medical",
-      "reason_en": "Profit-taking after AI rally and valuation concerns"
+      "sector_en": "Semiconductor",
+      "theme_en": "Chip Manufacturing",
+      "reason_en": "Semiconductor foundry company declining despite sector strength, possibly due to competitive pressures or operational challenges"
     },
     {
       "rank": 3,
-      "ticker": "035890",
-      "name_en": "Seohee Construction",
-      "change_pct": -20.15,
-      "close_price": 2675,
-      "volume": 63872,
+      "ticker": "012340",
+      "name_en": "NewInTech",
+      "change_pct": -23.52,
+      "close_price": 1610,
+      "volume": 2493520,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Construction",
-      "reason_en": "Lagging behind tech-driven rally"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "IT services company facing headwinds potentially from margin pressure and competitive environment"
     },
     {
       "rank": 4,
-      "ticker": "900300",
-      "name_en": "Organic Tic Cosmetic",
-      "change_pct": -17.56,
-      "close_price": 169,
-      "volume": 119530,
+      "ticker": "069920",
+      "name_en": "Axion Group",
+      "change_pct": -23.37,
+      "close_price": 1885,
+      "volume": 648915,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Cosmetics",
-      "reason_en": "Weak consumer spending on discretionary items"
+      "sector_en": "Industrial",
+      "theme_en": "Manufacturing",
+      "reason_en": "Industrial manufacturing group declining on operational concerns and margin pressure from rising costs"
     },
     {
       "rank": 5,
-      "ticker": "760027",
-      "name_en": "Kiwoom Inverse 2X Power TOP5 ETN",
-      "change_pct": -17.1,
-      "close_price": 3685,
-      "volume": 435172,
+      "ticker": "042520",
+      "name_en": "Hans Biomed",
+      "change_pct": -21.19,
+      "close_price": 23250,
+      "volume": 1220917,
       "market_cap": 0,
-      "sector_en": "Financial",
-      "theme_en": "Inverse ETN",
-      "reason_en": "Power sector surge causing inverse product losses"
+      "sector_en": "Biotechnology",
+      "theme_en": "Medical Devices",
+      "reason_en": "Medical device company facing regulatory or operational challenges despite broader biotech sector strength"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "43.16",
-      "stocks": "Samsung Electronics · SK hynix"
+      "chg": "6.85",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Machinery & Equipment",
-      "chg": "40.62",
-      "stocks": "Hanwha Engine · Power Equipment"
-    },
-    {
-      "name": "Electronics",
-      "chg": "35.20",
-      "stocks": "Display · Components"
+      "name": "Biotechnology",
+      "chg": "5.42",
+      "stocks": "Samsung Biologics · Celltrion"
     },
     {
       "name": "Power Equipment",
-      "chg": "28.50",
-      "stocks": "Transformers · Grid Infrastructure"
+      "chg": "4.91",
+      "stocks": "Doosan Enerbility · LS Electric"
+    },
+    {
+      "name": "Automotive",
+      "chg": "3.67",
+      "stocks": "Hyundai Motor · Kia Corporation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Construction",
-      "chg": "-12.30",
-      "stocks": "Builders · Materials"
+      "name": "Food & Beverage",
+      "chg": "-3.24",
+      "stocks": "Orion · CJ CheilJedang"
     },
     {
-      "name": "Food & Beverages",
-      "chg": "-8.40",
-      "stocks": "Processing · Distribution"
+      "name": "Retail",
+      "chg": "-2.18",
+      "stocks": "Lotte Shopping · Shinsegae"
     },
     {
-      "name": "Cosmetics",
-      "chg": "-7.60",
-      "stocks": "Beauty · Personal Care"
+      "name": "Chemicals",
+      "chg": "-1.89",
+      "stocks": "LG Chem · SK Innovation"
     },
     {
-      "name": "Real Estate",
-      "chg": "-5.80",
-      "stocks": "Development · REITs"
+      "name": "Shipbuilding",
+      "chg": "-1.45",
+      "stocks": "HD Hyundai Heavy · Samsung Heavy"
     }
   ],
-  "_built_at": "2026-05-06 18:26",
-  "_date_label": "Wed, May 6, 2026"
+  "_built_at": "2026-05-07 18:36",
+  "_date_label": "Thu, May 7, 2026"
 }
