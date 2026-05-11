@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,498.00",
-      "chg_pct": "+0.11%",
-      "chg_abs": "+7.95 pts"
+      "value": "7,822.24",
+      "chg_pct": "+4.32%",
+      "chg_abs": "+324.24 pts"
     },
     "kosdaq": {
-      "value": "1,207.72",
-      "chg_pct": "+0.71%",
-      "chg_abs": "+8.54 pts"
+      "value": "1,207.34",
+      "chg_pct": "+0.03%",
+      "chg_abs": "+0.38 pts"
     },
     "usdkrw": {
-      "value": "1,468",
+      "value": "1,474",
       "chg_pct": "+0.68%",
       "chg_abs": "+10 KRW"
     }
   },
-  "highlight": "Korean stocks hit new highs as <strong>AI-driven semiconductor demand</strong> propels tech-heavy KOSPI up 75% in 2026.",
+  "highlight": "Korean stocks soar with <strong>KOSPI hitting 7,822 (+4.32%)</strong> as AI-driven rally lifts technology and robotics sectors.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "012205",
-      "name_en": "Keyang Electric Preferred",
-      "change_pct": 30.0,
-      "close_price": 10400,
-      "volume": 855114,
+      "ticker": "439960",
+      "name_en": "Cosmo Robotics",
+      "change_pct": 300.0,
+      "close_price": 24000,
+      "volume": 41115892,
       "market_cap": 0,
-      "sector_en": "Industrial Machinery",
-      "theme_en": "Construction Equipment",
-      "reason_en": "Strong demand for construction machinery amid infrastructure spending boom"
+      "sector_en": "Healthcare Technology",
+      "theme_en": "Wearable Rehabilitation Robotics",
+      "reason_en": "Strong debut following KOSDAQ IPO listing with 300% surge driven by AI and robotics investment boom"
     },
     {
       "rank": 2,
-      "ticker": "320000",
-      "name_en": "Hanul Semiconductor",
-      "change_pct": 29.99,
-      "close_price": 9970,
-      "volume": 858436,
-      "market_cap": 0,
-      "sector_en": "Semiconductors",
-      "theme_en": "Memory Chips",
-      "reason_en": "AI chip demand surge and tight semiconductor supply conditions"
-    },
-    {
-      "rank": 3,
-      "ticker": "000500",
-      "name_en": "Gaon Cable",
-      "change_pct": 29.97,
-      "close_price": 477000,
-      "volume": 309841,
+      "ticker": "007610",
+      "name_en": "Seondo Electric",
+      "change_pct": 30.0,
+      "close_price": 12870,
+      "volume": 16902664,
       "market_cap": 0,
       "sector_en": "Electrical Equipment",
       "theme_en": "Power Infrastructure",
-      "reason_en": "Power grid upgrade needs for AI data centers and renewable energy"
+      "reason_en": "Benefiting from increased power equipment demand and infrastructure investment cycle"
+    },
+    {
+      "rank": 3,
+      "ticker": "012205",
+      "name_en": "Keyang Electric Preferred",
+      "change_pct": 30.0,
+      "close_price": 13520,
+      "volume": 1709587,
+      "market_cap": 0,
+      "sector_en": "Electrical Equipment",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Rising demand for electrical components amid power grid modernization"
     },
     {
       "rank": 4,
-      "ticker": "307950",
-      "name_en": "Hyundai AutoEver",
-      "change_pct": 29.97,
-      "close_price": 592000,
-      "volume": 1144257,
+      "ticker": "452200",
+      "name_en": "Mintech",
+      "change_pct": 30.0,
+      "close_price": 4485,
+      "volume": 13837458,
       "market_cap": 0,
-      "sector_en": "Automotive Technology",
-      "theme_en": "Connected Cars",
-      "reason_en": "EV transition and automotive software demand acceleration"
+      "sector_en": "Technology",
+      "theme_en": "Industrial Technology",
+      "reason_en": "Technology sector rally driven by AI infrastructure investment momentum"
     },
     {
       "rank": 5,
-      "ticker": "429270",
-      "name_en": "Seegene Technologies",
-      "change_pct": 29.97,
-      "close_price": 10320,
-      "volume": 2598047,
+      "ticker": "051780",
+      "name_en": "Quro Holdings",
+      "change_pct": 29.99,
+      "close_price": 4725,
+      "volume": 78732,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Medical Diagnostics",
-      "reason_en": "Healthcare innovation and diagnostic technology expansion"
+      "sector_en": "Technology",
+      "theme_en": "Digital Solutions",
+      "reason_en": "Benefiting from broader technology sector strength and digital transformation trends"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "270520",
-      "name_en": "Apton",
-      "change_pct": -17.54,
-      "close_price": 1880,
-      "volume": 1487846,
+      "ticker": "044480",
+      "name_en": "Billions",
+      "change_pct": -29.89,
+      "close_price": 1560,
+      "volume": 2850847,
       "market_cap": 0,
-      "sector_en": "Software Services",
-      "theme_en": "Digital Solutions",
-      "reason_en": "Profit-taking after previous gains and competitive pressure"
+      "sector_en": "Consumer Goods",
+      "theme_en": "Rubber Products Manufacturing",
+      "reason_en": "Profit-taking in consumer discretionary stocks amid sector rotation to technology"
     },
     {
       "rank": 2,
-      "ticker": "009415",
-      "name_en": "Taeyoung E&C Preferred",
-      "change_pct": -15.8,
-      "close_price": 12100,
-      "volume": 628,
+      "ticker": "270520",
+      "name_en": "Apton",
+      "change_pct": -22.18,
+      "close_price": 1463,
+      "volume": 985786,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Real Estate Development",
-      "reason_en": "Construction sector headwinds and margin pressure concerns"
+      "sector_en": "Consumer Services",
+      "theme_en": "Digital Services",
+      "reason_en": "Weakness in consumer-facing digital services amid market focus on hardware and infrastructure"
     },
     {
       "rank": 3,
-      "ticker": "195990",
-      "name_en": "AB Probio",
-      "change_pct": -15.38,
-      "close_price": 1238,
-      "volume": 2579398,
+      "ticker": "047770",
+      "name_en": "Codes Combine",
+      "change_pct": -20.11,
+      "close_price": 4370,
+      "volume": 4140911,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Probiotics",
-      "reason_en": "Regulatory uncertainties and competitive market dynamics"
+      "sector_en": "Technology Services",
+      "theme_en": "Software Solutions",
+      "reason_en": "Software sector underperformance as investors favor hardware and semiconductor plays"
     },
     {
       "rank": 4,
-      "ticker": "317240",
-      "name_en": "TS Trillion",
-      "change_pct": -14.45,
-      "close_price": 1332,
-      "volume": 1000638,
+      "ticker": "084110",
+      "name_en": "Huons Global",
+      "change_pct": -17.75,
+      "close_price": 53300,
+      "volume": 378934,
       "market_cap": 0,
-      "sector_en": "Personal Care",
-      "theme_en": "Hair Care Products",
-      "reason_en": "Consumer spending slowdown and market share competition"
+      "sector_en": "Healthcare",
+      "theme_en": "Pharmaceuticals",
+      "reason_en": "Healthcare sector lag as funds rotate into AI-driven technology and robotics themes"
     },
     {
       "rank": 5,
-      "ticker": "038060",
-      "name_en": "Lumens",
-      "change_pct": -14.04,
-      "close_price": 1470,
-      "volume": 14762,
+      "ticker": "123840",
+      "name_en": "Newon",
+      "change_pct": -17.5,
+      "close_price": 4430,
+      "volume": 51655,
       "market_cap": 0,
-      "sector_en": "LED Technology",
-      "theme_en": "Display Components",
-      "reason_en": "Supply chain disruptions and pricing pressure in LED market"
+      "sector_en": "Technology",
+      "theme_en": "Electronics Components",
+      "reason_en": "Component supplier weakness amid supply chain concerns and inventory adjustments"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "12.45",
-      "stocks": "Samsung • SK Hynix"
+      "name": "Semiconductors & Hardware",
+      "chg": "6.82",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Automotive Technology",
-      "chg": "8.72",
-      "stocks": "Hyundai Motor • Kia"
+      "name": "Robotics & Automation",
+      "chg": "5.94",
+      "stocks": "Cosmo Robotics · Rainbow Robotics"
     },
     {
-      "name": "Power Equipment",
-      "chg": "7.83",
-      "stocks": "LS Electric • Doosan"
+      "name": "Power & Electrical Equipment",
+      "chg": "4.67",
+      "stocks": "Seondo Electric · Keyang Electric"
     },
     {
       "name": "Industrial Machinery",
-      "chg": "6.91",
-      "stocks": "HD Hyundai • Hanwha"
+      "chg": "4.23",
+      "stocks": "Doosan Enerbility · HD Hyundai Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Real Estate",
-      "chg": "-4.21",
-      "stocks": "Lotte REIT • Korea Investment"
+      "name": "Consumer Discretionary",
+      "chg": "-3.45",
+      "stocks": "Billions · Apton"
     },
     {
-      "name": "Personal Care",
-      "chg": "-3.87",
-      "stocks": "AmorepPacific • LG H&H"
+      "name": "Software & IT Services",
+      "chg": "-2.89",
+      "stocks": "Codes Combine · Digital Solutions"
     },
     {
-      "name": "Food & Beverage",
-      "chg": "-2.93",
-      "stocks": "Orion • Nongshim"
+      "name": "Pharmaceuticals",
+      "chg": "-2.67",
+      "stocks": "Huons Global · Bio Companies"
     },
     {
-      "name": "Retail Trade",
-      "chg": "-2.51",
-      "stocks": "Emart • Lotte Shopping"
+      "name": "Media & Entertainment",
+      "chg": "-1.98",
+      "stocks": "Entertainment · Content Providers"
     }
   ],
-  "_built_at": "2026-05-08 17:22",
-  "_date_label": "Fri, May 8, 2026"
+  "_built_at": "2026-05-11 19:39",
+  "_date_label": "Mon, May 11, 2026"
 }
