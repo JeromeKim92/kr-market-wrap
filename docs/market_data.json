@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,822.24",
-      "chg_pct": "+4.32%",
-      "chg_abs": "+324.24 pts"
+      "value": "7,643.15",
+      "chg_pct": "+2.29%",
+      "chg_abs": "+179.09 pts"
     },
     "kosdaq": {
-      "value": "1,207.34",
-      "chg_pct": "+0.03%",
-      "chg_abs": "+0.38 pts"
+      "value": "1,179.29",
+      "chg_pct": "+2.32%",
+      "chg_abs": "+28.05 pts"
     },
     "usdkrw": {
-      "value": "1,474",
-      "chg_pct": "+0.68%",
-      "chg_abs": "+10 KRW"
+      "value": "1,491",
+      "chg_pct": "+1.08%",
+      "chg_abs": "+16 KRW"
     }
   },
-  "highlight": "Korean stocks soar with <strong>KOSPI hitting 7,822 (+4.32%)</strong> as AI-driven rally lifts technology and robotics sectors.",
+  "highlight": "Korean stocks extended their record-breaking rally to <strong>new all-time highs</strong> as semiconductor giants led the charge amid AI super cycle optimism.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "439960",
-      "name_en": "Cosmo Robotics",
-      "change_pct": 300.0,
-      "close_price": 24000,
-      "volume": 41115892,
+      "ticker": "003060",
+      "name_en": "Aprogen Biologics",
+      "change_pct": 30.0,
+      "close_price": 3770,
+      "volume": 1043886,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Wearable Rehabilitation Robotics",
-      "reason_en": "Strong debut following KOSDAQ IPO listing with 300% surge driven by AI and robotics investment boom"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Biotech",
+      "reason_en": "General biotech sector momentum and speculative trading following overall market rally"
     },
     {
       "rank": 2,
-      "ticker": "007610",
-      "name_en": "Seondo Electric",
+      "ticker": "007460",
+      "name_en": "Aprogen",
       "change_pct": 30.0,
-      "close_price": 12870,
-      "volume": 16902664,
+      "close_price": 5200,
+      "volume": 6363064,
       "market_cap": 0,
-      "sector_en": "Electrical Equipment",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Benefiting from increased power equipment demand and infrastructure investment cycle"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Biotech",
+      "reason_en": "Related company rally alongside Aprogen Biologics in biotech sector momentum"
     },
     {
       "rank": 3,
-      "ticker": "012205",
-      "name_en": "Keyang Electric Preferred",
+      "ticker": "014910",
+      "name_en": "Sungmoon Electronics",
       "change_pct": 30.0,
-      "close_price": 13520,
-      "volume": 1709587,
+      "close_price": 2535,
+      "volume": 7530258,
       "market_cap": 0,
-      "sector_en": "Electrical Equipment",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Rising demand for electrical components amid power grid modernization"
+      "sector_en": "Electronics",
+      "theme_en": "Auto Parts",
+      "reason_en": "Hyundai Motor value chain beneficiary amid strong auto export expectations"
     },
     {
       "rank": 4,
-      "ticker": "452200",
-      "name_en": "Mintech",
+      "ticker": "014915",
+      "name_en": "Sungmoon Electronics Pfd",
       "change_pct": 30.0,
-      "close_price": 4485,
-      "volume": 13837458,
+      "close_price": 5850,
+      "volume": 125351,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Industrial Technology",
-      "reason_en": "Technology sector rally driven by AI infrastructure investment momentum"
+      "sector_en": "Electronics",
+      "theme_en": "Auto Parts",
+      "reason_en": "Preferred share rally following common stock gains in Hyundai Motor supply chain"
     },
     {
       "rank": 5,
-      "ticker": "051780",
-      "name_en": "Quro Holdings",
-      "change_pct": 29.99,
-      "close_price": 4725,
-      "volume": 78732,
+      "ticker": "439960",
+      "name_en": "Cosmorobotics",
+      "change_pct": 30.0,
+      "close_price": 31200,
+      "volume": 11801653,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Digital Solutions",
-      "reason_en": "Benefiting from broader technology sector strength and digital transformation trends"
+      "sector_en": "Healthcare Technology",
+      "theme_en": "Wearable Robotics",
+      "reason_en": "Second day of listing frenzy for wearable medical robot specialist, surging 420% from IPO price"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "044480",
-      "name_en": "Billions",
-      "change_pct": -29.89,
-      "close_price": 1560,
-      "volume": 2850847,
+      "ticker": "084110",
+      "name_en": "Huons Global",
+      "change_pct": -17.35,
+      "close_price": 44050,
+      "volume": 474032,
       "market_cap": 0,
-      "sector_en": "Consumer Goods",
-      "theme_en": "Rubber Products Manufacturing",
-      "reason_en": "Profit-taking in consumer discretionary stocks amid sector rotation to technology"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Generic Drugs",
+      "reason_en": "Profit-taking after recent gains and sector rotation away from traditional pharma"
     },
     {
       "rank": 2,
-      "ticker": "270520",
-      "name_en": "Apton",
-      "change_pct": -22.18,
-      "close_price": 1463,
-      "volume": 985786,
+      "ticker": "306040",
+      "name_en": "SJ Group",
+      "change_pct": -17.1,
+      "close_price": 4800,
+      "volume": 556367,
       "market_cap": 0,
-      "sector_en": "Consumer Services",
-      "theme_en": "Digital Services",
-      "reason_en": "Weakness in consumer-facing digital services amid market focus on hardware and infrastructure"
+      "sector_en": "Construction",
+      "theme_en": "Real Estate Development",
+      "reason_en": "Construction sector weakness amid high interest rate environment"
     },
     {
       "rank": 3,
-      "ticker": "047770",
-      "name_en": "Codes Combine",
-      "change_pct": -20.11,
-      "close_price": 4370,
-      "volume": 4140911,
+      "ticker": "008290",
+      "name_en": "Wonpoong",
+      "change_pct": -16.75,
+      "close_price": 696,
+      "volume": 511170,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "Software Solutions",
-      "reason_en": "Software sector underperformance as investors favor hardware and semiconductor plays"
+      "sector_en": "Trading",
+      "theme_en": "General Trading",
+      "reason_en": "Traditional trading company underperformance in tech-driven market rally"
     },
     {
       "rank": 4,
-      "ticker": "084110",
-      "name_en": "Huons Global",
-      "change_pct": -17.75,
-      "close_price": 53300,
-      "volume": 378934,
+      "ticker": "011170",
+      "name_en": "Lotte Chemical",
+      "change_pct": -16.34,
+      "close_price": 89100,
+      "volume": 1167538,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Healthcare sector lag as funds rotate into AI-driven technology and robotics themes"
+      "sector_en": "Chemicals",
+      "theme_en": "Petrochemicals",
+      "reason_en": "Concerns over sustainability of Q1 profit turnaround amid negative lagging effects expected in H2"
     },
     {
       "rank": 5,
-      "ticker": "123840",
-      "name_en": "Newon",
-      "change_pct": -17.5,
-      "close_price": 4430,
-      "volume": 51655,
+      "ticker": "052460",
+      "name_en": "i-Craft",
+      "change_pct": -15.97,
+      "close_price": 3500,
+      "volume": 1817625,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics Components",
-      "reason_en": "Component supplier weakness amid supply chain concerns and inventory adjustments"
+      "theme_en": "Software",
+      "reason_en": "Tech sector profit-taking and rotation into semiconductor giants"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors & Hardware",
-      "chg": "6.82",
+      "name": "Semiconductors",
+      "chg": "5.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Robotics & Automation",
-      "chg": "5.94",
-      "stocks": "Cosmo Robotics · Rainbow Robotics"
+      "name": "Robotics",
+      "chg": "4.95",
+      "stocks": "Cosmorobotics · Rainbow Robotics"
     },
     {
-      "name": "Power & Electrical Equipment",
-      "chg": "4.67",
-      "stocks": "Seondo Electric · Keyang Electric"
+      "name": "Securities",
+      "chg": "4.18",
+      "stocks": "Mirae Asset · KB Securities"
     },
     {
-      "name": "Industrial Machinery",
-      "chg": "4.23",
-      "stocks": "Doosan Enerbility · HD Hyundai Heavy"
+      "name": "Electronics",
+      "chg": "3.76",
+      "stocks": "LG Electronics · Hyundai Mobis"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Consumer Discretionary",
-      "chg": "-3.45",
-      "stocks": "Billions · Apton"
+      "name": "Chemicals",
+      "chg": "-4.82",
+      "stocks": "Lotte Chemical · LG Chem"
     },
     {
-      "name": "Software & IT Services",
-      "chg": "-2.89",
-      "stocks": "Codes Combine · Digital Solutions"
+      "name": "Construction",
+      "chg": "-3.45",
+      "stocks": "SJ Group · Daelim Industrial"
     },
     {
       "name": "Pharmaceuticals",
-      "chg": "-2.67",
-      "stocks": "Huons Global · Bio Companies"
+      "chg": "-2.91",
+      "stocks": "Huons Global · Celltrion"
     },
     {
-      "name": "Media & Entertainment",
-      "chg": "-1.98",
-      "stocks": "Entertainment · Content Providers"
+      "name": "Trading",
+      "chg": "-2.67",
+      "stocks": "Wonpoong · Doosan Corp"
     }
   ],
-  "_built_at": "2026-05-11 19:39",
-  "_date_label": "Mon, May 11, 2026"
+  "_built_at": "2026-05-12 18:43",
+  "_date_label": "Tue, May 12, 2026"
 }
