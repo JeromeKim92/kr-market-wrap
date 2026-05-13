@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,643.15",
-      "chg_pct": "+2.29%",
-      "chg_abs": "+179.09 pts"
+      "value": "7,844.01",
+      "chg_pct": "+2.63%",
+      "chg_abs": "+200.86 pts"
     },
     "kosdaq": {
-      "value": "1,179.29",
-      "chg_pct": "+2.32%",
-      "chg_abs": "+28.05 pts"
+      "value": "1,176.93",
+      "chg_pct": "+0.20%",
+      "chg_abs": "+2.36 pts"
     },
     "usdkrw": {
-      "value": "1,491",
-      "chg_pct": "+1.08%",
-      "chg_abs": "+16 KRW"
+      "value": "1,490",
+      "chg_pct": "+0.11%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean stocks extended their record-breaking rally to <strong>new all-time highs</strong> as semiconductor giants led the charge amid AI super cycle optimism.",
+  "highlight": "KOSPI surged <strong>2.63%</strong> to close at fresh record high of 7,844.01 as semiconductor and AI-related shares powered the market amid strong foreign investment inflows.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "003060",
-      "name_en": "Aprogen Biologics",
-      "change_pct": 30.0,
-      "close_price": 3770,
-      "volume": 1043886,
-      "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Biotech",
-      "reason_en": "General biotech sector momentum and speculative trading following overall market rally"
-    },
-    {
-      "rank": 2,
       "ticker": "007460",
       "name_en": "Aprogen",
       "change_pct": 30.0,
-      "close_price": 5200,
-      "volume": 6363064,
+      "close_price": 6760,
+      "volume": 6451694,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Biotech",
-      "reason_en": "Related company rally alongside Aprogen Biologics in biotech sector momentum"
+      "sector_en": "Biotechnology",
+      "theme_en": "Biosimilar",
+      "reason_en": "Stock consolidation effects and biopharmaceutical sector momentum following regulatory approval progress for cancer treatment biosimilar"
+    },
+    {
+      "rank": 2,
+      "ticker": "452260",
+      "name_en": "Hanwha Galleria",
+      "change_pct": 30.0,
+      "close_price": 3640,
+      "volume": 49374537,
+      "market_cap": 0,
+      "sector_en": "Real Estate",
+      "theme_en": "Department Store",
+      "reason_en": "Retail sector recovery momentum and department store business optimization expectations amid economic growth"
     },
     {
       "rank": 3,
-      "ticker": "014910",
-      "name_en": "Sungmoon Electronics",
+      "ticker": "032800",
+      "name_en": "Fantazio",
       "change_pct": 30.0,
-      "close_price": 2535,
-      "volume": 7530258,
+      "close_price": 2275,
+      "volume": 159495,
       "market_cap": 0,
-      "sector_en": "Electronics",
-      "theme_en": "Auto Parts",
-      "reason_en": "Hyundai Motor value chain beneficiary amid strong auto export expectations"
+      "sector_en": "Entertainment",
+      "theme_en": "Content",
+      "reason_en": "Entertainment and content sector strength driven by K-culture expansion and digital media growth"
     },
     {
       "rank": 4,
-      "ticker": "014915",
-      "name_en": "Sungmoon Electronics Pfd",
+      "ticker": "187870",
+      "name_en": "Device",
       "change_pct": 30.0,
-      "close_price": 5850,
-      "volume": 125351,
+      "close_price": 27950,
+      "volume": 923702,
       "market_cap": 0,
-      "sector_en": "Electronics",
-      "theme_en": "Auto Parts",
-      "reason_en": "Preferred share rally following common stock gains in Hyundai Motor supply chain"
+      "sector_en": "Technology Hardware",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "AI semiconductor equipment demand surge and technology hardware sector rally"
     },
     {
       "rank": 5,
-      "ticker": "439960",
-      "name_en": "Cosmorobotics",
+      "ticker": "417840",
+      "name_en": "JUSTEM",
       "change_pct": 30.0,
-      "close_price": 31200,
-      "volume": 11801653,
+      "close_price": 17030,
+      "volume": 4523338,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Wearable Robotics",
-      "reason_en": "Second day of listing frenzy for wearable medical robot specialist, surging 420% from IPO price"
+      "sector_en": "Technology",
+      "theme_en": "Software",
+      "reason_en": "Software sector momentum amid digital transformation acceleration and technology stock rally"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "084110",
-      "name_en": "Huons Global",
-      "change_pct": -17.35,
-      "close_price": 44050,
-      "volume": 474032,
+      "ticker": "006345",
+      "name_en": "Daewon Cable Preferred",
+      "change_pct": -21.32,
+      "close_price": 18530,
+      "volume": 3498528,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Generic Drugs",
-      "reason_en": "Profit-taking after recent gains and sector rotation away from traditional pharma"
+      "sector_en": "Industrial Materials",
+      "theme_en": "Cable",
+      "reason_en": "Cable sector profit-taking after recent Middle East tension rally and preferred stock underperformance"
     },
     {
       "rank": 2,
-      "ticker": "306040",
-      "name_en": "SJ Group",
-      "change_pct": -17.1,
-      "close_price": 4800,
-      "volume": 556367,
+      "ticker": "051780",
+      "name_en": "Curo Holdings",
+      "change_pct": -18.4,
+      "close_price": 5010,
+      "volume": 1472781,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Real Estate Development",
-      "reason_en": "Construction sector weakness amid high interest rate environment"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Services",
+      "reason_en": "Healthcare services sector weakness amid regulatory concerns and medical industry consolidation pressures"
     },
     {
       "rank": 3,
-      "ticker": "008290",
-      "name_en": "Wonpoong",
-      "change_pct": -16.75,
-      "close_price": 696,
-      "volume": 511170,
+      "ticker": "024840",
+      "name_en": "KBI Metal",
+      "change_pct": -16.96,
+      "close_price": 7640,
+      "volume": 10943318,
       "market_cap": 0,
-      "sector_en": "Trading",
-      "theme_en": "General Trading",
-      "reason_en": "Traditional trading company underperformance in tech-driven market rally"
+      "sector_en": "Industrial Materials",
+      "theme_en": "Metal Processing",
+      "reason_en": "Metal sector decline despite morning recovery as commodity prices face pressure from global economic uncertainty"
     },
     {
       "rank": 4,
-      "ticker": "011170",
-      "name_en": "Lotte Chemical",
-      "change_pct": -16.34,
-      "close_price": 89100,
-      "volume": 1167538,
+      "ticker": "078160",
+      "name_en": "Medipost",
+      "change_pct": -14.97,
+      "close_price": 22150,
+      "volume": 1125048,
       "market_cap": 0,
-      "sector_en": "Chemicals",
-      "theme_en": "Petrochemicals",
-      "reason_en": "Concerns over sustainability of Q1 profit turnaround amid negative lagging effects expected in H2"
+      "sector_en": "Biotechnology",
+      "theme_en": "Stem Cell",
+      "reason_en": "Biotech sector rotation and stem cell therapy development uncertainty affecting investor sentiment"
     },
     {
       "rank": 5,
-      "ticker": "052460",
-      "name_en": "i-Craft",
-      "change_pct": -15.97,
-      "close_price": 3500,
-      "volume": 1817625,
+      "ticker": "010170",
+      "name_en": "Daehan Optical Communications",
+      "change_pct": -14.95,
+      "close_price": 24750,
+      "volume": 34116773,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "Tech sector profit-taking and rotation into semiconductor giants"
+      "sector_en": "Technology Hardware",
+      "theme_en": "Optical Communications",
+      "reason_en": "Optical communications sector weakness amid supply chain concerns and infrastructure investment delays"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "5.82",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "chg": "+8.45",
+      "stocks": "Samsung Electronics · SK hynix"
     },
     {
-      "name": "Robotics",
-      "chg": "4.95",
-      "stocks": "Cosmorobotics · Rainbow Robotics"
+      "name": "Information Technology",
+      "chg": "+6.82",
+      "stocks": "Naver · Kakao"
     },
     {
-      "name": "Securities",
-      "chg": "4.18",
-      "stocks": "Mirae Asset · KB Securities"
+      "name": "Automotive",
+      "chg": "+5.38",
+      "stocks": "Hyundai Motor · Kia"
     },
     {
-      "name": "Electronics",
-      "chg": "3.76",
-      "stocks": "LG Electronics · Hyundai Mobis"
+      "name": "Shipbuilding",
+      "chg": "+4.26",
+      "stocks": "HD Hyundai Heavy · Samsung Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Chemicals",
-      "chg": "-4.82",
-      "stocks": "Lotte Chemical · LG Chem"
+      "name": "Cable & Wire",
+      "chg": "-8.75",
+      "stocks": "Daewon Cable · LS Cable"
     },
     {
-      "name": "Construction",
-      "chg": "-3.45",
-      "stocks": "SJ Group · Daelim Industrial"
+      "name": "Metal Processing",
+      "chg": "-6.23",
+      "stocks": "KBI Metal · Dongbu Steel"
     },
     {
-      "name": "Pharmaceuticals",
-      "chg": "-2.91",
-      "stocks": "Huons Global · Celltrion"
+      "name": "Medical Services",
+      "chg": "-5.91",
+      "stocks": "Curo Holdings · Green Cross"
     },
     {
-      "name": "Trading",
-      "chg": "-2.67",
-      "stocks": "Wonpoong · Doosan Corp"
+      "name": "Optical Communications",
+      "chg": "-4.58",
+      "stocks": "Daehan Optical · Optrontec"
     }
   ],
-  "_built_at": "2026-05-12 18:43",
-  "_date_label": "Tue, May 12, 2026"
+  "_built_at": "2026-05-13 18:47",
+  "_date_label": "Wed, May 13, 2026"
 }
