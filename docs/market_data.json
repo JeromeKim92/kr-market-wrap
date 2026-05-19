@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,516.04",
-      "chg_pct": "+0.31%",
-      "chg_abs": "+22.86 pts"
+      "value": "7,271.66",
+      "chg_pct": "+3.25%",
+      "chg_abs": "+244.38 pts"
     },
     "kosdaq": {
-      "value": "1,111.09",
-      "chg_pct": "+1.66%",
-      "chg_abs": "+18.73 pts"
+      "value": "1,084.36",
+      "chg_pct": "+2.41%",
+      "chg_abs": "+26.73 pts"
     },
     "usdkrw": {
-      "value": "1,502",
-      "chg_pct": "+0.25%",
-      "chg_abs": "+4 KRW"
+      "value": "1,507",
+      "chg_pct": "+1.03%",
+      "chg_abs": "+15 KRW"
     }
   },
-  "highlight": "<cite index=\"1-23,32-9\">KOSPI rebounds from Friday's sharp 6.12% selloff</cite>, showing <strong>resilience</strong> as markets digest recent AI-driven rally and Samsung labor concerns.",
+  "highlight": "Korean markets surged 3.25% as <strong>AI infrastructure demand</strong> and tech sector momentum continue driving record-breaking rally beyond 7,200.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "031330",
-      "name_en": "SAMT",
-      "change_pct": 30.0,
-      "close_price": 18590,
-      "volume": 1642724,
+      "ticker": "011000",
+      "name_en": "JW Life Science",
+      "change_pct": 29.97,
+      "close_price": 1366,
+      "volume": 40882712,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Benefiting from AI boom and semiconductor equipment demand surge"
+      "sector_en": "Biotechnology",
+      "theme_en": "Biotech restructuring",
+      "reason_en": "51 billion won convertible bond injection fueled restructuring expectations and liquidity recovery in biotechnology sector"
     },
     {
       "rank": 2,
-      "ticker": "307870",
-      "name_en": "BTOE",
-      "change_pct": 29.99,
-      "close_price": 1140,
-      "volume": 1372439,
+      "ticker": "004870",
+      "name_en": "T'Way Holdings",
+      "change_pct": 29.96,
+      "close_price": 308,
+      "volume": 3345333,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Riding digital transformation wave and enterprise software growth"
+      "sector_en": "Airlines",
+      "theme_en": "Travel recovery",
+      "reason_en": "Post-pandemic travel demand recovery and aviation sector rebound amid improved international route capacity"
     },
     {
       "rank": 3,
-      "ticker": "036930",
-      "name_en": "Jusung Engineering",
-      "change_pct": 29.96,
-      "close_price": 182200,
-      "volume": 4396177,
+      "ticker": "021880",
+      "name_en": "Mason Capital",
+      "change_pct": 29.95,
+      "close_price": 282,
+      "volume": 65861161,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Manufacturing",
-      "reason_en": "Strong growth in semiconductor equipment sales and AI chip production support"
+      "sector_en": "Financial Services",
+      "theme_en": "Capital markets",
+      "reason_en": "Financial sector momentum from improved lending conditions and capital market expansion activities"
     },
     {
       "rank": 4,
-      "ticker": "021880",
-      "name_en": "Mason Capital",
-      "change_pct": 29.94,
-      "close_price": 217,
-      "volume": 41409474,
+      "ticker": "439960",
+      "name_en": "Cosmo Robotics",
+      "change_pct": 29.95,
+      "close_price": 48600,
+      "volume": 27973560,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment Management",
-      "reason_en": "Benefiting from increased market activity and strong investment flows"
+      "sector_en": "Medical Robotics",
+      "theme_en": "AI robotics",
+      "reason_en": "Wearable medical rehabilitation robot company benefiting from robotics industry enthusiasm and AI automation trends"
     },
     {
       "rank": 5,
-      "ticker": "177350",
-      "name_en": "Vessel",
+      "ticker": "035620",
+      "name_en": "Bareunson E&A",
       "change_pct": 29.94,
-      "close_price": 1059,
-      "volume": 1953884,
+      "close_price": 1341,
+      "volume": 1316115,
       "market_cap": 0,
-      "sector_en": "Industrial",
-      "theme_en": "Marine Equipment",
-      "reason_en": "Shipbuilding industry recovery and increased marine transport demand"
+      "sector_en": "Technology Services",
+      "theme_en": "Digital transformation",
+      "reason_en": "Technology services firm riding digital transformation wave and IT infrastructure modernization demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "487580",
-      "name_en": "Pollux",
-      "change_pct": -30.0,
-      "close_price": 9800,
-      "volume": 5589168,
+      "ticker": "064800",
+      "name_en": "Pony Link",
+      "change_pct": -27.41,
+      "close_price": 2900,
+      "volume": 621493,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Profit-taking after recent gains and tech sector volatility concerns"
+      "theme_en": "Tech volatility",
+      "reason_en": "Profit-taking pressure following recent tech sector gains and valuation concerns amid market rotation"
     },
     {
       "rank": 2,
-      "ticker": "092600",
-      "name_en": "ANCN",
-      "change_pct": -29.95,
-      "close_price": 4490,
-      "volume": 828916,
+      "ticker": "027580",
+      "name_en": "Sangbo",
+      "change_pct": -24.41,
+      "close_price": 2260,
+      "volume": 332156,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Devices",
-      "reason_en": "Regulatory concerns and competitive pressure in medical device market"
+      "sector_en": "Manufacturing",
+      "theme_en": "Industrial decline",
+      "reason_en": "Manufacturing sector weakness from China competition and industrial demand slowdown affecting production"
     },
     {
       "rank": 3,
-      "ticker": "223310",
-      "name_en": "Satoshi Holdings",
-      "change_pct": -27.92,
-      "close_price": 10660,
-      "volume": 1875943,
+      "ticker": "298060",
+      "name_en": "Pungjon Pharmaceutical",
+      "change_pct": -20.06,
+      "close_price": 3705,
+      "volume": 84918,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Blockchain",
-      "reason_en": "Cryptocurrency market volatility and regulatory uncertainty impact"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Pharma correction",
+      "reason_en": "Pharmaceutical sector correction following regulatory concerns and competitive pressure in drug markets"
     },
     {
       "rank": 4,
-      "ticker": "419530",
-      "name_en": "SAMG Entertainment",
-      "change_pct": -26.35,
-      "close_price": 28650,
-      "volume": 584793,
+      "ticker": "412350",
+      "name_en": "Laser Cell",
+      "change_pct": -19.11,
+      "close_price": 11390,
+      "volume": 2183999,
       "market_cap": 0,
-      "sector_en": "Media & Entertainment",
-      "theme_en": "Animation Studios",
-      "reason_en": "Content production delays and increased competition in animation sector"
+      "sector_en": "Medical Equipment",
+      "theme_en": "Medical device selloff",
+      "reason_en": "Medical device sector experiencing profit-taking after strong gains and regulatory uncertainty impacts"
     },
     {
       "rank": 5,
-      "ticker": "278650",
-      "name_en": "HLB Biostem",
-      "change_pct": -24.76,
-      "close_price": 4785,
-      "volume": 342522,
+      "ticker": "048770",
+      "name_en": "TPC Robotics",
+      "change_pct": -16.48,
+      "close_price": 5930,
+      "volume": 3655743,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "Clinical trial setbacks and biotech sector risk-off sentiment"
+      "sector_en": "Robotics",
+      "theme_en": "Robotics consolidation",
+      "reason_en": "Robotics sector consolidation with investors rotating toward larger players and established market leaders"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductor Equipment",
-      "chg": "+5.82",
+      "name": "AI Infrastructure",
+      "chg": "6.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Electric Vehicle Components",
-      "chg": "+4.15",
-      "stocks": "LG Energy Solution · Hyundai Mobis"
+      "name": "Shipbuilding",
+      "chg": "5.94",
+      "stocks": "HD Hyundai Heavy · Samsung Heavy"
     },
     {
-      "name": "Financial Services",
-      "chg": "+3.67",
-      "stocks": "KB Financial Group · Shinhan Financial"
+      "name": "Defense",
+      "chg": "5.41",
+      "stocks": "Hanwha Aerospace · LIG Nex1"
     },
     {
-      "name": "Shipbuilding & Marine",
-      "chg": "+2.94",
-      "stocks": "HD Hyundai Heavy · Daewoo Shipbuilding"
+      "name": "Semiconductors",
+      "chg": "4.87",
+      "stocks": "Samsung SDI · LG Display"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Biotechnology",
-      "chg": "-4.23",
-      "stocks": "Samsung Biologics · Celltrion"
+      "name": "Steel",
+      "chg": "-3.21",
+      "stocks": "POSCO Holdings · Hyundai Steel"
     },
     {
-      "name": "Entertainment Media",
-      "chg": "-3.78",
-      "stocks": "HYBE · CJ ENM"
+      "name": "Petrochemicals",
+      "chg": "-2.89",
+      "stocks": "LG Chem · Lotte Chemical"
     },
     {
-      "name": "Blockchain & Crypto",
-      "chg": "-3.45",
-      "stocks": "Dunamu · Korbit"
+      "name": "Construction",
+      "chg": "-2.44",
+      "stocks": "Samsung C&T · GS E&C"
     },
     {
       "name": "Traditional Manufacturing",
-      "chg": "-2.91",
-      "stocks": "POSCO Holdings · Hyundai Steel"
+      "chg": "-1.98",
+      "stocks": "Doosan Enerbility · Hyundai Motor"
     }
   ],
-  "_built_at": "2026-05-18 20:08",
-  "_date_label": "Mon, May 18, 2026"
+  "_built_at": "2026-05-19 19:38",
+  "_date_label": "Tue, May 19, 2026"
 }
