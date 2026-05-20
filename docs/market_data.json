@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,271.66",
-      "chg_pct": "+3.25%",
-      "chg_abs": "+244.38 pts"
+      "value": "7,208.95",
+      "chg_pct": "+0.86%",
+      "chg_abs": "+62.71 pts"
     },
     "kosdaq": {
-      "value": "1,084.36",
-      "chg_pct": "+2.41%",
-      "chg_abs": "+26.73 pts"
+      "value": "1,056.07",
+      "chg_pct": "+2.61%",
+      "chg_abs": "+28.29 pts"
     },
     "usdkrw": {
-      "value": "1,507",
-      "chg_pct": "+1.03%",
-      "chg_abs": "+15 KRW"
+      "value": "1,506",
+      "chg_pct": "+0.15%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean markets surged 3.25% as <strong>AI infrastructure demand</strong> and tech sector momentum continue driving record-breaking rally beyond 7,200.",
+  "highlight": "Korean markets showed mixed performance with <strong>Physical AI</strong> IPO Machinark leading gainers with 300% surge on debut",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "011000",
-      "name_en": "JW Life Science",
-      "change_pct": 29.97,
-      "close_price": 1366,
-      "volume": 40882712,
+      "ticker": "477850",
+      "name_en": "Machinark",
+      "change_pct": 300.0,
+      "close_price": 60000,
+      "volume": 569861,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biotech restructuring",
-      "reason_en": "51 billion won convertible bond injection fueled restructuring expectations and liquidity recovery in biotechnology sector"
+      "sector_en": "Technology",
+      "theme_en": "Physical AI & Enterprise AI OS",
+      "reason_en": "IPO debut with 300% surge driven by AI OS platform 'Runway' and massive investor interest with 13.9 trillion won subscription"
     },
     {
       "rank": 2,
-      "ticker": "004870",
-      "name_en": "T'Way Holdings",
-      "change_pct": 29.96,
-      "close_price": 308,
-      "volume": 3345333,
+      "ticker": "066980",
+      "name_en": "Hansung Cleantech",
+      "change_pct": 29.99,
+      "close_price": 1890,
+      "volume": 14300392,
       "market_cap": 0,
-      "sector_en": "Airlines",
-      "theme_en": "Travel recovery",
-      "reason_en": "Post-pandemic travel demand recovery and aviation sector rebound amid improved international route capacity"
+      "sector_en": "Industrial Equipment",
+      "theme_en": "Semiconductor Infrastructure",
+      "reason_en": "Beneficiary of semiconductor industry expansion and ultrapure water system nationalization policy"
     },
     {
       "rank": 3,
-      "ticker": "021880",
-      "name_en": "Mason Capital",
-      "change_pct": 29.95,
-      "close_price": 282,
-      "volume": 65861161,
+      "ticker": "121850",
+      "name_en": "COIZ",
+      "change_pct": 29.98,
+      "close_price": 2775,
+      "volume": 541530,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Capital markets",
-      "reason_en": "Financial sector momentum from improved lending conditions and capital market expansion activities"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Device",
+      "reason_en": "Medical technology advancement and healthcare innovation momentum"
     },
     {
       "rank": 4,
-      "ticker": "439960",
-      "name_en": "Cosmo Robotics",
-      "change_pct": 29.95,
-      "close_price": 48600,
-      "volume": 27973560,
+      "ticker": "225430",
+      "name_en": "KM Pharmaceutical",
+      "change_pct": 29.98,
+      "close_price": 3035,
+      "volume": 392562,
       "market_cap": 0,
-      "sector_en": "Medical Robotics",
-      "theme_en": "AI robotics",
-      "reason_en": "Wearable medical rehabilitation robot company benefiting from robotics industry enthusiasm and AI automation trends"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Drug Development",
+      "reason_en": "Pharmaceutical sector strength and drug development progress"
     },
     {
       "rank": 5,
-      "ticker": "035620",
-      "name_en": "Bareunson E&A",
-      "change_pct": 29.94,
-      "close_price": 1341,
-      "volume": 1316115,
+      "ticker": "017900",
+      "name_en": "Kwangjeonja",
+      "change_pct": 29.96,
+      "close_price": 12450,
+      "volume": 12794976,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "Digital transformation",
-      "reason_en": "Technology services firm riding digital transformation wave and IT infrastructure modernization demand"
+      "sector_en": "Electronics",
+      "theme_en": "Power Infrastructure",
+      "reason_en": "Power infrastructure demand and electronic components sector momentum"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "064800",
-      "name_en": "Pony Link",
-      "change_pct": -27.41,
-      "close_price": 2900,
-      "volume": 621493,
+      "ticker": "288180",
+      "name_en": "KP Aero Industries",
+      "change_pct": -29.99,
+      "close_price": 30700,
+      "volume": 4279002,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Tech volatility",
-      "reason_en": "Profit-taking pressure following recent tech sector gains and valuation concerns amid market rotation"
+      "sector_en": "Aerospace & Defense",
+      "theme_en": "Aviation Components",
+      "reason_en": "Profit-taking after recent IPO gains and aerospace sector volatility"
     },
     {
       "rank": 2,
-      "ticker": "027580",
-      "name_en": "Sangbo",
-      "change_pct": -24.41,
-      "close_price": 2260,
-      "volume": 332156,
+      "ticker": "092220",
+      "name_en": "KEC",
+      "change_pct": -29.92,
+      "close_price": 6440,
+      "volume": 5674535,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Industrial decline",
-      "reason_en": "Manufacturing sector weakness from China competition and industrial demand slowdown affecting production"
+      "sector_en": "Construction",
+      "theme_en": "Engineering & Construction",
+      "reason_en": "Construction sector weakness and project delays concerns"
     },
     {
       "rank": 3,
-      "ticker": "298060",
-      "name_en": "Pungjon Pharmaceutical",
-      "change_pct": -20.06,
-      "close_price": 3705,
-      "volume": 84918,
+      "ticker": "006200",
+      "name_en": "Korea Electronics Holdings",
+      "change_pct": -26.34,
+      "close_price": 2950,
+      "volume": 446993,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Pharma correction",
-      "reason_en": "Pharmaceutical sector correction following regulatory concerns and competitive pressure in drug markets"
+      "sector_en": "Electronics",
+      "theme_en": "Electronics Components",
+      "reason_en": "Electronics sector correction and supply chain concerns"
     },
     {
       "rank": 4,
-      "ticker": "412350",
-      "name_en": "Laser Cell",
-      "change_pct": -19.11,
-      "close_price": 11390,
-      "volume": 2183999,
+      "ticker": "417180",
+      "name_en": "Finger Story",
+      "change_pct": -23.92,
+      "close_price": 6010,
+      "volume": 83017,
       "market_cap": 0,
-      "sector_en": "Medical Equipment",
-      "theme_en": "Medical device selloff",
-      "reason_en": "Medical device sector experiencing profit-taking after strong gains and regulatory uncertainty impacts"
+      "sector_en": "Technology",
+      "theme_en": "Digital Content",
+      "reason_en": "Tech sector selloff and digital content market concerns"
     },
     {
       "rank": 5,
-      "ticker": "048770",
-      "name_en": "TPC Robotics",
-      "change_pct": -16.48,
-      "close_price": 5930,
-      "volume": 3655743,
+      "ticker": "035620",
+      "name_en": "Barunson E&A",
+      "change_pct": -23.79,
+      "close_price": 1022,
+      "volume": 7580026,
       "market_cap": 0,
-      "sector_en": "Robotics",
-      "theme_en": "Robotics consolidation",
-      "reason_en": "Robotics sector consolidation with investors rotating toward larger players and established market leaders"
+      "sector_en": "Entertainment",
+      "theme_en": "Content Production",
+      "reason_en": "Entertainment sector weakness and content production challenges"
     }
   ],
   "strong_sectors": [
     {
-      "name": "AI Infrastructure",
-      "chg": "6.82",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Artificial Intelligence",
+      "chg": "+5.82",
+      "stocks": "Machinark · AI Solutions"
     },
     {
-      "name": "Shipbuilding",
-      "chg": "5.94",
-      "stocks": "HD Hyundai Heavy · Samsung Heavy"
+      "name": "Semiconductor Equipment",
+      "chg": "+4.15",
+      "stocks": "Hansung Cleantech · Ultrapure Systems"
     },
     {
-      "name": "Defense",
-      "chg": "5.41",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
+      "name": "Medical Technology",
+      "chg": "+3.67",
+      "stocks": "COIZ · Medical Devices"
     },
     {
-      "name": "Semiconductors",
-      "chg": "4.87",
-      "stocks": "Samsung SDI · LG Display"
+      "name": "Power Infrastructure",
+      "chg": "+2.94",
+      "stocks": "Kwangjeonja · Power Components"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Steel",
-      "chg": "-3.21",
-      "stocks": "POSCO Holdings · Hyundai Steel"
-    },
-    {
-      "name": "Petrochemicals",
-      "chg": "-2.89",
-      "stocks": "LG Chem · Lotte Chemical"
+      "name": "Aerospace & Defense",
+      "chg": "-4.21",
+      "stocks": "KP Aero Industries · Defense Contractors"
     },
     {
       "name": "Construction",
-      "chg": "-2.44",
-      "stocks": "Samsung C&T · GS E&C"
+      "chg": "-3.85",
+      "stocks": "KEC · Construction Materials"
     },
     {
-      "name": "Traditional Manufacturing",
-      "chg": "-1.98",
-      "stocks": "Doosan Enerbility · Hyundai Motor"
+      "name": "Electronics Components",
+      "chg": "-2.94",
+      "stocks": "Korea Electronics · Component Makers"
+    },
+    {
+      "name": "Entertainment",
+      "chg": "-2.73",
+      "stocks": "Barunson E&A · Content Producers"
     }
   ],
-  "_built_at": "2026-05-19 19:38",
-  "_date_label": "Tue, May 19, 2026"
+  "_built_at": "2026-05-20 19:26",
+  "_date_label": "Wed, May 20, 2026"
 }
