@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,208.95",
-      "chg_pct": "+0.86%",
-      "chg_abs": "+62.71 pts"
+      "value": "7,815.59",
+      "chg_pct": "+8.42%",
+      "chg_abs": "+606.64 pts"
     },
     "kosdaq": {
-      "value": "1,056.07",
-      "chg_pct": "+2.61%",
-      "chg_abs": "+28.29 pts"
+      "value": "1,105.97",
+      "chg_pct": "+4.73%",
+      "chg_abs": "+49.90 pts"
     },
     "usdkrw": {
-      "value": "1,506",
-      "chg_pct": "+0.15%",
-      "chg_abs": "+2 KRW"
+      "value": "1,509",
+      "chg_pct": "+0.72%",
+      "chg_abs": "+11 KRW"
     }
   },
-  "highlight": "Korean markets showed mixed performance with <strong>Physical AI</strong> IPO Machinark leading gainers with 300% surge on debut",
+  "highlight": "KOSPI surged <strong>8.42%</strong> to 7,815.59 as Samsung labor deal ended strike threat and semiconductor stocks rallied on AI demand.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "477850",
-      "name_en": "Machinark",
-      "change_pct": 300.0,
-      "close_price": 60000,
-      "volume": 569861,
+      "ticker": "009415",
+      "name_en": "Taeyoung E&C (preferred)",
+      "change_pct": 30.0,
+      "close_price": 9490,
+      "volume": 28861,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Physical AI & Enterprise AI OS",
-      "reason_en": "IPO debut with 300% surge driven by AI OS platform 'Runway' and massive investor interest with 13.9 trillion won subscription"
+      "sector_en": "Construction",
+      "theme_en": "Infrastructure rebuild",
+      "reason_en": "Infrastructure development and construction spending boost"
     },
     {
       "rank": 2,
-      "ticker": "066980",
-      "name_en": "Hansung Cleantech",
-      "change_pct": 29.99,
-      "close_price": 1890,
-      "volume": 14300392,
+      "ticker": "024840",
+      "name_en": "KBI Metal",
+      "change_pct": 30.0,
+      "close_price": 6890,
+      "volume": 3035763,
       "market_cap": 0,
-      "sector_en": "Industrial Equipment",
-      "theme_en": "Semiconductor Infrastructure",
-      "reason_en": "Beneficiary of semiconductor industry expansion and ultrapure water system nationalization policy"
+      "sector_en": "Materials",
+      "theme_en": "Metal processing",
+      "reason_en": "Industrial metals demand from manufacturing recovery"
     },
     {
       "rank": 3,
-      "ticker": "121850",
-      "name_en": "COIZ",
-      "change_pct": 29.98,
-      "close_price": 2775,
-      "volume": 541530,
+      "ticker": "477850",
+      "name_en": "MakinaRocks",
+      "change_pct": 30.0,
+      "close_price": 78000,
+      "volume": 1337252,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Device",
-      "reason_en": "Medical technology advancement and healthcare innovation momentum"
+      "sector_en": "Technology",
+      "theme_en": "AI Manufacturing",
+      "reason_en": "Industrial AI and manufacturing automation demand surge"
     },
     {
       "rank": 4,
-      "ticker": "225430",
-      "name_en": "KM Pharmaceutical",
-      "change_pct": 29.98,
-      "close_price": 3035,
-      "volume": 392562,
+      "ticker": "232680",
+      "name_en": "Raon Robotics",
+      "change_pct": 29.97,
+      "close_price": 18300,
+      "volume": 2667731,
       "market_cap": 0,
-      "sector_en": "Pharmaceuticals",
-      "theme_en": "Drug Development",
-      "reason_en": "Pharmaceutical sector strength and drug development progress"
+      "sector_en": "Technology",
+      "theme_en": "Industrial Robotics",
+      "reason_en": "Factory automation and industrial robot demand growth"
     },
     {
       "rank": 5,
-      "ticker": "017900",
-      "name_en": "Kwangjeonja",
-      "change_pct": 29.96,
-      "close_price": 12450,
-      "volume": 12794976,
+      "ticker": "304840",
+      "name_en": "People Bio",
+      "change_pct": 29.97,
+      "close_price": 1418,
+      "volume": 4913642,
       "market_cap": 0,
-      "sector_en": "Electronics",
-      "theme_en": "Power Infrastructure",
-      "reason_en": "Power infrastructure demand and electronic components sector momentum"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech sector momentum and drug development optimism"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "288180",
-      "name_en": "KP Aero Industries",
-      "change_pct": -29.99,
-      "close_price": 30700,
-      "volume": 4279002,
+      "ticker": "760028",
+      "name_en": "Kiwoom Inverse 2X Semiconductor TOP10 ETN",
+      "change_pct": -21.68,
+      "close_price": 4535,
+      "volume": 647721,
       "market_cap": 0,
-      "sector_en": "Aerospace & Defense",
-      "theme_en": "Aviation Components",
-      "reason_en": "Profit-taking after recent IPO gains and aerospace sector volatility"
+      "sector_en": "Financial",
+      "theme_en": "Inverse ETN",
+      "reason_en": "Inverse semiconductor ETN fell as chip stocks surged"
     },
     {
       "rank": 2,
-      "ticker": "092220",
-      "name_en": "KEC",
-      "change_pct": -29.92,
-      "close_price": 6440,
-      "volume": 5674535,
+      "ticker": "520099",
+      "name_en": "Mirae Asset Inverse 2X Semiconductor ETN",
+      "change_pct": -21.16,
+      "close_price": 6295,
+      "volume": 1861729,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Engineering & Construction",
-      "reason_en": "Construction sector weakness and project delays concerns"
+      "sector_en": "Financial",
+      "theme_en": "Inverse ETN",
+      "reason_en": "Inverse leveraged product declined on semiconductor rally"
     },
     {
       "rank": 3,
-      "ticker": "006200",
-      "name_en": "Korea Electronics Holdings",
-      "change_pct": -26.34,
-      "close_price": 2950,
-      "volume": 446993,
+      "ticker": "700036",
+      "name_en": "Hana Inverse 2X Semiconductor ETN",
+      "change_pct": -20.45,
+      "close_price": 4105,
+      "volume": 666542,
       "market_cap": 0,
-      "sector_en": "Electronics",
-      "theme_en": "Electronics Components",
-      "reason_en": "Electronics sector correction and supply chain concerns"
+      "sector_en": "Financial",
+      "theme_en": "Inverse ETN",
+      "reason_en": "Bearish semiconductor bet backfired on chip stock surge"
     },
     {
       "rank": 4,
-      "ticker": "417180",
-      "name_en": "Finger Story",
-      "change_pct": -23.92,
-      "close_price": 6010,
-      "volume": 83017,
+      "ticker": "225430",
+      "name_en": "KM Pharma",
+      "change_pct": -19.6,
+      "close_price": 2440,
+      "volume": 1255683,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Digital Content",
-      "reason_en": "Tech sector selloff and digital content market concerns"
+      "sector_en": "Healthcare",
+      "theme_en": "Pharmaceuticals",
+      "reason_en": "Profit-taking in pharmaceutical stocks after recent gains"
     },
     {
       "rank": 5,
-      "ticker": "035620",
-      "name_en": "Barunson E&A",
-      "change_pct": -23.79,
-      "close_price": 1022,
-      "volume": 7580026,
+      "ticker": "011000",
+      "name_en": "Jinwon Life Science",
+      "change_pct": -19.16,
+      "close_price": 1321,
+      "volume": 21915013,
       "market_cap": 0,
-      "sector_en": "Entertainment",
-      "theme_en": "Content Production",
-      "reason_en": "Entertainment sector weakness and content production challenges"
+      "sector_en": "Healthcare",
+      "theme_en": "Life Sciences",
+      "reason_en": "Biotech sector rotation and risk-off in smaller names"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Artificial Intelligence",
-      "chg": "+5.82",
-      "stocks": "Machinark · AI Solutions"
+      "name": "Semiconductors",
+      "chg": "8.85",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Semiconductor Equipment",
-      "chg": "+4.15",
-      "stocks": "Hansung Cleantech · Ultrapure Systems"
+      "name": "Technology Hardware",
+      "chg": "7.21",
+      "stocks": "LG Electronics · Samsung Electro-Mechanics"
     },
     {
-      "name": "Medical Technology",
-      "chg": "+3.67",
-      "stocks": "COIZ · Medical Devices"
+      "name": "Industrial AI",
+      "chg": "6.94",
+      "stocks": "MakinaRocks · Industrial Automation"
     },
     {
-      "name": "Power Infrastructure",
-      "chg": "+2.94",
-      "stocks": "Kwangjeonja · Power Components"
+      "name": "Construction Materials",
+      "chg": "5.73",
+      "stocks": "Steel · Cement Companies"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Aerospace & Defense",
-      "chg": "-4.21",
-      "stocks": "KP Aero Industries · Defense Contractors"
+      "name": "Inverse ETNs",
+      "chg": "-21.10",
+      "stocks": "Semiconductor Inverse · Tech Inverse"
     },
     {
-      "name": "Construction",
-      "chg": "-3.85",
-      "stocks": "KEC · Construction Materials"
+      "name": "Small Biotechs",
+      "chg": "-18.88",
+      "stocks": "KM Pharma · Jinwon Life"
     },
     {
-      "name": "Electronics Components",
-      "chg": "-2.94",
-      "stocks": "Korea Electronics · Component Makers"
+      "name": "Energy",
+      "chg": "-4.12",
+      "stocks": "Oil Refineries · Utilities"
     },
     {
-      "name": "Entertainment",
-      "chg": "-2.73",
-      "stocks": "Barunson E&A · Content Producers"
+      "name": "Traditional Manufacturing",
+      "chg": "-2.85",
+      "stocks": "Textiles · Basic Materials"
     }
   ],
-  "_built_at": "2026-05-20 19:26",
-  "_date_label": "Wed, May 20, 2026"
+  "_built_at": "2026-05-21 19:41",
+  "_date_label": "Thu, May 21, 2026"
 }
