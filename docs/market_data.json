@@ -11,12 +11,12 @@
       "chg_abs": "+55.16 pts"
     },
     "usdkrw": {
-      "value": "1,517",
-      "chg_pct": "+0.74%",
-      "chg_abs": "+11 KRW"
+      "value": "1,515",
+      "chg_pct": "+0.66%",
+      "chg_abs": "+10 KRW"
     }
   },
-  "highlight": "KOSDAQ surged <strong>5%</strong> on optimism around new state-backed National Growth Fund targeting AI and tech companies.",
+  "highlight": "KOSPI extended gains for a second straight session as <strong>semiconductor momentum</strong> and improved US-Iran geopolitical sentiment boosted risk assets.",
   "gainers": [
     {
       "rank": 1,
@@ -26,21 +26,21 @@
       "close_price": 2730,
       "volume": 2010520,
       "market_cap": 0,
-      "sector_en": "Semiconductors & Components",
-      "theme_en": "Camera module technology",
-      "reason_en": "Camera module parts supplier for smartphones, benefiting from mobile tech upgrade cycle"
+      "sector_en": "Optical Components",
+      "theme_en": "Photonics Technology",
+      "reason_en": "AI infrastructure and data center optics demand driving photonic component requirements"
     },
     {
       "rank": 2,
       "ticker": "429270",
-      "name_en": "SG Electronics",
+      "name_en": "Sigetronics",
       "change_pct": 29.99,
       "close_price": 8930,
       "volume": 1976944,
       "market_cap": 0,
-      "sector_en": "Technology Hardware",
-      "theme_en": "Electronic components",
-      "reason_en": "Electronic components manufacturer riding tech sector momentum"
+      "sector_en": "Semiconductors",
+      "theme_en": "Power Semiconductors",
+      "reason_en": "GaN power semiconductor specialist benefiting from AI chip power management needs"
     },
     {
       "rank": 3,
@@ -51,8 +51,8 @@
       "volume": 109151,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Biotech innovation",
-      "reason_en": "Biotechnology company benefiting from National Growth Fund investment focus"
+      "theme_en": "Cell Therapy",
+      "reason_en": "Biotech momentum as AI-assisted drug discovery accelerates cell therapy development"
     },
     {
       "rank": 4,
@@ -62,9 +62,9 @@
       "close_price": 3860,
       "volume": 1094539,
       "market_cap": 0,
-      "sector_en": "Software & Services",
-      "theme_en": "Enterprise solutions",
-      "reason_en": "Software solutions provider gaining from digital transformation demand"
+      "sector_en": "IT Services",
+      "theme_en": "Enterprise Solutions",
+      "reason_en": "Digital transformation demand driving enterprise IT solution adoption"
     },
     {
       "rank": 5,
@@ -74,9 +74,9 @@
       "close_price": 8460,
       "volume": 6897896,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Tech solutions",
-      "reason_en": "Technology solutions company riding KOSDAQ rally on fund optimism"
+      "sector_en": "Semiconductors",
+      "theme_en": "Memory Solutions",
+      "reason_en": "Memory semiconductor specialist riding AI memory demand wave alongside major players"
     }
   ],
   "losers": [
@@ -88,33 +88,33 @@
       "close_price": 54600,
       "volume": 9343955,
       "market_cap": 0,
-      "sector_en": "Artificial Intelligence",
+      "sector_en": "AI Software",
       "theme_en": "Industrial AI",
-      "reason_en": "Profit-taking after quadrupling on KOSDAQ debut earlier this week from AI hype"
+      "reason_en": "Profit-taking after strong run-up as investors rotate from software to hardware plays"
     },
     {
       "rank": 2,
       "ticker": "148780",
-      "name_en": "BQ AI",
+      "name_en": "VCU AI",
       "change_pct": -26.3,
       "close_price": 737,
       "volume": 5355185,
       "market_cap": 0,
-      "sector_en": "Artificial Intelligence",
-      "theme_en": "AI software",
-      "reason_en": "AI sector consolidation as investors become selective after recent rally"
+      "sector_en": "AI Software",
+      "theme_en": "Computer Vision",
+      "reason_en": "AI software valuation concerns amid rising competition and market saturation fears"
     },
     {
       "rank": 3,
       "ticker": "043590",
-      "name_en": "WellKeeps Hitech",
+      "name_en": "Welkeeps Hitech",
       "change_pct": -22.33,
       "close_price": 1235,
       "volume": 798502,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Medical tech",
-      "reason_en": "Healthcare technology correction amid sector rotation to other themes"
+      "sector_en": "Electronics Manufacturing",
+      "theme_en": "Electronic Components",
+      "reason_en": "Manufacturing margin pressure from rising component costs and supply chain constraints"
     },
     {
       "rank": 4,
@@ -125,66 +125,66 @@
       "volume": 1973150,
       "market_cap": 0,
       "sector_en": "Biotechnology",
-      "theme_en": "Biotech therapeutics",
-      "reason_en": "Biotech volatility as investors take profits from recent gains"
+      "theme_en": "Drug Development",
+      "reason_en": "Biotech profit-taking as investors await clinical trial results and regulatory approvals"
     },
     {
       "rank": 5,
       "ticker": "004870",
-      "name_en": "T'way Holdings",
+      "name_en": "T'Way Holdings",
       "change_pct": -17.83,
       "close_price": 387,
       "volume": 32637282,
       "market_cap": 0,
       "sector_en": "Airlines",
-      "theme_en": "Aviation services",
-      "reason_en": "Airline sector weakness on oil price concerns and travel demand uncertainty"
+      "theme_en": "Low-Cost Carrier",
+      "reason_en": "Aviation sector weakness from fuel cost concerns and travel demand uncertainty"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "8.42",
+      "chg": "8.15",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Battery & Energy",
-      "chg": "6.21",
-      "stocks": "LG Energy Solution · EcoPro BM"
+      "name": "Defense & Aerospace",
+      "chg": "6.42",
+      "stocks": "Hanwha Aerospace · Doosan Enerbility"
     },
     {
-      "name": "Industrial Machinery",
-      "chg": "4.95",
-      "stocks": "Doosan Enerbility · Samsung Electro-Mechanics"
+      "name": "Power Equipment",
+      "chg": "5.88",
+      "stocks": "Samsung Electro-Mechanics · LG Energy Solution"
     },
     {
-      "name": "Technology Hardware",
-      "chg": "4.82",
-      "stocks": "Jusung Engineering · EcoPro"
+      "name": "Automotive",
+      "chg": "4.73",
+      "stocks": "Hyundai Motor · Kia Corporation"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Artificial Intelligence",
-      "chg": "-28.15",
-      "stocks": "MakinaRocks · BQ AI"
+      "name": "AI Software",
+      "chg": "-12.45",
+      "stocks": "MakinaRocks · VCU AI"
     },
     {
-      "name": "Healthcare Technology",
-      "chg": "-22.33",
-      "stocks": "WellKeeps Hitech · Tium Bio"
-    },
-    {
-      "name": "Transportation",
-      "chg": "-17.83",
-      "stocks": "T'way Holdings · Hyundai Motor"
+      "name": "Airlines",
+      "chg": "-8.92",
+      "stocks": "T'Way Holdings · Korean Air"
     },
     {
       "name": "Biotechnology",
-      "chg": "-15.21",
-      "stocks": "Various biotech · Medical device"
+      "chg": "-6.15",
+      "stocks": "Tium Bio · Samsung Biologics"
+    },
+    {
+      "name": "Electronics Manufacturing",
+      "chg": "-4.83",
+      "stocks": "Welkeeps Hitech · Nepes"
     }
   ],
-  "_built_at": "2026-05-22 19:26",
-  "_date_label": "Fri, May 22, 2026"
+  "_built_at": "2026-05-25 20:13",
+  "_date_label": "Mon, May 25, 2026"
 }
