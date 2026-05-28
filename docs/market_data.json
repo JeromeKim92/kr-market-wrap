@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,228.70",
-      "chg_pct": "+2.25%",
-      "chg_abs": "+181.19 pts"
+      "value": "8,185.29",
+      "chg_pct": "+0.53%",
+      "chg_abs": "+43.41 pts"
     },
     "kosdaq": {
-      "value": "1,133.13",
-      "chg_pct": "+3.36%",
-      "chg_abs": "+39.39 pts"
+      "value": "1,104.36",
+      "chg_pct": "+2.54%",
+      "chg_abs": "+28.77 pts"
     },
     "usdkrw": {
-      "value": "1,498",
-      "chg_pct": "+0.61%",
-      "chg_abs": "+9 KRW"
+      "value": "1,503",
+      "chg_pct": "+0.06%",
+      "chg_abs": "+1 KRW"
     }
   },
-  "highlight": "Korean markets surged as <strong>AI-driven semiconductor rally</strong> boosted KOSPI to record highs with biotechnology stocks leading gains amid global tech optimism.",
+  "highlight": "Korean markets rallied despite volatility as <strong>semiconductors</strong> drove KOSPI to new records while concentrated tech gains masked broad market weakness.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "347850",
-      "name_en": "D&D Pharmatech",
+      "ticker": "027040",
+      "name_en": "Seoul Electronics & Telecom",
       "change_pct": 30.0,
-      "close_price": 98800,
-      "volume": 3485551,
+      "close_price": 3120,
+      "volume": 8088425,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Drug Development",
-      "reason_en": "Clinical trial progress for neurological treatments and oral peptide platform technology driving biotech sector momentum"
+      "sector_en": "Technology",
+      "theme_en": "Electronics Components",
+      "reason_en": "Benefited from semiconductor and electronics sector momentum amid AI-driven technology demand surge"
     },
     {
       "rank": 2,
-      "ticker": "091970",
-      "name_en": "NanoChem Tech",
-      "change_pct": 29.99,
-      "close_price": 4920,
-      "volume": 765773,
+      "ticker": "072770",
+      "name_en": "Memrevity",
+      "change_pct": 29.98,
+      "close_price": 1175,
+      "volume": 2789992,
       "market_cap": 0,
-      "sector_en": "Chemicals",
-      "theme_en": "Nano Materials",
-      "reason_en": "Advanced nanomaterials demand surge for semiconductor and electronics applications amid AI chip boom"
+      "sector_en": "Technology",
+      "theme_en": "Memory Solutions",
+      "reason_en": "Rode the memory chip supercycle wave driven by AI infrastructure and hyperscaler demand"
     },
     {
       "rank": 3,
-      "ticker": "006660",
-      "name_en": "Samsung Climate Solutions",
+      "ticker": "073570",
+      "name_en": "Urban Lithium",
       "change_pct": 29.98,
-      "close_price": 15520,
-      "volume": 1408883,
+      "close_price": 3360,
+      "volume": 886173,
       "market_cap": 0,
-      "sector_en": "Industrial Equipment",
-      "theme_en": "HVAC Systems",
-      "reason_en": "Industrial automation demand and Samsung group synergy effects amid semiconductor manufacturing expansion"
+      "sector_en": "Materials",
+      "theme_en": "Battery Materials",
+      "reason_en": "Electric vehicle and energy storage demand boosted lithium-related companies"
     },
     {
       "rank": 4,
-      "ticker": "166480",
-      "name_en": "Corestem Chemon",
-      "change_pct": 29.93,
-      "close_price": 4775,
-      "volume": 571932,
+      "ticker": "012170",
+      "name_en": "Ascendio",
+      "change_pct": 29.97,
+      "close_price": 1327,
+      "volume": 2250809,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Cell Therapy",
-      "reason_en": "Stem cell therapy pipeline advancement and FDA Phase 3 trials for neurodegenerative diseases showing strong progress"
+      "sector_en": "Technology",
+      "theme_en": "Software Solutions",
+      "reason_en": "AI and digital transformation trends supported technology service providers"
     },
     {
       "rank": 5,
-      "ticker": "229000",
-      "name_en": "Genqrics",
-      "change_pct": 29.92,
-      "close_price": 3365,
-      "volume": 7899237,
+      "ticker": "131400",
+      "name_en": "EV Advanced Materials",
+      "change_pct": 29.97,
+      "close_price": 1930,
+      "volume": 15124116,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Generic Drugs",
-      "reason_en": "Generic drug market expansion and regulatory approvals boosting revenue outlook in pharmaceutical sector"
+      "sector_en": "Materials",
+      "theme_en": "Advanced Materials",
+      "reason_en": "Benefited from electric vehicle supply chain and advanced manufacturing material demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "032580",
-      "name_en": "Fidelix",
-      "change_pct": -25.77,
-      "close_price": 6280,
-      "volume": 13943024,
+      "ticker": "088290",
+      "name_en": "E One Compotech",
+      "change_pct": -29.52,
+      "close_price": 2220,
+      "volume": 130080,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT Solutions",
-      "reason_en": "Profit-taking after previous gains and competitive pressures in enterprise software market"
+      "sector_en": "Technology",
+      "theme_en": "Electronic Components",
+      "reason_en": "Profit-taking after recent gains and concerns over component supply chain disruption"
     },
     {
       "rank": 2,
-      "ticker": "288180",
-      "name_en": "KP Aerospace",
-      "change_pct": -19.41,
-      "close_price": 20350,
-      "volume": 1105819,
+      "ticker": "106240",
+      "name_en": "Fine Technics",
+      "change_pct": -26.65,
+      "close_price": 1555,
+      "volume": 5510351,
       "market_cap": 0,
-      "sector_en": "Aerospace & Defense",
-      "theme_en": "Aircraft Components",
-      "reason_en": "Aviation industry headwinds and supply chain disruptions affecting aerospace manufacturing companies"
+      "sector_en": "Technology",
+      "theme_en": "Precision Equipment",
+      "reason_en": "Manufacturing sector headwinds and margin pressure from increased competition"
     },
     {
       "rank": 3,
-      "ticker": "418550",
-      "name_en": "J.O Corporation",
-      "change_pct": -19.19,
-      "close_price": 7750,
-      "volume": 2366000,
+      "ticker": "227610",
+      "name_en": "Oudin Futures",
+      "change_pct": -25.06,
+      "close_price": 1190,
+      "volume": 591200,
       "market_cap": 0,
-      "sector_en": "Industrial Services",
-      "theme_en": "Business Services",
-      "reason_en": "Economic uncertainty impacting industrial services demand and margin pressures from rising costs"
+      "sector_en": "Technology",
+      "theme_en": "Future Technologies",
+      "reason_en": "Speculative tech stocks faced selling pressure amid market rotation to established players"
     },
     {
       "rank": 4,
-      "ticker": "021880",
-      "name_en": "Mason Capital",
-      "change_pct": -18.12,
-      "close_price": 235,
-      "volume": 51927168,
+      "ticker": "061040",
+      "name_en": "RF Tech",
+      "change_pct": -23.94,
+      "close_price": 7370,
+      "volume": 229614,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Alternative Finance",
-      "reason_en": "Interest rate uncertainty and tightening credit conditions affecting non-bank financial institutions"
+      "sector_en": "Technology",
+      "theme_en": "RF Components",
+      "reason_en": "Telecommunications equipment sector weakness and reduced 5G infrastructure spending"
     },
     {
       "rank": 5,
-      "ticker": "226340",
-      "name_en": "Bonne",
-      "change_pct": -18.08,
-      "close_price": 2650,
-      "volume": 342347,
+      "ticker": "258790",
+      "name_en": "Softcamp",
+      "change_pct": -23.17,
+      "close_price": 6600,
+      "volume": 279803,
       "market_cap": 0,
-      "sector_en": "Consumer Services",
-      "theme_en": "Retail Services",
-      "reason_en": "Consumer spending slowdown and competition from e-commerce platforms pressuring traditional retail models"
+      "sector_en": "Technology",
+      "theme_en": "Software Security",
+      "reason_en": "Cybersecurity sector consolidation concerns and competitive pressure from larger players"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "+6.82",
+      "chg": "8.45",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Biotechnology",
-      "chg": "+5.45",
-      "stocks": "Samsung Biologics · Celltrion"
-    },
-    {
       "name": "Shipbuilding",
-      "chg": "+4.91",
+      "chg": "7.82",
       "stocks": "HD Hyundai Heavy · Hanwha Ocean"
     },
     {
-      "name": "Chemicals",
-      "chg": "+3.87",
-      "stocks": "LG Chem · Lotte Chemical"
+      "name": "Automotive",
+      "chg": "6.15",
+      "stocks": "Hyundai Motor · Kia Corporation"
+    },
+    {
+      "name": "Defense",
+      "chg": "5.67",
+      "stocks": "Hanwha Aerospace · Doosan Enerbility"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Airlines",
-      "chg": "-3.42",
-      "stocks": "Korean Air · Asiana Airlines"
-    },
-    {
-      "name": "Construction",
-      "chg": "-2.18",
-      "stocks": "Samsung C&T · Hyundai Engineering"
+      "name": "Insurance",
+      "chg": "-4.23",
+      "stocks": "Samsung Fire · DB Insurance"
     },
     {
       "name": "Retail",
-      "chg": "-1.95",
-      "stocks": "Lotte Shopping · Shinsegae"
+      "chg": "-3.91",
+      "stocks": "Lotte Shopping · Hyundai Dept"
     },
     {
-      "name": "Financial Services",
-      "chg": "-1.67",
-      "stocks": "KB Financial · Shinhan Financial"
+      "name": "Real Estate",
+      "chg": "-3.67",
+      "stocks": "Korea Land · Daelim Industrial"
+    },
+    {
+      "name": "Telecommunications",
+      "chg": "-2.84",
+      "stocks": "KT Corporation · LG Uplus"
     }
   ],
-  "_built_at": "2026-05-27 19:57",
-  "_date_label": "Wed, May 27, 2026"
+  "_built_at": "2026-05-28 19:58",
+  "_date_label": "Thu, May 28, 2026"
 }
