@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,185.29",
-      "chg_pct": "+0.53%",
-      "chg_abs": "+43.41 pts"
+      "value": "8,476.15",
+      "chg_pct": "+3.55%",
+      "chg_abs": "+290.86 pts"
     },
     "kosdaq": {
-      "value": "1,104.36",
-      "chg_pct": "+2.54%",
-      "chg_abs": "+28.77 pts"
+      "value": "1,074.80",
+      "chg_pct": "+2.68%",
+      "chg_abs": "+29.56 pts"
     },
     "usdkrw": {
-      "value": "1,503",
-      "chg_pct": "+0.06%",
-      "chg_abs": "+1 KRW"
+      "value": "1,509",
+      "chg_pct": "+0.82%",
+      "chg_abs": "+12 KRW"
     }
   },
-  "highlight": "Korean markets rallied despite volatility as <strong>semiconductors</strong> drove KOSPI to new records while concentrated tech gains masked broad market weakness.",
+  "highlight": "Korean stocks surged to records as <strong>Nvidia CEO Jensen Huang's visit</strong> sparked massive AI partnership speculation, driving tech giants like LG Electronics and SK Hynix to historic highs.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "027040",
-      "name_en": "Seoul Electronics & Telecom",
-      "change_pct": 30.0,
-      "close_price": 3120,
-      "volume": 8088425,
+      "ticker": "246690",
+      "name_en": "TS Investment",
+      "change_pct": 29.96,
+      "close_price": 1527,
+      "volume": 12350164,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics Components",
-      "reason_en": "Benefited from semiconductor and electronics sector momentum amid AI-driven technology demand surge"
+      "sector_en": "Financial Services",
+      "theme_en": "Asset Management",
+      "reason_en": "Investment fund benefiting from massive capital inflows into Korean market amid AI boom"
     },
     {
       "rank": 2,
-      "ticker": "072770",
-      "name_en": "Memrevity",
-      "change_pct": 29.98,
-      "close_price": 1175,
-      "volume": 2789992,
+      "ticker": "004415",
+      "name_en": "Seoul Food Industrial Preferred",
+      "change_pct": 29.94,
+      "close_price": 10070,
+      "volume": 15215,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Memory Solutions",
-      "reason_en": "Rode the memory chip supercycle wave driven by AI infrastructure and hyperscaler demand"
+      "sector_en": "Consumer Staples",
+      "theme_en": "Food Processing",
+      "reason_en": "Speculative buying and sector rotation as investors seek undervalued domestic plays"
     },
     {
       "rank": 3,
-      "ticker": "073570",
-      "name_en": "Urban Lithium",
-      "change_pct": 29.98,
-      "close_price": 3360,
-      "volume": 886173,
+      "ticker": "066570",
+      "name_en": "LG Electronics",
+      "change_pct": 29.93,
+      "close_price": 293000,
+      "volume": 9055982,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Battery Materials",
-      "reason_en": "Electric vehicle and energy storage demand boosted lithium-related companies"
+      "sector_en": "Technology",
+      "theme_en": "Physical AI & Robotics",
+      "reason_en": "Jensen Huang visit fueled expectations for Nvidia partnership in physical AI and robotics sectors"
     },
     {
       "rank": 4,
-      "ticker": "012170",
-      "name_en": "Ascendio",
-      "change_pct": 29.97,
-      "close_price": 1327,
-      "volume": 2250809,
+      "ticker": "417860",
+      "name_en": "Obvgen",
+      "change_pct": 29.93,
+      "close_price": 9030,
+      "volume": 308147,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Solutions",
-      "reason_en": "AI and digital transformation trends supported technology service providers"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Market momentum spillover and speculation on AI applications in drug discovery"
     },
     {
       "rank": 5,
-      "ticker": "131400",
-      "name_en": "EV Advanced Materials",
-      "change_pct": 29.97,
-      "close_price": 1930,
-      "volume": 15124116,
+      "ticker": "064400",
+      "name_en": "LG CNS",
+      "change_pct": 29.91,
+      "close_price": 113800,
+      "volume": 8555366,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Advanced Materials",
-      "reason_en": "Benefited from electric vehicle supply chain and advanced manufacturing material demand"
+      "sector_en": "Technology",
+      "theme_en": "AI Cloud Services",
+      "reason_en": "Strong expectations for AI cloud business expansion and potential Nvidia collaboration"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "088290",
-      "name_en": "E One Compotech",
-      "change_pct": -29.52,
-      "close_price": 2220,
-      "volume": 130080,
+      "ticker": "140910",
+      "name_en": "A-RITS",
+      "change_pct": -64.92,
+      "close_price": 1098,
+      "volume": 1665460,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronic Components",
-      "reason_en": "Profit-taking after recent gains and concerns over component supply chain disruption"
+      "sector_en": "Real Estate",
+      "theme_en": "REITs",
+      "reason_en": "Capital flight from traditional sectors as investors chase AI momentum plays"
     },
     {
       "rank": 2,
-      "ticker": "106240",
-      "name_en": "Fine Technics",
-      "change_pct": -26.65,
-      "close_price": 1555,
-      "volume": 5510351,
+      "ticker": "230980",
+      "name_en": "BU Technology",
+      "change_pct": -36.36,
+      "close_price": 7,
+      "volume": 36081329,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Precision Equipment",
-      "reason_en": "Manufacturing sector headwinds and margin pressure from increased competition"
+      "theme_en": "Electronics Components",
+      "reason_en": "Sector concentration risk as funds rotate into large-cap AI winners"
     },
     {
       "rank": 3,
-      "ticker": "227610",
-      "name_en": "Oudin Futures",
-      "change_pct": -25.06,
-      "close_price": 1190,
-      "volume": 591200,
+      "ticker": "309930",
+      "name_en": "Joyworks & Co",
+      "change_pct": -30.0,
+      "close_price": 2555,
+      "volume": 1016331,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Future Technologies",
-      "reason_en": "Speculative tech stocks faced selling pressure amid market rotation to established players"
+      "theme_en": "Software Services",
+      "reason_en": "Profit-taking in smaller tech names amid focus on semiconductor giants"
     },
     {
       "rank": 4,
-      "ticker": "061040",
-      "name_en": "RF Tech",
-      "change_pct": -23.94,
-      "close_price": 7370,
-      "volume": 229614,
+      "ticker": "033160",
+      "name_en": "MK Electronics",
+      "change_pct": -27.49,
+      "close_price": 21500,
+      "volume": 2357518,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "RF Components",
-      "reason_en": "Telecommunications equipment sector weakness and reduced 5G infrastructure spending"
+      "theme_en": "Electronic Components",
+      "reason_en": "Sector polarization as capital concentrates in AI-related large caps"
     },
     {
       "rank": 5,
-      "ticker": "258790",
-      "name_en": "Softcamp",
-      "change_pct": -23.17,
-      "close_price": 6600,
-      "volume": 279803,
+      "ticker": "027040",
+      "name_en": "Seoul Electronic Communications",
+      "change_pct": -25.8,
+      "close_price": 2315,
+      "volume": 5359620,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Security",
-      "reason_en": "Cybersecurity sector consolidation concerns and competitive pressure from larger players"
+      "sector_en": "Telecommunications",
+      "theme_en": "Equipment Manufacturing",
+      "reason_en": "Underperformance amid massive outflows from traditional telecom hardware"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "8.45",
+      "chg": "+46.91",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Shipbuilding",
-      "chg": "7.82",
-      "stocks": "HD Hyundai Heavy · Hanwha Ocean"
+      "name": "AI Infrastructure",
+      "chg": "+33.41",
+      "stocks": "LG Electronics · LG CNS"
     },
     {
-      "name": "Automotive",
-      "chg": "6.15",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "name": "Robotics & Automation",
+      "chg": "+28.57",
+      "stocks": "Rainbow Robotics · Doosan Robotics"
     },
     {
-      "name": "Defense",
-      "chg": "5.67",
-      "stocks": "Hanwha Aerospace · Doosan Enerbility"
+      "name": "Physical AI",
+      "chg": "+26.60",
+      "stocks": "LG Innotek · HD Hyundai Heavy"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Insurance",
-      "chg": "-4.23",
-      "stocks": "Samsung Fire · DB Insurance"
+      "name": "Utilities",
+      "chg": "-18.65",
+      "stocks": "Korea Electric Power · Korea Gas"
     },
     {
-      "name": "Retail",
-      "chg": "-3.91",
-      "stocks": "Lotte Shopping · Hyundai Dept"
+      "name": "Construction",
+      "chg": "-16.93",
+      "stocks": "Samsung C&T · GS Engineering"
     },
     {
-      "name": "Real Estate",
-      "chg": "-3.67",
-      "stocks": "Korea Land · Daelim Industrial"
+      "name": "Energy & Chemicals",
+      "chg": "-9.71",
+      "stocks": "LG Chem · SK Innovation"
     },
     {
-      "name": "Telecommunications",
-      "chg": "-2.84",
-      "stocks": "KT Corporation · LG Uplus"
+      "name": "Healthcare",
+      "chg": "-9.44",
+      "stocks": "Samsung Biologics · Celltrion"
     }
   ],
-  "_built_at": "2026-05-28 19:58",
-  "_date_label": "Thu, May 28, 2026"
+  "_built_at": "2026-05-29 19:50",
+  "_date_label": "Fri, May 29, 2026"
 }
