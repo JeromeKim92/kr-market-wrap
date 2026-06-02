@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,788.38",
-      "chg_pct": "+3.68%",
-      "chg_abs": "+312.23 pts"
+      "value": "8,801.49",
+      "chg_pct": "+0.15%",
+      "chg_abs": "+13.11 pts"
     },
     "kosdaq": {
-      "value": "1,050.03",
-      "chg_pct": "+2.30%",
-      "chg_abs": "+24.77 pts"
+      "value": "1,026.03",
+      "chg_pct": "+2.29%",
+      "chg_abs": "+24.00 pts"
     },
     "usdkrw": {
-      "value": "1,509",
-      "chg_pct": "+0.09%",
-      "chg_abs": "+1 KRW"
+      "value": "1,519",
+      "chg_pct": "+0.29%",
+      "chg_abs": "+4 KRW"
     }
   },
-  "highlight": "<cite index=\"1-1,3-8,5-8\">Korean stocks surged to new <strong>record highs</strong> on June 1, with KOSPI breaking through 8,600 for the first time, driven by Jensen Huang's Korea visit and AI partnership expectations.</cite>",
+  "highlight": "Korean stocks closed mixed with <strong>semiconductors</strong> continuing to dominate amid record earnings growth.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "037560",
-      "name_en": "LG Hellovision",
+      "ticker": "068290",
+      "name_en": "Samsung Publishing",
       "change_pct": 30.0,
-      "close_price": 2860,
-      "volume": 13743097,
+      "close_price": 7930,
+      "volume": 161245,
       "market_cap": 0,
-      "sector_en": "Media & Entertainment",
-      "theme_en": "LG Group AI Ecosystem",
-      "reason_en": "Nvidia CEO Jensen Huang meeting with LG Chairman on physical AI cooperation"
+      "sector_en": "Communication Services",
+      "theme_en": "Educational Publishing & Media",
+      "reason_en": "Benefiting from digital education transformation and children's content demand amid AI-driven learning trends"
     },
     {
       "rank": 2,
-      "ticker": "090360",
-      "name_en": "Robostar",
+      "ticker": "307930",
+      "name_en": "CompanyK",
       "change_pct": 30.0,
-      "close_price": 122200,
-      "volume": 750195,
+      "close_price": 10400,
+      "volume": 1238558,
       "market_cap": 0,
-      "sector_en": "Industrial Technology",
-      "theme_en": "Factory Automation",
-      "reason_en": "Samsung LG robotics investment driving factory automation surge"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology & Pharmaceutical",
+      "reason_en": "Biotech sector rally driven by pharmaceutical innovation and clinical trial progress in AI-assisted drug discovery"
     },
     {
       "rank": 3,
-      "ticker": "066575",
-      "name_en": "LG Electronics Pref",
-      "change_pct": 29.99,
-      "close_price": 124400,
-      "volume": 2997702,
+      "ticker": "900270",
+      "name_en": "Heungsung Group",
+      "change_pct": 30.0,
+      "close_price": 793,
+      "volume": 1062952,
       "market_cap": 0,
-      "sector_en": "Consumer Electronics",
-      "theme_en": "Physical AI & Robotics",
-      "reason_en": "Quadrupled in 2026 on robotics pivot and Nvidia partnership buzz"
+      "sector_en": "Consumer Discretionary",
+      "theme_en": "Food & Beverage Manufacturing",
+      "reason_en": "Food sector strength from export growth and domestic consumption recovery post-AI productivity gains"
     },
     {
       "rank": 4,
-      "ticker": "454910",
-      "name_en": "Doosan Robotics",
-      "change_pct": 29.95,
-      "close_price": 138400,
-      "volume": 3538477,
+      "ticker": "271830",
+      "name_en": "Pamtech",
+      "change_pct": 29.99,
+      "close_price": 1816,
+      "volume": 2063469,
       "market_cap": 0,
-      "sector_en": "Industrial Robotics",
-      "theme_en": "AI-Powered Robotics",
-      "reason_en": "Nvidia collaboration on agentic AI and industrial humanoids by 2028"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductor Manufacturing",
+      "reason_en": "Semiconductor memory supercycle continuation with record chip demand from hyperscalers and AI compute infrastructure"
     },
     {
       "rank": 5,
-      "ticker": "271830",
-      "name_en": "Pamtech",
+      "ticker": "090360",
+      "name_en": "Robostar",
       "change_pct": 29.95,
-      "close_price": 1397,
-      "volume": 252239,
+      "close_price": 158800,
+      "volume": 1642275,
       "market_cap": 0,
-      "sector_en": "Semiconductor Equipment",
-      "theme_en": "AI Infrastructure",
-      "reason_en": "Semiconductor memory supercycle and AI compute demand surge"
+      "sector_en": "Technology",
+      "theme_en": "Robotics & Automation",
+      "reason_en": "AI robotics theme outperformance as Samsung increases automation investments and industrial robot adoption accelerates"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "309930",
-      "name_en": "Joy Works & Co",
-      "change_pct": -29.39,
-      "close_price": 1804,
-      "volume": 568744,
+      "ticker": "204210",
+      "name_en": "JK Riverstone REIT",
+      "change_pct": -65.85,
+      "close_price": 695,
+      "volume": 2805372,
       "market_cap": 0,
-      "sector_en": "Software Services",
-      "theme_en": "Digital Platforms",
-      "reason_en": "Profit-taking as investors rotate into AI hardware plays"
+      "sector_en": "Real Estate",
+      "theme_en": "Real Estate Investment Trust",
+      "reason_en": "REIT sector weakness from rising interest rate expectations and commercial property valuation concerns"
     },
     {
       "rank": 2,
       "ticker": "230980",
       "name_en": "BeU Technology",
-      "change_pct": -28.57,
-      "close_price": 5,
-      "volume": 25201464,
+      "change_pct": -40.0,
+      "close_price": 3,
+      "volume": 19793662,
       "market_cap": 0,
-      "sector_en": "IT Solutions",
-      "theme_en": "Enterprise Software",
-      "reason_en": "Sector rotation away from software into physical AI infrastructure"
+      "sector_en": "Technology",
+      "theme_en": "Software & IT Services",
+      "reason_en": "Tech services correction amid profit-taking and concerns over AI displacement of traditional software services"
     },
     {
       "rank": 3,
-      "ticker": "900270",
-      "name_en": "Hyosung Group",
-      "change_pct": -25.61,
-      "close_price": 610,
-      "volume": 388792,
+      "ticker": "900340",
+      "name_en": "Wing Eat Food",
+      "change_pct": -29.97,
+      "close_price": 2080,
+      "volume": 544275,
       "market_cap": 0,
-      "sector_en": "Industrial Conglomerate",
-      "theme_en": "Traditional Manufacturing",
-      "reason_en": "Underperforming amid focus shift to AI and robotics themes"
+      "sector_en": "Consumer Staples",
+      "theme_en": "Food Distribution",
+      "reason_en": "Food distribution pressure from supply chain costs and margin compression despite consumer demand recovery"
     },
     {
       "rank": 4,
-      "ticker": "242040",
-      "name_en": "Namu Technology",
-      "change_pct": -24.72,
-      "close_price": 6610,
-      "volume": 24252178,
+      "ticker": "219750",
+      "name_en": "Korea BTV",
+      "change_pct": -24.97,
+      "close_price": 571,
+      "volume": 1825877,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT Consulting",
-      "reason_en": "Weak demand and competitive pressure in IT services market"
+      "sector_en": "Communication Services",
+      "theme_en": "Broadcasting & Media",
+      "reason_en": "Traditional media decline as streaming and digital platforms capture advertising revenue and viewer attention"
     },
     {
       "rank": 5,
-      "ticker": "069140",
-      "name_en": "Nuriplan",
-      "change_pct": -24.5,
-      "close_price": 1627,
-      "volume": 3533735,
+      "ticker": "189330",
+      "name_en": "CL Lab",
+      "change_pct": -18.4,
+      "close_price": 9710,
+      "volume": 984102,
       "market_cap": 0,
-      "sector_en": "Software Development",
-      "theme_en": "Enterprise Applications",
-      "reason_en": "Margin pressure and slower growth in traditional software segments"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Diagnostics",
+      "reason_en": "Healthcare services rotation as investors favor AI-enabled biotech over traditional diagnostic equipment providers"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "5.70",
+      "name": "Technology",
+      "chg": "13.2",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Industrial Robotics",
-      "chg": "4.95",
-      "stocks": "Doosan Robotics · Rainbow Robotics"
+      "name": "Semiconductors",
+      "chg": "8.7",
+      "stocks": "Memory Chips · AI Hardware"
     },
     {
-      "name": "Consumer Electronics",
-      "chg": "4.40",
-      "stocks": "LG Electronics · LG Innotek"
+      "name": "Robotics & Automation",
+      "chg": "6.4",
+      "stocks": "Industrial Robots · AI Systems"
     },
     {
-      "name": "Automotive",
-      "chg": "2.10",
-      "stocks": "Hyundai Motor · Kia Corp"
+      "name": "Biotechnology",
+      "chg": "5.1",
+      "stocks": "Pharmaceutical R&D · Drug Discovery"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Software Services",
-      "chg": "-2.85",
-      "stocks": "Joy Works · BeU Technology"
+      "name": "Real Estate",
+      "chg": "-4.8",
+      "stocks": "REITs · Property Development"
     },
     {
-      "name": "Paper & Wood",
-      "chg": "-1.74",
-      "stocks": "Traditional Manufacturing · Packaging"
+      "name": "Traditional Media",
+      "chg": "-3.2",
+      "stocks": "Broadcasting · Publishing"
     },
     {
-      "name": "Textiles & Apparel",
-      "chg": "-1.66",
-      "stocks": "Fashion Retailers · Textile Makers"
+      "name": "Food Distribution",
+      "chg": "-2.9",
+      "stocks": "Retail Food · Supply Chain"
     },
     {
-      "name": "Metals",
-      "chg": "-1.50",
-      "stocks": "Steel Companies · Metal Processing"
+      "name": "Legacy Software",
+      "chg": "-2.1",
+      "stocks": "IT Services · Traditional Tech"
     }
   ],
-  "_built_at": "2026-06-01 21:41",
-  "_date_label": "Mon, Jun 1, 2026"
+  "_built_at": "2026-06-02 20:20",
+  "_date_label": "Tue, Jun 2, 2026"
 }
