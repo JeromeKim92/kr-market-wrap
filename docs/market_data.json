@@ -11,12 +11,12 @@
       "chg_abs": "+24.00 pts"
     },
     "usdkrw": {
-      "value": "1,519",
-      "chg_pct": "+0.29%",
-      "chg_abs": "+4 KRW"
+      "value": "1,530",
+      "chg_pct": "+1.04%",
+      "chg_abs": "+16 KRW"
     }
   },
-  "highlight": "Korean stocks closed mixed with <strong>semiconductors</strong> continuing to dominate amid record earnings growth.",
+  "highlight": "KOSPI hit fresh record high as <strong>AI-driven semiconductor supercycle</strong> powers 100% YTD gains despite market concentration.",
   "gainers": [
     {
       "rank": 1,
@@ -26,45 +26,45 @@
       "close_price": 7930,
       "volume": 161245,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Educational Publishing & Media",
-      "reason_en": "Benefiting from digital education transformation and children's content demand amid AI-driven learning trends"
+      "sector_en": "Media & Entertainment",
+      "theme_en": "Educational Content",
+      "reason_en": "Benefiting from digital transformation in education sector and content IP monetization"
     },
     {
       "rank": 2,
       "ticker": "307930",
-      "name_en": "CompanyK",
+      "name_en": "Company K",
       "change_pct": 30.0,
       "close_price": 10400,
       "volume": 1238558,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology & Pharmaceutical",
-      "reason_en": "Biotech sector rally driven by pharmaceutical innovation and clinical trial progress in AI-assisted drug discovery"
+      "sector_en": "Technology",
+      "theme_en": "Software Solutions",
+      "reason_en": "Strong demand for enterprise software and digital transformation services"
     },
     {
       "rank": 3,
       "ticker": "900270",
-      "name_en": "Heungsung Group",
+      "name_en": "Hung Seung Group",
       "change_pct": 30.0,
       "close_price": 793,
       "volume": 1062952,
       "market_cap": 0,
-      "sector_en": "Consumer Discretionary",
-      "theme_en": "Food & Beverage Manufacturing",
-      "reason_en": "Food sector strength from export growth and domestic consumption recovery post-AI productivity gains"
+      "sector_en": "Industrial",
+      "theme_en": "Manufacturing",
+      "reason_en": "Export recovery momentum and industrial automation investments"
     },
     {
       "rank": 4,
       "ticker": "271830",
-      "name_en": "Pamtech",
+      "name_en": "Famtech",
       "change_pct": 29.99,
       "close_price": 1816,
       "volume": 2063469,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Manufacturing",
-      "reason_en": "Semiconductor memory supercycle continuation with record chip demand from hyperscalers and AI compute infrastructure"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Technology",
+      "reason_en": "Rising healthcare IT demand and digital health solutions adoption"
     },
     {
       "rank": 5,
@@ -75,34 +75,34 @@
       "volume": 1642275,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Robotics & Automation",
-      "reason_en": "AI robotics theme outperformance as Samsung increases automation investments and industrial robot adoption accelerates"
+      "theme_en": "Robotics & AI",
+      "reason_en": "AI automation boom driving industrial robotics demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
       "ticker": "204210",
-      "name_en": "JK Riverstone REIT",
+      "name_en": "JK Riverside REIT",
       "change_pct": -65.85,
       "close_price": 695,
       "volume": 2805372,
       "market_cap": 0,
       "sector_en": "Real Estate",
-      "theme_en": "Real Estate Investment Trust",
-      "reason_en": "REIT sector weakness from rising interest rate expectations and commercial property valuation concerns"
+      "theme_en": "REITs",
+      "reason_en": "Rising interest rate concerns and commercial real estate valuation pressures"
     },
     {
       "rank": 2,
       "ticker": "230980",
-      "name_en": "BeU Technology",
+      "name_en": "BeauTech",
       "change_pct": -40.0,
       "close_price": 3,
       "volume": 19793662,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software & IT Services",
-      "reason_en": "Tech services correction amid profit-taking and concerns over AI displacement of traditional software services"
+      "theme_en": "Beauty Tech",
+      "reason_en": "Consumer discretionary spending weakness and increased competition"
     },
     {
       "rank": 3,
@@ -113,8 +113,8 @@
       "volume": 544275,
       "market_cap": 0,
       "sector_en": "Consumer Staples",
-      "theme_en": "Food Distribution",
-      "reason_en": "Food distribution pressure from supply chain costs and margin compression despite consumer demand recovery"
+      "theme_en": "Food & Beverage",
+      "reason_en": "Supply chain cost pressures and margin compression in food sector"
     },
     {
       "rank": 4,
@@ -124,67 +124,67 @@
       "close_price": 571,
       "volume": 1825877,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Broadcasting & Media",
-      "reason_en": "Traditional media decline as streaming and digital platforms capture advertising revenue and viewer attention"
+      "sector_en": "Media & Entertainment",
+      "theme_en": "Broadcasting",
+      "reason_en": "Traditional media disruption and advertising revenue decline"
     },
     {
       "rank": 5,
       "ticker": "189330",
-      "name_en": "CL Lab",
+      "name_en": "C&Lab",
       "change_pct": -18.4,
       "close_price": 9710,
       "volume": 984102,
       "market_cap": 0,
       "sector_en": "Healthcare",
-      "theme_en": "Medical Diagnostics",
-      "reason_en": "Healthcare services rotation as investors favor AI-enabled biotech over traditional diagnostic equipment providers"
+      "theme_en": "Biotechnology",
+      "reason_en": "Clinical trial setbacks and biotech sector rotation out of risk assets"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Technology",
-      "chg": "13.2",
+      "name": "Semiconductors",
+      "chg": "46.91",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Semiconductors",
-      "chg": "8.7",
-      "stocks": "Memory Chips · AI Hardware"
+      "name": "Information Technology",
+      "chg": "45.28",
+      "stocks": "Samsung Electronics · SK Square"
     },
     {
-      "name": "Robotics & Automation",
-      "chg": "6.4",
-      "stocks": "Industrial Robots · AI Systems"
+      "name": "Electronics",
+      "chg": "28.51",
+      "stocks": "LG Electronics · LG Energy Solution"
     },
     {
-      "name": "Biotechnology",
-      "chg": "5.1",
-      "stocks": "Pharmaceutical R&D · Drug Discovery"
+      "name": "AI Hardware",
+      "chg": "33.41",
+      "stocks": "Samsung Electronics · SK Hynix"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Real Estate",
-      "chg": "-4.8",
-      "stocks": "REITs · Property Development"
+      "name": "Utilities",
+      "chg": "-18.65",
+      "stocks": "Korea Electric Power · Seoul Gas"
     },
     {
-      "name": "Traditional Media",
-      "chg": "-3.2",
-      "stocks": "Broadcasting · Publishing"
+      "name": "Construction",
+      "chg": "-16.93",
+      "stocks": "Samsung C&T · Hyundai Engineering"
     },
     {
-      "name": "Food Distribution",
-      "chg": "-2.9",
-      "stocks": "Retail Food · Supply Chain"
+      "name": "Energy & Chemicals",
+      "chg": "-9.71",
+      "stocks": "LG Chem · SK Innovation"
     },
     {
-      "name": "Legacy Software",
-      "chg": "-2.1",
-      "stocks": "IT Services · Traditional Tech"
+      "name": "Healthcare",
+      "chg": "-9.44",
+      "stocks": "Celltrion · Samsung Biologics"
     }
   ],
-  "_built_at": "2026-06-02 20:20",
-  "_date_label": "Tue, Jun 2, 2026"
+  "_built_at": "2026-06-03 20:58",
+  "_date_label": "Wed, Jun 3, 2026"
 }
