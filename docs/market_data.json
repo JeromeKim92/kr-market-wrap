@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,801.49",
-      "chg_pct": "+0.15%",
-      "chg_abs": "+13.11 pts"
+      "value": "8,639.41",
+      "chg_pct": "+1.84%",
+      "chg_abs": "+162.08 pts"
     },
     "kosdaq": {
-      "value": "1,026.03",
-      "chg_pct": "+2.29%",
-      "chg_abs": "+24.00 pts"
+      "value": "1,049.73",
+      "chg_pct": "+2.31%",
+      "chg_abs": "+23.70 pts"
     },
     "usdkrw": {
-      "value": "1,530",
-      "chg_pct": "+1.04%",
-      "chg_abs": "+16 KRW"
+      "value": "1,534",
+      "chg_pct": "+0.10%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "KOSPI hit fresh record high as <strong>AI-driven semiconductor supercycle</strong> powers 100% YTD gains despite market concentration.",
+  "highlight": "Korean markets surged with <strong>semiconductors and AI</strong> leading gains as KOSPI rose 1.84% to 8,639 amid record earnings forecasts.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "068290",
-      "name_en": "Samsung Publishing",
-      "change_pct": 30.0,
-      "close_price": 7930,
-      "volume": 161245,
+      "ticker": "377480",
+      "name_en": "Maeum.AI",
+      "change_pct": 29.99,
+      "close_price": 17600,
+      "volume": 1307731,
       "market_cap": 0,
-      "sector_en": "Media & Entertainment",
-      "theme_en": "Educational Content",
-      "reason_en": "Benefiting from digital transformation in education sector and content IP monetization"
+      "sector_en": "Software & AI Services",
+      "theme_en": "Artificial Intelligence",
+      "reason_en": "AI platform services benefiting from Korea's tech sector rally and increased AI investment demand"
     },
     {
       "rank": 2,
-      "ticker": "307930",
-      "name_en": "Company K",
-      "change_pct": 30.0,
-      "close_price": 10400,
-      "volume": 1238558,
+      "ticker": "476080",
+      "name_en": "M83",
+      "change_pct": 29.98,
+      "close_price": 7760,
+      "volume": 255851,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Solutions",
-      "reason_en": "Strong demand for enterprise software and digital transformation services"
+      "sector_en": "Media & Entertainment",
+      "theme_en": "Visual Effects & Content",
+      "reason_en": "VFX and video production services riding content creation boom with AI-powered production tools"
     },
     {
       "rank": 3,
-      "ticker": "900270",
-      "name_en": "Hung Seung Group",
-      "change_pct": 30.0,
-      "close_price": 793,
-      "volume": 1062952,
+      "ticker": "084370",
+      "name_en": "Eugene Technology",
+      "change_pct": 29.97,
+      "close_price": 155700,
+      "volume": 543116,
       "market_cap": 0,
-      "sector_en": "Industrial",
-      "theme_en": "Manufacturing",
-      "reason_en": "Export recovery momentum and industrial automation investments"
+      "sector_en": "Semiconductor Equipment",
+      "theme_en": "Chip Manufacturing",
+      "reason_en": "Semiconductor equipment demand surging from memory supercycle and AI chip production expansion"
     },
     {
       "rank": 4,
-      "ticker": "271830",
-      "name_en": "Famtech",
-      "change_pct": 29.99,
-      "close_price": 1816,
-      "volume": 2063469,
+      "ticker": "077360",
+      "name_en": "Duksan Hi-Metal",
+      "change_pct": 29.96,
+      "close_price": 15010,
+      "volume": 2915197,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Technology",
-      "reason_en": "Rising healthcare IT demand and digital health solutions adoption"
+      "sector_en": "Materials & Chemicals",
+      "theme_en": "Advanced Materials",
+      "reason_en": "Electronic materials supplier benefiting from semiconductor and display manufacturing growth"
     },
     {
       "rank": 5,
-      "ticker": "090360",
-      "name_en": "Robostar",
-      "change_pct": 29.95,
-      "close_price": 158800,
-      "volume": 1642275,
+      "ticker": "271830",
+      "name_en": "Famtech",
+      "change_pct": 29.96,
+      "close_price": 2360,
+      "volume": 17998733,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Robotics & AI",
-      "reason_en": "AI automation boom driving industrial robotics demand"
+      "sector_en": "Technology Services",
+      "theme_en": "IT Solutions",
+      "reason_en": "Technology services company gaining from Korea's digital transformation and tech sector momentum"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "204210",
-      "name_en": "JK Riverside REIT",
-      "change_pct": -65.85,
-      "close_price": 695,
-      "volume": 2805372,
+      "ticker": "230980",
+      "name_en": "BU Technology",
+      "change_pct": -33.33,
+      "close_price": 2,
+      "volume": 22930000,
       "market_cap": 0,
-      "sector_en": "Real Estate",
-      "theme_en": "REITs",
-      "reason_en": "Rising interest rate concerns and commercial real estate valuation pressures"
+      "sector_en": "Technology Services",
+      "theme_en": "Blockchain & XR",
+      "reason_en": "Facing delisting proceedings and audit opinion rejection, operating losses increased 106% in 2023"
     },
     {
       "rank": 2,
-      "ticker": "230980",
-      "name_en": "BeauTech",
-      "change_pct": -40.0,
-      "close_price": 3,
-      "volume": 19793662,
+      "ticker": "306040",
+      "name_en": "SJ Group",
+      "change_pct": -30.0,
+      "close_price": 2590,
+      "volume": 1848357,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Beauty Tech",
-      "reason_en": "Consumer discretionary spending weakness and increased competition"
+      "sector_en": "Industrials",
+      "theme_en": "Manufacturing",
+      "reason_en": "Industrial conglomerate pressured by rising costs and supply chain challenges amid economic uncertainty"
     },
     {
       "rank": 3,
-      "ticker": "900340",
-      "name_en": "Wing Eat Food",
-      "change_pct": -29.97,
-      "close_price": 2080,
-      "volume": 544275,
+      "ticker": "010660",
+      "name_en": "Hwacheon Machine Tool",
+      "change_pct": -27.31,
+      "close_price": 3140,
+      "volume": 2964499,
       "market_cap": 0,
-      "sector_en": "Consumer Staples",
-      "theme_en": "Food & Beverage",
-      "reason_en": "Supply chain cost pressures and margin compression in food sector"
+      "sector_en": "Industrial Machinery",
+      "theme_en": "Machine Tools",
+      "reason_en": "Manufacturing equipment demand weakening as industrial capex slows amid high interest rates"
     },
     {
       "rank": 4,
-      "ticker": "219750",
-      "name_en": "Korea BTV",
-      "change_pct": -24.97,
-      "close_price": 571,
-      "volume": 1825877,
+      "ticker": "147760",
+      "name_en": "PMT",
+      "change_pct": -21.83,
+      "close_price": 5800,
+      "volume": 425466,
       "market_cap": 0,
-      "sector_en": "Media & Entertainment",
-      "theme_en": "Broadcasting",
-      "reason_en": "Traditional media disruption and advertising revenue decline"
+      "sector_en": "Technology Hardware",
+      "theme_en": "Electronics",
+      "reason_en": "Electronics components facing margin pressure from intensified competition and supply chain costs"
     },
     {
       "rank": 5,
-      "ticker": "189330",
-      "name_en": "C&Lab",
-      "change_pct": -18.4,
-      "close_price": 9710,
-      "volume": 984102,
+      "ticker": "225430",
+      "name_en": "KM Pharma",
+      "change_pct": -21.82,
+      "close_price": 2060,
+      "volume": 745839,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "Clinical trial setbacks and biotech sector rotation out of risk assets"
+      "sector_en": "Pharmaceuticals",
+      "theme_en": "Healthcare",
+      "reason_en": "Pharmaceutical company hit by regulatory delays and increased R&D expenses weighing on profitability"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "46.91",
+      "chg": "6.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Information Technology",
-      "chg": "45.28",
-      "stocks": "Samsung Electronics · SK Square"
+      "name": "AI & Software",
+      "chg": "5.94",
+      "stocks": "Naver · Kakao"
     },
     {
-      "name": "Electronics",
-      "chg": "28.51",
-      "stocks": "LG Electronics · LG Energy Solution"
+      "name": "Technology Hardware",
+      "chg": "4.67",
+      "stocks": "LG Electronics · Samsung SDI"
     },
     {
-      "name": "AI Hardware",
-      "chg": "33.41",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Electronic Materials",
+      "chg": "4.21",
+      "stocks": "LG Chem · SKC"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Utilities",
-      "chg": "-18.65",
-      "stocks": "Korea Electric Power · Seoul Gas"
+      "name": "Pharmaceuticals",
+      "chg": "-3.45",
+      "stocks": "Celltrion · Samsung Biologics"
+    },
+    {
+      "name": "Industrial Machinery",
+      "chg": "-2.89",
+      "stocks": "Doosan Enerbility · Hyundai Heavy"
     },
     {
       "name": "Construction",
-      "chg": "-16.93",
-      "stocks": "Samsung C&T · Hyundai Engineering"
+      "chg": "-2.12",
+      "stocks": "Samsung C&T · Daelim"
     },
     {
-      "name": "Energy & Chemicals",
-      "chg": "-9.71",
-      "stocks": "LG Chem · SK Innovation"
-    },
-    {
-      "name": "Healthcare",
-      "chg": "-9.44",
-      "stocks": "Celltrion · Samsung Biologics"
+      "name": "Traditional Manufacturing",
+      "chg": "-1.98",
+      "stocks": "POSCO · Hyundai Steel"
     }
   ],
-  "_built_at": "2026-06-03 20:58",
-  "_date_label": "Wed, Jun 3, 2026"
+  "_built_at": "2026-06-04 19:40",
+  "_date_label": "Thu, Jun 4, 2026"
 }
