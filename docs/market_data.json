@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,160.59",
-      "chg_pct": "+5.54%",
-      "chg_abs": "+478.82 pts"
+      "value": "7,484.41",
+      "chg_pct": "+8.29%",
+      "chg_abs": "+676.18 pts"
     },
     "kosdaq": {
-      "value": "1,002.44",
-      "chg_pct": "+4.50%",
-      "chg_abs": "+47.29 pts"
+      "value": "911.39",
+      "chg_pct": "+9.08%",
+      "chg_abs": "+91.05 pts"
     },
     "usdkrw": {
-      "value": "1,538",
-      "chg_pct": "+0.28%",
-      "chg_abs": "+4 KRW"
+      "value": "1,528",
+      "chg_pct": "+2.08%",
+      "chg_abs": "+31 KRW"
     }
   },
-  "highlight": "Korean stocks surged on <strong>AI chip supercycle momentum</strong> despite global semiconductor selloff fears.",
+  "highlight": "Korean stocks surged over 8% as <strong>AI memory supercycle</strong> drives historic semiconductor earnings growth, with KOSPI now targeting 12,000 despite circuit breaker volatility.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "459550",
-      "name_en": "Altech",
-      "change_pct": 29.97,
-      "close_price": 1878,
-      "volume": 7046252,
+      "ticker": "001740",
+      "name_en": "SK Networks",
+      "change_pct": 30.0,
+      "close_price": 14170,
+      "volume": 56474937,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Telecommunications Equipment",
-      "reason_en": "Senior phone and set-top box manufacturer benefiting from telecommunications upgrade cycle"
+      "sector_en": "Diversified Holdings",
+      "theme_en": "AI Investment & Blockchain",
+      "reason_en": "Transforming into AI-focused investment firm with blockchain initiatives amid sector rotation"
     },
     {
       "rank": 2,
-      "ticker": "003220",
-      "name_en": "Daewon Pharmaceutical",
-      "change_pct": 29.94,
-      "close_price": 11240,
-      "volume": 69588,
+      "ticker": "417860",
+      "name_en": "Ovzon",
+      "change_pct": 30.0,
+      "close_price": 13650,
+      "volume": 758294,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Pharmaceuticals",
-      "reason_en": "Only KOSPI stock to hit daily limit amid broader pharma sector rotation"
+      "sector_en": "Biotechnology",
+      "theme_en": "Biopharmaceuticals",
+      "reason_en": "Biotech sector benefiting from potential AI-driven drug discovery and development trends"
     },
     {
       "rank": 3,
-      "ticker": "291810",
-      "name_en": "Fintel",
-      "change_pct": 29.94,
-      "close_price": 1406,
-      "volume": 616636,
+      "ticker": "066430",
+      "name_en": "I Robotics",
+      "change_pct": 29.98,
+      "close_price": 4270,
+      "volume": 17880785,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Financial Technology",
-      "reason_en": "Fintech solutions provider gaining from digital transformation trends"
+      "sector_en": "Industrial Technology",
+      "theme_en": "Robotics & Automation",
+      "reason_en": "Robotics theme gaining momentum as Samsung invests heavily in AI robotics expansion"
     },
     {
       "rank": 4,
-      "ticker": "457370",
-      "name_en": "Hanchem",
-      "change_pct": 29.94,
-      "close_price": 14670,
-      "volume": 8323723,
+      "ticker": "271830",
+      "name_en": "Femtech",
+      "change_pct": 29.98,
+      "close_price": 2710,
+      "volume": 11192133,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "OLED Materials",
-      "reason_en": "New Okcheon facility ramping up MLCC and OLED material production capacity"
+      "sector_en": "Healthcare Technology",
+      "theme_en": "Digital Healthcare",
+      "reason_en": "Healthcare tech benefiting from AI integration and digital transformation trends"
     },
     {
       "rank": 5,
-      "ticker": "066430",
-      "name_en": "I-Robotics",
-      "change_pct": 29.84,
-      "close_price": 3285,
-      "volume": 3274901,
+      "ticker": "001000",
+      "name_en": "Shinra Textile",
+      "change_pct": 29.97,
+      "close_price": 1622,
+      "volume": 3001994,
       "market_cap": 0,
-      "sector_en": "Industrials",
-      "theme_en": "Robotics",
-      "reason_en": "Silicon nitride bearing-based reducer technology for humanoid robot market expansion"
+      "sector_en": "Textiles",
+      "theme_en": "Traditional Manufacturing",
+      "reason_en": "Traditional sectors experiencing speculative gains amid broader market euphoria"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "476080",
-      "name_en": "M83",
-      "change_pct": -23.71,
-      "close_price": 5920,
-      "volume": 6703525,
+      "ticker": "203400",
+      "name_en": "Avion",
+      "change_pct": -29.95,
+      "close_price": 1235,
+      "volume": 7856482,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Software",
-      "reason_en": "High-beta tech stock hit by semiconductor selloff contagion and risk-off sentiment"
+      "theme_en": "Tech Hardware",
+      "reason_en": "Tech selloff following Broadcom guidance miss triggering AI bubble fears"
     },
     {
       "rank": 2,
-      "ticker": "520101",
-      "name_en": "Mirae Asset Leveraged SK Hynix ETN",
-      "change_pct": -20.61,
-      "close_price": 22550,
-      "volume": 779470,
+      "ticker": "278240",
+      "name_en": "RISE KOSDAQ 150 Futures Leverage",
+      "change_pct": -21.92,
+      "close_price": 11310,
+      "volume": 221556,
       "market_cap": 0,
-      "sector_en": "Financial Services",
+      "sector_en": "Financial Products",
       "theme_en": "Leveraged ETF",
-      "reason_en": "Amplified losses from SK Hynix decline due to Broadcom guidance disappointment"
+      "reason_en": "Leveraged products amplifying KOSDAQ decline amid semiconductor volatility"
     },
     {
       "rank": 3,
-      "ticker": "001740",
-      "name_en": "SK Networks",
-      "change_pct": -16.22,
-      "close_price": 10900,
-      "volume": 9093622,
+      "ticker": "291630",
+      "name_en": "KIWOOM KOSDAQ 150 Futures Leverage",
+      "change_pct": -21.89,
+      "close_price": 5030,
+      "volume": 162917,
       "market_cap": 0,
-      "sector_en": "Communication Services",
-      "theme_en": "Trading Company",
-      "reason_en": "Conglomerate subsidiary weakness amid broader SK Group profit-taking"
+      "sector_en": "Financial Products",
+      "theme_en": "Leveraged ETF",
+      "reason_en": "Double exposure to KOSDAQ losses through leverage during market correction"
     },
     {
       "rank": 4,
-      "ticker": "036930",
-      "name_en": "Jusung Engineering",
-      "change_pct": -16.17,
-      "close_price": 210000,
-      "volume": 2799628,
+      "ticker": "570081",
+      "name_en": "Hantoo Leverage KOSDAQ 150 Futures ETN",
+      "change_pct": -21.87,
+      "close_price": 34365,
+      "volume": 561,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Semiconductor equipment maker pressured by capex spending concerns and valuation reset"
+      "sector_en": "Financial Products",
+      "theme_en": "Leveraged ETN",
+      "reason_en": "ETN structure magnifying small-cap tech losses amid circuit breaker activation"
     },
     {
       "rank": 5,
-      "ticker": "490470",
-      "name_en": "Semifive",
-      "change_pct": -16.14,
-      "close_price": 31950,
-      "volume": 1256180,
+      "ticker": "550097",
+      "name_en": "N2 Leverage KOSDAQ 150 Futures ETN",
+      "change_pct": -21.36,
+      "close_price": 24795,
+      "volume": 26229,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Design",
-      "reason_en": "Chip design company declining on global semiconductor sector rotation fears"
+      "sector_en": "Financial Products",
+      "theme_en": "Leveraged ETN",
+      "reason_en": "Leveraged exposure causing outsized losses as KOSDAQ underperforms KOSPI rally"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Information Technology",
-      "chg": "15.00",
+      "name": "AI Semiconductors",
+      "chg": "+12.45",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Healthcare",
-      "chg": "8.50",
-      "stocks": "Daewon Pharmaceutical · Samsung Biologics"
+      "name": "Electronic Components",
+      "chg": "+8.92",
+      "stocks": "Samsung Electro-Mechanics · Passive Components"
     },
     {
-      "name": "Materials",
-      "chg": "6.20",
-      "stocks": "Hanchem · LG Chem"
+      "name": "Investment Holdings",
+      "chg": "+6.78",
+      "stocks": "SK Square · Diversified Conglomerates"
     },
     {
-      "name": "Communication Services",
-      "chg": "4.80",
-      "stocks": "Naver · KakaoTalk"
+      "name": "Robotics & Automation",
+      "chg": "+5.34",
+      "stocks": "Rainbow Robotics · Industrial Equipment"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Industrials",
-      "chg": "-4.50",
-      "stocks": "Hyundai Motor · Doosan Enerbility"
+      "name": "Leveraged ETFs/ETNs",
+      "chg": "-21.76",
+      "stocks": "KOSDAQ Leverage Products · Futures ETNs"
     },
     {
-      "name": "Energy",
-      "chg": "-3.20",
-      "stocks": "SK Innovation · GS Holdings"
+      "name": "Secondary Battery",
+      "chg": "-4.23",
+      "stocks": "LG Energy Solution · Battery Materials"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-2.80",
-      "stocks": "Lotte Shopping · Hyundai Department Store"
+      "name": "Shipbuilding",
+      "chg": "-3.87",
+      "stocks": "HD Hyundai Heavy · Marine Equipment"
     },
     {
-      "name": "Utilities",
-      "chg": "-1.90",
-      "stocks": "Korea Electric Power · KEPCO E&C"
+      "name": "Biotechnology",
+      "chg": "-2.45",
+      "stocks": "Samsung Biologics · Pharmaceutical"
     }
   ],
-  "_built_at": "2026-06-05 19:50",
-  "_date_label": "Fri, Jun 5, 2026"
+  "_built_at": "2026-06-08 21:01",
+  "_date_label": "Mon, Jun 8, 2026"
 }
