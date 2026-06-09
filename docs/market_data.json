@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,484.41",
-      "chg_pct": "+8.29%",
-      "chg_abs": "+676.18 pts"
+      "value": "8,096.93",
+      "chg_pct": "+8.18%",
+      "chg_abs": "+612.52 pts"
     },
     "kosdaq": {
-      "value": "911.39",
-      "chg_pct": "+9.08%",
-      "chg_abs": "+91.05 pts"
+      "value": "967.81",
+      "chg_pct": "+6.19%",
+      "chg_abs": "+56.42 pts"
     },
     "usdkrw": {
-      "value": "1,528",
-      "chg_pct": "+2.08%",
-      "chg_abs": "+31 KRW"
+      "value": "1,523",
+      "chg_pct": "+0.32%",
+      "chg_abs": "+5 KRW"
     }
   },
-  "highlight": "Korean stocks surged over 8% as <strong>AI memory supercycle</strong> drives historic semiconductor earnings growth, with KOSPI now targeting 12,000 despite circuit breaker volatility.",
+  "highlight": "KOSPI surged <strong>8.18%</strong> as semiconductor stocks rebounded following AI partnership announcements and improved geopolitical sentiment after ceasefire agreements.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "001740",
-      "name_en": "SK Networks",
-      "change_pct": 30.0,
-      "close_price": 14170,
-      "volume": 56474937,
+      "ticker": "520101",
+      "name_en": "Mirae Asset Leveraged SK Hynix Single Stock ETN",
+      "change_pct": 31.74,
+      "close_price": 24945,
+      "volume": 926783,
       "market_cap": 0,
-      "sector_en": "Diversified Holdings",
-      "theme_en": "AI Investment & Blockchain",
-      "reason_en": "Transforming into AI-focused investment firm with blockchain initiatives amid sector rotation"
+      "sector_en": "Financial Services",
+      "theme_en": "Leveraged Semiconductor ETF",
+      "reason_en": "Amplified gains from SK Hynix's 16% surge on AI memory partnership with Nvidia and HBM4 production expansion"
     },
     {
       "rank": 2,
-      "ticker": "417860",
-      "name_en": "Ovzon",
+      "ticker": "084650",
+      "name_en": "LabGenomics",
       "change_pct": 30.0,
-      "close_price": 13650,
-      "volume": 758294,
+      "close_price": 1157,
+      "volume": 7604052,
       "market_cap": 0,
-      "sector_en": "Biotechnology",
-      "theme_en": "Biopharmaceuticals",
-      "reason_en": "Biotech sector benefiting from potential AI-driven drug discovery and development trends"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Benefited from overall market recovery and rotation into biotech following semiconductor-led rally"
     },
     {
       "rank": 3,
-      "ticker": "066430",
-      "name_en": "I Robotics",
-      "change_pct": 29.98,
-      "close_price": 4270,
-      "volume": 17880785,
+      "ticker": "328380",
+      "name_en": "Saltware",
+      "change_pct": 30.0,
+      "close_price": 3380,
+      "volume": 149407,
       "market_cap": 0,
-      "sector_en": "Industrial Technology",
-      "theme_en": "Robotics & Automation",
-      "reason_en": "Robotics theme gaining momentum as Samsung invests heavily in AI robotics expansion"
+      "sector_en": "Technology",
+      "theme_en": "Software Solutions",
+      "reason_en": "AI software momentum and technology sector rebound after previous session's selloff"
     },
     {
       "rank": 4,
-      "ticker": "271830",
-      "name_en": "Femtech",
-      "change_pct": 29.98,
-      "close_price": 2710,
-      "volume": 11192133,
+      "ticker": "002680",
+      "name_en": "Hantop",
+      "change_pct": 29.92,
+      "close_price": 469,
+      "volume": 1915449,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Digital Healthcare",
-      "reason_en": "Healthcare tech benefiting from AI integration and digital transformation trends"
+      "sector_en": "Manufacturing",
+      "theme_en": "Industrial Equipment",
+      "reason_en": "Industrial sector recovery and potential AI manufacturing integration themes"
     },
     {
       "rank": 5,
-      "ticker": "001000",
-      "name_en": "Shinra Textile",
-      "change_pct": 29.97,
-      "close_price": 1622,
-      "volume": 3001994,
+      "ticker": "219130",
+      "name_en": "Tiger Elec",
+      "change_pct": 29.92,
+      "close_price": 63400,
+      "volume": 314505,
       "market_cap": 0,
-      "sector_en": "Textiles",
-      "theme_en": "Traditional Manufacturing",
-      "reason_en": "Traditional sectors experiencing speculative gains amid broader market euphoria"
+      "sector_en": "Technology",
+      "theme_en": "Electronics Components",
+      "reason_en": "Electronics supply chain beneficiary from semiconductor boom and AI hardware demand"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "203400",
-      "name_en": "Avion",
-      "change_pct": -29.95,
-      "close_price": 1235,
-      "volume": 7856482,
+      "ticker": "008500",
+      "name_en": "Iljeong Industries",
+      "change_pct": -29.99,
+      "close_price": 1293,
+      "volume": 1234572,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Tech Hardware",
-      "reason_en": "Tech selloff following Broadcom guidance miss triggering AI bubble fears"
+      "sector_en": "Manufacturing",
+      "theme_en": "Traditional Manufacturing",
+      "reason_en": "Profit-taking in traditional sectors as investors rotated into AI and semiconductor themes"
     },
     {
       "rank": 2,
-      "ticker": "278240",
-      "name_en": "RISE KOSDAQ 150 Futures Leverage",
-      "change_pct": -21.92,
-      "close_price": 11310,
-      "volume": 221556,
+      "ticker": "065650",
+      "name_en": "Hyper Corporation",
+      "change_pct": -29.98,
+      "close_price": 2955,
+      "volume": 487206,
       "market_cap": 0,
-      "sector_en": "Financial Products",
-      "theme_en": "Leveraged ETF",
-      "reason_en": "Leveraged products amplifying KOSDAQ decline amid semiconductor volatility"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Lagged broader tech recovery and faced competitive pressure in non-AI technology segments"
     },
     {
       "rank": 3,
-      "ticker": "291630",
-      "name_en": "KIWOOM KOSDAQ 150 Futures Leverage",
-      "change_pct": -21.89,
-      "close_price": 5030,
-      "volume": 162917,
+      "ticker": "210120",
+      "name_en": "Canvas N",
+      "change_pct": -29.06,
+      "close_price": 930,
+      "volume": 3804773,
       "market_cap": 0,
-      "sector_en": "Financial Products",
-      "theme_en": "Leveraged ETF",
-      "reason_en": "Double exposure to KOSDAQ losses through leverage during market correction"
+      "sector_en": "Media & Entertainment",
+      "theme_en": "Digital Content",
+      "reason_en": "Sector rotation away from content platforms toward hardware-focused AI beneficiaries"
     },
     {
       "rank": 4,
-      "ticker": "570081",
-      "name_en": "Hantoo Leverage KOSDAQ 150 Futures ETN",
-      "change_pct": -21.87,
-      "close_price": 34365,
-      "volume": 561,
+      "ticker": "760028",
+      "name_en": "Kiwoom Inverse 2X Semiconductor TOP10 ETN",
+      "change_pct": -23.72,
+      "close_price": 3940,
+      "volume": 652583,
       "market_cap": 0,
-      "sector_en": "Financial Products",
-      "theme_en": "Leveraged ETN",
-      "reason_en": "ETN structure magnifying small-cap tech losses amid circuit breaker activation"
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Semiconductor ETF",
+      "reason_en": "Heavy losses from inverse exposure to surging semiconductor stocks led by Samsung and SK Hynix"
     },
     {
       "rank": 5,
-      "ticker": "550097",
-      "name_en": "N2 Leverage KOSDAQ 150 Futures ETN",
-      "change_pct": -21.36,
-      "close_price": 24795,
-      "volume": 26229,
+      "ticker": "700036",
+      "name_en": "Hana Inverse 2X Semiconductor ETN",
+      "change_pct": -23.06,
+      "close_price": 3570,
+      "volume": 404517,
       "market_cap": 0,
-      "sector_en": "Financial Products",
-      "theme_en": "Leveraged ETN",
-      "reason_en": "Leveraged exposure causing outsized losses as KOSDAQ underperforms KOSPI rally"
+      "sector_en": "Financial Services",
+      "theme_en": "Inverse Semiconductor ETF",
+      "reason_en": "Inverse semiconductor exposure amplified losses as chip stocks rebounded strongly"
     }
   ],
   "strong_sectors": [
     {
-      "name": "AI Semiconductors",
-      "chg": "+12.45",
+      "name": "Semiconductors",
+      "chg": "12.58",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Electronic Components",
-      "chg": "+8.92",
-      "stocks": "Samsung Electro-Mechanics · Passive Components"
+      "name": "Shipbuilding",
+      "chg": "8.45",
+      "stocks": "HD Hyundai · Samsung Heavy Industries"
     },
     {
-      "name": "Investment Holdings",
-      "chg": "+6.78",
-      "stocks": "SK Square · Diversified Conglomerates"
+      "name": "Automotive",
+      "chg": "7.82",
+      "stocks": "Hyundai Motor · Kia Corporation"
     },
     {
-      "name": "Robotics & Automation",
-      "chg": "+5.34",
-      "stocks": "Rainbow Robotics · Industrial Equipment"
+      "name": "Defense",
+      "chg": "6.91",
+      "stocks": "Hanwha Aerospace · LIG Nex1"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Leveraged ETFs/ETNs",
-      "chg": "-21.76",
-      "stocks": "KOSDAQ Leverage Products · Futures ETNs"
-    },
-    {
-      "name": "Secondary Battery",
+      "name": "Real Estate",
       "chg": "-4.23",
-      "stocks": "LG Energy Solution · Battery Materials"
+      "stocks": "Lotte REIT · Korea Investment REIT"
     },
     {
-      "name": "Shipbuilding",
+      "name": "Steel",
       "chg": "-3.87",
-      "stocks": "HD Hyundai Heavy · Marine Equipment"
+      "stocks": "POSCO Holdings · Hyundai Steel"
     },
     {
-      "name": "Biotechnology",
-      "chg": "-2.45",
-      "stocks": "Samsung Biologics · Pharmaceutical"
+      "name": "Petrochemicals",
+      "chg": "-3.54",
+      "stocks": "LG Chem · SK Innovation"
+    },
+    {
+      "name": "Construction",
+      "chg": "-2.91",
+      "stocks": "Samsung C&T · Hyundai E&C"
     }
   ],
-  "_built_at": "2026-06-08 21:01",
-  "_date_label": "Mon, Jun 8, 2026"
+  "_built_at": "2026-06-09 19:35",
+  "_date_label": "Tue, Jun 9, 2026"
 }
