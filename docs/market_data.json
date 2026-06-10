@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,096.93",
-      "chg_pct": "+8.18%",
-      "chg_abs": "+612.52 pts"
+      "value": "7,730.82",
+      "chg_pct": "+4.52%",
+      "chg_abs": "+366.11 pts"
     },
     "kosdaq": {
-      "value": "967.81",
-      "chg_pct": "+6.19%",
-      "chg_abs": "+56.42 pts"
+      "value": "951.63",
+      "chg_pct": "+1.67%",
+      "chg_abs": "+16.18 pts"
     },
     "usdkrw": {
       "value": "1,523",
-      "chg_pct": "+0.32%",
-      "chg_abs": "+5 KRW"
+      "chg_pct": "+0.12%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "KOSPI surged <strong>8.18%</strong> as semiconductor stocks rebounded following AI partnership announcements and improved geopolitical sentiment after ceasefire agreements.",
+  "highlight": "KOSPI rebounded <strong>4.52%</strong> to 7,730 after volatile session amid geopolitical tensions and semiconductor uncertainty.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "520101",
-      "name_en": "Mirae Asset Leveraged SK Hynix Single Stock ETN",
-      "change_pct": 31.74,
-      "close_price": 24945,
-      "volume": 926783,
+      "ticker": "083660",
+      "name_en": "CSA Cosmic",
+      "change_pct": 30.0,
+      "close_price": 234,
+      "volume": 394224,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Leveraged Semiconductor ETF",
-      "reason_en": "Amplified gains from SK Hynix's 16% surge on AI memory partnership with Nvidia and HBM4 production expansion"
+      "sector_en": "Consumer",
+      "theme_en": "Cosmetics & Beauty",
+      "reason_en": "Speculative trading on recovery bounce"
     },
     {
       "rank": 2,
-      "ticker": "084650",
-      "name_en": "LabGenomics",
+      "ticker": "438700",
+      "name_en": "Vernect",
       "change_pct": 30.0,
-      "close_price": 1157,
-      "volume": 7604052,
+      "close_price": 2990,
+      "volume": 270011,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "Benefited from overall market recovery and rotation into biotech following semiconductor-led rally"
+      "sector_en": "Technology",
+      "theme_en": "Software Services",
+      "reason_en": "Small-cap momentum play"
     },
     {
       "rank": 3,
-      "ticker": "328380",
-      "name_en": "Saltware",
-      "change_pct": 30.0,
-      "close_price": 3380,
-      "volume": 149407,
+      "ticker": "079650",
+      "name_en": "Seohan",
+      "change_pct": 29.93,
+      "close_price": 1272,
+      "volume": 2261224,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Solutions",
-      "reason_en": "AI software momentum and technology sector rebound after previous session's selloff"
+      "sector_en": "Manufacturing",
+      "theme_en": "Industrial Components",
+      "reason_en": "Industrial recovery speculation"
     },
     {
       "rank": 4,
-      "ticker": "002680",
-      "name_en": "Hantop",
-      "change_pct": 29.92,
-      "close_price": 469,
-      "volume": 1915449,
+      "ticker": "126640",
+      "name_en": "Hwashin Precision",
+      "change_pct": 29.91,
+      "close_price": 4430,
+      "volume": 23761933,
       "market_cap": 0,
       "sector_en": "Manufacturing",
-      "theme_en": "Industrial Equipment",
-      "reason_en": "Industrial sector recovery and potential AI manufacturing integration themes"
+      "theme_en": "Precision Components",
+      "reason_en": "Technical rebound from oversold levels"
     },
     {
       "rank": 5,
-      "ticker": "219130",
-      "name_en": "Tiger Elec",
-      "change_pct": 29.92,
-      "close_price": 63400,
-      "volume": 314505,
+      "ticker": "328380",
+      "name_en": "Saltware",
+      "change_pct": 29.88,
+      "close_price": 4390,
+      "volume": 561800,
       "market_cap": 0,
       "sector_en": "Technology",
-      "theme_en": "Electronics Components",
-      "reason_en": "Electronics supply chain beneficiary from semiconductor boom and AI hardware demand"
+      "theme_en": "Software Development",
+      "reason_en": "Tech sector rotation play"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "008500",
-      "name_en": "Iljeong Industries",
-      "change_pct": -29.99,
-      "close_price": 1293,
-      "volume": 1234572,
+      "ticker": "950220",
+      "name_en": "NeoImmuneTech",
+      "change_pct": -29.46,
+      "close_price": 1767,
+      "volume": 1824992,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Traditional Manufacturing",
-      "reason_en": "Profit-taking in traditional sectors as investors rotated into AI and semiconductor themes"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Biotech selloff amid regulatory concerns"
     },
     {
       "rank": 2,
-      "ticker": "065650",
-      "name_en": "Hyper Corporation",
-      "change_pct": -29.98,
-      "close_price": 2955,
-      "volume": 487206,
+      "ticker": "900310",
+      "name_en": "Coloray International",
+      "change_pct": -29.23,
+      "close_price": 1840,
+      "volume": 518470,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Lagged broader tech recovery and faced competitive pressure in non-AI technology segments"
+      "sector_en": "Financial Services",
+      "theme_en": "Investment Services",
+      "reason_en": "Financial sector weakness"
     },
     {
       "rank": 3,
-      "ticker": "210120",
-      "name_en": "Canvas N",
-      "change_pct": -29.06,
-      "close_price": 930,
-      "volume": 3804773,
+      "ticker": "008500",
+      "name_en": "Il Jeong Industrial",
+      "change_pct": -29.08,
+      "close_price": 917,
+      "volume": 1683802,
       "market_cap": 0,
-      "sector_en": "Media & Entertainment",
-      "theme_en": "Digital Content",
-      "reason_en": "Sector rotation away from content platforms toward hardware-focused AI beneficiaries"
+      "sector_en": "Manufacturing",
+      "theme_en": "Traditional Manufacturing",
+      "reason_en": "Old economy decline"
     },
     {
       "rank": 4,
-      "ticker": "760028",
-      "name_en": "Kiwoom Inverse 2X Semiconductor TOP10 ETN",
-      "change_pct": -23.72,
-      "close_price": 3940,
-      "volume": 652583,
+      "ticker": "065650",
+      "name_en": "Hyper Corporation",
+      "change_pct": -23.35,
+      "close_price": 2265,
+      "volume": 373300,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Inverse Semiconductor ETF",
-      "reason_en": "Heavy losses from inverse exposure to surging semiconductor stocks led by Samsung and SK Hynix"
+      "sector_en": "Technology",
+      "theme_en": "IT Services",
+      "reason_en": "Tech sector volatility"
     },
     {
       "rank": 5,
-      "ticker": "700036",
-      "name_en": "Hana Inverse 2X Semiconductor ETN",
-      "change_pct": -23.06,
-      "close_price": 3570,
-      "volume": 404517,
+      "ticker": "018310",
+      "name_en": "Samok S-Form",
+      "change_pct": -22.79,
+      "close_price": 15210,
+      "volume": 264249,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Inverse Semiconductor ETF",
-      "reason_en": "Inverse semiconductor exposure amplified losses as chip stocks rebounded strongly"
+      "sector_en": "Manufacturing",
+      "theme_en": "Construction Materials",
+      "reason_en": "Construction sector weakness"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "12.58",
-      "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
       "name": "Shipbuilding",
-      "chg": "8.45",
-      "stocks": "HD Hyundai · Samsung Heavy Industries"
-    },
-    {
-      "name": "Automotive",
-      "chg": "7.82",
-      "stocks": "Hyundai Motor · Kia Corporation"
+      "chg": "+6.82",
+      "stocks": "HD Korea Shipbuilding · HD Hyundai Heavy"
     },
     {
       "name": "Defense",
-      "chg": "6.91",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
+      "chg": "+5.94",
+      "stocks": "Hanwha Aerospace · Korea Aerospace Industries"
+    },
+    {
+      "name": "Power Equipment",
+      "chg": "+4.76",
+      "stocks": "LS Electric · Hyosung Heavy Industries"
+    },
+    {
+      "name": "Financials",
+      "chg": "+3.21",
+      "stocks": "Shinhan Financial · KB Financial"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Real Estate",
-      "chg": "-4.23",
-      "stocks": "Lotte REIT · Korea Investment REIT"
+      "name": "Semiconductors",
+      "chg": "-7.12",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Steel",
-      "chg": "-3.87",
-      "stocks": "POSCO Holdings · Hyundai Steel"
-    },
-    {
-      "name": "Petrochemicals",
-      "chg": "-3.54",
-      "stocks": "LG Chem · SK Innovation"
+      "name": "Biotechnology",
+      "chg": "-4.85",
+      "stocks": "Celltrion · Samsung Biologics"
     },
     {
       "name": "Construction",
-      "chg": "-2.91",
-      "stocks": "Samsung C&T · Hyundai E&C"
+      "chg": "-3.67",
+      "stocks": "Samsung C&T · Hyundai Engineering"
+    },
+    {
+      "name": "Chemicals",
+      "chg": "-2.94",
+      "stocks": "LG Chem · SK Innovation"
     }
   ],
-  "_built_at": "2026-06-09 19:35",
-  "_date_label": "Tue, Jun 9, 2026"
+  "_built_at": "2026-06-10 19:58",
+  "_date_label": "Wed, Jun 10, 2026"
 }
