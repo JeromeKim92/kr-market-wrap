@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,730.82",
-      "chg_pct": "+4.52%",
-      "chg_abs": "+366.11 pts"
+      "value": "7,763.95",
+      "chg_pct": "+0.43%",
+      "chg_abs": "+33.13 pts"
     },
     "kosdaq": {
-      "value": "951.63",
-      "chg_pct": "+1.67%",
-      "chg_abs": "+16.18 pts"
+      "value": "996.93",
+      "chg_pct": "+4.76%",
+      "chg_abs": "+45.30 pts"
     },
     "usdkrw": {
-      "value": "1,523",
-      "chg_pct": "+0.12%",
-      "chg_abs": "+2 KRW"
+      "value": "1,531",
+      "chg_pct": "+0.42%",
+      "chg_abs": "+6 KRW"
     }
   },
-  "highlight": "KOSPI rebounded <strong>4.52%</strong> to 7,730 after volatile session amid geopolitical tensions and semiconductor uncertainty.",
+  "highlight": "Korean stocks ended mixed with <strong>KOSPI gaining 0.43%</strong> while strong <strong>semiconductor recovery</strong> despite geopolitical tensions and global tech volatility.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "083660",
-      "name_en": "CSA Cosmic",
+      "ticker": "465770",
+      "name_en": "STX Green Logis",
       "change_pct": 30.0,
-      "close_price": 234,
-      "volume": 394224,
+      "close_price": 3380,
+      "volume": 375779,
       "market_cap": 0,
-      "sector_en": "Consumer",
-      "theme_en": "Cosmetics & Beauty",
-      "reason_en": "Speculative trading on recovery bounce"
+      "sector_en": "Logistics",
+      "theme_en": "Global Shipping",
+      "reason_en": "Benefiting from rising global shipping rates and peak season demand in transpacific routes amid capacity constraints"
     },
     {
       "rank": 2,
-      "ticker": "438700",
-      "name_en": "Vernect",
-      "change_pct": 30.0,
-      "close_price": 2990,
-      "volume": 270011,
+      "ticker": "027740",
+      "name_en": "Maniker",
+      "change_pct": 29.97,
+      "close_price": 1340,
+      "volume": 1674825,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Services",
-      "reason_en": "Small-cap momentum play"
+      "sector_en": "Beauty & Personal Care",
+      "theme_en": "Nail Care Products",
+      "reason_en": "Strong momentum in Asian nail care market growth driven by social media trends and premium product demand"
     },
     {
       "rank": 3,
-      "ticker": "079650",
-      "name_en": "Seohan",
-      "change_pct": 29.93,
-      "close_price": 1272,
-      "volume": 2261224,
+      "ticker": "183300",
+      "name_en": "Komico",
+      "change_pct": 29.97,
+      "close_price": 139200,
+      "volume": 621382,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Industrial Components",
-      "reason_en": "Industrial recovery speculation"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Recovery in semiconductor equipment demand as memory chip supercycle drives capital expenditure growth"
     },
     {
       "rank": 4,
-      "ticker": "126640",
-      "name_en": "Hwashin Precision",
-      "change_pct": 29.91,
-      "close_price": 4430,
-      "volume": 23761933,
+      "ticker": "070300",
+      "name_en": "Excure",
+      "change_pct": 29.94,
+      "close_price": 1710,
+      "volume": 2958479,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Precision Components",
-      "reason_en": "Technical rebound from oversold levels"
+      "sector_en": "Healthcare",
+      "theme_en": "Medical Technology",
+      "reason_en": "Rising healthcare technology adoption amid aging population and digital healthcare transformation"
     },
     {
       "rank": 5,
-      "ticker": "328380",
-      "name_en": "Saltware",
-      "change_pct": 29.88,
-      "close_price": 4390,
-      "volume": 561800,
+      "ticker": "406820",
+      "name_en": "Beauty Skin",
+      "change_pct": 29.94,
+      "close_price": 2435,
+      "volume": 1305165,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software Development",
-      "reason_en": "Tech sector rotation play"
+      "sector_en": "Beauty & Cosmetics",
+      "theme_en": "K-Beauty",
+      "reason_en": "Strong K-beauty export growth and premium skincare product demand in Asian markets"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "950220",
-      "name_en": "NeoImmuneTech",
-      "change_pct": -29.46,
-      "close_price": 1767,
-      "volume": 1824992,
+      "ticker": "328380",
+      "name_en": "Saltware",
+      "change_pct": -23.69,
+      "close_price": 3350,
+      "volume": 2646085,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "Biotech selloff amid regulatory concerns"
+      "sector_en": "Software",
+      "theme_en": "Enterprise Software",
+      "reason_en": "Concerns over enterprise IT spending cuts amid economic uncertainty and margin pressures"
     },
     {
       "rank": 2,
-      "ticker": "900310",
-      "name_en": "Coloray International",
-      "change_pct": -29.23,
-      "close_price": 1840,
-      "volume": 518470,
+      "ticker": "291810",
+      "name_en": "Fintel",
+      "change_pct": -22.48,
+      "close_price": 1279,
+      "volume": 1486158,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment Services",
-      "reason_en": "Financial sector weakness"
+      "sector_en": "Financial Technology",
+      "theme_en": "Digital Finance",
+      "reason_en": "Regulatory tightening on fintech sector and increased competition in digital payment space"
     },
     {
       "rank": 3,
-      "ticker": "008500",
-      "name_en": "Il Jeong Industrial",
-      "change_pct": -29.08,
-      "close_price": 917,
-      "volume": 1683802,
+      "ticker": "291230",
+      "name_en": "NP",
+      "change_pct": -22.1,
+      "close_price": 564,
+      "volume": 2367941,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Traditional Manufacturing",
-      "reason_en": "Old economy decline"
+      "sector_en": "Industrial Materials",
+      "theme_en": "Chemical Processing",
+      "reason_en": "Weak industrial demand and commodity price volatility affecting chemical processing margins"
     },
     {
       "rank": 4,
-      "ticker": "065650",
-      "name_en": "Hyper Corporation",
-      "change_pct": -23.35,
-      "close_price": 2265,
-      "volume": 373300,
+      "ticker": "008500",
+      "name_en": "Il Jeong Industrial",
+      "change_pct": -17.99,
+      "close_price": 752,
+      "volume": 921234,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "IT Services",
-      "reason_en": "Tech sector volatility"
+      "sector_en": "Manufacturing",
+      "theme_en": "Industrial Equipment",
+      "reason_en": "Sluggish manufacturing activity and reduced capital expenditure amid global trade uncertainty"
     },
     {
       "rank": 5,
-      "ticker": "018310",
-      "name_en": "Samok S-Form",
-      "change_pct": -22.79,
-      "close_price": 15210,
-      "volume": 264249,
+      "ticker": "510027",
+      "name_en": "Daishin Inverse 2X KOSDAQ 150 Futures ETN",
+      "change_pct": -15.48,
+      "close_price": 1627,
+      "volume": 27809,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Construction Materials",
-      "reason_en": "Construction sector weakness"
+      "sector_en": "ETF",
+      "theme_en": "Inverse ETF",
+      "reason_en": "KOSDAQ gains causing inverse ETF to decline as technology stocks recovered strongly"
     }
   ],
   "strong_sectors": [
     {
-      "name": "Shipbuilding",
-      "chg": "+6.82",
-      "stocks": "HD Korea Shipbuilding · HD Hyundai Heavy"
+      "name": "Semiconductors",
+      "chg": "4.20",
+      "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Defense",
-      "chg": "+5.94",
-      "stocks": "Hanwha Aerospace · Korea Aerospace Industries"
+      "name": "Logistics & Shipping",
+      "chg": "3.85",
+      "stocks": "STX Green Logis · Hyundai Merchant Marine"
     },
     {
-      "name": "Power Equipment",
-      "chg": "+4.76",
-      "stocks": "LS Electric · Hyosung Heavy Industries"
+      "name": "Beauty & Personal Care",
+      "chg": "3.42",
+      "stocks": "Maniker · Beauty Skin"
     },
     {
-      "name": "Financials",
-      "chg": "+3.21",
-      "stocks": "Shinhan Financial · KB Financial"
+      "name": "AI & Technology",
+      "chg": "2.76",
+      "stocks": "Komico · Samsung Electro-Mechanics"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Semiconductors",
-      "chg": "-7.12",
-      "stocks": "Samsung Electronics · SK Hynix"
+      "name": "Software & IT Services",
+      "chg": "-3.15",
+      "stocks": "Saltware · Douzone Bizon"
     },
     {
-      "name": "Biotechnology",
-      "chg": "-4.85",
-      "stocks": "Celltrion · Samsung Biologics"
+      "name": "Financial Technology",
+      "chg": "-2.89",
+      "stocks": "Fintel · KakaoBank"
     },
     {
-      "name": "Construction",
-      "chg": "-3.67",
-      "stocks": "Samsung C&T · Hyundai Engineering"
+      "name": "Industrial Materials",
+      "chg": "-2.56",
+      "stocks": "NP · Lotte Chemical"
     },
     {
-      "name": "Chemicals",
-      "chg": "-2.94",
-      "stocks": "LG Chem · SK Innovation"
+      "name": "Traditional Manufacturing",
+      "chg": "-2.23",
+      "stocks": "Il Jeong Industrial · Hyundai Motor"
     }
   ],
-  "_built_at": "2026-06-10 19:58",
-  "_date_label": "Wed, Jun 10, 2026"
+  "_built_at": "2026-06-11 20:23",
+  "_date_label": "Thu, Jun 11, 2026"
 }
