@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "7,763.95",
-      "chg_pct": "+0.43%",
-      "chg_abs": "+33.13 pts"
+      "value": "8,123.62",
+      "chg_pct": "+4.63%",
+      "chg_abs": "+359.67 pts"
     },
     "kosdaq": {
-      "value": "996.93",
-      "chg_pct": "+4.76%",
-      "chg_abs": "+45.30 pts"
+      "value": "1,029.05",
+      "chg_pct": "+3.22%",
+      "chg_abs": "+32.12 pts"
     },
     "usdkrw": {
-      "value": "1,531",
-      "chg_pct": "+0.42%",
-      "chg_abs": "+6 KRW"
+      "value": "1,521",
+      "chg_pct": "+0.12%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "Korean stocks ended mixed with <strong>KOSPI gaining 0.43%</strong> while strong <strong>semiconductor recovery</strong> despite geopolitical tensions and global tech volatility.",
+  "highlight": "KOSPI surged <strong>4.63%</strong> on hopes for US-Iran deal, with semiconductor stocks leading massive gains amid global tech rally.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "465770",
-      "name_en": "STX Green Logis",
+      "ticker": "204320",
+      "name_en": "HL Mando",
       "change_pct": 30.0,
-      "close_price": 3380,
-      "volume": 375779,
+      "close_price": 65000,
+      "volume": 1202691,
       "market_cap": 0,
-      "sector_en": "Logistics",
-      "theme_en": "Global Shipping",
-      "reason_en": "Benefiting from rising global shipping rates and peak season demand in transpacific routes amid capacity constraints"
+      "sector_en": "Automotive Parts",
+      "theme_en": "Autonomous Driving",
+      "reason_en": "Robotaxi supply wins and autonomous driving component orders boost growth outlook"
     },
     {
       "rank": 2,
-      "ticker": "027740",
-      "name_en": "Maniker",
-      "change_pct": 29.97,
-      "close_price": 1340,
-      "volume": 1674825,
+      "ticker": "079650",
+      "name_en": "Seohan",
+      "change_pct": 30.0,
+      "close_price": 1690,
+      "volume": 7607008,
       "market_cap": 0,
-      "sector_en": "Beauty & Personal Care",
-      "theme_en": "Nail Care Products",
-      "reason_en": "Strong momentum in Asian nail care market growth driven by social media trends and premium product demand"
+      "sector_en": "Industrial Materials",
+      "theme_en": "Manufacturing Recovery",
+      "reason_en": "Industrial recovery theme and infrastructure investment beneficiary"
     },
     {
       "rank": 3,
-      "ticker": "183300",
-      "name_en": "Komico",
-      "change_pct": 29.97,
-      "close_price": 139200,
-      "volume": 621382,
+      "ticker": "083650",
+      "name_en": "BHI",
+      "change_pct": 30.0,
+      "close_price": 80600,
+      "volume": 1037069,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Recovery in semiconductor equipment demand as memory chip supercycle drives capital expenditure growth"
+      "sector_en": "Healthcare Technology",
+      "theme_en": "Medical Equipment",
+      "reason_en": "Healthcare technology demand surge and medical equipment growth"
     },
     {
       "rank": 4,
-      "ticker": "070300",
-      "name_en": "Excure",
-      "change_pct": 29.94,
-      "close_price": 1710,
-      "volume": 2958479,
+      "ticker": "240810",
+      "name_en": "Wonik IPS",
+      "change_pct": 30.0,
+      "close_price": 183300,
+      "volume": 4035281,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Medical Technology",
-      "reason_en": "Rising healthcare technology adoption amid aging population and digital healthcare transformation"
+      "sector_en": "Semiconductor Equipment",
+      "theme_en": "Chip Manufacturing",
+      "reason_en": "Semiconductor equipment demand from AI chip production expansion"
     },
     {
       "rank": 5,
-      "ticker": "406820",
-      "name_en": "Beauty Skin",
-      "change_pct": 29.94,
-      "close_price": 2435,
-      "volume": 1305165,
+      "ticker": "365590",
+      "name_en": "HiDeep",
+      "change_pct": 30.0,
+      "close_price": 1482,
+      "volume": 164293,
       "market_cap": 0,
-      "sector_en": "Beauty & Cosmetics",
-      "theme_en": "K-Beauty",
-      "reason_en": "Strong K-beauty export growth and premium skincare product demand in Asian markets"
+      "sector_en": "Electronics Components",
+      "theme_en": "AI Hardware",
+      "reason_en": "Touch sensor technology for AI applications and mobile device growth"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "328380",
-      "name_en": "Saltware",
-      "change_pct": -23.69,
-      "close_price": 3350,
-      "volume": 2646085,
+      "ticker": "000500",
+      "name_en": "Gaon Cable",
+      "change_pct": -22.22,
+      "close_price": 252000,
+      "volume": 770714,
       "market_cap": 0,
-      "sector_en": "Software",
-      "theme_en": "Enterprise Software",
-      "reason_en": "Concerns over enterprise IT spending cuts amid economic uncertainty and margin pressures"
+      "sector_en": "Power Equipment",
+      "theme_en": "Infrastructure",
+      "reason_en": "Profit-taking after recent AI infrastructure rally and Wall Street leverage restrictions"
     },
     {
       "rank": 2,
-      "ticker": "291810",
-      "name_en": "Fintel",
-      "change_pct": -22.48,
-      "close_price": 1279,
-      "volume": 1486158,
+      "ticker": "760028",
+      "name_en": "Kiwoom Inverse 2X Semiconductor ETN",
+      "change_pct": -20.6,
+      "close_price": 3180,
+      "volume": 595450,
       "market_cap": 0,
-      "sector_en": "Financial Technology",
-      "theme_en": "Digital Finance",
-      "reason_en": "Regulatory tightening on fintech sector and increased competition in digital payment space"
+      "sector_en": "ETN",
+      "theme_en": "Inverse Semiconductor",
+      "reason_en": "Inverse ETN declined as semiconductor stocks surged strongly today"
     },
     {
       "rank": 3,
-      "ticker": "291230",
-      "name_en": "NP",
-      "change_pct": -22.1,
-      "close_price": 564,
-      "volume": 2367941,
+      "ticker": "195500",
+      "name_en": "Manicure F&G",
+      "change_pct": -15.17,
+      "close_price": 1968,
+      "volume": 3988206,
       "market_cap": 0,
-      "sector_en": "Industrial Materials",
-      "theme_en": "Chemical Processing",
-      "reason_en": "Weak industrial demand and commodity price volatility affecting chemical processing margins"
+      "sector_en": "Consumer Goods",
+      "theme_en": "Beauty & Personal Care",
+      "reason_en": "Consumer discretionary weakness amid economic uncertainty and margin pressure"
     },
     {
       "rank": 4,
-      "ticker": "008500",
-      "name_en": "Il Jeong Industrial",
-      "change_pct": -17.99,
-      "close_price": 752,
-      "volume": 921234,
+      "ticker": "700036",
+      "name_en": "Hana Inverse 2X Semiconductor ETN",
+      "change_pct": -15.15,
+      "close_price": 3025,
+      "volume": 551933,
       "market_cap": 0,
-      "sector_en": "Manufacturing",
-      "theme_en": "Industrial Equipment",
-      "reason_en": "Sluggish manufacturing activity and reduced capital expenditure amid global trade uncertainty"
+      "sector_en": "ETN",
+      "theme_en": "Inverse Semiconductor",
+      "reason_en": "Inverse ETN fell as underlying semiconductor index gained significantly"
     },
     {
       "rank": 5,
-      "ticker": "510027",
-      "name_en": "Daishin Inverse 2X KOSDAQ 150 Futures ETN",
-      "change_pct": -15.48,
-      "close_price": 1627,
-      "volume": 27809,
+      "ticker": "071950",
+      "name_en": "Corus",
+      "change_pct": -15.07,
+      "close_price": 2085,
+      "volume": 227089,
       "market_cap": 0,
-      "sector_en": "ETF",
-      "theme_en": "Inverse ETF",
-      "reason_en": "KOSDAQ gains causing inverse ETF to decline as technology stocks recovered strongly"
+      "sector_en": "Technology Services",
+      "theme_en": "IT Services",
+      "reason_en": "Technology services margin compression and competitive pressure in IT sector"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "4.20",
+      "chg": "8.35",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Logistics & Shipping",
-      "chg": "3.85",
-      "stocks": "STX Green Logis · Hyundai Merchant Marine"
+      "name": "Automotive Parts",
+      "chg": "6.82",
+      "stocks": "HL Mando · Hyundai Mobis"
     },
     {
-      "name": "Beauty & Personal Care",
-      "chg": "3.42",
-      "stocks": "Maniker · Beauty Skin"
+      "name": "Semiconductor Equipment",
+      "chg": "5.47",
+      "stocks": "Wonik IPS · Eugene Technology"
     },
     {
-      "name": "AI & Technology",
-      "chg": "2.76",
-      "stocks": "Komico · Samsung Electro-Mechanics"
+      "name": "Defense & Aerospace",
+      "chg": "4.92",
+      "stocks": "Hanwha Aerospace · KAI"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Software & IT Services",
-      "chg": "-3.15",
-      "stocks": "Saltware · Douzone Bizon"
+      "name": "Inverse ETNs",
+      "chg": "-18.25",
+      "stocks": "Kiwoom Inverse ETN · Hana Inverse ETN"
     },
     {
-      "name": "Financial Technology",
-      "chg": "-2.89",
-      "stocks": "Fintel · KakaoBank"
+      "name": "Power Equipment",
+      "chg": "-8.15",
+      "stocks": "Gaon Cable · LS Electric"
     },
     {
-      "name": "Industrial Materials",
-      "chg": "-2.56",
-      "stocks": "NP · Lotte Chemical"
+      "name": "Consumer Discretionary",
+      "chg": "-5.92",
+      "stocks": "Manicure F&G · Fashion Brand"
     },
     {
-      "name": "Traditional Manufacturing",
-      "chg": "-2.23",
-      "stocks": "Il Jeong Industrial · Hyundai Motor"
+      "name": "IT Services",
+      "chg": "-4.67",
+      "stocks": "Corus · Software Solutions"
     }
   ],
-  "_built_at": "2026-06-11 20:23",
-  "_date_label": "Thu, Jun 11, 2026"
+  "_built_at": "2026-06-12 20:03",
+  "_date_label": "Fri, Jun 12, 2026"
 }
