@@ -1,190 +1,190 @@
 {
   "market": {
     "kospi": {
-      "value": "8,123.62",
-      "chg_pct": "+4.63%",
-      "chg_abs": "+359.67 pts"
+      "value": "8,545.98",
+      "chg_pct": "+5.20%",
+      "chg_abs": "+422.36 pts"
     },
     "kosdaq": {
-      "value": "1,029.05",
-      "chg_pct": "+3.22%",
-      "chg_abs": "+32.12 pts"
+      "value": "1,034.03",
+      "chg_pct": "+0.48%",
+      "chg_abs": "+4.98 pts"
     },
     "usdkrw": {
-      "value": "1,521",
-      "chg_pct": "+0.12%",
-      "chg_abs": "+2 KRW"
+      "value": "1,512",
+      "chg_pct": "+0.19%",
+      "chg_abs": "+3 KRW"
     }
   },
-  "highlight": "KOSPI surged <strong>4.63%</strong> on hopes for US-Iran deal, with semiconductor stocks leading massive gains amid global tech rally.",
+  "highlight": "KOSPI surged <strong>5.20%</strong> to 8,545.98 on US-Iran peace deal and AI-driven semiconductor rally",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "204320",
-      "name_en": "HL Mando",
-      "change_pct": 30.0,
-      "close_price": 65000,
-      "volume": 1202691,
+      "ticker": "317240",
+      "name_en": "TS Trillion",
+      "change_pct": 29.96,
+      "close_price": 1206,
+      "volume": 834052,
       "market_cap": 0,
-      "sector_en": "Automotive Parts",
-      "theme_en": "Autonomous Driving",
-      "reason_en": "Robotaxi supply wins and autonomous driving component orders boost growth outlook"
+      "sector_en": "Technology",
+      "theme_en": "AI/Semiconductor",
+      "reason_en": "Benefited from AI semiconductor supercycle and foreign buying amid tech rally"
     },
     {
       "rank": 2,
-      "ticker": "079650",
-      "name_en": "Seohan",
-      "change_pct": 30.0,
-      "close_price": 1690,
-      "volume": 7607008,
+      "ticker": "067290",
+      "name_en": "JW Pharmaceutical",
+      "change_pct": 29.94,
+      "close_price": 1775,
+      "volume": 1380272,
       "market_cap": 0,
-      "sector_en": "Industrial Materials",
-      "theme_en": "Manufacturing Recovery",
-      "reason_en": "Industrial recovery theme and infrastructure investment beneficiary"
+      "sector_en": "Healthcare",
+      "theme_en": "Biotechnology",
+      "reason_en": "Strong biotech sector performance supported by government R&D investments"
     },
     {
       "rank": 3,
-      "ticker": "083650",
-      "name_en": "BHI",
-      "change_pct": 30.0,
-      "close_price": 80600,
-      "volume": 1037069,
+      "ticker": "047770",
+      "name_en": "Codes Combine",
+      "change_pct": 29.89,
+      "close_price": 3585,
+      "volume": 5452996,
       "market_cap": 0,
-      "sector_en": "Healthcare Technology",
-      "theme_en": "Medical Equipment",
-      "reason_en": "Healthcare technology demand surge and medical equipment growth"
+      "sector_en": "Technology",
+      "theme_en": "Software/IT",
+      "reason_en": "Tech sector momentum from AI optimism and digital transformation trends"
     },
     {
       "rank": 4,
-      "ticker": "240810",
-      "name_en": "Wonik IPS",
-      "change_pct": 30.0,
-      "close_price": 183300,
-      "volume": 4035281,
+      "ticker": "079650",
+      "name_en": "Seosan",
+      "change_pct": 29.88,
+      "close_price": 2195,
+      "volume": 414279,
       "market_cap": 0,
-      "sector_en": "Semiconductor Equipment",
-      "theme_en": "Chip Manufacturing",
-      "reason_en": "Semiconductor equipment demand from AI chip production expansion"
+      "sector_en": "Materials",
+      "theme_en": "Chemicals",
+      "reason_en": "Industrial recovery and export strength driving chemical sector gains"
     },
     {
       "rank": 5,
-      "ticker": "365590",
-      "name_en": "HiDeep",
-      "change_pct": 30.0,
-      "close_price": 1482,
-      "volume": 164293,
+      "ticker": "240600",
+      "name_en": "Eugene Technology",
+      "change_pct": 29.86,
+      "close_price": 2740,
+      "volume": 136547,
       "market_cap": 0,
-      "sector_en": "Electronics Components",
-      "theme_en": "AI Hardware",
-      "reason_en": "Touch sensor technology for AI applications and mobile device growth"
+      "sector_en": "Technology",
+      "theme_en": "Semiconductor Equipment",
+      "reason_en": "Memory chip equipment demand surge from AI infrastructure buildout"
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "000500",
-      "name_en": "Gaon Cable",
-      "change_pct": -22.22,
-      "close_price": 252000,
-      "volume": 770714,
+      "ticker": "298000",
+      "name_en": "Hyosung Chemical",
+      "change_pct": -29.31,
+      "close_price": 55000,
+      "volume": 637371,
       "market_cap": 0,
-      "sector_en": "Power Equipment",
-      "theme_en": "Infrastructure",
-      "reason_en": "Profit-taking after recent AI infrastructure rally and Wall Street leverage restrictions"
+      "sector_en": "Materials",
+      "theme_en": "Petrochemicals",
+      "reason_en": "Rising oil prices from Middle East tensions pressuring chemical margins"
     },
     {
       "rank": 2,
-      "ticker": "760028",
-      "name_en": "Kiwoom Inverse 2X Semiconductor ETN",
-      "change_pct": -20.6,
-      "close_price": 3180,
-      "volume": 595450,
+      "ticker": "140860",
+      "name_en": "Park Systems",
+      "change_pct": -23.86,
+      "close_price": 258500,
+      "volume": 115561,
       "market_cap": 0,
-      "sector_en": "ETN",
-      "theme_en": "Inverse Semiconductor",
-      "reason_en": "Inverse ETN declined as semiconductor stocks surged strongly today"
+      "sector_en": "Technology",
+      "theme_en": "Scientific Equipment",
+      "reason_en": "Profit-taking in high-beta tech stocks amid market concentration concerns"
     },
     {
       "rank": 3,
-      "ticker": "195500",
-      "name_en": "Manicure F&G",
-      "change_pct": -15.17,
-      "close_price": 1968,
-      "volume": 3988206,
+      "ticker": "006050",
+      "name_en": "Kook Young G&M",
+      "change_pct": -22.35,
+      "close_price": 535,
+      "volume": 2928519,
       "market_cap": 0,
-      "sector_en": "Consumer Goods",
-      "theme_en": "Beauty & Personal Care",
-      "reason_en": "Consumer discretionary weakness amid economic uncertainty and margin pressure"
+      "sector_en": "Construction",
+      "theme_en": "Real Estate",
+      "reason_en": "Construction weakness from real estate market uncertainties and rising rates"
     },
     {
       "rank": 4,
-      "ticker": "700036",
-      "name_en": "Hana Inverse 2X Semiconductor ETN",
-      "change_pct": -15.15,
-      "close_price": 3025,
-      "volume": 551933,
+      "ticker": "100790",
+      "name_en": "Mirae Asset Venture Investment",
+      "change_pct": -20.75,
+      "close_price": 30750,
+      "volume": 5563122,
       "market_cap": 0,
-      "sector_en": "ETN",
-      "theme_en": "Inverse Semiconductor",
-      "reason_en": "Inverse ETN fell as underlying semiconductor index gained significantly"
+      "sector_en": "Financial Services",
+      "theme_en": "Investment/PE",
+      "reason_en": "Financial sector rotation out amid interest rate volatility concerns"
     },
     {
       "rank": 5,
-      "ticker": "071950",
-      "name_en": "Corus",
-      "change_pct": -15.07,
-      "close_price": 2085,
-      "volume": 227089,
+      "ticker": "083660",
+      "name_en": "CSA Cosmic",
+      "change_pct": -18.48,
+      "close_price": 322,
+      "volume": 33943795,
       "market_cap": 0,
-      "sector_en": "Technology Services",
-      "theme_en": "IT Services",
-      "reason_en": "Technology services margin compression and competitive pressure in IT sector"
+      "sector_en": "Technology",
+      "theme_en": "Electronics",
+      "reason_en": "Valuation concerns in secondary tech names during concentrated rally"
     }
   ],
   "strong_sectors": [
     {
       "name": "Semiconductors",
-      "chg": "8.35",
+      "chg": "+7.82",
       "stocks": "Samsung Electronics · SK Hynix"
     },
     {
-      "name": "Automotive Parts",
-      "chg": "6.82",
-      "stocks": "HL Mando · Hyundai Mobis"
+      "name": "Biotechnology",
+      "chg": "+4.96",
+      "stocks": "Samsung Biologics · Celltrion"
     },
     {
-      "name": "Semiconductor Equipment",
-      "chg": "5.47",
-      "stocks": "Wonik IPS · Eugene Technology"
+      "name": "Defense/Aerospace",
+      "chg": "+3.74",
+      "stocks": "Hanwha Aerospace · LIG Nex1"
     },
     {
-      "name": "Defense & Aerospace",
-      "chg": "4.92",
-      "stocks": "Hanwha Aerospace · KAI"
+      "name": "Energy/Power",
+      "chg": "+3.21",
+      "stocks": "Doosan Enerbility · Korea Electric Power"
     }
   ],
   "weak_sectors": [
     {
-      "name": "Inverse ETNs",
-      "chg": "-18.25",
-      "stocks": "Kiwoom Inverse ETN · Hana Inverse ETN"
+      "name": "Chemicals",
+      "chg": "-4.18",
+      "stocks": "LG Chem · Hanwha Solutions"
     },
     {
-      "name": "Power Equipment",
-      "chg": "-8.15",
-      "stocks": "Gaon Cable · LS Electric"
+      "name": "Construction",
+      "chg": "-3.92",
+      "stocks": "Samsung C&T · GS E&C"
     },
     {
-      "name": "Consumer Discretionary",
-      "chg": "-5.92",
-      "stocks": "Manicure F&G · Fashion Brand"
+      "name": "Financials",
+      "chg": "-2.76",
+      "stocks": "KB Financial · Shinhan Financial"
     },
     {
-      "name": "IT Services",
-      "chg": "-4.67",
-      "stocks": "Corus · Software Solutions"
+      "name": "Auto Parts",
+      "chg": "-2.43",
+      "stocks": "Hyundai Mobis · Mando"
     }
   ],
-  "_built_at": "2026-06-12 20:03",
-  "_date_label": "Fri, Jun 12, 2026"
+  "_built_at": "2026-06-15 22:18",
+  "_date_label": "Mon, Jun 15, 2026"
 }
