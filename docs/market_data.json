@@ -1,190 +1,148 @@
 {
   "market": {
     "kospi": {
-      "value": "8,545.98",
-      "chg_pct": "+5.20%",
-      "chg_abs": "+422.36 pts"
+      "value": "8,726.60",
+      "chg_pct": "+2.11%",
+      "chg_abs": "+180.62 pts"
     },
     "kosdaq": {
-      "value": "1,034.03",
-      "chg_pct": "+0.48%",
-      "chg_abs": "+4.98 pts"
+      "value": "1,018.68",
+      "chg_pct": "+1.48%",
+      "chg_abs": "+15.35 pts"
     },
     "usdkrw": {
-      "value": "1,512",
-      "chg_pct": "+0.19%",
-      "chg_abs": "+3 KRW"
+      "value": "1,509",
+      "chg_pct": "+0.45%",
+      "chg_abs": "+7 KRW"
     }
   },
-  "highlight": "KOSPI surged <strong>5.20%</strong> to 8,545.98 on US-Iran peace deal and AI-driven semiconductor rally",
+  "highlight": "<strong>Korean market</strong> — KOSPI +2.11%, KOSDAQ +1.48%.",
   "gainers": [
     {
       "rank": 1,
-      "ticker": "317240",
-      "name_en": "TS Trillion",
-      "change_pct": 29.96,
-      "close_price": 1206,
-      "volume": 834052,
+      "ticker": "013360",
+      "name_en": "일성건설",
+      "change_pct": 30.0,
+      "close_price": 1677,
+      "volume": 3265837,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "AI/Semiconductor",
-      "reason_en": "Benefited from AI semiconductor supercycle and foreign buying amid tech rally"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
-      "ticker": "067290",
-      "name_en": "JW Pharmaceutical",
-      "change_pct": 29.94,
-      "close_price": 1775,
-      "volume": 1380272,
+      "ticker": "014915",
+      "name_en": "성문전자우",
+      "change_pct": 29.97,
+      "close_price": 5790,
+      "volume": 112252,
       "market_cap": 0,
-      "sector_en": "Healthcare",
-      "theme_en": "Biotechnology",
-      "reason_en": "Strong biotech sector performance supported by government R&D investments"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "047770",
-      "name_en": "Codes Combine",
-      "change_pct": 29.89,
-      "close_price": 3585,
-      "volume": 5452996,
+      "ticker": "010690",
+      "name_en": "화신",
+      "change_pct": 29.96,
+      "close_price": 14010,
+      "volume": 882115,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Software/IT",
-      "reason_en": "Tech sector momentum from AI optimism and digital transformation trends"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "079650",
-      "name_en": "Seosan",
-      "change_pct": 29.88,
-      "close_price": 2195,
-      "volume": 414279,
+      "ticker": "014910",
+      "name_en": "성문전자",
+      "change_pct": 29.95,
+      "close_price": 2755,
+      "volume": 1343378,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Chemicals",
-      "reason_en": "Industrial recovery and export strength driving chemical sector gains"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
       "ticker": "240600",
-      "name_en": "Eugene Technology",
-      "change_pct": 29.86,
-      "close_price": 2740,
-      "volume": 136547,
+      "name_en": "유진테크놀로지",
+      "change_pct": 29.93,
+      "close_price": 3560,
+      "volume": 2780394,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Semiconductor Equipment",
-      "reason_en": "Memory chip equipment demand surge from AI infrastructure buildout"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
   "losers": [
     {
       "rank": 1,
-      "ticker": "298000",
-      "name_en": "Hyosung Chemical",
-      "change_pct": -29.31,
-      "close_price": 55000,
-      "volume": 637371,
+      "ticker": "040350",
+      "name_en": "크레오에스지",
+      "change_pct": -29.98,
+      "close_price": 8010,
+      "volume": 750257,
       "market_cap": 0,
-      "sector_en": "Materials",
-      "theme_en": "Petrochemicals",
-      "reason_en": "Rising oil prices from Middle East tensions pressuring chemical margins"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 2,
-      "ticker": "140860",
-      "name_en": "Park Systems",
-      "change_pct": -23.86,
-      "close_price": 258500,
-      "volume": 115561,
+      "ticker": "087260",
+      "name_en": "모바일어플라이언스",
+      "change_pct": -24.14,
+      "close_price": 462,
+      "volume": 10536458,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Scientific Equipment",
-      "reason_en": "Profit-taking in high-beta tech stocks amid market concentration concerns"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 3,
-      "ticker": "006050",
-      "name_en": "Kook Young G&M",
-      "change_pct": -22.35,
-      "close_price": 535,
-      "volume": 2928519,
+      "ticker": "403870",
+      "name_en": "HPSP",
+      "change_pct": -20.6,
+      "close_price": 66300,
+      "volume": 10870455,
       "market_cap": 0,
-      "sector_en": "Construction",
-      "theme_en": "Real Estate",
-      "reason_en": "Construction weakness from real estate market uncertainties and rising rates"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 4,
-      "ticker": "100790",
-      "name_en": "Mirae Asset Venture Investment",
-      "change_pct": -20.75,
-      "close_price": 30750,
-      "volume": 5563122,
+      "ticker": "900110",
+      "name_en": "딥커머스",
+      "change_pct": -20.37,
+      "close_price": 1704,
+      "volume": 354237,
       "market_cap": 0,
-      "sector_en": "Financial Services",
-      "theme_en": "Investment/PE",
-      "reason_en": "Financial sector rotation out amid interest rate volatility concerns"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     },
     {
       "rank": 5,
-      "ticker": "083660",
-      "name_en": "CSA Cosmic",
-      "change_pct": -18.48,
-      "close_price": 322,
-      "volume": 33943795,
+      "ticker": "097780",
+      "name_en": "에코볼트",
+      "change_pct": -18.3,
+      "close_price": 1348,
+      "volume": 448055,
       "market_cap": 0,
-      "sector_en": "Technology",
-      "theme_en": "Electronics",
-      "reason_en": "Valuation concerns in secondary tech names during concentrated rally"
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
     }
   ],
-  "strong_sectors": [
-    {
-      "name": "Semiconductors",
-      "chg": "+7.82",
-      "stocks": "Samsung Electronics · SK Hynix"
-    },
-    {
-      "name": "Biotechnology",
-      "chg": "+4.96",
-      "stocks": "Samsung Biologics · Celltrion"
-    },
-    {
-      "name": "Defense/Aerospace",
-      "chg": "+3.74",
-      "stocks": "Hanwha Aerospace · LIG Nex1"
-    },
-    {
-      "name": "Energy/Power",
-      "chg": "+3.21",
-      "stocks": "Doosan Enerbility · Korea Electric Power"
-    }
-  ],
-  "weak_sectors": [
-    {
-      "name": "Chemicals",
-      "chg": "-4.18",
-      "stocks": "LG Chem · Hanwha Solutions"
-    },
-    {
-      "name": "Construction",
-      "chg": "-3.92",
-      "stocks": "Samsung C&T · GS E&C"
-    },
-    {
-      "name": "Financials",
-      "chg": "-2.76",
-      "stocks": "KB Financial · Shinhan Financial"
-    },
-    {
-      "name": "Auto Parts",
-      "chg": "-2.43",
-      "stocks": "Hyundai Mobis · Mando"
-    }
-  ],
-  "_built_at": "2026-06-15 22:18",
-  "_date_label": "Mon, Jun 15, 2026"
+  "strong_sectors": [],
+  "weak_sectors": [],
+  "_built_at": "2026-06-16 21:13",
+  "_date_label": "Tue, Jun 16, 2026"
 }
