@@ -1,92 +1,30 @@
 {
   "market": {
     "kospi": {
-      "value": "9,114.55",
-      "chg_pct": "+0.69%",
-      "chg_abs": "+62.13 pts"
+      "value": "8,203.84",
+      "chg_pct": "+9.99%",
+      "chg_abs": "+910.71 pts"
     },
     "kosdaq": {
-      "value": "968.40",
-      "chg_pct": "+0.19%",
-      "chg_abs": "+1.81 pts"
+      "value": "891.52",
+      "chg_pct": "+7.94%",
+      "chg_abs": "+76.88 pts"
     },
     "usdkrw": {
-      "value": "1,537",
-      "chg_pct": "+0.27%",
-      "chg_abs": "+4 KRW"
+      "value": "1,536",
+      "chg_pct": "+0.16%",
+      "chg_abs": "+2 KRW"
     }
   },
-  "highlight": "<strong>Korean market</strong> — KOSPI +0.69%, KOSDAQ +0.19%.",
+  "highlight": "<strong>Korean market</strong> — KOSPI +9.99%, KOSDAQ +7.94%.",
   "gainers": [
-    {
-      "rank": 1,
-      "ticker": "002070",
-      "name_en": "비비안",
-      "change_pct": 30.0,
-      "close_price": 8450,
-      "volume": 19876,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 2,
-      "ticker": "475430",
-      "name_en": "키스트론",
-      "change_pct": 30.0,
-      "close_price": 6110,
-      "volume": 7258645,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 3,
-      "ticker": "034940",
-      "name_en": "조아제약",
-      "change_pct": 29.98,
-      "close_price": 659,
-      "volume": 442297,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 4,
-      "ticker": "446070",
-      "name_en": "유니드비티플러스",
-      "change_pct": 29.96,
-      "close_price": 2950,
-      "volume": 731793,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 5,
-      "ticker": "177350",
-      "name_en": "베셀",
-      "change_pct": 29.94,
-      "close_price": 690,
-      "volume": 686892,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    }
-  ],
-  "losers": [
     {
       "rank": 1,
       "ticker": "227100",
       "name_en": "프로브잇",
-      "change_pct": -97.06,
-      "close_price": 18,
-      "volume": 7759027,
+      "change_pct": 177.78,
+      "close_price": 50,
+      "volume": 14604349,
       "market_cap": 0,
       "sector_en": "",
       "theme_en": "",
@@ -96,9 +34,9 @@
       "rank": 2,
       "ticker": "032980",
       "name_en": "바이온",
-      "change_pct": -96.85,
-      "close_price": 19,
-      "volume": 20029834,
+      "change_pct": 68.42,
+      "close_price": 32,
+      "volume": 29900389,
       "market_cap": 0,
       "sector_en": "",
       "theme_en": "",
@@ -106,11 +44,11 @@
     },
     {
       "rank": 3,
-      "ticker": "106520",
-      "name_en": "노블엠앤비",
-      "change_pct": -94.16,
-      "close_price": 24,
-      "volume": 12960782,
+      "ticker": "760013",
+      "name_en": "키움 레버리지 반도체TOP10 ETN",
+      "change_pct": 55.69,
+      "close_price": 380000,
+      "volume": 2192,
       "market_cap": 0,
       "sector_en": "",
       "theme_en": "",
@@ -118,11 +56,11 @@
     },
     {
       "rank": 4,
-      "ticker": "101390",
-      "name_en": "아이엠",
-      "change_pct": -88.64,
-      "close_price": 45,
-      "volume": 5382815,
+      "ticker": "006920",
+      "name_en": "모헨즈",
+      "change_pct": 30.0,
+      "close_price": 4290,
+      "volume": 1848869,
       "market_cap": 0,
       "sector_en": "",
       "theme_en": "",
@@ -130,11 +68,73 @@
     },
     {
       "rank": 5,
-      "ticker": "085620",
-      "name_en": "미래에셋생명",
-      "change_pct": -29.96,
-      "close_price": 24200,
-      "volume": 2740408,
+      "ticker": "036090",
+      "name_en": "위지트",
+      "change_pct": 30.0,
+      "close_price": 1742,
+      "volume": 1568114,
+      "market_cap": 0,
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
+    }
+  ],
+  "losers": [
+    {
+      "rank": 1,
+      "ticker": "192410",
+      "name_en": "오늘이엔엠",
+      "change_pct": -29.93,
+      "close_price": 2985,
+      "volume": 1127806,
+      "market_cap": 0,
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
+    },
+    {
+      "rank": 2,
+      "ticker": "900100",
+      "name_en": "파이온엑스",
+      "change_pct": -28.53,
+      "close_price": 2780,
+      "volume": 226660,
+      "market_cap": 0,
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
+    },
+    {
+      "rank": 3,
+      "ticker": "900250",
+      "name_en": "크리스탈신소재",
+      "change_pct": -26.92,
+      "close_price": 1520,
+      "volume": 1266167,
+      "market_cap": 0,
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
+    },
+    {
+      "rank": 4,
+      "ticker": "520101",
+      "name_en": "미래에셋 레버리지 SK하이닉스 단일종목ETN",
+      "change_pct": -24.91,
+      "close_price": 31655,
+      "volume": 897126,
+      "market_cap": 0,
+      "sector_en": "",
+      "theme_en": "",
+      "reason_en": ""
+    },
+    {
+      "rank": 5,
+      "ticker": "520100",
+      "name_en": "미래에셋 레버리지 삼성전자 단일종목 ETN",
+      "change_pct": -24.36,
+      "close_price": 19995,
+      "volume": 445169,
       "market_cap": 0,
       "sector_en": "",
       "theme_en": "",
@@ -143,6 +143,6 @@
   ],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-06-22 21:51",
-  "_date_label": "Mon, Jun 22, 2026"
+  "_built_at": "2026-06-23 19:37",
+  "_date_label": "Tue, Jun 23, 2026"
 }
