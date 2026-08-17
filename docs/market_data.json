@@ -11,9 +11,9 @@
       "chg_abs": "+3.28 pts"
     },
     "usdkrw": {
-      "value": "1,414",
-      "chg_pct": "+0.43%",
-      "chg_abs": "+6 KRW"
+      "value": "1,415",
+      "chg_pct": "+0.37%",
+      "chg_abs": "+5 KRW"
     }
   },
   "highlight": "<strong>Korean market</strong> — KOSPI +2.42%, KOSDAQ +0.38%.",
@@ -143,6 +143,6 @@
   ],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-08-14 17:18",
-  "_date_label": "Fri, Aug 14, 2026"
+  "_built_at": "2026-08-17 16:54",
+  "_date_label": "Mon, Aug 17, 2026"
 }
