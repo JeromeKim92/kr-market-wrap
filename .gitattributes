@@ -1,0 +1,4 @@
+# Auto-resolve frequent generated artifact conflicts in PR merges
+# Keep branch-local version for generated market artifacts.
+docs/market_data.json merge=ours
+docs/kr_market_*.html merge=ours
