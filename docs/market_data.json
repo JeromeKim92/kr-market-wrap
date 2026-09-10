@@ -1,148 +1,26 @@
 {
   "market": {
     "kospi": {
-      "value": "7,051.64",
-      "chg_pct": "+1.40%",
-      "chg_abs": "+97.12 pts"
+      "value": "6,995.39",
+      "chg_pct": "+4.61%",
+      "chg_abs": "+308.18 pts"
     },
     "kosdaq": {
-      "value": "830.37",
-      "chg_pct": "+2.28%",
-      "chg_abs": "+18.49 pts"
+      "value": "822.19",
+      "chg_pct": "+1.07%",
+      "chg_abs": "+8.69 pts"
     },
     "usdkrw": {
-      "value": "1,337",
-      "chg_pct": "+0.37%",
-      "chg_abs": "+5 KRW"
+      "value": "1,344",
+      "chg_pct": "+nan%",
+      "chg_abs": "+nan KRW"
     }
   },
-  "highlight": "<strong>Korean market</strong> — KOSPI +1.40%, KOSDAQ +2.28%.",
-  "gainers": [
-    {
-      "rank": 1,
-      "ticker": "121850",
-      "name_en": "코이즈",
-      "change_pct": 140.0,
-      "close_price": 480,
-      "volume": 3475668,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 2,
-      "ticker": "100590",
-      "name_en": "머큐리",
-      "change_pct": 30.0,
-      "close_price": 4355,
-      "volume": 3747038,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 3,
-      "ticker": "187660",
-      "name_en": "페니트리움바이오",
-      "change_pct": 29.95,
-      "close_price": 7420,
-      "volume": 4406571,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 4,
-      "ticker": "012210",
-      "name_en": "삼미금속",
-      "change_pct": 29.91,
-      "close_price": 13030,
-      "volume": 19584774,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 5,
-      "ticker": "224060",
-      "name_en": "더코디",
-      "change_pct": 29.86,
-      "close_price": 7610,
-      "volume": 180703,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    }
-  ],
-  "losers": [
-    {
-      "rank": 1,
-      "ticker": "035290",
-      "name_en": "골드앤에스",
-      "change_pct": -24.96,
-      "close_price": 863,
-      "volume": 1676145,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 2,
-      "ticker": "084180",
-      "name_en": "수성웹툰",
-      "change_pct": -22.24,
-      "close_price": 381,
-      "volume": 1891111,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 3,
-      "ticker": "006380",
-      "name_en": "카프로",
-      "change_pct": -20.54,
-      "close_price": 147,
-      "volume": 3462720,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 4,
-      "ticker": "312610",
-      "name_en": "에이에프더블류",
-      "change_pct": -20.46,
-      "close_price": 206,
-      "volume": 1635459,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    },
-    {
-      "rank": 5,
-      "ticker": "033340",
-      "name_en": "좋은사람들",
-      "change_pct": -16.31,
-      "close_price": 508,
-      "volume": 12548406,
-      "market_cap": 0,
-      "sector_en": "",
-      "theme_en": "",
-      "reason_en": ""
-    }
-  ],
+  "highlight": "<strong>Korean market</strong> — KOSPI +4.61%, KOSDAQ +1.07%.",
+  "gainers": [],
+  "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-09-09 21:13",
-  "_date_label": "Wed, Sep 9, 2026"
+  "_built_at": "2026-09-10 21:07",
+  "_date_label": "Thu, Sep 10, 2026"
 }
