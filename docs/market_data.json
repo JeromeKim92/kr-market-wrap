@@ -11,7 +11,7 @@
       "chg_abs": "+5.69 pts"
     },
     "usdkrw": {
-      "value": "1,358",
+      "value": "1,368",
       "chg_pct": "+nan%",
       "chg_abs": "+nan KRW"
     }
@@ -21,6 +21,6 @@
   "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-09-22 21:27",
-  "_date_label": "Tue, Sep 22, 2026"
+  "_built_at": "2026-09-23 21:38",
+  "_date_label": "Wed, Sep 23, 2026"
 }
