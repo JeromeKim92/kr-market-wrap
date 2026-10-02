@@ -11,7 +11,7 @@
       "chg_abs": "—"
     },
     "usdkrw": {
-      "value": "1,361",
+      "value": "1,346",
       "chg_pct": "+nan%",
       "chg_abs": "+nan KRW"
     }
@@ -21,6 +21,6 @@
   "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-10-01 23:19",
-  "_date_label": "Thu, Oct 1, 2026"
+  "_built_at": "2026-10-02 22:40",
+  "_date_label": "Fri, Oct 2, 2026"
 }
