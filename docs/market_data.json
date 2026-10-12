@@ -11,9 +11,9 @@
       "chg_abs": "—"
     },
     "usdkrw": {
-      "value": "1,341",
-      "chg_pct": "+nan%",
-      "chg_abs": "+nan KRW"
+      "value": "1,334",
+      "chg_pct": "-0.66%",
+      "chg_abs": "-9 KRW"
     }
   },
   "highlight": "<strong>Korean market</strong> — KOSPI 0.00%, KOSDAQ 0.00%.",
@@ -21,6 +21,6 @@
   "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-10-09 23:13",
-  "_date_label": "Fri, Oct 9, 2026"
+  "_built_at": "2026-10-13 01:35",
+  "_date_label": "Tue, Oct 13, 2026"
 }
