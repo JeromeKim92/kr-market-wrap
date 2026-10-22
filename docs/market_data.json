@@ -1,26 +1,26 @@
 {
   "market": {
     "kospi": {
-      "value": "5,735.66",
-      "chg_pct": "+3.29%",
-      "chg_abs": "+182.92 pts"
+      "value": "5,533.77",
+      "chg_pct": "-3.52%",
+      "chg_abs": "-201.89 pts"
     },
     "kosdaq": {
-      "value": "792.76",
-      "chg_pct": "+1.38%",
-      "chg_abs": "+10.79 pts"
+      "value": "764.10",
+      "chg_pct": "-3.62%",
+      "chg_abs": "-28.66 pts"
     },
     "usdkrw": {
-      "value": "1,326",
+      "value": "1,325",
       "chg_pct": "+nan%",
       "chg_abs": "+nan KRW"
     }
   },
-  "highlight": "<strong>Korean market</strong> — KOSPI +3.29%, KOSDAQ +1.38%.",
+  "highlight": "<strong>Korean market</strong> — KOSPI -3.52%, KOSDAQ -3.62%.",
   "gainers": [],
   "losers": [],
   "strong_sectors": [],
   "weak_sectors": [],
-  "_built_at": "2026-10-21 21:47",
-  "_date_label": "Wed, Oct 21, 2026"
+  "_built_at": "2026-10-22 21:54",
+  "_date_label": "Thu, Oct 22, 2026"
 }
